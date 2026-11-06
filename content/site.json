@@ -12,12 +12,9 @@
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "",
-      "locatie": "",
       "opgave": "Fysieke modellen",
       "type": "Maquettes",
       "status": "Studie",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "Een reeks vormstudies in fysieke modellen: ruimte, licht en massa onderzocht met karton, hout en gips.",
       "fotos": [
@@ -41,8 +38,7 @@
           "beeld": "/img/vm-5.jpg",
           "bijschrift": "Massamodel"
         }
-      ],
-      "tekeningen": []
+      ]
     },
     {
       "nummer": "09",
@@ -52,12 +48,8 @@
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "",
-      "locatie": "",
-      "opgave": "",
       "type": "Collage",
       "status": "Eigen werk",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Thorben Contant",
       "tekst": "Twee conceptcollages: een verloren stad die door de natuur wordt teruggenomen, en een molen op een heuvel boven zee.",
       "fotos": [
@@ -69,8 +61,7 @@
           "beeld": "/img/collage-mill.jpg",
           "bijschrift": "Collage, Mill on a Hill"
         }
-      ],
-      "tekeningen": []
+      ]
     },
     {
       "nummer": "08",
@@ -129,12 +120,9 @@
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "",
-      "locatie": "",
       "opgave": "New Generation Research Center",
       "type": "Onderzoek",
       "status": "Studieproject",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Thorben Contant",
       "tekst": "Maquette van het New Generation Research Center. Projecttekst volgt.",
       "fotos": [
@@ -150,8 +138,7 @@
           "beeld": "/img/rc-model-3.jpg",
           "bijschrift": "Maquette, doorkijk"
         }
-      ],
-      "tekeningen": []
+      ]
     },
     {
       "nummer": "06",
@@ -215,7 +202,6 @@
       "opgave": "Bachelor eindproject, TU Delft",
       "type": "Uitvaart",
       "status": "Studieproject",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "Een crematorium in Bleiswijk waarin de beleving van bezoekers en nabestaanden centraal staat, met oog voor een goede landschappelijke en stedenbouwkundige inpassing. Door zorgvuldig licht en uitzicht toe te voegen of weg te laten, en door te variëren in materialen en in de richting van de houten spanten, wordt de bezoeker door het gebouw en het rouwproces geleid. De familie krijgt een eigen, beschermde route; andere bezoekers worden op een natuurlijke manier door het gebouw geleid. De draagconstructie is volledig losmaakbaar en remontabel, net als de binnen- en buitenafwerking.",
       "fotos": [
@@ -333,7 +319,6 @@
       "opgave": "Minor Urbanism, University of Copenhagen",
       "type": "Stedenbouw",
       "status": "Groepswerk",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Beau Schellevis, Anna Plechacova, Kit Sandra Christensen, Melissa Munkholm Kristensen, Angeliki Nikoloudaki",
       "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
       "fotos": [
@@ -378,7 +363,6 @@
       "opgave": "Transformatie NIBC-kantoor, thema Affordable Luxury",
       "type": "Wonen, transformatie",
       "status": "Studieproject",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
       "fotos": [
@@ -435,7 +419,6 @@
       "opgave": "Verdiepte beeldentuin, parametrisch ontworpen in Grasshopper",
       "type": "Publiek",
       "status": "Studieproject",
-      "bureau_of_begeleiding": "",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "Een verdiepte beeldentuin in Den Haag, ontworpen met het parametrische programma Grasshopper. De tuin brengt de bezoeker van straatniveau naar de entree op niveau -1. Bewust geplaatste wanden, smalle of juist grote openingen, trappen en plateaus vormen een reeks ruimtes die elk een eigen sfeer hebben en de bezoeker uitnodigen verder te gaan. Twee complementaire kleuren geven samenhang en laten de schaduwen goed tot hun recht komen.",
       "fotos": [
@@ -451,8 +434,7 @@
           "beeld": "/img/bt-renders.jpg",
           "bijschrift": "Impressies"
         }
-      ],
-      "tekeningen": []
+      ]
     }
   ],
   "studio": [
@@ -470,11 +452,11 @@
     },
     {
       "kop": "E-mail",
-      "tekst": "info@thurbo.nl"
+      "tekst": "info@thurbo.nl\nthorben@thurbo.nl\nbeau@thurbo.nl"
     },
     {
       "kop": "Instagram",
-      "tekst": "@thurbo"
+      "tekst": "@studio.thurbo"
     },
     {
       "kop": "Samenwerken",
