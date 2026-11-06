@@ -1,0 +1,65 @@
+media:
+  input: img
+  output: /img
+
+content:
+  - name: site
+    label: THURBO website
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: hoofdbeeld
+        label: Hoofdbeeld
+        type: object
+        fields:
+          - { name: beeld, label: Foto, type: image }
+          - { name: bijschrift, label: Bijschrift, type: string }
+      - name: projecten
+        label: Projecten
+        type: object
+        list: true
+        fields:
+          - { name: nummer, label: Nummer (bijv. 11), type: string, required: true }
+          - { name: titel, label: Titel, type: string, required: true }
+          - { name: plaats, label: Plaats (achter de titel), type: string }
+          - name: categorie
+            label: Categorie
+            type: select
+            options:
+              values: [Studie, Praktijk, Eigen werk, Prijsvraag]
+          - name: ontworpen_door
+            label: Ontworpen door
+            type: select
+            options:
+              multiple: true
+              values: [Thorben, Beau]
+          - { name: jaar, label: Jaar, type: string }
+          - { name: locatie, label: Locatie, type: string }
+          - { name: opgave, label: Opgave, type: string }
+          - { name: type, label: Type, type: string }
+          - { name: status, label: Status, type: string }
+          - { name: bureau_of_begeleiding, label: Bureau of begeleiding, type: string }
+          - { name: ontwerpteam, label: Ontwerpteam (alle namen), type: string }
+          - { name: tekst, label: Projecttekst, type: text }
+          - name: fotos
+            label: "Foto's (de eerste is ook de miniatuur)"
+            type: object
+            list: true
+            fields:
+              - { name: beeld, label: Foto, type: image }
+              - { name: bijschrift, label: Bijschrift, type: string }
+          - name: tekeningen
+            label: Tekeningen
+            type: object
+            list: true
+            fields:
+              - { name: beeld, label: Tekening, type: image }
+              - { name: bijschrift, label: Bijschrift, type: string }
+      - name: studio
+        label: Studio en contact
+        type: object
+        list: true
+        fields:
+          - { name: kop, label: Kop, type: string }
+          - { name: tekst, label: Tekst, type: text }
