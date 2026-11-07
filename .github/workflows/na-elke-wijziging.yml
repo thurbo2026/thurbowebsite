@@ -1,0 +1,54 @@
+# Draait vanzelf na elke wijziging (ook vanuit Pages CMS):
+# 1. maakt kleine versies van nieuwe beelden voor de overzichten (img/klein/)
+# 2. laat Bing en andere zoekmachines (IndexNow) weten dat er iets nieuw is
+name: Na elke wijziging
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  kleine-beelden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kleine beelden maken
+        run: |
+          pip install --quiet pillow
+          python3 - <<'PY'
+          from PIL import Image, ImageOps
+          import os
+          os.makedirs('img/klein', exist_ok=True)
+          for f in sorted(os.listdir('img')):
+              p = os.path.join('img', f)
+              if not os.path.isfile(p) or not f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
+                  continue
+              o = os.path.join('img/klein', os.path.splitext(f)[0] + '.jpg')
+              if os.path.exists(o):
+                  continue
+              im = ImageOps.exif_transpose(Image.open(p))
+              im.thumbnail((900, 900), Image.LANCZOS)
+              im.convert('RGB').save(o, 'JPEG', quality=78, optimize=True, progressive=True)
+              print('klein:', o)
+          PY
+      - name: Opslaan als er iets nieuw is
+        run: |
+          git add img/klein
+          if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
+          git config user.name "THURBO automatisch"
+          git config user.email "actions@users.noreply.github.com"
+          git commit -m "Kleine beelden bijgewerkt"
+          git push
+
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wachten tot de site online staat
+        run: sleep 150
+      - name: Zoekmachines laten weten dat er iets nieuw is
+        run: |
+          URLS=$(curl -s https://thurbo.nl/sitemap.xml | grep -o '<loc>[^<]*' | sed 's/<loc>//' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          echo "$URLS"
+          curl -s -o /dev/null -w "IndexNow: %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"thurbo.nl\",\"key\":\"8a9879ca79738f243e9c87d3b10a355c\",\"keyLocation\":\"https://thurbo.nl/8a9879ca79738f243e9c87d3b10a355c.txt\",\"urlList\":$URLS}"

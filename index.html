@@ -395,6 +395,9 @@ const rijk=s=>{
 };
 
 /* ===== adressen: elke pagina heeft een eigen URL (/projecten, /studio, /projecten/04-titel) ===== */
+/* kleine versie van een beeld voor overzichten (img/klein/, wordt automatisch gemaakt); valt terug op het origineel */
+const klein=u=>/^\/img\/[^/]+\.(jpe?g|png|webp)$/i.test(u||"")?u.replace(/^\/img\/([^/]+)\.\w+$/,"/img/klein/$1.jpg"):u;
+const kleinImg=(u,alt,extra="")=>`<img src="${esc(klein(u))}" alt="${esc(alt||"")}" loading="lazy" decoding="async"${klein(u)!==u?` onerror="this.onerror=null;this.src='${esc(u)}'"`:""}${extra}>`;
 const VAST=["projecten","studies","studio","contact","nieuws","zoek"];
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 function pad(r){
@@ -441,8 +444,9 @@ function bandHTML(items,lus,klas){
   const kopie=lus&&items.length>1?3:1, mid=Math.floor(kopie/2);
   let h="";
   for(let c=0;c<kopie;c++) items.forEach((it,i)=>{const verborgen=c===mid?"":' tabindex="-1" aria-hidden="true"';
-    h+=it.href?`<a class="bitem" href="${esc(it.href)}" aria-label="${esc(it.label||"")}" draggable="false"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"></a>`
-              :`<button class="bitem" data-groot="${i}" aria-label="${esc(it.label||"")}"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"></button>`});
+    const prio=c===mid&&i===0?' fetchpriority="high"':' decoding="async"';
+    h+=it.href?`<a class="bitem" href="${esc(it.href)}" aria-label="${esc(it.label||"")}" draggable="false"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"${prio}></a>`
+              :`<button class="bitem" data-groot="${i}" aria-label="${esc(it.label||"")}"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"${prio}></button>`});
   return `<div class="band${klas?" "+klas:""}"><div class="spoor" id="spoor">${h}</div>${items.length>1?`<button class="rand l" data-bnav="-1" aria-label="${t("vorige")}"></button><button class="rand r" data-bnav="1" aria-label="${t("volgende")}"></button>`:""}</div>`;
 }
 let B=null, sleep=null;
@@ -553,7 +557,7 @@ function nieuws(){
   const knoppen=soorten.length>1?["Alles",...soorten].map(x=>`<button data-ns="${esc(x)}" aria-pressed="${x===nsoort}">${x==="Alles"?t("alles"):esc(L({k:x,k_en:T.en.soorten?.[x]},"k"))}</button>`).join(""):"";
   const lijst=alle.filter(n=>nsoort==="Alles"||n.soort===nsoort);
   app.innerHTML=paginakop(t("nieuws"),knoppen,"")+(lijst.length?`<div class="feed pad">${lijst.map(n=>`<a class="nkaart" href="/nieuws/${esc(n.id)}">
-      ${n.beelden[0]?`<img src="${esc(n.beelden[0].beeld)}" alt="${esc(L(n.beelden[0],"bijschrift")||L(n,"titel"))}" loading="lazy">`:insta(n.instagram,true)}
+      ${n.beelden[0]?`${kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"))}`:insta(n.instagram,true)}
       <p class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></p>
       <h2>${esc(L(n,"titel"))}</h2>${L(n,"tekst")?`<p class="nkort">${esc(L(n,"tekst").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1"))}</p>`:""}</a>`).join("")}</div>`:`<p class="empty">${t("nleeg")}</p>`);
   meetKop(); zweef();
@@ -665,7 +669,7 @@ function rij(p){
   const meta=[catNaam(p.cat),p.jaar].filter(Boolean).map(esc).join(" · ");
   return `<article class="rij"><a class="rijkop pad" href="${pad("p"+p.nr)}"><span class="rnr">${esc(p.nr)}<span class="by">${initialen(p)}</span></span>
     <span><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="rloc">${esc(L(p,"plaats"))}</span>`:""}</span><span class="rmeta">${meta}</span></a>
-    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}"><img src="${esc(f.beeld)}" alt="${esc([L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy" draggable="false"></button>`).join("")}</div></article>`;
+    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}">${kleinImg(f.beeld,[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "),' draggable="false"')}</button>`).join("")}</div></article>`;
 }
 /* met de muis slepen om horizontaal te scrollen; op telefoon en trackpad werkt vegen vanzelf */
 let gesleept=false;
@@ -711,7 +715,7 @@ function kaart(lijst,chips,doel){
     const punten=met.map(p=>{
       const ll=[parseFloat(p.lat),parseFloat(p.lng)];
       Lf.marker(ll,{icon:Lf.divIcon({className:"pin",html:`<span>${esc(p.nr)}<sup>${initialen(p)}</sup></span>`,iconSize:[0,0]}),title:L(p,"titel")}).addTo(kaartObj)
-        .bindPopup(`<a class="pop" href="${pad("p"+p.nr)}">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="${esc(L(p,"titel"))}">`:""}<strong>${esc(L(p,"titel"))}</strong><span>${esc(L(p,"locatie")||L(p,"plaats"))}</span></a>`,{closeButton:false});
+        .bindPopup(`<a class="pop" href="${pad("p"+p.nr)}">${p.fotos[0]?`${kleinImg(p.fotos[0].beeld,L(p,"titel"))}`:""}<strong>${esc(L(p,"titel"))}</strong><span>${esc(L(p,"locatie")||L(p,"plaats"))}</span></a>`,{closeButton:false});
       return ll});
     if(punten.length) kaartObj.fitBounds(punten,{padding:[60,60],maxZoom:9}); else kaartObj.setView([52.1,5.3],6);
   }).catch(()=>{const el=document.getElementById('kaart'); if(el) el.outerHTML=`<p class="empty">${t("kaartfout")}</p>`});
@@ -785,7 +789,7 @@ function toonTreffers(){
 function cel(p,extra){
   return `<a class="cell" href="${pad("p"+p.nr)}">
     <div class="num">${esc(p.nr)}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
-    <div class="thumb">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="${esc([L(p,"titel"),L(p.fotos[0],"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy">`:""}</div>
+    <div class="thumb">${p.fotos[0]?`${kleinImg(p.fotos[0].beeld,[L(p,"titel"),L(p.fotos[0],"bijschrift")].filter(Boolean).join(" – "))}`:""}</div>
     <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="loc">${esc(L(p,"plaats"))}</span>`:""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
 }
 function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
@@ -812,7 +816,7 @@ function project(nr){
 function alleBeelden(items,i){
   if(items.length<2) return "";
   return `<p class="alle-kop pad">${t("overzicht")} (${items.length})</p><div class="alle">${items.map((f,k)=>
-    `<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}><img src="${esc(f.beeld)}" alt="${esc([L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy"></button>`).join("")}</div>`;
+    `<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}>${kleinImg(f.beeld,[L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}</button>`).join("")}</div>`;
 }
 function vergroot(k){
   if(!cur||!cur.items) return; const f=cur.items[k??beeld];
