@@ -12,6 +12,7 @@ content:
     path: content/site.json
     format: json
     fields:
+      - { name: instagram_feed, label: "Instagram-feed (Behold JSON-link, https://feeds.behold.so/...)", type: string }
       - name: slideshow
         label: Slideshow homepage
         type: object
