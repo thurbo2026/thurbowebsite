@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/heros-regular.woff" as="font" type="font/woff" crossorigin>
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");try{const m=localStorage.getItem("thurbo-thema");if(m==="light"||m==="dark")document.documentElement.dataset.theme=m}catch(e){}</script>
 <style>
 /* Helvetica: wie hem heeft (Mac, iPhone) ziet Helvetica Neue, anderen krijgen TeX Gyre Heros, een vrije Helvetica */
 @font-face{font-family:"THURBO Helvetica";font-weight:300;font-display:swap;src:local("Helvetica Neue Light"),local("HelveticaNeue-Light"),url(/fonts/heros-regular.woff) format("woff")}
@@ -53,9 +53,13 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .name button:hover{text-decoration-line:underline;text-decoration-style:dotted}
 .rechts{margin-left:auto;flex:none;display:flex;align-items:baseline;gap:18px}
 @media (max-width:699px){.rechts{flex-direction:column;align-items:flex-end;gap:4px}header{font-size:16px}
+  /* alles hangt aan de eerste regel: menu-icoon, THURBO, Thorben en het zoekicoon op één lijn, Beau eronder */
+  header{align-items:flex-start;gap:16px;padding-block:14px;line-height:22px}
+  .burger{align-self:flex-start;margin-top:5px;width:26px;height:12px}
+  .burger.x i:first-child{transform:translateY(5px) rotate(45deg)}.burger.x i:last-child{transform:translateY(-5px) rotate(-45deg)}
+  .rechts{align-self:flex-start}.zoekknop{padding:3px 0 3px 6px}
+  .name button{text-underline-offset:5px;text-decoration-thickness:1px}
   .name{display:grid;grid-template-columns:auto auto;column-gap:.6em;row-gap:2px;justify-content:start;justify-items:start}.name .brand{grid-row:1 / span 2;align-self:start}}
-.lang{visibility:hidden;opacity:0;transition:opacity .3s}
-body.menu-open .lang{visibility:visible;opacity:1}
 .lang,.zoekknop{font-weight:300;letter-spacing:.04em;white-space:nowrap}
 .zoekknop{display:inline-flex;align-items:center;gap:0;padding:4px 0 4px 6px}
 #zoeklabel{display:inline-block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;vertical-align:bottom;transition:max-width .45s cubic-bezier(.2,.7,.2,1),opacity .3s,margin .45s}
@@ -71,7 +75,10 @@ body.menu-open .lang{visibility:visible;opacity:1}
 @media (min-width:800px){:root{--bandh:min(56.25vw,86vh)}}
 .band{position:relative;height:var(--bandh);max-width:100%}
 .band.proj{height:max(300px,min(var(--bandh),calc(100svh - 230px)))}
-@media (max-width:799px){.band.proj{height:min(100vw,62svh)}}
+@media (max-width:799px){.band.proj{height:min(70vw,62svh)}
+  /* op de telefoon blijft er altijd een stukje van de volgende foto zichtbaar */
+  .band.proj .bitem{display:flex;align-items:flex-end}
+  .band.proj .bitem img{height:auto;max-height:100%;max-width:80vw;object-fit:contain}}
 .spoor{display:flex;gap:12px;height:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));cursor:grab}
 .spoor::-webkit-scrollbar{display:none}
 .spoor.sleep{cursor:grabbing}
@@ -113,8 +120,18 @@ button.bitem{cursor:zoom-in}
 .mitem:hover .mpijl,.mitem:focus-visible .mpijl{opacity:1;transform:none}
 .mitem[aria-current="page"] .mnaam{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
 .mvoet{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:auto;padding-block:16px 28px;border-top:1px solid var(--hair);font-family:var(--type);font-size:13px;color:var(--muted);align-self:end}
-@media (max-width:899px){.mvoet{margin-top:auto;align-self:stretch;justify-content:space-between;gap:10px 16px}.mlijst{margin-bottom:40px}}
-.mvoet a,.mvoet button{color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+@media (max-width:899px){.mvoet{margin-top:auto;align-self:stretch}.mthema{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.mthema button{display:grid;place-items:center;color:var(--muted);padding:2px}
+.mthema svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.mthema button[aria-pressed="true"]{color:var(--fg)}
+.mthema button[aria-pressed="true"] svg{stroke-width:2}
+.mthema button:hover{color:var(--fg)}
+.mlinks{justify-content:space-between;gap:10px 16px}.mlijst{margin-bottom:40px}}
+.mvoet{flex-direction:column;align-items:flex-start;gap:14px}
+.mlinks{display:flex;flex-wrap:wrap;gap:10px 28px;align-self:stretch}
+.mtaal{font-size:var(--s1);text-decoration:none!important}
+.mlinks a{color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.mvoet a,.mvoet button:not(.mtaal){color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 @media (prefers-reduced-motion:no-preference){
   .mitem .mnaam{transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
   .menuvlak.open .mitem .mnaam{transform:none;transition-delay:calc(var(--i) * 70ms + 180ms)}
@@ -362,7 +379,6 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
   <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
   <nav class="name" aria-label="Filter"><button class="brand" data-p="Alle" aria-pressed="true">THURBO</button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
   <div class="rechts">
-    <button class="lang" id="lang" aria-label="Taal / Language"><span data-l="nl">NL</span> / <span data-l="en">EN</span></button>
     <button class="zoekknop" id="zoekknop"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg><span id="zoeklabel">Zoek</span></button>
   </div>
 </header>
@@ -379,11 +395,11 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Projecten",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",terugk:"Terug",vorigp:"Vorig project",volgp:"Volgend project",andere:"Andere projecten",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",terugk:"Terug",thema:"Licht of donker",licht:"Licht",donker:"Donker",vorigp:"Vorig project",volgp:"Volgend project",andere:"Andere projecten",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Projects",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",terugk:"Back",vorigp:"Previous project",volgp:"Next project",andere:"Other projects",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",terugk:"Back",thema:"Light or dark",licht:"Light",donker:"Dark",vorigp:"Previous project",volgp:"Next project",andere:"Other projects",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
       soorten:{"Kunst":"Art","Recept":"Recipe","Fotografie":"Photography","Project":"Project","Studio":"Studio","Overig":"Other"},cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -481,7 +497,7 @@ function bandHTML(items,lus,klas){
 let B=null, sleep=null;
 addEventListener('pointermove',e=>{if(!sleep)return;const dx=e.clientX-sleep.x0;if(Math.abs(dx)>4){sleep.weg=true;sleep.sp.classList.add('sleep')}sleep.sp.scrollLeft=sleep.s0-dx},{passive:true});
 addEventListener('pointerup',()=>{if(!sleep)return;const sp=sleep.sp,weg=sleep.weg;sleep=null;sp.classList.remove('sleep');if(weg&&B)B.gesleept=true;setTimeout(()=>{if(B)B.gesleept=false},50)});
-function startBand({n,lus,auto,begin=0,opIndex}){
+function startBand({n,lus,auto,begin=0,opIndex,gluur}){
   const sp=document.getElementById('spoor'); if(!sp) return;
   const kids=[...sp.children], basis=lus&&n>1?n:0;
   const links=k=>kids[k].offsetLeft-kids[0].offsetLeft;
@@ -508,6 +524,8 @@ function startBand({n,lus,auto,begin=0,opIndex}){
   sp.addEventListener('pointerdown',e=>{if(e.pointerType==="mouse"&&e.button===0) sleep={sp,x0:e.clientX,s0:sp.scrollLeft,weg:false}});
   sp.addEventListener('click',e=>{if(B.gesleept){e.preventDefault();e.stopPropagation()}},true);
   clearInterval(timer);
+  if(gluur&&n>1&&!rustig()&&begin<n-1&&matchMedia('(hover:none)').matches)
+    setTimeout(()=>{if(B&&B.sp===sp&&!B.aangeraakt){schuif(sp.scrollLeft+70,600);setTimeout(()=>{if(B.sp===sp&&!B.aangeraakt)B.naar(begin)},700)}},900);
   if(auto&&n>1&&!rustig()){
     setTimeout(()=>{if(B&&B.sp===sp&&!B.aangeraakt){schuif(sp.scrollLeft+90,700);setTimeout(()=>{if(B.sp===sp&&!B.aangeraakt)B.naar(basis+begin)},750)}},800);
     timer=setInterval(()=>{if(document.hidden||!B||B.sp!==sp||Date.now()<B.pauze)return;B.stap(1)},4500);
@@ -544,10 +562,18 @@ function vulMenu(){
   menuvlak.style.setProperty('--mx',Math.round(r.left)+'px'); menuvlak.style.setProperty('--mw',Math.round(r.width)+'px');
   menuvlak.innerHTML=`<div class="mbinnen"><figure class="mbeeld" aria-hidden="true">${items.map(([hh])=>beeld[hh]?`<img data-m="${hh}" src="${esc(beeld[hh][0])}" alt=""${hh===eerste?' class="aan"':""}>`:"").join("")}<figcaption id="mcap">${esc(beeld[eerste]?.[1]||"")}</figcaption></figure>
     <nav class="mlijst pad" aria-label="Menu">${items.map(([hh,k],i)=>`<button class="mitem" data-go="${hh}" style="--i:${i}"${h===hh||(hh==="projecten"&&h==="werk")?' aria-current="page"':""}><span class="mnaam">${t(k)}</span><span class="mpijl" aria-hidden="true"><svg viewBox="0 0 20 40"><path d="M3 3 L17 20 L3 37"/></svg></span></button>`).join("")}</nav>
-    <div class="mvoet pad">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}</div></div>`;
+    <div class="mvoet pad"><div class="mthema" role="group" aria-label="${t("thema")}"><button data-thema="light" aria-label="${t("licht")}" aria-pressed="${donker()?"false":"true"}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button><span aria-hidden="true">/</span><button data-thema="dark" aria-label="${t("donker")}" aria-pressed="${donker()?"true":"false"}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></div><button class="lang mtaal" data-taal="1" aria-label="Taal / Language"><span data-l="nl"${lang==="nl"?' class="on"':""}>NL</span> / <span data-l="en"${lang==="en"?' class="on"':""}>EN</span></button><div class="mlinks">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}</div></div></div>`;
   menuvlak.querySelectorAll('.mitem').forEach(b=>{const toon=()=>{const k=b.dataset.go;if(!beeld[k])return;
     menuvlak.querySelectorAll('.mbeeld img').forEach(i=>i.classList.toggle('aan',i.dataset.m===k));document.getElementById('mcap').textContent=beeld[k][1]};
     b.addEventListener('mouseenter',toon);b.addEventListener('focus',toon)});
+}
+/* licht of donker; zonder keuze volgt de site de instelling van het apparaat */
+const donker=()=>{const m=document.documentElement.dataset.theme;return m?m==="dark":matchMedia('(prefers-color-scheme: dark)').matches};
+function zetThema(m){
+  const sys=matchMedia('(prefers-color-scheme: dark)').matches?"dark":"light";
+  if(m===sys){delete document.documentElement.dataset.theme;try{localStorage.removeItem('thurbo-thema')}catch(e){}}
+  else{document.documentElement.dataset.theme=m;try{localStorage.setItem('thurbo-thema',m)}catch(e){}}
+  if(kaartObj) render();
 }
 function zetMenu(aan){
   menuOpen=aan; document.body.classList.toggle('menu-open',aan); burger.classList.toggle('x',aan); burger.setAttribute('aria-expanded',aan);
@@ -561,6 +587,7 @@ menuvlak.addEventListener('click',e=>{
   if(b.dataset.go){const g=b.dataset.go;
     if(g==="projecten"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
     zetMenu(false); ga(g)}
+  if(b.dataset.thema){zetThema(b.dataset.thema);vulMenu();return}
   if(b.dataset.taal){zetTaal(lang==="nl"?"en":"nl");vulMenu();render()}
 });
 /* ===== nieuws: kunst, recepten, foto's, Instagram ===== */
@@ -594,7 +621,7 @@ function nieuws(){
 function nieuwsItem(id){
   if(id.startsWith("ig-")&&igPosts===null){haalInsta().then(()=>{if(R()==="n-"+id) nieuwsItem(id)});return}
   const n=alleNieuws().find(x=>x.id===id); if(!n) return niets();
-  app.innerHTML=`<div class="phead pad"><div><span class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></span><br><strong>${esc(L(n,"titel"))}</strong></div><a class="close" href="/nieuws" aria-label="${t("terugn")}">×</a></div>
+  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0"><span class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></span><br><strong>${esc(L(n,"titel"))}</strong></div></div>
     <article class="nlang pad fade">${L(n,"tekst")?`<div class="ntekst">${rijk(L(n,"tekst"))}</div>`:""}
       ${n.beelden.map(f=>`<figure><img src="${esc(f.beeld)}" alt="${esc(L(f,"bijschrift"))}" loading="lazy">${L(f,"bijschrift")?`<figcaption>${esc(L(f,"bijschrift"))}</figcaption>`:""}</figure>`).join("")}
       ${n.permalink?`<p><a class="ext" href="${esc(n.permalink)}" target="_blank" rel="noopener">${t("opinsta")}</a></p>`:""}
@@ -607,7 +634,7 @@ function nieuwsItem(id){
 const pijlOmlaag='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4 6 8.5 10.5 4"/></svg>';
 const vergrootglas='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg>';
 function paginakop(titel,knoppen,paneel){
-  return `<div class="pkop pad" id="pkop"><div class="pkop-rij"><h1>${terugKnop()}${esc(titel)}</h1><div class="pctl">${knoppen||""}</div></div>${paneel||""}</div>`;
+  return `<div class="pkop pad" id="pkop"><div class="pkop-rij"><h1>${esc(titel)}</h1><div class="pctl">${knoppen||""}</div></div>${paneel||""}</div>`;
 }
 /* krimp de titel zodra je scrolt */
 /* De kop blijft op dezelfde hoogte in de pagina (geen verspringen); hij schuift deels onder de kopregel
@@ -831,14 +858,14 @@ function project(nr){
   cur.items=items;
   const i=Math.min(tab==="tekeningen"?p.fotos.length+beeld:beeld,items.length-1); beeld=i; tab="fotos";
   const tekKnop=()=>p.tekeningen.length&&p.fotos.length?`<button id="tekBtn" data-tekspring="1">${items[beeld].soort==="tekeningen"?t("beelden"):t("tek")}</button>`:`<span></span>`;
-  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div><a class="close" href="/projecten" aria-label="${t("sluit")}">×</a></div>
+  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div></div>
   ${bandHTML(items.map(f=>({beeld:f.beeld,label:L(f,"bijschrift"),alt:[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – ")})),false,"proj")}
   <p class="bij pad" id="cap">${esc(L(items[i],"bijschrift"))}</p>
-  <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span><button id="infoBtn">${t("info")}</button>${tekKnop()}</div>
+  <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span>${tekKnop()}</div>
   <section class="info pad" id="info"><p>${rijk(L(p,"tekst"))}</p>
     <dl class="facts">${feit(t("jaar"),p.jaar)}${feit(t("locatie"),L(p,"locatie"))}${feit(t("opgave"),L(p,"opgave"))}${feit(t("type"),L(p,"type"))}${feit(t("status"),L(p,"status"))}${feit(p.cat==="Praktijk"?t("bureau"):t("begeleiding"),p.bureau_of_begeleiding,p.bureau_link)}${feit(t("team"),p.ontwerpteam)}</dl></section>
   ${alleBeelden(items,i)}${volgendeProjecten(p)}`;
-  startBand({n:items.length,lus:false,auto:false,begin:i,opIndex:k=>{beeld=k;
+  startBand({n:items.length,lus:false,auto:false,gluur:true,begin:i,opIndex:k=>{beeld=k;
     document.getElementById('cap').textContent=L(items[k],"bijschrift");document.getElementById('cnt').textContent=`${k+1}/${items.length}`;
     const tb=document.getElementById('tekBtn'); if(tb) tb.textContent=items[k].soort==="tekeningen"?t("beelden"):t("tek");
     app.querySelectorAll('.alle button').forEach((x,j)=>x.toggleAttribute('aria-current',j===k))}});
@@ -992,7 +1019,6 @@ function render(){
   home();
 }
 burger.onclick=()=>zetMenu(!menuOpen);
-document.getElementById('lang').onclick=()=>{zetTaal(lang==="nl"?"en":"nl");render()};
 document.getElementById('zoekknop').onclick=()=>{zetMenu(false);zoekterm="";ga("zoek")};
 document.querySelector('.name').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
@@ -1022,7 +1048,6 @@ app.addEventListener('click',e=>{
   if(b.dataset.groot!==undefined&&!B?.gesleept) vergroot(+b.dataset.groot);
   if(b.dataset.tekspring&&cur&&B){const k=cur.items[beeld].soort==="tekeningen"?0:cur.fotos.length;B.ga(k)}
   if(b.dataset.kies) vergroot(+b.dataset.kies);
-  if(b.id==="infoBtn") document.getElementById('info').scrollIntoView({behavior:"smooth"});
 });
 addEventListener('keydown',e=>{
   const lb=document.querySelector('.lb');
