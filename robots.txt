@@ -1,0 +1,6 @@
+# Iedereen is welkom, ook zoekmachines en AI-assistenten.
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://thurbo.nl/sitemap.xml

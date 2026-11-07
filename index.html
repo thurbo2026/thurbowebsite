@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Courier+Prime&display=swap">
+<script>document.documentElement.classList.add("js")</script>
 <style>
 /* Layout: één kopregel, raster van dunne lijnen, beelden schermbreed. Zwart-wit; het werk draagt de kleur.
    De typemachineletter komt uit Thorbens portfolio en wordt gebruikt voor feiten en bijschriften. */
@@ -324,6 +325,8 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 .niets img{width:100%;height:auto}
 .niets h1{font-weight:400;font-size:var(--s2);margin:0}
 .niets p{margin:0;font-family:var(--type);font-size:14px;color:var(--muted)}
+.js .ssr{display:none}
+.ssr{padding:20px;max-width:70ch}
 </style>
 </head>
 <body>
@@ -391,11 +394,46 @@ const rijk=s=>{
   return r.replace(/\u0000(\d+)\u0000/g,(m,n)=>links[n]);
 };
 
+/* ===== adressen: elke pagina heeft een eigen URL (/projecten, /studio, /projecten/04-titel) ===== */
+const VAST=["projecten","studies","studio","contact","nieuws","zoek"];
+const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+function pad(r){
+  if(!r) return "/";
+  if(r==="werk") return "/projecten";
+  if(VAST.includes(r)) return "/"+r;
+  if(/^p[\w-]+$/.test(r)){const nr=r.slice(1),p=SITE?.projecten.find(x=>String(x.nr)===nr);return "/projecten/"+nr+(p?"-"+slug(p.titel):"")}
+  if(r.startsWith("n-")) return "/nieuws/"+r.slice(2);
+  return "/"+r;
+}
+function routeVan(path){
+  path=decodeURI(path).replace(/\/+$/,"")||"/";
+  let m;
+  if(path==="/") return "";
+  if((m=path.match(/^\/projecten\/([^/-]+)/))) return "p"+m[1];
+  if((m=path.match(/^\/nieuws\/(.+)$/))) return "n-"+m[1];
+  return path.slice(1);
+}
+const R=()=>routeVan(location.pathname);
+/* oude links met # (thurbo.nl/#p04, /#thorben) blijven werken */
+(()=>{const h=location.hash.slice(1); if(!h||location.pathname!=="/"||document.getElementById(h)) return;
+  const wie={thorben:"Thorben",beau:"Beau"}[h.toLowerCase()];
+  if(wie){persoon=wie;history.replaceState(null,"","/projecten");setTimeout(()=>document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.p===wie)));return}
+  history.replaceState(null,"",h==="werk"?"/projecten":VAST.includes(h)?"/"+h:"/"+(h.startsWith("p")?"projecten/"+h.slice(1):h.startsWith("n-")?"nieuws/"+h.slice(2):h));
+})();
+function naRoute(){if(menuOpen) zetMenu(false);filterOpen=false;beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)}
+function ga(r){const doel=pad(r); if(doel===location.pathname){render();return} history.pushState(null,"",doel); stapel.push(R()); naRoute()}
+addEventListener('popstate',()=>{const h=R();if(stapel.length>1&&stapel[stapel.length-2]===h) stapel.pop(); else stapel.push(h); naRoute()});
+/* interne links openen zonder de pagina te herladen */
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="/"]'); if(!a||a.target||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button) return;
+  const u=new URL(a.href); if(u.origin!==location.origin||/\.\w+$/.test(u.pathname)||u.pathname.startsWith("/api")) return;
+  e.preventDefault(); ga(routeVan(u.pathname));
+});
+
 /* ===== terug ===== */
-const stapel=[location.hash.slice(1)];
-addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(stapel.length>1&&stapel[stapel.length-2]===h) stapel.pop(); else stapel.push(h)});
+const stapel=[R()];
 const ouder=h=>/^p/.test(h)?"projecten":/^n-/.test(h)?"nieuws":"";
-function terug(){ if(stapel.length>1) history.back(); else location.hash=ouder(location.hash.slice(1)) }
+function terug(){ if(stapel.length>1) history.back(); else ga(ouder(R())) }
 const terugKnop=()=>`<button class="terug" data-terug="1" aria-label="${t("terugk")}"><svg viewBox="0 0 20 40" aria-hidden="true"><path d="M17 3 L3 20 L17 37"/></svg></button>`;
 
 /* ===== band: beelden in hun eigen verhouding, vrij scrollen ===== */
@@ -403,8 +441,8 @@ function bandHTML(items,lus,klas){
   const kopie=lus&&items.length>1?3:1, mid=Math.floor(kopie/2);
   let h="";
   for(let c=0;c<kopie;c++) items.forEach((it,i)=>{const verborgen=c===mid?"":' tabindex="-1" aria-hidden="true"';
-    h+=it.href?`<a class="bitem" href="${esc(it.href)}" aria-label="${esc(it.label||"")}" draggable="false"${verborgen}><img src="${esc(it.beeld)}" alt="" draggable="false"></a>`
-              :`<button class="bitem" data-groot="${i}" aria-label="${esc(it.label||"")}"${verborgen}><img src="${esc(it.beeld)}" alt="" draggable="false"></button>`});
+    h+=it.href?`<a class="bitem" href="${esc(it.href)}" aria-label="${esc(it.label||"")}" draggable="false"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"></a>`
+              :`<button class="bitem" data-groot="${i}" aria-label="${esc(it.label||"")}"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"></button>`});
   return `<div class="band${klas?" "+klas:""}"><div class="spoor" id="spoor">${h}</div>${items.length>1?`<button class="rand l" data-bnav="-1" aria-label="${t("vorige")}"></button><button class="rand r" data-bnav="1" aria-label="${t("volgende")}"></button>`:""}</div>`;
 }
 let B=null, sleep=null;
@@ -448,14 +486,14 @@ function play(){}
 /* ===== homepage ===== */
 function home(){
   const S=SITE.slides; if(!S.length){app.innerHTML="";return}
-  app.innerHTML=bandHTML(S.map(s=>({beeld:s.beeld,href:s.project?"#p"+s.project:"#projecten",label:L(s,"bijschrift")})),true)+
+  app.innerHTML=bandHTML(S.map(s=>({beeld:s.beeld,href:s.project?pad("p"+s.project):"/projecten",label:L(s,"bijschrift")})),true)+
     `<p class="capbar pad"><span id="cap">${esc(L(S[0],"bijschrift"))}</span>${S.length>1?`<span class="nav"><button data-bnav="-1" aria-label="${t("vorige")}">‹</button><span id="cnt">1/${S.length}</span><button data-bnav="1" aria-label="${t("volgende")}">›</button></span>`:""}</p>`;
   startBand({n:S.length,lus:true,auto:true,opIndex:k=>{slide=k;document.getElementById('cap').textContent=L(S[k],"bijschrift");const c=document.getElementById('cnt');if(c)c.textContent=`${k+1}/${S.length}`}});
 }
 
 const menuvlak=document.getElementById('menuvlak');
 function vulMenu(){
-  const h=location.hash.slice(1);
+  const h=R();
   const links=SITE.studio.flatMap(x=>{const r=[];const tx=L(x,"tekst")||"";
     if(x.link) r.push([L(x,"kop"),x.link]);
     for(const m of tx.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)) r.push([/linkedin/i.test(m[2])?"LinkedIn "+(x.kolom||""):m[1],m[2]]);
@@ -489,7 +527,7 @@ menuvlak.addEventListener('click',e=>{
   const b=e.target.closest('button,a'); if(!b) return;
   if(b.dataset.go){const g=b.dataset.go;
     if(g==="projecten"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
-    zetMenu(false); if(location.hash==="#"+g) render(); else location.hash=g}
+    zetMenu(false); ga(g)}
   if(b.dataset.taal){zetTaal(lang==="nl"?"en":"nl");vulMenu();render()}
 });
 /* ===== nieuws: kunst, recepten, foto's, Instagram ===== */
@@ -510,26 +548,26 @@ const instaId=u=>{const m=String(u||"").match(/instagram\.com\/(?:p|reel|tv)\/([
 const insta=(u,klein)=>{const id=instaId(u);return id?`<div class="insta${klein?" klein":""}"><iframe src="https://www.instagram.com/p/${id}/embed/" loading="lazy" title="Instagram" allowtransparency="true" scrolling="no"></iframe></div>`:""};
 const ndatum=d=>{if(!d)return "";const x=new Date(d+"T12:00:00");return isNaN(x)?esc(d):x.toLocaleDateString(lang==="nl"?"nl-NL":"en-GB",{day:"numeric",month:"long",year:"numeric"})};
 function nieuws(){
-  if(SITE.igfeed&&igPosts===null){haalInsta().then(()=>{if(location.hash==="#nieuws") nieuws()})}
+  if(SITE.igfeed&&igPosts===null){haalInsta().then(()=>{if(R()==="nieuws") nieuws()})}
   const alle=alleNieuws(), soorten=[...new Set(alle.map(n=>n.soort).filter(Boolean))];
   const knoppen=soorten.length>1?["Alles",...soorten].map(x=>`<button data-ns="${esc(x)}" aria-pressed="${x===nsoort}">${x==="Alles"?t("alles"):esc(L({k:x,k_en:T.en.soorten?.[x]},"k"))}</button>`).join(""):"";
   const lijst=alle.filter(n=>nsoort==="Alles"||n.soort===nsoort);
-  app.innerHTML=paginakop(t("nieuws"),knoppen,"")+(lijst.length?`<div class="feed pad">${lijst.map(n=>`<a class="nkaart" href="#n-${esc(n.id)}">
-      ${n.beelden[0]?`<img src="${esc(n.beelden[0].beeld)}" alt="" loading="lazy">`:insta(n.instagram,true)}
+  app.innerHTML=paginakop(t("nieuws"),knoppen,"")+(lijst.length?`<div class="feed pad">${lijst.map(n=>`<a class="nkaart" href="/nieuws/${esc(n.id)}">
+      ${n.beelden[0]?`<img src="${esc(n.beelden[0].beeld)}" alt="${esc(L(n.beelden[0],"bijschrift")||L(n,"titel"))}" loading="lazy">`:insta(n.instagram,true)}
       <p class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></p>
       <h2>${esc(L(n,"titel"))}</h2>${L(n,"tekst")?`<p class="nkort">${esc(L(n,"tekst").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1"))}</p>`:""}</a>`).join("")}</div>`:`<p class="empty">${t("nleeg")}</p>`);
   meetKop(); zweef();
 }
 function nieuwsItem(id){
-  if(id.startsWith("ig-")&&igPosts===null){haalInsta().then(()=>{if(location.hash==="#n-"+id) nieuwsItem(id)});return}
+  if(id.startsWith("ig-")&&igPosts===null){haalInsta().then(()=>{if(R()==="n-"+id) nieuwsItem(id)});return}
   const n=alleNieuws().find(x=>x.id===id); if(!n) return niets();
-  app.innerHTML=`<div class="phead pad"><div><span class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></span><br><strong>${esc(L(n,"titel"))}</strong></div><a class="close" href="#nieuws" aria-label="${t("terugn")}">×</a></div>
+  app.innerHTML=`<div class="phead pad"><div><span class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></span><br><strong>${esc(L(n,"titel"))}</strong></div><a class="close" href="/nieuws" aria-label="${t("terugn")}">×</a></div>
     <article class="nlang pad fade">${L(n,"tekst")?`<div class="ntekst">${rijk(L(n,"tekst"))}</div>`:""}
       ${n.beelden.map(f=>`<figure><img src="${esc(f.beeld)}" alt="${esc(L(f,"bijschrift"))}" loading="lazy">${L(f,"bijschrift")?`<figcaption>${esc(L(f,"bijschrift"))}</figcaption>`:""}</figure>`).join("")}
       ${n.permalink?`<p><a class="ext" href="${esc(n.permalink)}" target="_blank" rel="noopener">${t("opinsta")}</a></p>`:""}
       ${insta(n.instagram)}${n.instagram?`<p><a class="ext" href="${esc(n.instagram)}" target="_blank" rel="noopener">${t("opinsta")}</a></p>`:""}
       ${n.link?`<p>${ext(n.link,n.link.replace(/^https?:\/\/(www\.)?/,""))}</p>`:""}
-      <p><a class="ext" href="#nieuws">${t("terugn")}</a></p></article>`;
+      <p><a class="ext" href="/nieuws">${t("terugn")}</a></p></article>`;
 }
 
 /* ===== paginakop ===== */
@@ -625,9 +663,9 @@ function gesorteerd(lijst){
 function rij(p){
   const b=[...p.fotos.map((f,k)=>["fotos",k,f]),...p.tekeningen.map((f,k)=>["tekeningen",k,f])];
   const meta=[catNaam(p.cat),p.jaar].filter(Boolean).map(esc).join(" · ");
-  return `<article class="rij"><a class="rijkop pad" href="#p${esc(p.nr)}"><span class="rnr">${esc(p.nr)}<span class="by">${initialen(p)}</span></span>
+  return `<article class="rij"><a class="rijkop pad" href="${pad("p"+p.nr)}"><span class="rnr">${esc(p.nr)}<span class="by">${initialen(p)}</span></span>
     <span><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="rloc">${esc(L(p,"plaats"))}</span>`:""}</span><span class="rmeta">${meta}</span></a>
-    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}"><img src="${esc(f.beeld)}" alt="" loading="lazy" draggable="false"></button>`).join("")}</div></article>`;
+    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}"><img src="${esc(f.beeld)}" alt="${esc([L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy" draggable="false"></button>`).join("")}</div></article>`;
 }
 /* met de muis slepen om horizontaal te scrollen; op telefoon en trackpad werkt vegen vanzelf */
 let gesleept=false;
@@ -652,7 +690,7 @@ function laadLeaflet(){
 function kaart(lijst,chips,doel){
   const met=lijst.filter(p=>isFinite(parseFloat(p.lat))&&isFinite(parseFloat(p.lng)));
   const zonder=lijst.filter(p=>!met.includes(p));
-  (doel||app).innerHTML=chips+`<div class="kaart" id="kaart"></div>${zonder.length?`<p class="zonder pad">${t("zonder")} ${zonder.map(p=>`<a href="#p${esc(p.nr)}">${esc(p.nr)} ${esc(L(p,"titel"))}</a>`).join(", ")}</p>`:""}`;
+  (doel||app).innerHTML=chips+`<div class="kaart" id="kaart"></div>${zonder.length?`<p class="zonder pad">${t("zonder")} ${zonder.map(p=>`<a href="${pad("p"+p.nr)}">${esc(p.nr)} ${esc(L(p,"titel"))}</a>`).join(", ")}</p>`:""}`;
   laadLeaflet().then(Lf=>{
     const el=document.getElementById('kaart'); if(!el) return;
     if(kaartObj){kaartObj.remove();kaartObj=null}
@@ -673,7 +711,7 @@ function kaart(lijst,chips,doel){
     const punten=met.map(p=>{
       const ll=[parseFloat(p.lat),parseFloat(p.lng)];
       Lf.marker(ll,{icon:Lf.divIcon({className:"pin",html:`<span>${esc(p.nr)}<sup>${initialen(p)}</sup></span>`,iconSize:[0,0]}),title:L(p,"titel")}).addTo(kaartObj)
-        .bindPopup(`<a class="pop" href="#p${esc(p.nr)}">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="">`:""}<strong>${esc(L(p,"titel"))}</strong><span>${esc(L(p,"locatie")||L(p,"plaats"))}</span></a>`,{closeButton:false});
+        .bindPopup(`<a class="pop" href="${pad("p"+p.nr)}">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="${esc(L(p,"titel"))}">`:""}<strong>${esc(L(p,"titel"))}</strong><span>${esc(L(p,"locatie")||L(p,"plaats"))}</span></a>`,{closeButton:false});
       return ll});
     if(punten.length) kaartObj.fitBounds(punten,{padding:[60,60],maxZoom:9}); else kaartObj.setView([52.1,5.3],6);
   }).catch(()=>{const el=document.getElementById('kaart'); if(el) el.outerHTML=`<p class="empty">${t("kaartfout")}</p>`});
@@ -745,9 +783,9 @@ function toonTreffers(){
   zweef();
 }
 function cel(p,extra){
-  return `<a class="cell" href="#p${esc(p.nr)}">
+  return `<a class="cell" href="${pad("p"+p.nr)}">
     <div class="num">${esc(p.nr)}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
-    <div class="thumb">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="" loading="lazy">`:""}</div>
+    <div class="thumb">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="${esc([L(p,"titel"),L(p.fotos[0],"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy">`:""}</div>
     <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="loc">${esc(L(p,"plaats"))}</span>`:""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
 }
 function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
@@ -759,8 +797,8 @@ function project(nr){
   cur.items=items;
   const i=Math.min(tab==="tekeningen"?p.fotos.length+beeld:beeld,items.length-1); beeld=i; tab="fotos";
   const tekKnop=()=>p.tekeningen.length&&p.fotos.length?`<button id="tekBtn" data-tekspring="1">${items[beeld].soort==="tekeningen"?t("beelden"):t("tek")}</button>`:`<span></span>`;
-  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div><a class="close" href="#projecten" aria-label="${t("sluit")}">×</a></div>
-  ${bandHTML(items.map(f=>({beeld:f.beeld,label:L(f,"bijschrift")})),false,"proj")}
+  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div><a class="close" href="/projecten" aria-label="${t("sluit")}">×</a></div>
+  ${bandHTML(items.map(f=>({beeld:f.beeld,label:L(f,"bijschrift"),alt:[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – ")})),false,"proj")}
   <p class="bij pad" id="cap">${esc(L(items[i],"bijschrift"))}</p>
   <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span><button id="grootBtn">${t("groot")} ⤢</button><button id="infoBtn">${t("info")}</button>${tekKnop()}</div>
   <section class="info pad" id="info"><p>${rijk(L(p,"tekst"))}</p>
@@ -774,7 +812,7 @@ function project(nr){
 function alleBeelden(items,i){
   if(items.length<2) return "";
   return `<p class="alle-kop pad">${t("overzicht")} (${items.length})</p><div class="alle">${items.map((f,k)=>
-    `<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}><img src="${esc(f.beeld)}" alt="" loading="lazy"></button>`).join("")}</div>`;
+    `<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}><img src="${esc(f.beeld)}" alt="${esc([L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy"></button>`).join("")}</div>`;
 }
 function vergroot(k){
   if(!cur||!cur.items) return; const f=cur.items[k??beeld];
@@ -814,7 +852,7 @@ function studioKolommen(naarContact){
   if(naarContact) requestAnimationFrame(()=>document.getElementById('contact')?.scrollIntoView({behavior:rustig()?"auto":"smooth"}));
 }
 function niets(){
-  app.innerHTML=`<section class="niets pad fade"><img src="/perceel.svg" alt=""><h1>${t("niets")}</h1><p>${t("niets2")}</p><a class="ext" href="#" style="font-size:var(--s1)">${t("terug")}</a></section>`;
+  app.innerHTML=`<section class="niets pad fade"><img src="/perceel.svg" alt="Tekening van een leeg perceel, perceel 404"><h1>${t("niets")}</h1><p>${t("niets2")}</p><a class="ext" href="/" style="font-size:var(--s1)">${t("terug")}</a></section>`;
 }
 
 /* ===== easter eggs ===== */
@@ -865,15 +903,18 @@ function zetTaal(l){
   document.getElementById('zoekknop').setAttribute('aria-label',T[l].zoek);
   burger.setAttribute('aria-label',l==="nl"?"Menu":"Menu");
 }
+function zetTitel(h){
+  const p=/^p/.test(h)&&SITE.projecten.find(x=>"p"+x.nr===h), n=/^n-/.test(h)&&SITE.nieuws.find(x=>"n-"+x.id===h);
+  const kop={projecten:t("werk"),werk:t("werk"),studies:t("studies"),studio:t("studio"),contact:t("contact"),nieuws:t("nieuws"),zoek:t("zoektitel")}[h];
+  if(p&&location.pathname!==pad(h)) history.replaceState(null,"",pad(h));
+  document.title=h&&!p&&!n&&!kop?"Niet gevonden · THURBO":p?`${L(p,"titel")}${L(p,"plaats")?" – "+L(p,"plaats"):""} · THURBO`:n?`${L(n,"titel")} · THURBO`:kop?`${kop} · THURBO`:"THURBO · ontwerpstudio van Thorben Contant & Beau Schellevis";
+}
 function render(){
   if(!SITE) return;
   clearInterval(timer);
   if(kaartObj){kaartObj.remove();kaartObj=null}
-  let h=location.hash.slice(1);
-  /* thurbo.nl/thorben en thurbo.nl/beau: projecten van die persoon, alsof je op de naam klikt */
-  const wie={thorben:"Thorben",beau:"Beau"}[h.toLowerCase()];
-  if(wie){persoon=wie;h="projecten";history.replaceState(null,"","#projecten");stapel[stapel.length-1]=h;
-    document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.p===wie))}
+  const h=R();
+  zetTitel(h);
   if(h==="zoek") document.getElementById("zoekknop").setAttribute("aria-current","page"); else document.getElementById("zoekknop").removeAttribute("aria-current");
   if(open){beeld=open.k;tab=open.s;open=null}
   if(h==="werk"||h==="projecten") return werk(false);
@@ -889,19 +930,18 @@ function render(){
 }
 burger.onclick=()=>zetMenu(!menuOpen);
 document.getElementById('lang').onclick=()=>{zetTaal(lang==="nl"?"en":"nl");render()};
-document.getElementById('zoekknop').onclick=()=>{zetMenu(false);zoekterm="";if(location.hash==="#zoek") render(); else location.hash="zoek"};
+document.getElementById('zoekknop').onclick=()=>{zetMenu(false);zoekterm="";ga("zoek")};
 document.querySelector('.name').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   if(b.classList.contains('brand')) telTik();
   persoon=b.dataset.p; zetMenu(false);
   document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  const h=location.hash.slice(1);
-  if(persoon==="Alle"){ if(h) location.hash=""; else render(); window.scrollTo(0,0); return; }
-  if(["werk","projecten","studies"].includes(h)) render(); else location.hash="projecten";
+  const h=R();
+  if(persoon==="Alle"){ ga(""); window.scrollTo(0,0); return; }
+  if(["werk","projecten","studies"].includes(h)) render(); else ga("projecten");
 });
-addEventListener('hashchange',()=>{if(menuOpen) zetMenu(false);filterOpen=false;beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)});
 app.addEventListener('click',e=>{
-  if(location.hash==="#zoek"&&e.target.closest('.cell')&&zoekterm.trim()) logZoek(zoekterm);
+  if(R()==="zoek"&&e.target.closest('.cell')&&zoekterm.trim()) logZoek(zoekterm);
   const b=e.target.closest('button'); if(!b) return;
 
   if(b.id==="fknop"){zetFilter(!filterOpen)}
@@ -913,7 +953,7 @@ app.addEventListener('click',e=>{
   if(b.dataset.spring){document.getElementById(b.dataset.spring)?.scrollIntoView({behavior:rustig()?"auto":"smooth"})}
   if(b.dataset.ns){nsoort=b.dataset.ns;render()}
   if(b.dataset.w){weergave=b.dataset.w;try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){};const y=scrollY;render();scrollTo(0,Math.min(y,80))}
-  if(b.dataset.open){if(gesleept){gesleept=false;return}const [nr,s,k]=b.dataset.open.split("|");open={s,k:+k};location.hash="p"+nr}
+  if(b.dataset.open){if(gesleept){gesleept=false;return}const [nr,s,k]=b.dataset.open.split("|");open={s,k:+k};ga("p"+nr)}
   if(b.dataset.bnav&&B){B.stap(+b.dataset.bnav);B.pauze=Date.now()+9000}
   if(b.dataset.terug) terug();
   if(b.dataset.groot!==undefined&&!B?.gesleept) vergroot(+b.dataset.groot);
@@ -927,7 +967,7 @@ addEventListener('keydown',e=>{
   if(e.key==="Escape"&&lb){lb.remove();return}
   if(e.key==="Escape"&&menuOpen){zetMenu(false);burger.focus();return}
   if(lb) return;
-  if(B&&(/^#p/.test(location.hash)||!location.hash)&&(e.key==="ArrowRight"||e.key==="ArrowLeft")&&!e.target.closest('input')){B.stap(e.key==="ArrowRight"?1:-1);B.pauze=Date.now()+9000}
+  if(B&&(/^p/.test(R())||!R())&&(e.key==="ArrowRight"||e.key==="ArrowLeft")&&!e.target.closest('input')){B.stap(e.key==="ArrowRight"?1:-1);B.pauze=Date.now()+9000}
 });
 const hdr=document.getElementById('hdr');
 const zetKop=()=>document.documentElement.style.setProperty('--kop',hdr.offsetHeight+'px');
