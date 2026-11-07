@@ -16,6 +16,7 @@ Daar voeg je projecten toe, zet je foto's erin of haal je ze weg. Na opslaan sta
 de wijziging binnen een minuut op de site.
 
 Tips:
+- Link in een tekst: zet het woord tussen blokhaken en het adres erachter tussen haakjes, zoals [LA^ARC](https://www.la-rc.com/).
 - Zet foto's op webformaat, rond 2000 pixels aan de lange kant.
 - De eerste foto van een project is ook de miniatuur in het overzicht.
 - Het nummer bepaalt de volgorde: het hoogste nummer staat bovenaan.

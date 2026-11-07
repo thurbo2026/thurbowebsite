@@ -1,5 +1,6 @@
 # Instellingen voor het beheerscherm (Pages CMS, pagescms.org)
 # Velden met "EN" zijn de Engelse versie. Laat je die leeg, dan toont de site het Nederlands.
+# Links in teksten: [woord](https://adres). Losse https-adressen en e-mailadressen worden vanzelf klikbaar.
 media:
   input: img
   output: /img
@@ -54,8 +55,8 @@ content:
           - { name: bureau_of_begeleiding, label: Bureau of begeleiding, type: string }
           - { name: bureau_link, label: "Website bureau (https://...)", type: string }
           - { name: ontwerpteam, label: Ontwerpteam (alle namen), type: string }
-          - { name: tekst, label: Projecttekst, type: text }
-          - { name: tekst_en, label: Projecttekst EN, type: text }
+          - { name: tekst, label: "Projecttekst (link: [woord](https://adres))", type: text }
+          - { name: tekst_en, label: "Projecttekst EN (link: [word](https://address))", type: text }
           - name: fotos
             label: "Foto's (de eerste is ook de miniatuur)"
             type: object
@@ -80,6 +81,6 @@ content:
         fields:
           - { name: kop, label: Kop, type: string }
           - { name: kop_en, label: Kop EN, type: string }
-          - { name: tekst, label: Tekst, type: text }
-          - { name: tekst_en, label: Tekst EN, type: text }
+          - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
+          - { name: tekst_en, label: "Tekst EN (link: [word](https://address))", type: text }
           - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
