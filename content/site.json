@@ -642,13 +642,6 @@
       "kolom": "Thorben"
     },
     {
-      "kop": "LinkedIn",
-      "kop_en": "LinkedIn",
-      "tekst": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
-      "tekst_en": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
-      "kolom": "Thorben"
-    },
-    {
       "kop": "Beau Schellevis",
       "tekst": "Studeerde Bouwkunde aan de TU Delft (bachelor 2021–2025), met een minor Urbanism aan de University of Copenhagen. Liep stage bij de tenderafdeling van cepezed in Delft en volgt nu de master Architecture aan de TU Delft.",
       "kop_en": "Beau Schellevis",
@@ -656,38 +649,60 @@
       "kolom": "Beau"
     },
     {
-      "kop": "LinkedIn",
-      "kop_en": "LinkedIn",
-      "tekst": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
-      "tekst_en": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
-      "kolom": "Beau"
-    },
-    {
-      "kop": "E-mail",
-      "tekst": "info@thurbo.nl\nthorben@thurbo.nl\nbeau@thurbo.nl",
-      "kop_en": "E-mail",
-      "kolom": "Contact"
+      "kolom": "Studio",
+      "contact": true,
+      "kop": "",
+      "kop_en": "",
+      "tekst": "Voor opdrachten, prijsvragen en samenwerkingen: [info@thurbo.nl](mailto:info@thurbo.nl)",
+      "tekst_en": "For commissions, competitions and collaborations: [info@thurbo.nl](mailto:info@thurbo.nl)"
     },
     {
       "kop": "Instagram",
       "tekst": "@studio.thurbo",
       "kop_en": "Instagram",
       "link": "https://www.instagram.com/studio.thurbo/",
-      "kolom": "Contact"
+      "kolom": "Studio",
+      "contact": true
     },
     {
-      "kop": "Samenwerken",
-      "tekst": "Voor opdrachten, prijsvragen en samenwerkingen: stuur een e-mail.",
-      "kop_en": "Collaborate",
-      "tekst_en": "For commissions, competitions and collaborations: send an e-mail.",
-      "kolom": "Contact"
+      "kolom": "Thorben",
+      "contact": true,
+      "kop": "E-mail",
+      "kop_en": "E-mail",
+      "tekst": "thorben@thurbo.nl",
+      "tekst_en": "thorben@thurbo.nl"
+    },
+    {
+      "kop": "LinkedIn",
+      "kop_en": "LinkedIn",
+      "tekst": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
+      "tekst_en": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
+      "kolom": "Thorben",
+      "contact": true
+    },
+    {
+      "kolom": "Beau",
+      "contact": true,
+      "kop": "E-mail",
+      "kop_en": "E-mail",
+      "tekst": "beau@thurbo.nl",
+      "tekst_en": "beau@thurbo.nl"
+    },
+    {
+      "kop": "LinkedIn",
+      "kop_en": "LinkedIn",
+      "tekst": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
+      "tekst_en": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
+      "kolom": "Beau",
+      "contact": true
     },
     {
       "kop": "Colofon",
       "tekst": "Ontwerp en beelden: THURBO",
       "kop_en": "Colophon",
       "tekst_en": "Design and images: THURBO",
-      "kolom": "Colofon"
+      "kolom": "Studio",
+      "contact": true
     }
   ]
 }

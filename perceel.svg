@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none" font-family="'Courier Prime','Courier New',monospace">
   <style>
-    .l{stroke:#121212}.f{fill:#121212}.m{stroke:#8a8a84}.mf{fill:#6d6d68}
+    .l{stroke:#242424}.f{fill:#242424}.m{stroke:#8a8a84}.mf{fill:#6d6d68}
     @media (prefers-color-scheme:dark){.l{stroke:#ececea}.f{fill:#ececea}.m{stroke:#6d6d68}.mf{fill:#9a9a94}}
   </style>
   <!-- straat -->

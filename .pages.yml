@@ -83,11 +83,12 @@ content:
         list: true
         fields:
           - name: kolom
-            label: "Waar (Studio, Thorben en Beau zijn de drie kolommen)"
+            label: "Kolom (Studio, Thorben of Beau)"
             type: select
             options:
-              values: [Studio, Thorben, Beau, Contact, Colofon]
-          - { name: kop, label: Kop, type: string }
+              values: [Studio, Thorben, Beau]
+          - { name: contact, label: "Contactgegeven (komt onder het kopje Contact)", type: boolean }
+          - { name: kop, label: "Kop (mag leeg)", type: string }
           - { name: kop_en, label: Kop EN, type: string }
           - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
           - { name: tekst_en, label: "Tekst EN (link: [word](https://address))", type: text }

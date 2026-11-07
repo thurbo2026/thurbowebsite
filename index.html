@@ -12,13 +12,13 @@
 /* Layout: één kopregel, raster van dunne lijnen, beelden schermbreed. Zwart-wit; het werk draagt de kleur.
    De typemachineletter komt uit Thorbens portfolio en wordt gebruikt voor feiten en bijschriften. */
 :root{color-scheme:light;
-  --bg:#fbfbf9; --fg:#121212; --muted:#6d6d68; --line:#121212; --hair:#dcdcd5; --veil:rgba(251,251,249,.97);
+  --bg:#fbfbf9; --fg:#242424; --muted:#6d6d68; --line:#242424; --hair:#dcdcd5; --zwart:#242424; --veil:rgba(251,251,249,.97);
   --sans:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
   --type:"Courier Prime","Courier New",ui-monospace,monospace;
   --s1:clamp(15px,1.1vw + 11px,19px); --s2:clamp(17px,1.4vw + 12px,24px); --s3:clamp(32px,4vw + 14px,56px);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--hair:#33332f;--veil:rgba(17,17,16,.97);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--hair:#33332f;--veil:rgba(17,17,16,.97);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#242424;--fg:#ececea;--muted:#a3a39d;--line:#ececea;--hair:#3e3e3b;--veil:rgba(36,36,36,.97);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#242424;--fg:#ececea;--muted:#a3a39d;--line:#ececea;--hair:#3e3e3b;--veil:rgba(36,36,36,.97);color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--s1);line-height:1.4;margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
@@ -52,9 +52,9 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .lang span.on{color:var(--fg)}
 
 /* slideshow */
-.show{position:relative;width:100%;max-width:100%;aspect-ratio:3/4;max-height:86vh;overflow:hidden;background:#000}
+.show{position:relative;width:100%;max-width:100%;aspect-ratio:3/4;max-height:86vh;overflow:hidden;background:var(--zwart)}
 @media (min-width:800px){.show{aspect-ratio:16/9}}
-.show .baan{display:flex;height:100%;transition:transform 1.1s cubic-bezier(.65,0,.35,1);will-change:transform}
+.show .baan{display:flex;height:100%;transition:transform .85s cubic-bezier(.65,0,.35,1);will-change:transform}
 .show a{flex:0 0 100%;height:100%;display:block}
 .show img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
 body.turbo .show .baan{transition-duration:.12s}
@@ -63,23 +63,62 @@ body.turbo .show .baan{transition-duration:.12s}
 .capbar button{color:var(--fg)}
 @media (prefers-reduced-motion:reduce){.show .baan{transition:none}}
 
-/* menu */
-.menu{display:grid;grid-template-columns:1fr 1fr}
-.menu button,.menu a{aspect-ratio:1;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);font-size:var(--s2);text-transform:uppercase;letter-spacing:.04em;display:grid;place-items:center;text-align:center;padding:12px;text-decoration:none}
-.menu > :nth-child(2n){border-right:0}
-.menu button:hover,.menu a:hover{background:var(--fg);color:var(--bg)}
+/* menu: vouwt van boven open over de pagina */
+.menuvlak{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));bottom:0;z-index:19;background:var(--bg);color:var(--fg);overflow:auto;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s .75s}
+.menuvlak.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s}
+.mlijst{display:grid;padding-block:8px 0}
+.mitem{display:grid;grid-template-columns:3.2em 1fr auto;align-items:baseline;gap:12px;padding-block:clamp(10px,1.4vw,18px);border-bottom:1px solid var(--hair);text-decoration:none;text-align:left;width:100%;overflow:hidden}
+.mnr{font-family:var(--type);font-size:13px;color:var(--muted)}
+.mnaam{font-size:clamp(38px,5.4vw + 12px,104px);font-weight:300;line-height:1.02;letter-spacing:-.015em;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.mpijl{font-weight:300;font-size:clamp(24px,2vw + 12px,44px);opacity:0;transform:translateX(-14px);transition:opacity .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.mitem:hover .mnaam,.mitem:focus-visible .mnaam{transform:translateX(18px)}
+.mitem:hover .mpijl,.mitem:focus-visible .mpijl{opacity:1;transform:none}
+.mitem[aria-current="page"] .mnaam{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
+.mvoet{display:flex;flex-wrap:wrap;gap:10px 28px;padding-block:22px 32px;font-family:var(--type);font-size:13px;color:var(--muted)}
+.mvoet a,.mvoet button{color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+@media (prefers-reduced-motion:no-preference){
+  .mitem .mnaam,.mitem .mnr{transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
+  .menuvlak.open .mitem .mnaam,.menuvlak.open .mitem .mnr{transform:none;transition-delay:calc(var(--i) * 70ms + 180ms)}
+  .menuvlak.open .mitem:hover .mnaam{transform:translateX(18px);transition-delay:0s}
+  .mvoet{opacity:0;transition:opacity .6s .5s}
+  .menuvlak.open .mvoet{opacity:1}
+}
+@media (prefers-reduced-motion:reduce){.menuvlak,.menuvlak.open{transition:none}}
 @media (min-width:900px){.menu{grid-template-columns:repeat(3,1fr)}.menu > :nth-child(2n){border-right:1px solid var(--hair)}.menu > :nth-child(3n){border-right:0}.menu button,.menu a{aspect-ratio:4/3}}
 
-/* filter */
-.chips{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));z-index:15;background:var(--bg);display:flex;gap:10px 18px;flex-wrap:wrap;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--hair)}
-.weergave{margin-left:auto;display:flex;gap:14px;font-weight:300}
+/* paginakop: grote titel, rechts de knoppen; krimpt bij scrollen en blijft staan */
+.pkop{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));z-index:15;background:var(--bg);border-bottom:1px solid var(--hair)}
+.pkop-rij{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:clamp(22px,4vw,56px) 16px;transition:padding .45s cubic-bezier(.2,.7,.2,1)}
+.pkop h1{margin:0;font-weight:300;font-size:clamp(44px,5.2vw + 18px,96px);line-height:.95;letter-spacing:-.02em;transition:font-size .45s cubic-bezier(.2,.7,.2,1)}
+.pkop.klein .pkop-rij{padding-block:12px 12px}
+.pkop.klein h1{font-size:var(--s2);letter-spacing:0}
+.pctl{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;font-weight:300}
+.pctl button{color:var(--muted)}
+.pctl button:hover,.pctl button[aria-pressed="true"],.pctl button[aria-expanded="true"]{color:var(--fg)}
+.pctl .fknop{color:var(--fg);display:inline-flex;gap:8px;align-items:baseline}
+.pctl .fknop svg{width:.72em;height:.72em;stroke:currentColor;fill:none;stroke-width:1.4;transition:transform .4s}
+.pctl .fknop[aria-expanded="true"] svg{transform:rotate(180deg)}
+.fpaneel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s cubic-bezier(.76,0,.24,1)}
+.fpaneel.open{grid-template-rows:1fr}
+.fpaneel > div{overflow:hidden;min-height:0}
+.fkol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;padding-block:4px 26px}
+.fkol section{border-top:1px solid var(--line);padding-top:12px;display:grid;align-content:start;gap:6px}
+.fkol h3{margin:0 0 4px;font-size:1em;font-weight:500}
+.fkol button{text-align:left;color:var(--muted);font-weight:300}
+.fkol button:hover,.fkol button[aria-pressed="true"]{color:var(--fg)}
+.fkol button[aria-pressed="true"]{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.fzoek{display:flex;gap:10px;align-items:center}
+.fzoek svg{width:16px;height:16px;flex:none;stroke:var(--fg);fill:none;stroke-width:1.6}
+.fzoek input{flex:1;min-width:0;font:inherit;font-weight:300;color:var(--fg);background:none;border:0;outline:0;padding:2px 0;-webkit-appearance:none;appearance:none;border-radius:0}
+.fzoek input::placeholder{color:var(--muted)}
+@media (max-width:899px){.fkol{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}}
+@media (prefers-reduced-motion:reduce){.fpaneel,.pkop-rij,.pkop h1{transition:none}}
+.weergave{display:flex;gap:14px;font-weight:300}
 .weergave button{color:var(--muted)}
 .sorteer select{font:inherit;font-weight:300;color:var(--fg);background:none;border:0;border-bottom:1px solid var(--hair);padding:0 2px 1px;cursor:pointer;-webkit-appearance:none;appearance:none;border-radius:0}
 .sorteer select:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.chips button{color:var(--muted)}
-.chips button[aria-pressed="true"]{color:var(--fg);text-decoration:underline;text-underline-offset:5px}
-.chips button:hover{color:var(--fg)}
+
 
 /* projectraster */
 .grid{display:grid;grid-template-columns:1fr 1fr}
@@ -177,11 +216,7 @@ body.turbo .show .baan{transition-duration:.12s}
 @media (prefers-reduced-motion:no-preference){
   .zweef{opacity:0;transform:translateY(80px);transition:opacity 1.5s cubic-bezier(.16,1,.3,1),transform 1.6s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0ms)}
   .zweef.in{opacity:1;transform:none}
-  .menu > *{animation:uitvouw .7s cubic-bezier(.2,.75,.2,1) both;animation-delay:calc(var(--i) * 60ms)}
-  .menu.dicht > *{animation:invouw .28s cubic-bezier(.6,0,.8,.3) both;animation-delay:calc((5 - var(--i)) * 30ms)}
 }
-@keyframes uitvouw{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(-18px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
-@keyframes invouw{to{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(-12px)}}
 
 /* studio */
 .drie{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;padding-block:36px 48px}
@@ -189,12 +224,11 @@ body.turbo .show .baan{transition-duration:.12s}
 .ktekst{max-width:46ch}
 .kregel{margin:16px 0 0;font-size:.92em}
 .kregel span{display:block;font-family:var(--type);font-size:12px;color:var(--muted);margin-bottom:2px}
-.sprong{display:none}
-@media (max-width:899px){
-  .drie{grid-template-columns:1fr;gap:40px;padding-block:24px 40px}
-  .sprong{display:flex;gap:20px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));z-index:15;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--hair);overflow-x:auto;white-space:nowrap;font-weight:300}
-  .kolom,.kop2{scroll-margin-top:calc(var(--kop,62px) + 60px)}
-}
+.drie.con{padding-block:18px 72px}
+.cnaam{font-family:var(--type);font-size:12px;font-weight:400;color:var(--muted);margin:0 0 6px}
+.drie.con .kregel:first-of-type{margin-top:0}
+.kolom,.kop2{scroll-margin-top:calc(var(--kop,62px) + 70px)}
+@media (max-width:899px){.drie{grid-template-columns:1fr;gap:40px;padding-block:24px 40px}.drie.con{gap:28px}}
 .list{display:grid;grid-template-columns:minmax(110px,30%) 1fr;gap:26px 16px;padding-block:32px 40px;max-width:860px;margin:0}
 .kop2{font-size:var(--s2);font-weight:400;margin:0;padding-block:28px 0;border-top:1px solid var(--hair);scroll-margin-top:calc(var(--kop,62px) + 10px)}
 .list.klein{padding-block:8px 64px;font-size:.85em}
@@ -253,6 +287,7 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
     <button class="zoekknop" id="zoekknop"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg><span id="zoeklabel">Zoek</span></button>
   </div>
 </header>
+<div class="menuvlak" id="menuvlak" aria-hidden="true"></div>
 <main id="app"></main>
 <script>
 /* De inhoud staat in content/site.json en wordt beheerd via Pages CMS.
@@ -264,11 +299,11 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Projecten",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",sorteer:"Volgorde",eigen:"Onze volgorde",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Projects",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",sorteer:"Order",eigen:"Our order",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
       cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -313,7 +348,13 @@ function home(){
   const dia=(s,i)=>`<a href="${s.project?"#p"+esc(s.project):"#projecten"}" aria-label="${esc(L(s,"bijschrift"))}" draggable="false"><img src="${esc(s.beeld)}" alt="" draggable="false" ${i>1?'loading="lazy"':""}></a>`;
   app.innerHTML=`<div class="show fade"><div class="baan" style="transform:translateX(-${slide*100}%)">${S.map(dia).join("")}${S.length>1?dia(S[0],0):""}</div></div>
   <div class="capbar pad"><span id="cap">${esc(L(S[slide],"bijschrift"))}</span>${S.length>1?`<span class="nav"><button data-sl="-1" aria-label="${t("vorige")}">‹</button><span id="cnt">${slide+1}/${S.length}</span><button data-sl="1" aria-label="${t("volgende")}">›</button></span>`:""}</div>`;
-  play(); veegShow();
+  veegShow();
+  /* voorproefje: de show schuift even een stukje op, zodat je ziet dat er meer beelden zijn */
+  const baan=app.querySelector('.baan');
+  if(baan&&S.length>1&&!rustig()&&slide===0){
+    setTimeout(()=>{if(app.querySelector('.baan')!==baan)return;baan.style.transition='transform .55s cubic-bezier(.3,0,.2,1)';baan.style.transform='translateX(-9%)';
+      setTimeout(()=>{baan.style.transform='translateX(0)';setTimeout(()=>{baan.style.transition='';play()},560)},650)},500);
+  } else play();
 }
 function zetSlide(n){
   const S=SITE.slides, N=S.length, baan=app.querySelector('.baan'); if(!baan||N<2) return;
@@ -339,24 +380,71 @@ function veegShow(){
 function play(){
   clearInterval(timer);
   if(SITE.slides.length<2||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  timer=setInterval(()=>{ if(!document.hidden) zetSlide(slide+1) },5000);
+  timer=setInterval(()=>{ if(!document.hidden) zetSlide(slide+1) },2000);
 }
 
-function menu(){
-  const ig=SITE.studio.find(x=>/instagram/i.test(x.kop)&&x.link);
-  let i=0;
-  app.innerHTML=`<nav class="menu">${[["projecten","werk"],["studies","studies"],["studio","studio"],["contact","contact"]].map(([h,k])=>`<button data-go="${h}" style="--i:${i++}">${t(k)}</button>`).join("")}
-    ${ig?`<a href="${esc(ig.link)}" target="_blank" rel="noopener" style="--i:${i++}">Instagram</a>`:""}
-    <button data-taal="1" style="--i:${i++}">${lang==="nl"?"English":"Nederlands"}</button></nav>`;
+const menuvlak=document.getElementById('menuvlak');
+function vulMenu(){
+  const h=location.hash.slice(1);
+  const links=SITE.studio.flatMap(x=>{const r=[];const tx=L(x,"tekst")||"";
+    if(x.link) r.push([L(x,"kop"),x.link]);
+    for(const m of tx.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)) r.push([/linkedin/i.test(m[2])?"LinkedIn "+(x.kolom||""):m[1],m[2]]);
+    return r}).filter(([n,u])=>/instagram|linkedin/i.test(u));
+  const items=[["projecten","werk"],["studies","studies"],["studio","studio"],["contact","contact"]];
+  menuvlak.innerHTML=`<nav class="mlijst pad" aria-label="Menu">${items.map(([hh,k],i)=>`<button class="mitem" data-go="${hh}" style="--i:${i}"${h===hh||(hh==="projecten"&&h==="werk")?' aria-current="page"':""}><span class="mnr">0${i+1}</span><span class="mnaam">${t(k)}</span><span class="mpijl" aria-hidden="true">→</span></button>`).join("")}</nav>
+    <div class="mvoet pad">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}<button data-taal="1">${lang==="nl"?"English":"Nederlands"}</button></div>`;
 }
+function zetMenu(aan){
+  menuOpen=aan; burger.classList.toggle('x',aan); burger.setAttribute('aria-expanded',aan);
+  if(aan) vulMenu();
+  menuvlak.classList.toggle('open',aan); menuvlak.setAttribute('aria-hidden',!aan);
+  document.documentElement.style.overflow=aan?"hidden":"";
+  if(aan) setTimeout(()=>menuvlak.querySelector('.mitem')?.focus({preventScroll:true}),300);
+}
+menuvlak.addEventListener('click',e=>{
+  const b=e.target.closest('button,a'); if(!b) return;
+  if(b.dataset.go){const g=b.dataset.go;
+    if(g==="projecten"||g==="studies"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
+    zetMenu(false); if(location.hash==="#"+g) render(); else location.hash=g}
+  if(b.dataset.taal){zetTaal(lang==="nl"?"en":"nl");vulMenu();render()}
+});
+/* ===== paginakop ===== */
+const pijlOmlaag='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4 6 8.5 10.5 4"/></svg>';
+const vergrootglas='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg>';
+function paginakop(titel,knoppen,paneel){
+  return `<div class="pkop pad" id="pkop"><div class="pkop-rij"><h1>${esc(titel)}</h1><div class="pctl">${knoppen||""}</div></div>${paneel||""}</div>`;
+}
+/* krimp de titel zodra je scrolt */
+addEventListener('scroll',()=>{const k=document.getElementById('pkop');if(k)k.classList.toggle('klein',scrollY>30)},{passive:true});
+
+let filterOpen=false, lokaal="";
 function werk(alleenStudies){
-  const lijst=gesorteerd(SITE.projecten.filter(p=>(!alleenStudies||p.cat==="Studie")&&(filter==="Alle"||p.cat===filter)&&(persoon==="Alle"||p.door.includes(persoon))));
-  const chips=`<div class="chips pad">${["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${esc(c)}">${c==="Alle"?t("alle"):esc(catNaam(c))}</button>`).join("")}
-    <span class="weergave"><label class="sorteer"><span class="vh">${t("sorteer")}</span><select id="sorteer" aria-label="${t("sorteer")}">${["eigen","nieuw","oud","az"].map(o=>`<option value="${o}"${o===sorteer?" selected":""}>${t(o)}</option>`).join("")}</select></label>${["raster","lijst","kaart"].map(w=>`<button data-w="${w}" aria-pressed="${w===weergave}">${t(w)}</button>`).join("")}</span></div>`;
-  if(!lijst.length){app.innerHTML=chips+`<div class="grid"><p class="empty">${t("leeg")}</p></div>`;return}
-  if(weergave==="lijst"){app.innerHTML=chips+`<div class="lijstw">${lijst.map(rij).join("")}</div>`;zweef();sleepStroken();return}
-  if(weergave==="kaart"){kaart(lijst,chips);return}
-  app.innerHTML=chips+`<div class="grid">${lijst.map(p=>cel(p)).join("")}</div>`;
+  const n=(filter!=="Alle")+(persoon!=="Alle")+(sorteer!=="eigen")+(lokaal.trim()?1:0);
+  const knoppen=`${["raster","lijst","kaart"].map(w=>`<button data-w="${w}" aria-pressed="${w===weergave}">${t(w)}</button>`).join("")}
+    <button class="fknop" id="fknop" aria-expanded="${filterOpen}" aria-controls="fpaneel">${t("filter")}${n?` (${n})`:""}${pijlOmlaag}</button>`;
+  const kol=(kop,items)=>`<section><h3>${kop}</h3>${items}</section>`;
+  const paneel=`<div class="fpaneel${filterOpen?" open":""}" id="fpaneel"><div><div class="fkol">
+    ${kol(t("fcat"),["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${esc(c)}">${c==="Alle"?t("alle"):esc(catNaam(c))}</button>`).join(""))}
+    ${kol(t("fdoor"),[["Alle",t("iedereen")],["Thorben",NAMEN.Thorben],["Beau",NAMEN.Beau]].map(([k,v])=>`<button aria-pressed="${k===persoon}" data-pf="${k}">${esc(v)}</button>`).join(""))}
+    ${kol(t("fvolg"),["eigen","nieuw","oud","az"].map(o=>`<button aria-pressed="${o===sorteer}" data-sort="${o}">${t(o)}</button>`).join(""))}
+    ${kol(t("fzoek"),`<label class="fzoek">${vergrootglas}<input id="lokaal" type="search" autocomplete="off" placeholder="${t("zoekhint")}" value="${esc(lokaal)}" aria-label="${t("fzoek")}"></label>`)}
+  </div></div></div>`;
+  app.innerHTML=paginakop(alleenStudies?t("studies"):t("werk"),knoppen,paneel)+`<div id="res"></div>`;
+  document.getElementById('pkop').classList.toggle('klein',scrollY>30);
+  const inp=document.getElementById('lokaal');
+  inp.addEventListener('input',()=>{lokaal=inp.value;resultaten(alleenStudies);const f=document.getElementById('fknop');const m=(filter!=="Alle")+(persoon!=="Alle")+(sorteer!=="eigen")+(lokaal.trim()?1:0);f.firstChild.textContent=t("filter")+(m?` (${m})`:"")});
+  resultaten(alleenStudies);
+}
+function resultaten(alleenStudies){
+  const res=document.getElementById('res'); if(!res) return;
+  let lijst=SITE.projecten.filter(p=>(!alleenStudies||p.cat==="Studie")&&(filter==="Alle"||p.cat===filter)&&(persoon==="Alle"||p.door.includes(persoon)));
+  if(lokaal.trim()){const ok=new Set(treffers(lokaal));lijst=lijst.filter(p=>ok.has(p))}
+  lijst=gesorteerd(lijst);
+  if(kaartObj){kaartObj.remove();kaartObj=null}
+  if(!lijst.length){res.innerHTML=`<div class="grid"><p class="empty">${t("leeg")}</p></div>`;return}
+  if(weergave==="lijst"){res.innerHTML=`<div class="lijstw">${lijst.map(rij).join("")}</div>`;zweef();sleepStroken();return}
+  if(weergave==="kaart"){kaart(lijst,"",res);return}
+  res.innerHTML=`<div class="grid">${lijst.map(p=>cel(p)).join("")}</div>`;
   zweef();
 }
 /* ===== volgorde ===== */
@@ -403,10 +491,10 @@ function laadLeaflet(){
     const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';sc.onload=()=>ok(window.L);sc.onerror=fout;document.head.appendChild(sc);
   });
 }
-function kaart(lijst,chips){
+function kaart(lijst,chips,doel){
   const met=lijst.filter(p=>isFinite(parseFloat(p.lat))&&isFinite(parseFloat(p.lng)));
   const zonder=lijst.filter(p=>!met.includes(p));
-  app.innerHTML=chips+`<div class="kaart" id="kaart"></div>${zonder.length?`<p class="zonder pad">${t("zonder")} ${zonder.map(p=>`<a href="#p${esc(p.nr)}">${esc(p.nr)} ${esc(L(p,"titel"))}</a>`).join(", ")}</p>`:""}`;
+  (doel||app).innerHTML=chips+`<div class="kaart" id="kaart"></div>${zonder.length?`<p class="zonder pad">${t("zonder")} ${zonder.map(p=>`<a href="#p${esc(p.nr)}">${esc(p.nr)} ${esc(L(p,"titel"))}</a>`).join(", ")}</p>`:""}`;
   laadLeaflet().then(Lf=>{
     const el=document.getElementById('kaart'); if(!el) return;
     if(kaartObj){kaartObj.remove();kaartObj=null}
@@ -465,7 +553,7 @@ function zoekTekst(p){
   return v.filter(Boolean).join(" \u2022 ");
 }
 function zoek(){
-  app.innerHTML=`<div class="zoekveld pad"><input id="zoekin" type="search" enterkeyhint="search" autocomplete="off" placeholder="${t("zoekhint")}" aria-label="${t("zoek")}" value="${esc(zoekterm)}"><button id="wis" aria-label="${t("wis")}" ${zoekterm?"":"hidden"}>×</button></div><div id="zoekres"></div>`;
+  app.innerHTML=paginakop(t("zoektitel"),"","")+`<div class="zoekveld pad"><input id="zoekin" type="search" enterkeyhint="search" autocomplete="off" placeholder="${t("zoekhint")}" aria-label="${t("zoek")}" value="${esc(zoekterm)}"><button id="wis" aria-label="${t("wis")}" ${zoekterm?"":"hidden"}>×</button></div><div id="zoekres"></div>`;
   const inp=document.getElementById('zoekin');
   inp.addEventListener('keydown',e=>{if(e.key==="Escape"&&inp.value){e.preventDefault();document.getElementById('wis').click()}});
   inp.addEventListener('input',()=>{zoekterm=inp.value;document.getElementById('wis').hidden=!zoekterm;
@@ -553,13 +641,15 @@ function studioKolommen(naarContact){
   const inhoud=x=>{const tx=L(x,"tekst");return x.link?ext(x.link,tx||x.link):rijk(tx)};
   const groep=k=>SITE.studio.filter(x=>x.kolom===k);
   const kols=["Studio","Thorben","Beau"].filter(k=>groep(k).length);
-  const con=groep("Contact"), col=groep("Colofon");
-  const sprong=[...kols.map(k=>[`k-${k}`,L(groep(k)[0],"kop").split(" ")[0]]),...(con.length?[["contact",t("contactkop")]]:[])];
-  app.innerHTML=`<nav class="sprong pad" aria-label="Studio">${sprong.map(([id,n])=>`<button data-spring="${id}">${esc(n)}</button>`).join("")}</nav>
-  <div class="drie pad fade">${kols.map(k=>{const r=groep(k);return `<section class="kolom" id="k-${k}"><h2>${esc(L(r[0],"kop"))}</h2><div class="ktekst">${inhoud(r[0])}</div>
-    ${r.slice(1).map(x=>`<p class="kregel"><span>${esc(L(x,"kop"))}</span>${inhoud(x)}</p>`).join("")}</section>`}).join("")}</div>
-  ${con.length?`<h2 class="kop2 pad" id="contact">${t("contactkop")}</h2><dl class="list pad">${con.map(x=>`<dt>${esc(L(x,"kop"))}</dt><dd>${inhoud(x)}</dd>`).join("")}</dl>`:""}
-  ${col.length?`<dl class="list klein pad">${col.map(x=>`<dt>${esc(L(x,"kop"))}</dt><dd>${inhoud(x)}</dd>`).join("")}</dl>`:""}`;
+  /* bovenaan wie we zijn; daaronder per kolom de contactgegevens (veld contact) */
+  const over=k=>groep(k).filter(x=>!x.contact), con=k=>groep(k).filter(x=>x.contact);
+  const regel=x=>`<p class="kregel">${L(x,"kop")?`<span>${esc(L(x,"kop"))}</span>`:""}${inhoud(x)}</p>`;
+  const heeftCon=kols.some(k=>con(k).length);
+  const sprong=[...kols.map(k=>[`k-${k}`,(L(over(k)[0]||groep(k)[0],"kop")||k).split(" ")[0]]),...(heeftCon?[["contact",t("contactkop")]]:[])];
+  app.innerHTML=paginakop(t("studio"),sprong.map(([id,n])=>`<button data-spring="${id}">${esc(n)}</button>`).join(""),"")+`
+  <div class="drie pad fade">${kols.map(k=>{const r=over(k);if(!r.length)return "<div></div>";return `<section class="kolom" id="k-${k}"><h2>${esc(L(r[0],"kop"))}</h2><div class="ktekst">${inhoud(r[0])}</div>${r.slice(1).map(regel).join("")}</section>`}).join("")}</div>
+  ${heeftCon?`<h2 class="kop2 pad" id="contact">${t("contactkop")}</h2><div class="drie con pad">${kols.map(k=>`<section class="kolom"><h3 class="cnaam">${esc(L(over(k)[0]||{kop:k},"kop"))}</h3>${con(k).map(regel).join("")}</section>`).join("")}</div>`:""}`;
+  document.getElementById('pkop').classList.toggle('klein',scrollY>30);
   if(naarContact) requestAnimationFrame(()=>document.getElementById('contact')?.scrollIntoView({behavior:rustig()?"auto":"smooth"}));
 }
 function niets(){
@@ -618,9 +708,7 @@ function render(){
   clearInterval(timer);
   if(kaartObj){kaartObj.remove();kaartObj=null}
   const h=location.hash.slice(1);
-  burger.classList.toggle('x',menuOpen);
-  if(h==="zoek"&&!menuOpen) document.getElementById("zoekknop").setAttribute("aria-current","page"); else document.getElementById("zoekknop").removeAttribute("aria-current");
-  if(menuOpen) return menu();
+  if(h==="zoek") document.getElementById("zoekknop").setAttribute("aria-current","page"); else document.getElementById("zoekknop").removeAttribute("aria-current");
   if(open){beeld=open.k;tab=open.s;open=null}
   if(h==="werk"||h==="projecten") return werk(false);
   if(h==="studies") return werk(true);
@@ -631,32 +719,31 @@ function render(){
   if(h) return niets();
   home();
 }
-burger.onclick=()=>{
-  const m=app.querySelector('.menu');
-  if(menuOpen&&m&&!rustig()){m.classList.add('dicht');burger.classList.remove('x');setTimeout(()=>{menuOpen=false;render()},300);return}
-  menuOpen=!menuOpen;render();window.scrollTo(0,0)};
+burger.onclick=()=>zetMenu(!menuOpen);
 document.getElementById('lang').onclick=()=>{zetTaal(lang==="nl"?"en":"nl");render()};
-document.getElementById('zoekknop').onclick=()=>{menuOpen=false;zoekterm="";if(location.hash==="#zoek") render(); else location.hash="zoek"};
+document.getElementById('zoekknop').onclick=()=>{zetMenu(false);zoekterm="";if(location.hash==="#zoek") render(); else location.hash="zoek"};
 document.querySelector('.name').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   if(b.classList.contains('brand')) telTik();
-  persoon=b.dataset.p; menuOpen=false;
+  persoon=b.dataset.p; zetMenu(false);
   document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x===b));
   const h=location.hash.slice(1);
   if(persoon==="Alle"){ if(h) location.hash=""; else render(); window.scrollTo(0,0); return; }
   if(["werk","projecten","studies"].includes(h)) render(); else location.hash="projecten";
 });
-addEventListener('hashchange',()=>{menuOpen=false;beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)});
+addEventListener('hashchange',()=>{if(menuOpen) zetMenu(false);beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)});
 app.addEventListener('click',e=>{
   if(location.hash==="#zoek"&&e.target.closest('.cell')&&zoekterm.trim()) logZoek(zoekterm);
   const b=e.target.closest('button'); if(!b) return;
-  if(b.dataset.go){menuOpen=false;
-    if(b.dataset.go==="projecten"||b.dataset.go==="studies"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
-    if(location.hash==="#"+b.dataset.go) render(); else location.hash=b.dataset.go}
-  if(b.dataset.taal){menuOpen=false;zetTaal(lang==="nl"?"en":"nl");render()}
-  if(b.dataset.f){filter=b.dataset.f;render()}
+
+  if(b.id==="fknop"){filterOpen=!filterOpen;b.setAttribute('aria-expanded',filterOpen);document.getElementById('fpaneel').classList.toggle('open',filterOpen);if(filterOpen)setTimeout(()=>{},0)}
+  if(b.dataset.f||b.dataset.pf||b.dataset.sort){
+    if(b.dataset.f) filter=b.dataset.f;
+    if(b.dataset.pf){persoon=b.dataset.pf;document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.p===persoon))}
+    if(b.dataset.sort) sorteer=b.dataset.sort;
+    const y=scrollY; render(); scrollTo(0,y)}
   if(b.dataset.spring){document.getElementById(b.dataset.spring)?.scrollIntoView({behavior:rustig()?"auto":"smooth"})}
-  if(b.dataset.w){weergave=b.dataset.w;try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){};render()}
+  if(b.dataset.w){weergave=b.dataset.w;try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){};const y=scrollY;render();scrollTo(0,Math.min(y,80))}
   if(b.dataset.open){if(gesleept){gesleept=false;return}const [nr,s,k]=b.dataset.open.split("|");open={s,k:+k};location.hash="p"+nr}
   if(b.dataset.sl){zetSlide(slide+ +b.dataset.sl);play()}
   if(b.dataset.step&&cur){const n=cur[tab].length;beeld=((Math.min(beeld,n-1))+ +b.dataset.step+n)%n;render()}
@@ -665,10 +752,10 @@ app.addEventListener('click',e=>{
   if(b.id==="grootBtn") vergroot();
   if(b.id==="infoBtn") document.getElementById('info').scrollIntoView({behavior:"smooth"});
 });
-app.addEventListener('change',e=>{if(e.target.id==='sorteer'){sorteer=e.target.value;render()}});
 addEventListener('keydown',e=>{
   const lb=document.querySelector('.lb');
   if(e.key==="Escape"&&lb){lb.remove();return}
+  if(e.key==="Escape"&&menuOpen){zetMenu(false);burger.focus();return}
   if(lb) return;
   if(cur&&/^#p/.test(location.hash)&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){const n=cur[tab].length;beeld=(Math.min(beeld,n-1)+(e.key==="ArrowRight"?1:-1)+n)%n;render()}
 });
