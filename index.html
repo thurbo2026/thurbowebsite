@@ -162,7 +162,13 @@ button.bitem{cursor:zoom-in}
 .phead{align-items:center}
 .pkop h1{margin:0;font-weight:300;font-size:clamp(30px,2.6vw + 14px,60px);line-height:1.02;letter-spacing:-.015em;transform-origin:0 100%;will-change:transform}
 .pctl{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;font-weight:300}
-@media (max-width:699px){.pctl:has(.fknop){flex:1 1 100%;flex-wrap:nowrap;gap:8px 20px}.pctl .fknop{margin-left:auto}}
+.ktitel{display:none}
+@media (max-width:699px){.pctl:has(.fknop){flex:1 1 100%;flex-wrap:nowrap;gap:8px 20px}.pctl .fknop{margin-left:auto}
+  /* bij scrollen: alleen de titel met het filter ernaast */
+  .pkop.compact .ktitel{display:inline;color:var(--fg);font-weight:400;animation:inzwaai .3s ease}
+  .pkop.compact .pctl [data-w]{display:none}
+  .pkop.compact .pctl .fknop{margin-left:0}}
+@keyframes inzwaai{from{opacity:0}to{opacity:1}}
 .pctl button{color:var(--muted)}
 .pctl button:hover,.pctl button[aria-pressed="true"],.pctl button[aria-expanded="true"]{color:var(--fg)}
 .pctl .fknop{color:var(--fg);display:inline-flex;gap:8px;align-items:baseline}
@@ -696,6 +702,7 @@ function pasKop(){
   const p=kopMaat.krimp?Math.min(1,Math.max(0,scrollY/kopMaat.krimp)):0;
   kopMaat.h1.style.transform=`scale(${1-(1-kopMaat.schaal)*p})`;
   kopMaat.h1.style.opacity=kopMaat.naast?1:Math.max(0,1-p*1.6);
+  kopMaat.k.classList.toggle('compact',!kopMaat.naast&&p>.85);
 }
 let kopRaf=0;
 addEventListener('scroll',()=>{if(!kopRaf) kopRaf=requestAnimationFrame(()=>{kopRaf=0;pasKop();sluitFilterBijScroll()})},{passive:true});
@@ -715,7 +722,7 @@ addEventListener('keydown',e=>{if(filterOpen&&["ArrowDown","ArrowUp","PageDown",
 document.addEventListener('click',e=>{ if(filterOpen&&!e.target.closest('#pkop')) zetFilter(false) });
 function werk(alleenStudies){
   const n=(filter!=="Alle")+(persoon!=="Alle")+(sorteer!=="eigen")+(lokaal.trim()?1:0);
-  const knoppen=`${["raster","lijst","kaart"].map(w=>`<button data-w="${w}" aria-pressed="${w===weergave}">${t(w)}</button>`).join("")}
+  const knoppen=`<span class="ktitel" aria-hidden="true">${alleenStudies?t("studies"):t("werk")}</span>${["raster","lijst","kaart"].map(w=>`<button data-w="${w}" aria-pressed="${w===weergave}">${t(w)}</button>`).join("")}
     <button class="fknop" id="fknop" aria-expanded="${filterOpen}" aria-controls="fpaneel">${t("filter")}${n?` (${n})`:""}${pijlOmlaag}</button>`;
   const kol=(kop,items)=>`<section><h3>${kop}</h3>${items}</section>`;
   const paneel=`<div class="fpaneel${filterOpen?" open":""}" id="fpaneel"><div><div class="fkol">
