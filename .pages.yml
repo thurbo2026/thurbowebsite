@@ -23,7 +23,7 @@ content:
           - { name: project, label: "Linkt naar project (nummer, bijv. 04; leeg = overzicht)", type: string }
 
       - name: projecten
-        label: Projecten
+        label: "Projecten (sleep om de volgorde op de site te bepalen)"
         type: object
         list: true
         fields:
@@ -44,6 +44,7 @@ content:
               multiple: true
               values: [Thorben, Beau]
           - { name: jaar, label: Jaar, type: string }
+          - { name: datum, label: "Datum voor sorteren (jjjj-mm, bijv. 2024-06)", type: string }
           - { name: locatie, label: Locatie, type: string }
           - { name: locatie_en, label: Locatie EN, type: string }
           - { name: lat, label: "Kaart: breedtegraad (bijv. 51.4486)", type: string }
@@ -81,6 +82,11 @@ content:
         type: object
         list: true
         fields:
+          - name: kolom
+            label: "Waar (Studio, Thorben en Beau zijn de drie kolommen)"
+            type: select
+            options:
+              values: [Studio, Thorben, Beau, Contact, Colofon]
           - { name: kop, label: Kop, type: string }
           - { name: kop_en, label: Kop EN, type: string }
           - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
