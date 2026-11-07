@@ -42,7 +42,12 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .name .brand{font-weight:500;letter-spacing:.02em}
 .name button[aria-pressed="true"]{text-decoration-line:underline}
 .name button:hover{text-decoration-line:underline;text-decoration-style:dotted}
-.lang{margin-left:auto;flex:none;font-weight:300;letter-spacing:.04em;white-space:nowrap}
+.rechts{margin-left:auto;flex:none;display:flex;align-items:baseline;gap:18px}
+@media (max-width:699px){.rechts{flex-direction:column;align-items:flex-end;gap:4px}}
+.lang,.zoekknop{font-weight:300;letter-spacing:.04em;white-space:nowrap}
+.zoekknop{display:inline-flex;align-items:center;gap:6px}
+.zoekknop svg{width:.8em;height:.8em;stroke:currentColor;fill:none;stroke-width:1.6}
+.zoekknop[aria-current="page"]{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 .lang span{color:var(--muted)}
 .lang span.on{color:var(--fg)}
 
@@ -126,6 +131,16 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .list dd{margin:0;max-width:56ch;min-width:0;overflow-wrap:anywhere}
 @media (prefers-reduced-motion:no-preference){.fade{animation:f .35s ease}@keyframes f{from{opacity:.4}}}
 
+/* zoeken */
+.zoekveld{display:flex;align-items:baseline;gap:12px;padding-block:22px 14px;border-bottom:1px solid var(--line)}
+.zoekveld input{-webkit-appearance:none;appearance:none;border-radius:0;flex:1;min-width:0;font-family:var(--sans);font-size:clamp(26px,3vw+14px,44px);font-weight:300;color:var(--fg);background:none;border:0;outline:0;padding:0;line-height:1.1}
+.zoekveld input::placeholder{color:var(--muted)}
+.zoekveld input::-webkit-search-cancel-button,.zoekveld input::-webkit-search-decoration{-webkit-appearance:none;display:none}
+.zoekveld button{font-family:var(--type);font-size:13px;color:var(--muted)}
+.zoekinfo{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:12px;margin:0;border-bottom:1px solid var(--line)}
+.treffer{font-family:var(--type);font-size:12px;color:var(--muted);white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.treffer mark{background:none;color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+
 /* ===== easter eggs ===== */
 .toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:60;font-family:var(--type);font-size:clamp(20px,3vw,34px);background:var(--fg);color:var(--bg);padding:14px 22px;white-space:nowrap;pointer-events:none}
 @media (prefers-reduced-motion:no-preference){.toast{animation:toast 2.4s ease forwards}}
@@ -157,7 +172,10 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 <header id="hdr" class="pad">
   <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
   <nav class="name" aria-label="Filter"><button class="brand" data-p="Alle" aria-pressed="true">THURBO</button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
-  <button class="lang" id="lang" aria-label="Taal / Language"><span data-l="nl">NL</span> / <span data-l="en">EN</span></button>
+  <div class="rechts">
+    <button class="lang" id="lang" aria-label="Taal / Language"><span data-l="nl">NL</span> / <span data-l="en">EN</span></button>
+    <button class="zoekknop" id="zoekknop"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg><span id="zoeklabel">Zoek</span></button>
+  </div>
 </header>
 <main id="app"></main>
 <script>
@@ -170,11 +188,11 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Werk",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",turbo:"Thurbo, niet turbo.",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek op project, plaats, materiaal, naam…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,allep:"Typ om te zoeken in alle projecten.",turbo:"Thurbo, niet turbo.",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Work",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",turbo:"Thurbo, not turbo.",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects, places, materials, names…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,allep:"Type to search all projects.",turbo:"Thurbo, not turbo.",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
       cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -241,10 +259,44 @@ function menu(){
 function werk(alleenStudies){
   const lijst=SITE.projecten.filter(p=>(!alleenStudies||p.cat==="Studie")&&(filter==="Alle"||p.cat===filter)&&(persoon==="Alle"||p.door.includes(persoon)));
   app.innerHTML=`<div class="chips pad">${["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${esc(c)}">${c==="Alle"?t("alle"):esc(catNaam(c))}</button>`).join("")}</div>
-  <div class="grid fade">${lijst.length?lijst.map(p=>`<a class="cell" href="#p${esc(p.nr)}">
+  <div class="grid fade">${lijst.length?lijst.map(p=>cel(p)).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
+}
+/* ===== zoeken ===== */
+let zoekterm="";
+const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+function zoekTekst(p){
+  const v=["titel","plaats","locatie","opgave","type","status","tekst"].flatMap(k=>[p[k],p[k+"_en"]]);
+  v.push(p.nr,p.jaar,p.cat,catNaam(p.cat),p.bureau_of_begeleiding,p.ontwerpteam,...p.door.map(d=>NAMEN[d]));
+  [...p.fotos,...p.tekeningen].forEach(f=>v.push(f.bijschrift,f.bijschrift_en));
+  return v.filter(Boolean).join(" \u2022 ");
+}
+function zoek(){
+  app.innerHTML=`<div class="zoekveld pad"><input id="zoekin" type="search" enterkeyhint="search" autocomplete="off" placeholder="${t("zoekhint")}" aria-label="${t("zoek")}" value="${esc(zoekterm)}"><button id="wis" ${zoekterm?"":"hidden"}>${t("wis")}</button></div><div id="zoekres"></div>`;
+  const inp=document.getElementById('zoekin');
+  inp.addEventListener('input',()=>{zoekterm=inp.value;document.getElementById('wis').hidden=!zoekterm;
+    if(norm(zoekterm).trim()==="turbo") turbo();
+    toonTreffers()});
+  document.getElementById('wis').onclick=()=>{zoekterm="";inp.value="";inp.focus();document.getElementById('wis').hidden=true;toonTreffers()};
+  toonTreffers(); setTimeout(()=>inp.focus({preventScroll:true}),50);
+}
+function toonTreffers(){
+  const res=document.getElementById('zoekres'); if(!res) return;
+  const woorden=norm(zoekterm).split(/\s+/).filter(w=>w.length>0);
+  if(!woorden.length){res.innerHTML=`<p class="zoekinfo pad">${t("allep")}</p>`;return}
+  const lijst=SITE.projecten.map(p=>{const tx=zoekTekst(p),n=norm(tx);return {p,tx,n,ok:woorden.every(w=>n.includes(w))}}).filter(x=>x.ok);
+  res.innerHTML=`<p class="zoekinfo pad">${t("gevonden")(lijst.length)}</p><div class="grid fade">${lijst.length?lijst.map(({p,tx,n})=>{
+    /* korte passage rond het eerste gevonden woord; normaliseren laat de lengte gelijk als er geen accenten zijn */
+    const titelHit=woorden.every(w=>norm(L(p,"titel")+" "+L(p,"plaats")).includes(w));
+    let snip="";
+    if(!titelHit&&tx.length===n.length){const at=n.indexOf(woorden[0]);const a=Math.max(0,at-30);
+      snip=(a>0?"…":"")+esc(tx.slice(a,at))+"<mark>"+esc(tx.slice(at,at+woorden[0].length))+"</mark>"+esc(tx.slice(at+woorden[0].length,at+90))+"…";}
+    return cel(p,snip)}).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
+}
+function cel(p,extra){
+  return `<a class="cell" href="#p${esc(p.nr)}">
     <div class="num">${esc(p.nr)}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
     <div class="thumb">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="" loading="lazy">`:""}</div>
-    <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div></a>`).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
+    <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
 }
 function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
 function project(nr){
@@ -295,7 +347,7 @@ function toast(txt){const d=document.createElement('div');d.className='toast';d.
 /* 1. typ "turbo" */
 let getypt="";
 addEventListener('keydown',e=>{
-  if(e.metaKey||e.ctrlKey||e.altKey||e.key.length!==1) return;
+  if(e.metaKey||e.ctrlKey||e.altKey||e.key.length!==1||e.target.closest('input,textarea')) return;
   getypt=(getypt+e.key.toLowerCase()).slice(-5);
   if(getypt==="turbo"){getypt="";turbo()}
 });
@@ -331,6 +383,7 @@ function zetTaal(l){
   lang=l; try{localStorage.setItem('thurbo-lang',l)}catch(e){}
   document.documentElement.lang=l;
   document.querySelectorAll('#lang span').forEach(s=>s.classList.toggle('on',s.dataset.l===l));
+  document.getElementById('zoeklabel').textContent=T[l].zoek;
   burger.setAttribute('aria-label',l==="nl"?"Menu":"Menu");
 }
 function render(){
@@ -338,16 +391,19 @@ function render(){
   clearInterval(timer);
   const h=location.hash.slice(1);
   burger.classList.toggle('x',menuOpen);
+  if(h==="zoek"&&!menuOpen) document.getElementById("zoekknop").setAttribute("aria-current","page"); else document.getElementById("zoekknop").removeAttribute("aria-current");
   if(menuOpen) return menu();
   if(h==="werk") return werk(false);
   if(h==="studies") return werk(true);
   if(h==="studio"||h==="contact") return studio();
+  if(h==="zoek") return zoek();
   if(/^p[\w-]+$/.test(h)) return project(h.slice(1));
   if(h) return niets();
   home();
 }
 burger.onclick=()=>{menuOpen=!menuOpen;render();window.scrollTo(0,0)};
 document.getElementById('lang').onclick=()=>{zetTaal(lang==="nl"?"en":"nl");render()};
+document.getElementById('zoekknop').onclick=()=>{menuOpen=false;if(location.hash==="#zoek") render(); else location.hash="zoek"};
 document.querySelector('.name').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   if(b.classList.contains('brand')) telTik();
