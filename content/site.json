@@ -636,17 +636,45 @@
     },
     {
       "kop": "Thorben Contant",
-      "tekst": "Studeert architectuur aan de TU Delft (bachelor 2022–2025), met een uitwisseling aan de ETH Zürich in de studio van Adam Caruso. Werkte in 2025 als junior ontwerper bij LA^ARC op Lefkada.",
+      "tekst": "Studeert architectuur aan de TU Delft, waar hij de bachelor Architecture, Urbanism and Building Sciences volgde, samen met het Honours Programme. In 2024–2025 deed hij een uitwisseling aan de ETH Zürich, in de ontwerpstudio van Adam Caruso, met aanvullende vakken in onder meer maquettebouw en wereldwijde woningbouwvraagstukken. In 2025 werkte hij als junior architect bij [LA^ARC](https://www.la-rc.com/) op Lefkada: eerst op locatie in Griekenland, daarna op afstand naast zijn bachelor-eindproject. Hij ontwierp en tekende mee aan CRM Milos en had veel contact met de opdrachtgever.\n\nEerder volgde hij de Art & Design Pre-Academy aan ArtEZ in Arnhem. Bij studievereniging Stylos was hij secretaris van de Business Tour-commissie, en hij was mentor voor eerstejaars bouwkundestudenten. In 2018 hielp hij als vrijwilliger bij de inrichting van het Friendship-ziekenhuis in Shyamnagar, Bangladesh, dat later de RIBA International Prize won.",
       "kop_en": "Thorben Contant",
-      "tekst_en": "Studies architecture at TU Delft (bachelor 2022–2025), with an exchange at ETH Zürich in the studio of Adam Caruso. Worked in 2025 as a junior designer at LA^ARC on Lefkada.",
+      "tekst_en": "Studies architecture at TU Delft, where he followed the bachelor Architecture, Urbanism and Building Sciences together with the Honours Programme. In 2024–2025 he did an exchange at ETH Zürich, in the design studio of Adam Caruso, with additional courses in model making and global housing issues, among others. In 2025 he worked as a junior architect at [LA^ARC](https://www.la-rc.com/) on Lefkada: first on site in Greece, then remotely alongside his bachelor graduation project. He helped design and draw CRM Milos and was in close contact with the client.\n\nBefore that he followed the Art & Design Pre-Academy at ArtEZ in Arnhem. At the study association Stylos he was secretary of the Business Tour committee, and he mentored first-year architecture students. In 2018 he volunteered on the setup of the Friendship Hospital in Shyamnagar, Bangladesh, which later won the RIBA International Prize.",
       "kolom": "Thorben"
     },
     {
+      "kolom": "Thorben",
+      "kop": "Software",
+      "kop_en": "Software",
+      "tekst": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator",
+      "tekst_en": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator"
+    },
+    {
+      "kolom": "Thorben",
+      "kop": "Talen",
+      "kop_en": "Languages",
+      "tekst": "Nederlands en Duits (moedertaal), Engels",
+      "tekst_en": "Dutch and German (native), English"
+    },
+    {
       "kop": "Beau Schellevis",
-      "tekst": "Studeerde Bouwkunde aan de TU Delft (bachelor 2021–2025), met een minor Urbanism aan de University of Copenhagen. Liep stage bij de tenderafdeling van cepezed in Delft en volgt nu de master Architecture aan de TU Delft.",
+      "tekst": "Rondde in februari 2025 de bachelor Bouwkunde aan de TU Delft af, met een minor Urbanism aan de University of Copenhagen in het najaar van 2023. Daarna liep hij vijf maanden stage bij de tenderafdeling van [cepezed](https://www.cepezed.nl/) in Delft, waar hij werkte aan tenders voor onder meer een Europese School, een archiefbewaarplaats en een kantoorgebouw.\n\nNu volgt hij de master Architecture aan de TU Delft en is hij penningmeester van Bestuur 132 van D.B.S.G. Stylos, de studievereniging van Bouwkunde. Eerder was hij voorzitter van de Exchange-commissie en secretaris van de Business Tour-commissie. Naast architectuur gaat zijn interesse uit naar kunst, muziek, fotografie en goed eten.",
       "kop_en": "Beau Schellevis",
-      "tekst_en": "Studied Architecture at TU Delft (bachelor 2021–2025), with a minor in Urbanism at the University of Copenhagen. Interned in the tender department of cepezed in Delft and now follows the master Architecture at TU Delft.",
+      "tekst_en": "Completed the bachelor Architecture at TU Delft in February 2025, with a minor in Urbanism at the University of Copenhagen in autumn 2023. He then spent five months as an intern in the tender department of [cepezed](https://www.cepezed.nl/) in Delft, working on tenders for a European School, an archive building and an office building, among others.\n\nHe now follows the master Architecture at TU Delft and is treasurer of the 132nd board of D.B.S.G. Stylos, the study association of the Faculty of Architecture. Before that he chaired the Exchange committee and was secretary of the Business Tour committee. Besides architecture he is interested in art, music, photography and good food.",
       "kolom": "Beau"
+    },
+    {
+      "kolom": "Beau",
+      "kop": "Software",
+      "kop_en": "Software",
+      "tekst": "Rhino, Grasshopper, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator",
+      "tekst_en": "Rhino, Grasshopper, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator"
+    },
+    {
+      "kolom": "Beau",
+      "kop": "Talen",
+      "kop_en": "Languages",
+      "tekst": "Nederlands, Engels, Duits, Frans",
+      "tekst_en": "Dutch, English, German, French"
     },
     {
       "kolom": "Studio",
