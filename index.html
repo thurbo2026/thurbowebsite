@@ -248,11 +248,11 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Werk",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Work",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
       cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -387,7 +387,20 @@ function zweef(){
 }
 
 /* ===== zoeken ===== */
-let zoekterm="";
+let zoekterm="", populair=null, gelogd=new Set(), logTimer=null;
+/* meest gezochte termen ophalen (functions/api/zoek.js); mislukt dat, dan blijven de vaste suggesties staan */
+function haalPopulair(){
+  if(populair) return Promise.resolve(populair);
+  return fetch('/api/zoek').then(r=>r.ok?r.json():{termen:[]}).then(d=>populair=(d.termen||[]).map(x=>x.term)).catch(()=>populair=[]);
+}
+function logZoek(q){
+  q=norm(q).trim(); if(q.length<2||gelogd.has(q)) return; gelogd.add(q);
+  try{fetch('/api/zoek',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q}),keepalive:true}).catch(()=>{})}catch(e){}
+}
+function treffers(term){
+  const woorden=norm(term).split(/\s+/).filter(w=>w.length>0);
+  return SITE.projecten.filter(p=>{const n=norm(zoekTekst(p));return woorden.every(w=>n.includes(w))});
+}
 const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 function zoekTekst(p){
   const v=["titel","plaats","locatie","opgave","type","status","tekst"].flatMap(k=>[p[k],p[k+"_en"]]);
@@ -401,6 +414,8 @@ function zoek(){
   inp.addEventListener('keydown',e=>{if(e.key==="Escape"&&inp.value){e.preventDefault();document.getElementById('wis').click()}});
   inp.addEventListener('input',()=>{zoekterm=inp.value;document.getElementById('wis').hidden=!zoekterm;
     if(norm(zoekterm).trim()==="turbo") turbo();
+    clearTimeout(logTimer);
+    logTimer=setTimeout(()=>{const q=zoekterm;if(q.trim().length>=2&&treffers(q).length) logZoek(q)},1500);
     toonTreffers()});
   document.getElementById('wis').onclick=()=>{zoekterm="";inp.value="";inp.focus();document.getElementById('wis').hidden=true;toonTreffers()};
   toonTreffers(); setTimeout(()=>{inp.focus({preventScroll:true});inp.select()},50);
@@ -409,7 +424,12 @@ function toonTreffers(){
   const res=document.getElementById('zoekres'); if(!res) return;
   const woorden=norm(zoekterm).split(/\s+/).filter(w=>w.length>0);
   if(!woorden.length){
-    res.innerHTML=`<div class="suggesties pad"><span>${t("probeer")}</span>${t("sugg").map(w=>`<button data-zoek="${esc(w)}"${w==="Turbo"?' class="tb"':""}>${esc(w)}</button>`).join("")}</div>`;
+    /* veelgezochte termen die iets opleveren, aangevuld met vaste suggesties; Turbo staat er altijd bij */
+    const pop=(populair||[]).filter(w=>w!=="turbo"&&treffers(w).length).slice(0,5).map(w=>w.charAt(0).toUpperCase()+w.slice(1));
+    const vast=t("sugg").filter(w=>w!=="Turbo"&&!pop.some(p=>norm(p)===norm(w)));
+    const lijst=[...pop,...vast].slice(0,5).concat("Turbo");
+    res.innerHTML=`<div class="suggesties pad"><span>${pop.length?t("populair"):t("probeer")}</span>${lijst.map(w=>`<button data-zoek="${esc(w)}"${w==="Turbo"?' class="tb"':""}>${esc(w)}</button>`).join("")}</div>`;
+    if(!populair) haalPopulair().then(()=>{if(!norm(zoekterm).trim()&&document.getElementById('zoekres')) toonTreffers()});
     res.querySelectorAll('[data-zoek]').forEach(b=>b.onclick=()=>{const inp=document.getElementById('zoekin');inp.value=b.dataset.zoek;inp.dispatchEvent(new Event('input'));inp.focus({preventScroll:true})});
     return}
   const lijst=SITE.projecten.map(p=>{const tx=zoekTekst(p),n=norm(tx);return {p,tx,n,ok:woorden.every(w=>n.includes(w))}}).filter(x=>x.ok);
@@ -557,6 +577,7 @@ document.querySelector('.name').addEventListener('click',e=>{
 });
 addEventListener('hashchange',()=>{menuOpen=false;beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)});
 app.addEventListener('click',e=>{
+  if(location.hash==="#zoek"&&e.target.closest('.cell')&&zoekterm.trim()) logZoek(zoekterm);
   const b=e.target.closest('button'); if(!b) return;
   if(b.dataset.go){menuOpen=false; if(location.hash==="#"+b.dataset.go) render(); else location.hash=b.dataset.go}
   if(b.dataset.taal){menuOpen=false;zetTaal(lang==="nl"?"en":"nl");render()}
