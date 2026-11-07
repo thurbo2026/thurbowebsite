@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none" font-family="'Courier Prime','Courier New',monospace">
+  <style>
+    .l{stroke:#121212}.f{fill:#121212}.m{stroke:#8a8a84}.mf{fill:#6d6d68}
+    @media (prefers-color-scheme:dark){.l{stroke:#ececea}.f{fill:#ececea}.m{stroke:#6d6d68}.mf{fill:#9a9a94}}
+  </style>
+  <!-- straat -->
+  <line class="l" x1="20" y1="468" x2="780" y2="468" stroke-width="1.5"/>
+  <line class="m" x1="20" y1="500" x2="780" y2="500" stroke-dasharray="18 12"/>
+  <line class="l" x1="20" y1="532" x2="780" y2="532" stroke-width="1.5"/>
+  <text class="mf" x="400" y="520" font-size="13" text-anchor="middle" letter-spacing="3">STRAAT / STREET</text>
+  <!-- perceel (erfgrens) -->
+  <path class="l" d="M180 128 L612 112 L628 432 L168 444 Z" stroke-width="1.6" stroke-dasharray="14 5 2 5"/>
+  <!-- gras -->
+  <g class="m" stroke-width="1">
+    <path d="M232 190l4-9 4 9M290 250l4-9 4 9M360 182l4-9 4 9M430 232l4-9 4 9M520 176l4-9 4 9M560 262l4-9 4 9M250 330l4-9 4 9M330 384l4-9 4 9M410 320l4-9 4 9M488 380l4-9 4 9M566 350l4-9 4 9M300 300l4-9 4 9M470 290l4-9 4 9M380 410l4-9 4 9M540 410l4-9 4 9M220 400l4-9 4 9"/>
+  </g>
+  <!-- boom -->
+  <circle class="l" cx="566" cy="196" r="34" stroke-width="1"/>
+  <circle class="l" cx="566" cy="196" r="2.5" stroke-width="1"/>
+  <!-- maatvoering boven -->
+  <g class="l" stroke-width="1">
+    <line x1="180" y1="92" x2="612" y2="76"/><line x1="180" y1="84" x2="180" y2="122"/><line x1="612" y1="68" x2="612" y2="106"/>
+    <line x1="174" y1="98" x2="186" y2="86"/><line x1="606" y1="82" x2="618" y2="70"/>
+  </g>
+  <text class="f" x="396" y="74" font-size="15" text-anchor="middle" transform="rotate(-2.1 396 74)">24.000</text>
+  <!-- maatvoering links -->
+  <g class="l" stroke-width="1">
+    <line x1="140" y1="129" x2="128" y2="445"/><line x1="134" y1="129" x2="174" y2="129"/><line x1="122" y1="445" x2="162" y2="445"/>
+    <line x1="134" y1="135" x2="146" y2="123"/><line x1="122" y1="451" x2="134" y2="439"/>
+  </g>
+  <text class="f" x="116" y="290" font-size="15" text-anchor="middle" transform="rotate(-87.8 116 290)">18.500</text>
+  <!-- noordpijl -->
+  <g class="l" stroke-width="1.2">
+    <circle cx="712" cy="96" r="26"/>
+    <path d="M712 66 L722 112 L712 104 L702 112 Z" class="f"/>
+  </g>
+  <text class="f" x="712" y="58" font-size="14" text-anchor="middle">N</text>
+  <!-- schaalstok -->
+  <g class="l" stroke-width="1">
+    <rect x="40" y="402" width="18" height="7" class="f"/><rect x="58" y="402" width="18" height="7"/><rect x="76" y="402" width="36" height="7" class="f"/>
+  </g>
+  <text class="mf" x="40" y="426" font-size="11">0</text><text class="mf" x="55" y="426" font-size="11">1</text><text class="mf" x="73" y="426" font-size="11">2</text><text class="mf" x="106" y="426" font-size="11">4 m</text>
+  <!-- titelblok -->
+  <g class="l" stroke-width="1">
+    <rect x="644" y="300" width="146" height="104"/><line x1="644" y1="330" x2="790" y2="330"/><line x1="644" y1="356" x2="790" y2="356"/><line x1="644" y1="380" x2="790" y2="380"/>
+  </g>
+  <text class="f" x="654" y="321" font-size="15" letter-spacing="1">THURBO</text>
+  <text class="f" x="654" y="348" font-size="12">PERCEEL 404</text>
+  <text class="f" x="654" y="373" font-size="12">SCHAAL 1:200</text>
+  <text class="f" x="654" y="397" font-size="12">NIET VERGUND</text>
+</svg>

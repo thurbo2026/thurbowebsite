@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>THURBO · 404</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Courier+Prime&display=swap">
+<style>
+:root{color-scheme:light;--bg:#fbfbf9;--fg:#121212;--muted:#6d6d68;--line:#121212;
+  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;--type:"Courier Prime","Courier New",ui-monospace,monospace;
+  --s1:clamp(15px,1.1vw+11px,19px);--s2:clamp(17px,1.4vw+12px,24px)}
+@media (prefers-color-scheme:dark){:root{--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;color-scheme:dark}}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--s1);line-height:1.4;margin:0}
+a{color:inherit}
+.pad{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+header{border-bottom:1px solid var(--line);padding-block:18px;font-size:var(--s2)}
+header a{font-weight:500;letter-spacing:.02em;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:7px}
+main{max-width:980px;margin:0 auto;padding-block:32px 64px;display:grid;gap:24px}
+img{width:100%;height:auto;display:block}
+h1{font-weight:400;font-size:var(--s2);margin:0;text-wrap:balance}
+p{margin:0;font-family:var(--type);font-size:14px;color:var(--muted)}
+.terug{font-size:var(--s1);text-underline-offset:5px}
+</style>
+</head>
+<body>
+<header class="pad"><a href="/">THURBO</a></header>
+<main class="pad">
+  <img src="/perceel.svg" alt="Bouwtekening van een leeg perceel, schaal 1:200, met de stempel niet vergund">
+  <h1 id="kop">Hier is (nog) niets vergund.</h1>
+  <p id="sub">Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.</p>
+  <a class="terug" id="terug" href="/">Terug naar THURBO</a>
+</main>
+<script>
+var l; try{l=localStorage.getItem('thurbo-lang')}catch(e){}
+if(l!=="nl"&&l!=="en") l=(navigator.language||"nl").toLowerCase().indexOf("nl")===0?"nl":"en";
+if(l==="en"){document.documentElement.lang="en";
+  document.getElementById('kop').textContent="Nothing has been permitted here (yet).";
+  document.getElementById('sub').textContent="Plot 404. This page does not exist, or is still being designed.";
+  document.getElementById('terug').textContent="Back to THURBO";}
+</script>
+</body>
+</html>
