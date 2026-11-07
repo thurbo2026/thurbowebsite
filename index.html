@@ -12,13 +12,13 @@
 /* Layout: één kopregel, raster van dunne lijnen, beelden schermbreed. Zwart-wit; het werk draagt de kleur.
    De typemachineletter komt uit Thorbens portfolio en wordt gebruikt voor feiten en bijschriften. */
 :root{color-scheme:light;
-  --bg:#fbfbf9; --fg:#121212; --muted:#6d6d68; --line:#121212; --veil:rgba(251,251,249,.97);
+  --bg:#fbfbf9; --fg:#121212; --muted:#6d6d68; --line:#121212; --hair:#dcdcd5; --veil:rgba(251,251,249,.97);
   --sans:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
   --type:"Courier Prime","Courier New",ui-monospace,monospace;
   --s1:clamp(15px,1.1vw + 11px,19px); --s2:clamp(17px,1.4vw + 12px,24px); --s3:clamp(32px,4vw + 14px,56px);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--veil:rgba(17,17,16,.97);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--veil:rgba(17,17,16,.97);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--hair:#33332f;--veil:rgba(17,17,16,.97);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--hair:#33332f;--veil:rgba(17,17,16,.97);color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--s1);line-height:1.4;margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
@@ -31,7 +31,7 @@ img{display:block;max-width:100%}
 .ext:hover{text-decoration-style:dotted}
 
 /* kopregel */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:22px;padding-block:18px;font-size:var(--s2)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--hair);display:flex;align-items:baseline;gap:22px;padding-block:18px;font-size:var(--s2)}
 .burger{width:32px;height:14px;display:grid;align-content:space-between;flex:none;align-self:center}
 .burger i{display:block;height:1.5px;background:var(--fg);transition:transform .45s cubic-bezier(.65,0,.35,1)}
 @media (prefers-reduced-motion:reduce){.burger i{transition:none}}
@@ -64,30 +64,68 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 
 /* menu */
 .menu{display:grid;grid-template-columns:1fr 1fr}
-.menu button,.menu a{aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:var(--s2);text-transform:uppercase;letter-spacing:.04em;display:grid;place-items:center;text-align:center;padding:12px;text-decoration:none}
+.menu button,.menu a{aspect-ratio:1;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);font-size:var(--s2);text-transform:uppercase;letter-spacing:.04em;display:grid;place-items:center;text-align:center;padding:12px;text-decoration:none}
 .menu > :nth-child(2n){border-right:0}
 .menu button:hover,.menu a:hover{background:var(--fg);color:var(--bg)}
-@media (min-width:900px){.menu{grid-template-columns:repeat(3,1fr)}.menu > :nth-child(2n){border-right:1px solid var(--line)}.menu > :nth-child(3n){border-right:0}.menu button,.menu a{aspect-ratio:4/3}}
+@media (min-width:900px){.menu{grid-template-columns:repeat(3,1fr)}.menu > :nth-child(2n){border-right:1px solid var(--hair)}.menu > :nth-child(3n){border-right:0}.menu button,.menu a{aspect-ratio:4/3}}
 
 /* filter */
-.chips{display:flex;gap:18px;flex-wrap:wrap;padding-block:14px;border-bottom:1px solid var(--line)}
+.chips{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));z-index:15;background:var(--bg);display:flex;gap:10px 18px;flex-wrap:wrap;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--hair)}
+.weergave{margin-left:auto;display:flex;gap:14px;font-weight:300}
+.weergave button{color:var(--muted)}
 .chips button{color:var(--muted)}
 .chips button[aria-pressed="true"]{color:var(--fg);text-decoration:underline;text-underline-offset:5px}
+.chips button:hover{color:var(--fg)}
 
 /* projectraster */
 .grid{display:grid;grid-template-columns:1fr 1fr}
 @media (min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
-.cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-rows:auto 1fr auto;gap:12px;padding:16px 12px 18px;text-align:center;min-width:0;text-decoration:none}
+.cell{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);display:grid;grid-template-rows:auto 1fr auto;gap:12px;padding:16px 12px 18px;text-align:center;min-width:0;text-decoration:none}
 .cell:nth-child(2n){border-right:0}
-@media (min-width:900px){.cell:nth-child(2n){border-right:1px solid var(--line)}.cell:nth-child(4n){border-right:0}}
-.num{font-size:var(--s3);line-height:1;font-variant-numeric:tabular-nums}
+@media (min-width:900px){.cell:nth-child(2n){border-right:1px solid var(--hair)}.cell:nth-child(4n){border-right:0}}
+.num{font-size:clamp(22px,1.6vw + 14px,34px);font-weight:300;line-height:1;font-variant-numeric:tabular-nums}
 .by{font-family:var(--type);font-size:13px;vertical-align:super;margin-left:3px;color:var(--muted)}
 .thumb{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;overflow:hidden}
 .thumb img{max-height:100%;max-width:82%;object-fit:contain}
-.ttl{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ttl{font-size:14px;min-width:0;display:grid;gap:3px}
+.ttl strong,.ttl .loc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ttl .loc{font-size:13px;color:var(--muted)}
 .ttl strong{font-weight:400;text-transform:uppercase;letter-spacing:.03em}
 .cell:hover .thumb img{opacity:.7}
 .empty{grid-column:1/-1;padding:40px 20px;color:var(--muted);text-align:center}
+
+/* lijstweergave: verticaal tussen projecten, horizontaal binnen een project */
+.rij{border-bottom:1px solid var(--hair);padding-block:18px 22px}
+.rijkop{display:grid;grid-template-columns:auto 1fr auto;gap:6px 18px;align-items:baseline;text-decoration:none;padding-bottom:14px}
+.rijkop .rnr{font-size:clamp(22px,1.6vw + 14px,34px);font-weight:300;line-height:1;font-variant-numeric:tabular-nums;min-width:2.2ch}
+.rijkop strong{font-weight:400;text-transform:uppercase;letter-spacing:.03em}
+.rijkop .rloc{display:block;font-size:13px;color:var(--muted)}
+.rijkop .rmeta{font-family:var(--type);font-size:13px;color:var(--muted);text-align:right}
+.rijkop:hover strong{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.strook{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:thin;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));scroll-padding-left:max(20px,env(safe-area-inset-left,0px));cursor:grab}
+.strook.sleep{cursor:grabbing;scroll-snap-type:none}
+.strook button{flex:none;height:clamp(200px,28vw,440px);scroll-snap-align:start;background:var(--bg)}
+.strook img{height:100%;width:auto;max-width:none;user-select:none;-webkit-user-drag:none}
+.strook button:hover img{opacity:.85}
+@media (max-width:599px){.rijkop{grid-template-columns:auto 1fr}.rijkop .rmeta{display:none}}
+
+/* kaart */
+.kaart{height:clamp(420px,calc(100svh - var(--kop,62px) - 60px),900px);max-width:100%;background:var(--hair)}
+.zonder{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:14px 48px;margin:0}
+.zonder a{color:var(--fg)}
+.pin{background:none;border:0}
+.pin span{display:inline-grid;place-items:center;min-width:34px;height:26px;padding:0 6px;background:var(--fg);color:var(--bg);font:400 14px/1 var(--sans);font-variant-numeric:tabular-nums;transform:translate(-50%,-50%);transition:transform .25s}
+.pin span sup{font-family:var(--type);font-size:10px;margin-left:2px}
+.pin:hover span{transform:translate(-50%,-50%) scale(1.12)}
+.leaflet-container{font-family:var(--sans);background:var(--hair)}
+.leaflet-popup-content-wrapper{border-radius:0;background:var(--bg);color:var(--fg);box-shadow:none;border:1px solid var(--fg)}
+.leaflet-popup-tip{background:var(--bg);box-shadow:none;border:1px solid var(--fg)}
+.leaflet-popup-content{margin:10px;width:200px!important}
+.pop{display:grid;gap:6px;text-decoration:none}
+.pop img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.pop strong{font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-size:13px}
+.pop span{font-size:12px;color:var(--muted)}
+.leaflet-control-attribution{font-size:10px}
 
 /* projectpagina: beelden in hun eigen verhouding */
 .phead{display:flex;justify-content:space-between;gap:16px;padding-block:18px;font-size:var(--s2);line-height:1.25}
@@ -108,8 +146,8 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .facts dd{margin:0;min-width:0}
 
 /* overzicht van alle beelden onderaan een project */
-.alle{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-bottom:64px}
-.alle button{aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;place-items:center;overflow:hidden;padding:10px;min-width:0}
+.alle{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);margin-bottom:64px}
+.alle button{aspect-ratio:1;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);display:grid;place-items:center;overflow:hidden;padding:10px;min-width:0}
 .alle button:nth-child(3n){border-right:0}
 .alle img{width:100%;height:100%;object-fit:contain}
 .alle button.foto img{object-fit:cover}
@@ -125,24 +163,38 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .lb .x{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(20px,env(safe-area-inset-right,0px));font-size:30px;line-height:1;z-index:41}
 .lb .hint{position:fixed;top:calc(env(safe-area-inset-top,0px) + 20px);left:max(20px,env(safe-area-inset-left,0px));font-family:var(--type);font-size:13px;color:var(--muted)}
 
+/* beweging: projecten zweven in beeld, het menu vouwt zich uit */
+@media (prefers-reduced-motion:no-preference){
+  .zweef{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+  .zweef.in{opacity:1;transform:none}
+  .menu > *{animation:uitvouw .7s cubic-bezier(.2,.75,.2,1) both;animation-delay:calc(var(--i) * 60ms)}
+  .menu.dicht > *{animation:invouw .28s cubic-bezier(.6,0,.8,.3) both;animation-delay:calc((5 - var(--i)) * 30ms)}
+  .show a.on img{animation:drijf 7s ease-out both}
+}
+@keyframes uitvouw{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(-18px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
+@keyframes invouw{to{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(-12px)}}
+@keyframes drijf{from{transform:scale(1.06)}to{transform:scale(1)}}
+
 /* studio */
-.list{display:grid;grid-template-columns:minmax(110px,30%) 1fr;gap:26px 16px;padding-block:32px 64px;max-width:860px;margin:0}
+.list{display:grid;grid-template-columns:minmax(110px,30%) 1fr;gap:26px 16px;padding-block:32px 40px;max-width:860px;margin:0}
+.kop2{font-size:var(--s2);font-weight:400;margin:0;padding-block:28px 0;border-top:1px solid var(--hair);scroll-margin-top:calc(var(--kop,62px) + 10px)}
+.list.klein{padding-block:8px 64px;font-size:.85em}
 .list dt{font-size:.9em;color:var(--muted)}
 .list dd{margin:0;max-width:56ch;min-width:0;overflow-wrap:anywhere}
 @media (prefers-reduced-motion:no-preference){.fade{animation:f .35s ease}@keyframes f{from{opacity:.4}}}
 
 /* zoeken */
-.zoekveld{display:flex;align-items:baseline;gap:12px;padding-block:22px 14px;border-bottom:1px solid var(--line)}
+.zoekveld{display:flex;align-items:baseline;gap:12px;padding-block:22px 14px;border-bottom:1px solid var(--hair)}
 .zoekveld input{-webkit-appearance:none;appearance:none;border-radius:0;flex:1;min-width:0;font-family:var(--sans);font-size:clamp(26px,3vw + 14px,44px);font-weight:300;color:var(--fg);background:none;border:0;outline:0;padding:0;line-height:1.1}
 .zoekveld input::placeholder{color:var(--muted)}
 .zoekveld input::-webkit-search-cancel-button,.zoekveld input::-webkit-search-decoration{-webkit-appearance:none;display:none}
 .zoekveld #wis{font-size:clamp(28px,3vw + 14px,44px);font-weight:300;line-height:1;flex:none;padding:0 4px}
-.suggesties{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px;padding-block:18px;border-bottom:1px solid var(--line)}
+.suggesties{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px;padding-block:18px;border-bottom:1px solid var(--hair)}
 .suggesties span{font-family:var(--type);font-size:13px;color:var(--muted)}
 .suggesties button{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
 .suggesties button:hover{text-decoration-style:dotted}
 .suggesties .tb{font-weight:500;letter-spacing:.06em}
-.zoekinfo{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:12px;margin:0;border-bottom:1px solid var(--line)}
+.zoekinfo{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:12px;margin:0;border-bottom:1px solid var(--hair)}
 .treffer{font-family:var(--type);font-size:12px;color:var(--muted);white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .treffer mark{background:none;color:var(--fg);text-decoration:underline;text-underline-offset:3px}
 
@@ -193,11 +245,11 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Werk",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Work",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
       cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -218,7 +270,8 @@ const NAMEN={Thorben:"Thorben Contant",Beau:"Beau Schellevis"};
 const initialen=p=>["Thorben","Beau"].filter(n=>p.door.includes(n)).map(n=>n[0].toLowerCase()).join("");
 let CATS=[];
 const app=document.getElementById('app'), burger=document.getElementById('burger');
-let persoon="Alle", filter="Alle", menuOpen=false, beeld=0, tab="fotos", cur=null, slide=0, timer=null;
+let persoon="Alle", filter="Alle", menuOpen=false, beeld=0, tab="fotos", cur=null, slide=0, timer=null, open=null, kaartObj=null;
+let weergave="raster"; try{const w=localStorage.getItem('thurbo-weergave'); if(["raster","lijst","kaart"].includes(w)) weergave=w}catch(e){}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ext=(href,txt)=>`<a class="ext" href="${esc(href)}" target="_blank" rel="noopener">${esc(txt)}</a>`;
 /* tekst met regeleinden; e-mailadressen worden klikbaar */
@@ -257,15 +310,78 @@ function play(){
 
 function menu(){
   const ig=SITE.studio.find(x=>/instagram/i.test(x.kop)&&x.link);
-  app.innerHTML=`<nav class="menu fade">${["werk","studies","studio","contact"].map(m=>`<button data-go="${m}">${t(m)}</button>`).join("")}
-    ${ig?`<a href="${esc(ig.link)}" target="_blank" rel="noopener">Instagram</a>`:""}
-    <button data-taal="1">${lang==="nl"?"English":"Nederlands"}</button></nav>`;
+  let i=0;
+  app.innerHTML=`<nav class="menu">${["werk","studies","studio","contact"].map(m=>`<button data-go="${m}" style="--i:${i++}">${t(m)}</button>`).join("")}
+    ${ig?`<a href="${esc(ig.link)}" target="_blank" rel="noopener" style="--i:${i++}">Instagram</a>`:""}
+    <button data-taal="1" style="--i:${i++}">${lang==="nl"?"English":"Nederlands"}</button></nav>`;
 }
 function werk(alleenStudies){
   const lijst=SITE.projecten.filter(p=>(!alleenStudies||p.cat==="Studie")&&(filter==="Alle"||p.cat===filter)&&(persoon==="Alle"||p.door.includes(persoon)));
-  app.innerHTML=`<div class="chips pad">${["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${esc(c)}">${c==="Alle"?t("alle"):esc(catNaam(c))}</button>`).join("")}</div>
-  <div class="grid fade">${lijst.length?lijst.map(p=>cel(p)).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
+  const chips=`<div class="chips pad">${["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${esc(c)}">${c==="Alle"?t("alle"):esc(catNaam(c))}</button>`).join("")}
+    <span class="weergave">${["raster","lijst","kaart"].map(w=>`<button data-w="${w}" aria-pressed="${w===weergave}">${t(w)}</button>`).join("")}</span></div>`;
+  if(!lijst.length){app.innerHTML=chips+`<div class="grid"><p class="empty">${t("leeg")}</p></div>`;return}
+  if(weergave==="lijst"){app.innerHTML=chips+`<div class="lijstw">${lijst.map(rij).join("")}</div>`;zweef();sleepStroken();return}
+  if(weergave==="kaart"){kaart(lijst,chips);return}
+  app.innerHTML=chips+`<div class="grid">${lijst.map(p=>cel(p)).join("")}</div>`;
+  zweef();
 }
+/* ===== lijstweergave ===== */
+function rij(p){
+  const b=[...p.fotos.map((f,k)=>["fotos",k,f]),...p.tekeningen.map((f,k)=>["tekeningen",k,f])];
+  const meta=[catNaam(p.cat),p.jaar].filter(Boolean).map(esc).join(" · ");
+  return `<article class="rij"><a class="rijkop pad" href="#p${esc(p.nr)}"><span class="rnr">${esc(p.nr)}<span class="by">${initialen(p)}</span></span>
+    <span><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="rloc">${esc(L(p,"plaats"))}</span>`:""}</span><span class="rmeta">${meta}</span></a>
+    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}"><img src="${esc(f.beeld)}" alt="" loading="lazy" draggable="false"></button>`).join("")}</div></article>`;
+}
+/* met de muis slepen om horizontaal te scrollen; op telefoon en trackpad werkt vegen vanzelf */
+let gesleept=false;
+function sleepStroken(){
+  app.querySelectorAll('.strook').forEach(el=>{
+    let x0=0,s0=0,neer=false;
+    el.addEventListener('pointerdown',e=>{if(e.pointerType!=="mouse")return;neer=true;gesleept=false;x0=e.clientX;s0=el.scrollLeft});
+    el.addEventListener('pointermove',e=>{if(!neer)return;const dx=e.clientX-x0;if(Math.abs(dx)>4){gesleept=true;el.classList.add('sleep')}el.scrollLeft=s0-dx});
+    const op=()=>{neer=false;el.classList.remove('sleep')};
+    el.addEventListener('pointerup',op);el.addEventListener('pointerleave',op);
+  });
+}
+
+/* ===== kaart ===== */
+function laadLeaflet(){
+  if(window.L&&window.L.map) return Promise.resolve(window.L);
+  return new Promise((ok,fout)=>{
+    const c=document.createElement('link');c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);
+    const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';sc.onload=()=>ok(window.L);sc.onerror=fout;document.head.appendChild(sc);
+  });
+}
+function kaart(lijst,chips){
+  const met=lijst.filter(p=>isFinite(parseFloat(p.lat))&&isFinite(parseFloat(p.lng)));
+  const zonder=lijst.filter(p=>!met.includes(p));
+  app.innerHTML=chips+`<div class="kaart" id="kaart"></div>${zonder.length?`<p class="zonder pad">${t("zonder")} ${zonder.map(p=>`<a href="#p${esc(p.nr)}">${esc(p.nr)} ${esc(L(p,"titel"))}</a>`).join(", ")}</p>`:""}`;
+  laadLeaflet().then(Lf=>{
+    const el=document.getElementById('kaart'); if(!el) return;
+    if(kaartObj){kaartObj.remove();kaartObj=null}
+    const donker=document.documentElement.dataset.theme==="dark"||(document.documentElement.dataset.theme!=="light"&&matchMedia('(prefers-color-scheme: dark)').matches);
+    kaartObj=Lf.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
+    Lf.tileLayer(`https://{s}.basemaps.cartocdn.com/${donker?"dark_all":"light_all"}/{z}/{x}/{y}{r}.png`,{subdomains:"abcd",maxZoom:19,
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(kaartObj);
+    const punten=met.map(p=>{
+      const ll=[parseFloat(p.lat),parseFloat(p.lng)];
+      Lf.marker(ll,{icon:Lf.divIcon({className:"pin",html:`<span>${esc(p.nr)}<sup>${initialen(p)}</sup></span>`,iconSize:[0,0]}),title:L(p,"titel")}).addTo(kaartObj)
+        .bindPopup(`<a class="pop" href="#p${esc(p.nr)}">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="">`:""}<strong>${esc(L(p,"titel"))}</strong><span>${esc(L(p,"locatie")||L(p,"plaats"))}</span></a>`,{closeButton:false});
+      return ll});
+    if(punten.length) kaartObj.fitBounds(punten,{padding:[60,60],maxZoom:9}); else kaartObj.setView([52.1,5.3],6);
+  }).catch(()=>{const el=document.getElementById('kaart'); if(el) el.outerHTML=`<p class="empty">${t("kaartfout")}</p>`});
+}
+
+/* ===== beweging: projecten zweven in beeld ===== */
+let kijker=null;
+function zweef(){
+  if(rustig()||!("IntersectionObserver" in window)) return;
+  kijker?.disconnect();
+  kijker=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');kijker.unobserve(e.target)}}),{rootMargin:"0px 0px -6% 0px"});
+  app.querySelectorAll('.cell,.rij').forEach((el,i)=>{el.classList.add('zweef');el.style.setProperty('--d',(i%4)*70+"ms");kijker.observe(el)});
+}
+
 /* ===== zoeken ===== */
 let zoekterm="";
 const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
@@ -283,7 +399,7 @@ function zoek(){
     if(norm(zoekterm).trim()==="turbo") turbo();
     toonTreffers()});
   document.getElementById('wis').onclick=()=>{zoekterm="";inp.value="";inp.focus();document.getElementById('wis').hidden=true;toonTreffers()};
-  toonTreffers(); setTimeout(()=>inp.focus({preventScroll:true}),50);
+  toonTreffers(); setTimeout(()=>{inp.focus({preventScroll:true});inp.select()},50);
 }
 function toonTreffers(){
   const res=document.getElementById('zoekres'); if(!res) return;
@@ -300,12 +416,13 @@ function toonTreffers(){
     if(!titelHit&&tx.length===n.length){const at=n.indexOf(woorden[0]);const a=Math.max(0,at-30);
       snip=(a>0?"…":"")+esc(tx.slice(a,at))+"<mark>"+esc(tx.slice(at,at+woorden[0].length))+"</mark>"+esc(tx.slice(at+woorden[0].length,at+90))+"…";}
     return cel(p,snip)}).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
+  zweef();
 }
 function cel(p,extra){
   return `<a class="cell" href="#p${esc(p.nr)}">
     <div class="num">${esc(p.nr)}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
     <div class="thumb">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="" loading="lazy">`:""}</div>
-    <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
+    <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="loc">${esc(L(p,"plaats"))}</span>`:""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
 }
 function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
 function project(nr){
@@ -338,10 +455,16 @@ function vergroot(){
   lb.querySelector('.x').onclick=()=>lb.remove();
   document.body.appendChild(lb); lb.querySelector('.x').focus();
 }
-function studio(){
-  app.innerHTML=`<dl class="list pad fade">${SITE.studio.map(x=>{
-    const tekst=L(x,"tekst");
-    return `<dt>${esc(L(x,"kop"))}</dt><dd>${x.link?ext(x.link,tekst||x.link):rijk(tekst)}</dd>`}).join("")}</dl>`;
+/* Studio bovenaan, contactgegevens daaronder; Contact in het menu springt daar direct naartoe */
+const isContact=x=>/mail|instagram|linkedin|samenwerk|collab|contact|adres|address|telefoon|phone/i.test(x.kop||"");
+const isColofon=x=>/colofon|colophon/i.test(x.kop||"");
+function studio(naarContact){
+  const regel=x=>{const tekst=L(x,"tekst");return `<dt>${esc(L(x,"kop"))}</dt><dd>${x.link?ext(x.link,tekst||x.link):rijk(tekst)}</dd>`};
+  const over=SITE.studio.filter(x=>!isContact(x)&&!isColofon(x)), con=SITE.studio.filter(isContact), col=SITE.studio.filter(isColofon);
+  app.innerHTML=`<dl class="list pad fade">${over.map(regel).join("")}</dl>
+    ${con.length?`<h2 class="kop2 pad" id="contact">${t("contactkop")}</h2><dl class="list pad fade">${con.map(regel).join("")}</dl>`:""}
+    ${col.length?`<dl class="list klein pad">${col.map(regel).join("")}</dl>`:""}`;
+  if(naarContact) requestAnimationFrame(()=>document.getElementById('contact')?.scrollIntoView({behavior:rustig()?"auto":"smooth"}));
 }
 
 function niets(){
@@ -398,21 +521,27 @@ function zetTaal(l){
 function render(){
   if(!SITE) return;
   clearInterval(timer);
+  if(kaartObj){kaartObj.remove();kaartObj=null}
   const h=location.hash.slice(1);
   burger.classList.toggle('x',menuOpen);
   if(h==="zoek"&&!menuOpen) document.getElementById("zoekknop").setAttribute("aria-current","page"); else document.getElementById("zoekknop").removeAttribute("aria-current");
   if(menuOpen) return menu();
+  if(open){beeld=open.k;tab=open.s;open=null}
   if(h==="werk") return werk(false);
   if(h==="studies") return werk(true);
-  if(h==="studio"||h==="contact") return studio();
+  if(h==="studio") return studio(false);
+  if(h==="contact") return studio(true);
   if(h==="zoek") return zoek();
   if(/^p[\w-]+$/.test(h)) return project(h.slice(1));
   if(h) return niets();
   home();
 }
-burger.onclick=()=>{menuOpen=!menuOpen;render();window.scrollTo(0,0)};
+burger.onclick=()=>{
+  const m=app.querySelector('.menu');
+  if(menuOpen&&m&&!rustig()){m.classList.add('dicht');burger.classList.remove('x');setTimeout(()=>{menuOpen=false;render()},300);return}
+  menuOpen=!menuOpen;render();window.scrollTo(0,0)};
 document.getElementById('lang').onclick=()=>{zetTaal(lang==="nl"?"en":"nl");render()};
-document.getElementById('zoekknop').onclick=()=>{menuOpen=false;if(location.hash==="#zoek") render(); else location.hash="zoek"};
+document.getElementById('zoekknop').onclick=()=>{menuOpen=false;zoekterm="";if(location.hash==="#zoek") render(); else location.hash="zoek"};
 document.querySelector('.name').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   if(b.classList.contains('brand')) telTik();
@@ -428,6 +557,8 @@ app.addEventListener('click',e=>{
   if(b.dataset.go){menuOpen=false; if(location.hash==="#"+b.dataset.go) render(); else location.hash=b.dataset.go}
   if(b.dataset.taal){menuOpen=false;zetTaal(lang==="nl"?"en":"nl");render()}
   if(b.dataset.f){filter=b.dataset.f;render()}
+  if(b.dataset.w){weergave=b.dataset.w;try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){};render()}
+  if(b.dataset.open){if(gesleept){gesleept=false;return}const [nr,s,k]=b.dataset.open.split("|");open={s,k:+k};location.hash="p"+nr}
   if(b.dataset.sl){zetSlide(slide+ +b.dataset.sl);play()}
   if(b.dataset.step&&cur){const n=cur[tab].length;beeld=((Math.min(beeld,n-1))+ +b.dataset.step+n)%n;render()}
   if(b.dataset.tab){tab=b.dataset.tab;beeld=0;render()}
@@ -441,6 +572,9 @@ addEventListener('keydown',e=>{
   if(lb) return;
   if(cur&&/^#p/.test(location.hash)&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){const n=cur[tab].length;beeld=(Math.min(beeld,n-1)+(e.key==="ArrowRight"?1:-1)+n)%n;render()}
 });
+const hdr=document.getElementById('hdr');
+const zetKop=()=>document.documentElement.style.setProperty('--kop',hdr.offsetHeight+'px');
+zetKop(); if('ResizeObserver' in window) new ResizeObserver(zetKop).observe(hdr);
 function start(){CATS=[...new Set(SITE.projecten.map(p=>p.cat).filter(Boolean))];zetTaal(lang);render();}
 </script>
 </body>

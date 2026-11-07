@@ -46,6 +46,8 @@ content:
           - { name: jaar, label: Jaar, type: string }
           - { name: locatie, label: Locatie, type: string }
           - { name: locatie_en, label: Locatie EN, type: string }
+          - { name: lat, label: "Kaart: breedtegraad (bijv. 51.4486)", type: string }
+          - { name: lng, label: "Kaart: lengtegraad (bijv. 5.4565)", type: string }
           - { name: opgave, label: Opgave, type: string }
           - { name: opgave_en, label: Opgave EN, type: string }
           - { name: type, label: Type, type: string }
