@@ -327,6 +327,16 @@ button.bitem{cursor:zoom-in}
 .kolom h2{font-size:var(--s2);font-weight:400;margin:0 0 14px}
 .ktekst{max-width:46ch}
 .kregel{margin:16px 0 0;font-size:.92em}
+.ilink{display:inline-flex;align-items:center;gap:9px;text-decoration:none}
+.ilink span{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.ilink:hover span{text-decoration-style:dotted}
+.kregel .ilink span{display:inline;font-size:inherit;font-family:inherit;color:var(--fg);margin:0}
+.ilink svg{width:1.05em;height:1.05em;flex:none;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.ilink svg .vol{fill:currentColor;stroke:none}
+.drie.con .kregel:has(.ilink){margin-top:12px}
+.portret{margin:0 0 18px;max-width:340px}
+.portret img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+@media (max-width:899px){.portret{max-width:min(55%,240px)}}
 .kregel span{display:block;font-family:var(--type);font-size:12px;color:var(--muted);margin-bottom:2px}
 .drie.con{padding-block:18px 72px}
 .cnaam{font-family:var(--type);font-size:12px;font-weight:400;color:var(--muted);margin:0 0 6px}
@@ -568,6 +578,7 @@ function home(){
 const menuvlak=document.getElementById('menuvlak');
 const ICOON={
   insta:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".6" class="vol"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>',
   linkedin:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M8 10.5v6M8 7.4v.1M11.5 16.5v-6M11.5 13c0-1.6 1-2.6 2.4-2.6s2.3 1 2.3 2.6v3.5"/></svg>'};
 const handle=u=>{const m=String(u).replace(/[?#].*$/,"").replace(/\/+$/,"").split("/").pop();return /instagram/i.test(u)?"@"+m:m};
 function vulMenu(){
@@ -959,11 +970,18 @@ function studioKolommen(naarContact){
   const kols=["Studio","Thorben","Beau"].filter(k=>groep(k).length);
   /* bovenaan wie we zijn; daaronder per kolom de contactgegevens (veld contact) */
   const over=k=>groep(k).filter(x=>!x.contact), con=k=>groep(k).filter(x=>x.contact);
-  const regel=x=>`<p class="kregel">${L(x,"kop")?`<span>${esc(L(x,"kop"))}</span>`:""}${inhoud(x)}</p>`;
+  /* Instagram, LinkedIn en losse e-mailadressen als icoon met naam */
+  const ilink=x=>{const tx=L(x,"tekst").trim(), u=x.link||(tx.match(/\((https?:\/\/[^)\s]+|mailto:[^)\s]+)\)/)||tx.match(/https?:\/\/\S+/)||[])[1]||(tx.match(/https?:\/\/\S+/)||[])[0];
+    if(u&&/instagram\.com/i.test(u)) return `<a class="ilink" href="${esc(u)}" target="_blank" rel="noopener" aria-label="Instagram">${ICOON.insta}<span>${esc(handle(u))}</span></a>`;
+    if(u&&/linkedin\.com/i.test(u)) return `<a class="ilink" href="${esc(u)}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICOON.linkedin}<span>${esc(handle(u))}</span></a>`;
+    if(/^[\w.+-]+@[\w-]+\.[\w.-]+$/.test(tx)) return `<a class="ilink" href="mailto:${esc(tx)}" aria-label="E-mail">${ICOON.mail}<span>${esc(tx)}</span></a>`;
+    return ""};
+  const regel=x=>{const i=x.contact&&ilink(x); return i?`<p class="kregel">${i}</p>`:`<p class="kregel">${L(x,"kop")?`<span>${esc(L(x,"kop"))}</span>`:""}${inhoud(x)}</p>`};
+  const portret=x=>x.foto?`<figure class="portret"><img src="${esc(x.foto)}" alt="${esc(L(x,"kop"))}" loading="lazy"></figure>`:"";
   const heeftCon=kols.some(k=>con(k).length);
   const sprong=[...kols.map(k=>[`k-${k}`,(L(over(k)[0]||groep(k)[0],"kop")||k).split(" ")[0]]),...(heeftCon?[["contact",t("contactkop")]]:[])];
   app.innerHTML=paginakop(t("studio"),sprong.map(([id,n])=>`<button data-spring="${id}">${esc(n)}</button>`).join(""),"")+`
-  <div class="drie pad fade">${kols.map(k=>{const r=over(k);if(!r.length)return "<div></div>";return `<section class="kolom${k==="Studio"?"":" dicht"}" id="k-${k}"><h2><button class="kknop" data-klap="k-${k}" aria-expanded="${k==="Studio"}">${esc(L(r[0],"kop"))}<svg viewBox="0 0 40 20" aria-hidden="true"><path d="M3 4 L20 16 L37 4"/></svg></button></h2><div class="kinhoud"><div class="ktekst">${inhoud(r[0])}</div>${r.slice(1).map(regel).join("")}</div></section>`}).join("")}</div>
+  <div class="drie pad fade">${kols.map(k=>{const r=over(k);if(!r.length)return "<div></div>";return `<section class="kolom${k==="Studio"?"":" dicht"}" id="k-${k}"><h2><button class="kknop" data-klap="k-${k}" aria-expanded="${k==="Studio"}">${esc(L(r[0],"kop"))}<svg viewBox="0 0 40 20" aria-hidden="true"><path d="M3 4 L20 16 L37 4"/></svg></button></h2><div class="kinhoud">${portret(r[0])}<div class="ktekst">${inhoud(r[0])}</div>${r.slice(1).map(regel).join("")}</div></section>`}).join("")}</div>
   ${heeftCon?`<h2 class="kop2 pad" id="contact">${t("contactkop")}</h2><div class="drie con pad">${kols.map(k=>`<section class="kolom"><h3 class="cnaam">${esc(L(over(k)[0]||{kop:k},"kop"))}</h3>${con(k).map(regel).join("")}</section>`).join("")}</div>`:""}`;
   meetKop();
   if(naarContact) requestAnimationFrame(()=>document.getElementById('contact')?.scrollIntoView({behavior:rustig()?"auto":"smooth"}));

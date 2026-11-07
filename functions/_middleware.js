@@ -45,6 +45,7 @@ function organisatie(S) {
     worksFor: { "@id": `${BASIS}/#studio` }, email: g.mail(wie) ? "mailto:" + g.mail(wie) : undefined,
     sameAs: [g.linkedin(wie)].filter(Boolean), url: `${BASIS}/${wie.toLowerCase()}`,
     description: g.bio(wie) ? kort(g.bio(wie).tekst, 300) : undefined,
+    image: g.bio(wie)?.foto ? abs(g.bio(wie).foto) : undefined,
   });
   return {
     "@context": "https://schema.org",

@@ -122,6 +122,7 @@ content:
               values: [Studio, Thorben, Beau]
           - { name: contact, label: "Contactgegeven (komt onder het kopje Contact)", type: boolean }
           - { name: kop, label: "Kop (mag leeg)", type: string }
+          - { name: foto, label: "Portretfoto (alleen bij de eerste rij met je bio; mag leeg)", type: image }
           - { name: kop_en, label: Kop EN, type: string }
           - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
           - { name: tekst_en, label: "Tekst EN (link: [word](https://address))", type: text }
