@@ -33,7 +33,8 @@ img{display:block;max-width:100%}
 /* kopregel */
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:22px;padding-block:18px;font-size:var(--s2)}
 .burger{width:32px;height:14px;display:grid;align-content:space-between;flex:none;align-self:center}
-.burger i{display:block;height:1.5px;background:var(--fg)}
+.burger i{display:block;height:1.5px;background:var(--fg);transition:transform .45s cubic-bezier(.65,0,.35,1)}
+@media (prefers-reduced-motion:reduce){.burger i{transition:none}}
 .burger.x i:first-child{transform:translateY(6.25px) rotate(45deg)}
 .burger.x i:last-child{transform:translateY(-6.25px) rotate(-45deg)}
 .name{display:flex;gap:.6em;flex-wrap:wrap;align-items:baseline;min-width:0}
