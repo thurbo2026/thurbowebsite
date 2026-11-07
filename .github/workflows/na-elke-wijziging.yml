@@ -5,6 +5,7 @@ name: Na elke wijziging
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
@@ -47,8 +48,13 @@ jobs:
         run: sleep 150
       - name: Zoekmachines laten weten dat er iets nieuw is
         run: |
-          URLS=$(curl -s https://thurbo.nl/sitemap.xml | grep -o '<loc>[^<]*' | sed 's/<loc>//' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          for adres in https://thurbo.nl/sitemap.xml https://thurbo.pages.dev/sitemap.xml; do
+            curl -sL -A "Mozilla/5.0 (THURBO IndexNow)" -w "\n%{http_code} $adres\n" "$adres" > sitemap.txt; tail -1 sitemap.txt
+            grep -q '<loc>' sitemap.txt && break
+          done
+          URLS=$(grep -o '<loc>[^<]*' sitemap.txt | sed 's/<loc>//' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
           echo "$URLS"
+          if [ "$URLS" = "[]" ]; then echo "Geen sitemap gevonden"; exit 1; fi
           curl -s -o /dev/null -w "IndexNow: %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
             -H "Content-Type: application/json; charset=utf-8" \
             -d "{\"host\":\"thurbo.nl\",\"key\":\"8a9879ca79738f243e9c87d3b10a355c\",\"keyLocation\":\"https://thurbo.nl/8a9879ca79738f243e9c87d3b10a355c.txt\",\"urlList\":$URLS}"
