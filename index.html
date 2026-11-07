@@ -416,7 +416,12 @@ function startBand({n,lus,auto,begin=0,opIndex}){
   const links=k=>kids[k].offsetLeft-kids[0].offsetLeft;
   const huidig=()=>{const x=sp.scrollLeft;let best=0,bd=1e12;kids.forEach((el,k)=>{const d=Math.abs(links(k)-x);if(d<bd){bd=d;best=k}});return best};
   B={sp,n,aangeraakt:false,pauze:0,gesleept:false,i:begin};
-  B.naar=(k,glad=true)=>sp.scrollTo({left:links(k),behavior:glad&&!rustig()?"smooth":"auto"});
+  /* eigen, rustige schuifbeweging (de standaard "smooth" van de browser is te snel) */
+  let anim=0;
+  const schuif=(doel,ms)=>{cancelAnimationFrame(anim);const van=sp.scrollLeft,t0=performance.now();sp.style.scrollSnapType="none";
+    const stap=nu=>{const p=Math.min(1,(nu-t0)/ms),e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;sp.scrollLeft=van+(doel-van)*e;if(p<1)anim=requestAnimationFrame(stap)};anim=requestAnimationFrame(stap)};
+  B.stop=()=>cancelAnimationFrame(anim);
+  B.naar=(k,glad=true)=>{if(!glad||rustig()){B.stop();sp.scrollLeft=links(k);return}schuif(links(k),1600)};
   B.stap=d=>{let k=huidig()+d;if(!lus)k=Math.max(0,Math.min(n-1,k));B.naar(k)};
   B.ga=i=>B.naar(basis+i);
   const zetBegin=()=>{if(!B.aangeraakt&&B.sp===sp) sp.scrollLeft=links(basis+begin)};
@@ -427,13 +432,13 @@ function startBand({n,lus,auto,begin=0,opIndex}){
   const normaal=()=>{if(!basis)return;const w=links(2*basis)-links(basis),x=sp.scrollLeft;
     if(x<links(basis)-w/2) sp.scrollLeft=x+w; else if(x>=links(2*basis)) sp.scrollLeft=x-w};
   sp.addEventListener('scroll',()=>{meld();clearTimeout(tm);tm=setTimeout(normaal,160)},{passive:true});
-  const raak=()=>{B.aangeraakt=true;B.pauze=Date.now()+9000};
+  const raak=()=>{B.aangeraakt=true;B.pauze=Date.now()+9000;B.stop()};
   ['pointerdown','wheel','touchstart'].forEach(ev=>sp.addEventListener(ev,raak,{passive:true}));
   sp.addEventListener('pointerdown',e=>{if(e.pointerType==="mouse"&&e.button===0) sleep={sp,x0:e.clientX,s0:sp.scrollLeft,weg:false}});
   sp.addEventListener('click',e=>{if(B.gesleept){e.preventDefault();e.stopPropagation()}},true);
   clearInterval(timer);
   if(auto&&n>1&&!rustig()){
-    setTimeout(()=>{if(B&&B.sp===sp&&!B.aangeraakt){sp.scrollBy({left:90,behavior:"smooth"});setTimeout(()=>{if(B.sp===sp&&!B.aangeraakt)B.naar(basis+begin)},750)}},800);
+    setTimeout(()=>{if(B&&B.sp===sp&&!B.aangeraakt){schuif(sp.scrollLeft+90,700);setTimeout(()=>{if(B.sp===sp&&!B.aangeraakt)B.naar(basis+begin)},750)}},800);
     timer=setInterval(()=>{if(document.hidden||!B||B.sp!==sp||Date.now()<B.pauze)return;B.stap(1)},4500);
   }
 }
