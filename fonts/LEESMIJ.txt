@@ -1,0 +1,3 @@
+heros-*.woff: TeX Gyre Heros (c) GUST e-foundry, vrij te gebruiken onder de GUST Font License
+(http://www.gust.org.pl/projects/e-foundry/licenses). Een vrije variant van Helvetica.
+Wie Helvetica (Neue) op de computer heeft (Mac, iPhone), ziet die; anderen krijgen dit lettertype.

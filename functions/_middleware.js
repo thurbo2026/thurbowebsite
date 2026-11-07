@@ -50,7 +50,7 @@ function organisatie(S) {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Organization", "@id": `${BASIS}/#studio`, name: "THURBO", alternateName: "Studio THURBO", url: BASIS + "/",
-        description: OMSCHRIJVING, email: "mailto:" + g.info,
+        logo: BASIS + "/icon-512.png", description: OMSCHRIJVING, email: "mailto:" + g.info,
         founder: [{ "@id": `${BASIS}/#thorben` }, { "@id": `${BASIS}/#beau` }],
         sameAs: [g.insta, g.linkedin("Thorben"), g.linkedin("Beau")].filter(Boolean),
         contactPoint: { "@type": "ContactPoint", contactType: "general", email: g.info, availableLanguage: ["nl", "en"] },
@@ -82,11 +82,11 @@ export function pagina(path, S) {
   path = decodeURI(path).replace(/\/+$/, "") || "/";
   const thuis = S.slides[0]?.beeld || S.projecten[0]?.fotos[0]?.beeld;
   let m;
-  if (path === "/") return { titel: "THURBO · ontwerpstudio van Thorben Contant & Beau Schellevis", beschrijving: OMSCHRIJVING, beeld: thuis,
+  if (path === "/") return { titel: "THURBO – ontwerpstudio van Thorben Contant & Beau Schellevis", beschrijving: OMSCHRIJVING, beeld: thuis,
     inhoud: `<h1>THURBO</h1><p>${esc(OMSCHRIJVING)}</p><h2>Projecten</h2>${projectLijst(S.projecten)}${studioHTML(S)}` };
   if (path === "/projecten" || path === "/studies") {
     const st = path === "/studies", lijst = st ? S.projecten.filter(p => p.categorie === "Studie") : S.projecten;
-    return { titel: `${st ? "Studies" : "Projecten"} · THURBO`, beeld: lijst[0]?.fotos[0]?.beeld || thuis,
+    return { titel: `THURBO – ${st ? "Studies" : "Projecten"}`, beeld: lijst[0]?.fotos[0]?.beeld || thuis,
       beschrijving: `${st ? "Studieprojecten" : "Projecten"} van THURBO: ${lijst.slice(0, 6).map(p => p.titel).join(", ")}.`,
       inhoud: `<h1>${st ? "Studies" : "Projecten"}</h1>${projectLijst(lijst)}`,
       extra: { "@context": "https://schema.org", "@type": "CollectionPage", name: st ? "Studies" : "Projecten", url: BASIS + path,
@@ -96,7 +96,7 @@ export function pagina(path, S) {
     const p = S.projecten.find(x => x.nr === m[1]); if (!p) return null;
     const beelden = [...p.fotos, ...p.tekeningen];
     const titel = `${p.titel}${p.plaats ? " – " + p.plaats : ""}`;
-    return { titel: `${titel} · THURBO`, canoniek: p.pad, beeld: p.fotos[0]?.beeld || beelden[0]?.beeld, type: "article",
+    return { titel: `THURBO – ${titel}`, canoniek: p.pad, beeld: p.fotos[0]?.beeld || beelden[0]?.beeld, type: "article",
       beschrijving: kort(p.tekst) || `${p.titel}, ${[p.type, p.plaats, p.jaar].filter(Boolean).join(", ")}. Ontwerp door ${p.door.map(n => NAMEN[n]).join(" & ")} (THURBO).`,
       inhoud: `<article><p>THURBO ${esc(p.nr)}</p><h1>${esc(p.titel)}</h1>${p.plaats ? `<p>${esc(p.plaats)}</p>` : ""}${rijk(p.tekst)}
         <dl>${feit("Ontwerp", p.door.map(n => NAMEN[n] || n).join(" & "))}${feit("Categorie", p.categorie)}${feit("Jaar", p.jaar)}${feit("Locatie", p.locatie)}${feit("Opgave", p.opgave)}${feit("Type", p.type)}${feit("Status", p.status)}${feit(p.categorie === "Praktijk" ? "Bureau" : "Begeleiding", p.bureau_of_begeleiding)}${feit("Ontwerpteam", p.ontwerpteam)}</dl>
@@ -113,21 +113,21 @@ export function pagina(path, S) {
   }
   if (path === "/studio" || path === "/contact") {
     const g = gegevens(S);
-    return { titel: `${path === "/studio" ? "Studio" : "Contact"} · THURBO`, beeld: thuis,
+    return { titel: `THURBO – ${path === "/studio" ? "Studio" : "Contact"}`, beeld: thuis,
       beschrijving: path === "/contact" ? `Neem contact op met THURBO via ${g.info}. Thorben Contant en Beau Schellevis.` : kort(S.studio.filter(x => !x.contact).map(x => x.tekst).join(" ")),
       inhoud: studioHTML(S) };
   }
-  if (path === "/nieuws") return { titel: "Nieuws · THURBO", beeld: S.nieuws[0]?.beelden[0]?.beeld || thuis,
+  if (path === "/nieuws") return { titel: "THURBO – Nieuws", beeld: S.nieuws[0]?.beelden[0]?.beeld || thuis,
     beschrijving: "Nieuws van THURBO: projecten, kunst, recepten en fotografie.",
     inhoud: `<h1>Nieuws</h1><ul>${S.nieuws.map(n => `<li><a href="${n.pad}">${esc(n.titel)}</a>${n.datum ? ` (${esc(n.datum)})` : ""}</li>`).join("")}</ul>` };
   if ((m = path.match(/^\/nieuws\/(.+)$/))) {
     const n = S.nieuws.find(x => x.id === m[1]); if (!n) return null;
-    return { titel: `${n.titel} · THURBO`, canoniek: n.pad, beeld: n.beelden[0]?.beeld || thuis, type: "article", beschrijving: kort(n.tekst) || n.titel,
+    return { titel: `THURBO – ${n.titel}`, canoniek: n.pad, beeld: n.beelden[0]?.beeld || thuis, type: "article", beschrijving: kort(n.tekst) || n.titel,
       inhoud: `<article><h1>${esc(n.titel)}</h1>${n.datum ? `<p><time datetime="${esc(n.datum)}">${esc(n.datum)}</time></p>` : ""}${rijk(n.tekst)}${n.beelden.map(f => beeldHTML(f, n.titel)).join("")}</article>`,
       extra: { "@context": "https://schema.org", "@type": "BlogPosting", headline: n.titel, datePublished: n.datum || undefined, url: BASIS + n.pad,
         image: n.beelden.map(f => abs(f.beeld)), author: (n.door || []).map(x => ({ "@id": `${BASIS}/#${x.toLowerCase()}` })), publisher: { "@id": `${BASIS}/#studio` } } };
   }
-  if (path === "/zoek") return { titel: "Zoeken · THURBO", beschrijving: "Zoek in de projecten van THURBO.", beeld: thuis, inhoud: `<h1>Zoeken</h1>${projectLijst(S.projecten)}`, noindex: true };
+  if (path === "/zoek") return { titel: "THURBO – Zoeken", beschrijving: "Zoek in de projecten van THURBO.", beeld: thuis, inhoud: `<h1>Zoeken</h1>${projectLijst(S.projecten)}`, noindex: true };
   return null;
 }
 
@@ -192,7 +192,7 @@ export async function onRequest(ctx) {
     const basis = await env.ASSETS.fetch(new URL("/", url));
     if (!pg) {
       /* onbekende pagina: de site toont zelf "Perceel 404" */
-      const html = (await basis.text()).replace(/<title>[^<]*<\/title>/, "<title>Niet gevonden · THURBO</title>").replace("<head>", '<head>\n<meta name="robots" content="noindex">');
+      const html = (await basis.text()).replace(/<title>[^<]*<\/title>/, "<title>THURBO – Niet gevonden</title>").replace("<head>", '<head>\n<meta name="robots" content="noindex">');
       return new Response(html, { status: 404, headers: { "content-type": "text/html; charset=utf-8" } });
     }
     pg.ld = organisatie(S);

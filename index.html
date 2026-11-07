@@ -5,17 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>THURBO</title>
 <meta name="description" content="THURBO is de ontwerpstudio van Thorben Contant en Beau Schellevis.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Courier+Prime&display=swap">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/heros-regular.woff" as="font" type="font/woff" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
 <style>
+/* Helvetica: wie hem heeft (Mac, iPhone) ziet Helvetica Neue, anderen krijgen TeX Gyre Heros, een vrije Helvetica */
+@font-face{font-family:"THURBO Helvetica";font-weight:300;font-display:swap;src:local("Helvetica Neue Light"),local("HelveticaNeue-Light"),url(/fonts/heros-regular.woff) format("woff")}
+@font-face{font-family:"THURBO Helvetica";font-weight:400;font-display:swap;src:local("Helvetica Neue"),local("HelveticaNeue"),local("Helvetica"),url(/fonts/heros-regular.woff) format("woff")}
+@font-face{font-family:"THURBO Helvetica";font-weight:500;font-display:swap;src:local("Helvetica Neue Medium"),local("HelveticaNeue-Medium"),local("Helvetica"),url(/fonts/heros-regular.woff) format("woff")}
+@font-face{font-family:"THURBO Helvetica";font-weight:700;font-display:swap;src:local("Helvetica Neue Bold"),local("HelveticaNeue-Bold"),local("Helvetica-Bold"),url(/fonts/heros-bold.woff) format("woff")}
+@font-face{font-family:"THURBO Helvetica";font-weight:400;font-style:italic;font-display:swap;src:local("Helvetica Neue Italic"),local("HelveticaNeue-Italic"),local("Helvetica-Oblique"),url(/fonts/heros-italic.woff) format("woff")}
 /* Layout: één kopregel, raster van dunne lijnen, beelden schermbreed. Zwart-wit; het werk draagt de kleur.
    De typemachineletter komt uit Thorbens portfolio en wordt gebruikt voor feiten en bijschriften. */
 :root{color-scheme:light;
   --bg:#fbfbf9; --fg:#242424; --muted:#6d6d68; --line:#242424; --hair:#dcdcd5; --zwart:#242424; --veil:rgba(251,251,249,.97);
-  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
-  --type:"Courier Prime","Courier New",ui-monospace,monospace;
+  --sans:"THURBO Helvetica","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --type:var(--sans);
   --s1:clamp(15px,1.1vw + 11px,19px); --s2:clamp(17px,1.4vw + 12px,24px); --s3:clamp(32px,4vw + 14px,56px);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#242424;--fg:#ececea;--muted:#a3a39d;--line:#ececea;--hair:#3e3e3b;--veil:rgba(36,36,36,.97);color-scheme:dark}}
@@ -46,6 +54,8 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .rechts{margin-left:auto;flex:none;display:flex;align-items:baseline;gap:18px}
 @media (max-width:699px){.rechts{flex-direction:column;align-items:flex-end;gap:4px}header{font-size:16px}
   .name{display:grid;grid-template-columns:auto auto;column-gap:.6em;row-gap:2px;justify-content:start;justify-items:start}.name .brand{grid-row:1 / span 2;align-self:start}}
+.lang{visibility:hidden;opacity:0;transition:opacity .3s}
+body.menu-open .lang{visibility:visible;opacity:1}
 .lang,.zoekknop{font-weight:300;letter-spacing:.04em;white-space:nowrap}
 .zoekknop{display:inline-flex;align-items:center;gap:0;padding:4px 0 4px 6px}
 #zoeklabel{display:inline-block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;vertical-align:bottom;transition:max-width .45s cubic-bezier(.2,.7,.2,1),opacity .3s,margin .45s}
@@ -103,7 +113,7 @@ button.bitem{cursor:zoom-in}
 .mitem:hover .mpijl,.mitem:focus-visible .mpijl{opacity:1;transform:none}
 .mitem[aria-current="page"] .mnaam{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
 .mvoet{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:auto;padding-block:16px 28px;border-top:1px solid var(--hair);font-family:var(--type);font-size:13px;color:var(--muted);align-self:end}
-@media (max-width:899px){.mvoet{margin-top:auto}.mlijst{margin-bottom:40px}}
+@media (max-width:899px){.mvoet{margin-top:auto;align-self:stretch;justify-content:space-between;gap:10px 16px}.mlijst{margin-bottom:40px}}
 .mvoet a,.mvoet button{color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 @media (prefers-reduced-motion:no-preference){
   .mitem .mnaam{transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
@@ -119,8 +129,8 @@ button.bitem{cursor:zoom-in}
 .pkop{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px) - var(--krimp,0px));z-index:15;background:var(--bg);border-bottom:1px solid var(--hair)}
 .pkop-rij{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:clamp(20px,3vw,40px) 16px}
 .terug{display:inline-flex;align-items:center;height:.78em;margin-right:.32em;color:var(--fg);vertical-align:baseline;transform:translateY(.04em)}
-.terug svg{height:100%;width:auto;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.terug:hover svg{stroke-width:2}
+.terug svg{height:100%;width:auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.terug:hover svg{stroke-width:2.6}
 .phead .terug{height:1.6em;margin-right:14px;align-self:center}
 .phead{align-items:center}
 .pkop h1{margin:0;font-weight:300;font-size:clamp(30px,2.6vw + 14px,60px);line-height:1.02;letter-spacing:-.015em;transform-origin:0 100%;will-change:transform}
@@ -238,11 +248,29 @@ button.bitem{cursor:zoom-in}
 .alle-kop{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:0 10px;margin:0}
 
 /* vergroting */
-.lb{position:fixed;inset:0;z-index:40;background:var(--veil);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 56px) 0 calc(env(safe-area-inset-bottom,0px) + 24px)}
-.lb img{margin:0 auto;cursor:zoom-in;max-width:none;width:100%}
-.lb.full img{width:auto;cursor:zoom-out}
-.lb .x{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(20px,env(safe-area-inset-right,0px));font-size:30px;line-height:1;z-index:41}
-.lb .hint{position:fixed;top:calc(env(safe-area-inset-top,0px) + 20px);left:max(20px,env(safe-area-inset-left,0px));font-family:var(--type);font-size:13px;color:var(--muted)}
+.lb{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column}
+.lbkop{display:flex;align-items:baseline;gap:20px;padding-top:calc(env(safe-area-inset-top,0px) + 16px);padding-bottom:12px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lbcap{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb .x:focus:not(:focus-visible){outline:none}
+.lb .x{font-size:30px;line-height:1;color:var(--fg);margin-left:auto}
+.lbspoor{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior:contain}
+.lbspoor::-webkit-scrollbar{display:none}
+.lbdia{flex:0 0 100%;height:100%;margin:0;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:0 max(20px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 20px);overflow:hidden}
+.lbdia img{max-width:100%;max-height:100%;min-width:0;min-height:0;width:auto;height:auto;object-fit:contain;cursor:zoom-in}
+.lbdia.zoom{overflow:auto;display:block;padding:0}
+.lbdia.zoom img{max-width:none;max-height:none;cursor:zoom-out}
+.lbpijl{position:absolute;top:50%;transform:translateY(-50%);height:64px;width:44px;display:grid;place-items:center;color:var(--fg);z-index:2}
+.lbpijl svg{height:48px;width:auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.lbpijl.l{left:6px}.lbpijl.r{right:6px}
+.lbpijl[disabled]{opacity:0;pointer-events:none}
+@media (hover:none){.lbpijl{display:none}}
+/* vorig en volgend project onderaan */
+.pnav{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--hair);margin-top:56px;padding-block:28px 56px}
+.pnav a{display:flex;align-items:center;gap:14px;text-decoration:none;font-size:var(--s2);line-height:1.2;max-width:48%}
+.pnav .volg{text-align:right;margin-left:auto}
+.pnav small{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+.pnav svg{height:2.2em;width:auto;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.pnav .vorig:hover svg{transform:translateX(-6px)}.pnav .volg:hover svg{transform:translateX(6px)}
 
 /* beweging: projecten zweven in beeld, het menu vouwt zich uit */
 @media (prefers-reduced-motion:no-preference){
@@ -344,17 +372,18 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 /* De inhoud staat in content/site.json en wordt beheerd via Pages CMS.
    Velden die eindigen op _en zijn de Engelse versie; is een _en-veld leeg, dan toont de site het Nederlands. */
 let SITE, lang;
+if('scrollRestoration' in history) history.scrollRestoration='manual';
 try{ lang=localStorage.getItem('thurbo-lang') }catch(e){}
 if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().startsWith("nl")?"nl":"en";
 
 const T={
   nl:{werk:"Projecten",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",terugk:"Terug",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",terugk:"Terug",vorigp:"Vorig project",volgp:"Volgend project",andere:"Andere projecten",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Projects",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",terugk:"Back",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",terugk:"Back",vorigp:"Previous project",volgp:"Next project",andere:"Other projects",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
       soorten:{"Kunst":"Art","Recept":"Recipe","Fotografie":"Photography","Project":"Project","Studio":"Studio","Overig":"Other"},cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -423,7 +452,7 @@ const R=()=>routeVan(location.pathname);
   if(wie){persoon=wie;history.replaceState(null,"","/projecten");setTimeout(()=>document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.p===wie)));return}
   history.replaceState(null,"",h==="werk"?"/projecten":VAST.includes(h)?"/"+h:"/"+(h.startsWith("p")?"projecten/"+h.slice(1):h.startsWith("n-")?"nieuws/"+h.slice(2):h));
 })();
-function naRoute(){if(menuOpen) zetMenu(false);filterOpen=false;beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)}
+function naRoute(){if(menuOpen) zetMenu(false);filterOpen=false;beeld=0;tab="fotos";if(document.querySelector('.lb')){document.querySelector('.lb').remove();document.documentElement.style.overflow=""}render();window.scrollTo(0,0)}
 function ga(r){const doel=pad(r); if(doel===location.pathname){render();return} history.pushState(null,"",doel); stapel.push(R()); naRoute()}
 addEventListener('popstate',()=>{const h=R();if(stapel.length>1&&stapel[stapel.length-2]===h) stapel.pop(); else stapel.push(h); naRoute()});
 /* interne links openen zonder de pagina te herladen */
@@ -436,7 +465,7 @@ document.addEventListener('click',e=>{
 /* ===== terug ===== */
 const stapel=[R()];
 const ouder=h=>/^p/.test(h)?"projecten":/^n-/.test(h)?"nieuws":"";
-function terug(){ if(stapel.length>1) history.back(); else ga(ouder(R())) }
+function terug(){ ga(ouder(R())) }
 const terugKnop=()=>`<button class="terug" data-terug="1" aria-label="${t("terugk")}"><svg viewBox="0 0 20 40" aria-hidden="true"><path d="M17 3 L3 20 L17 37"/></svg></button>`;
 
 /* ===== band: beelden in hun eigen verhouding, vrij scrollen ===== */
@@ -515,13 +544,13 @@ function vulMenu(){
   menuvlak.style.setProperty('--mx',Math.round(r.left)+'px'); menuvlak.style.setProperty('--mw',Math.round(r.width)+'px');
   menuvlak.innerHTML=`<div class="mbinnen"><figure class="mbeeld" aria-hidden="true">${items.map(([hh])=>beeld[hh]?`<img data-m="${hh}" src="${esc(beeld[hh][0])}" alt=""${hh===eerste?' class="aan"':""}>`:"").join("")}<figcaption id="mcap">${esc(beeld[eerste]?.[1]||"")}</figcaption></figure>
     <nav class="mlijst pad" aria-label="Menu">${items.map(([hh,k],i)=>`<button class="mitem" data-go="${hh}" style="--i:${i}"${h===hh||(hh==="projecten"&&h==="werk")?' aria-current="page"':""}><span class="mnaam">${t(k)}</span><span class="mpijl" aria-hidden="true"><svg viewBox="0 0 20 40"><path d="M3 3 L17 20 L3 37"/></svg></span></button>`).join("")}</nav>
-    <div class="mvoet pad">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}<button data-taal="1">${lang==="nl"?"English":"Nederlands"}</button></div></div>`;
+    <div class="mvoet pad">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}</div></div>`;
   menuvlak.querySelectorAll('.mitem').forEach(b=>{const toon=()=>{const k=b.dataset.go;if(!beeld[k])return;
     menuvlak.querySelectorAll('.mbeeld img').forEach(i=>i.classList.toggle('aan',i.dataset.m===k));document.getElementById('mcap').textContent=beeld[k][1]};
     b.addEventListener('mouseenter',toon);b.addEventListener('focus',toon)});
 }
 function zetMenu(aan){
-  menuOpen=aan; burger.classList.toggle('x',aan); burger.setAttribute('aria-expanded',aan);
+  menuOpen=aan; document.body.classList.toggle('menu-open',aan); burger.classList.toggle('x',aan); burger.setAttribute('aria-expanded',aan);
   if(aan) vulMenu();
   menuvlak.classList.toggle('open',aan); menuvlak.setAttribute('aria-hidden',!aan);
   document.documentElement.style.overflow=aan?"hidden":"";
@@ -675,6 +704,7 @@ function rij(p){
 let gesleept=false;
 function sleepStroken(){
   app.querySelectorAll('.strook').forEach(el=>{
+    el.scrollLeft=0; let geraakt=false; el.addEventListener('pointerdown',()=>geraakt=true,{once:true}); el.querySelectorAll('img').forEach(im=>im.addEventListener('load',()=>{if(!geraakt)el.scrollLeft=0}));
     let x0=0,s0=0,neer=false;
     el.addEventListener('pointerdown',e=>{if(e.pointerType!=="mouse")return;neer=true;gesleept=false;x0=e.clientX;s0=el.scrollLeft});
     el.addEventListener('pointermove',e=>{if(!neer)return;const dx=e.clientX-x0;if(Math.abs(dx)>4){gesleept=true;el.classList.add('sleep')}el.scrollLeft=s0-dx});
@@ -804,27 +834,55 @@ function project(nr){
   app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div><a class="close" href="/projecten" aria-label="${t("sluit")}">×</a></div>
   ${bandHTML(items.map(f=>({beeld:f.beeld,label:L(f,"bijschrift"),alt:[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – ")})),false,"proj")}
   <p class="bij pad" id="cap">${esc(L(items[i],"bijschrift"))}</p>
-  <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span><button id="grootBtn">${t("groot")} ⤢</button><button id="infoBtn">${t("info")}</button>${tekKnop()}</div>
+  <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span><button id="infoBtn">${t("info")}</button>${tekKnop()}</div>
   <section class="info pad" id="info"><p>${rijk(L(p,"tekst"))}</p>
     <dl class="facts">${feit(t("jaar"),p.jaar)}${feit(t("locatie"),L(p,"locatie"))}${feit(t("opgave"),L(p,"opgave"))}${feit(t("type"),L(p,"type"))}${feit(t("status"),L(p,"status"))}${feit(p.cat==="Praktijk"?t("bureau"):t("begeleiding"),p.bureau_of_begeleiding,p.bureau_link)}${feit(t("team"),p.ontwerpteam)}</dl></section>
-  ${alleBeelden(items,i)}`;
+  ${alleBeelden(items,i)}${volgendeProjecten(p)}`;
   startBand({n:items.length,lus:false,auto:false,begin:i,opIndex:k=>{beeld=k;
     document.getElementById('cap').textContent=L(items[k],"bijschrift");document.getElementById('cnt').textContent=`${k+1}/${items.length}`;
     const tb=document.getElementById('tekBtn'); if(tb) tb.textContent=items[k].soort==="tekeningen"?t("beelden"):t("tek");
     app.querySelectorAll('.alle button').forEach((x,j)=>x.toggleAttribute('aria-current',j===k))}});
+}
+function volgendeProjecten(p){
+  const P=SITE.projecten, k=P.indexOf(p); if(P.length<2) return "";
+  const v=P[(k-1+P.length)%P.length], n=P[(k+1)%P.length];
+  const pijl=r=>`<svg viewBox="0 0 20 40" aria-hidden="true"><path d="${r?"M3 3 L17 20 L3 37":"M17 3 L3 20 L17 37"}"/></svg>`;
+  return `<nav class="pnav pad" aria-label="${t("andere")}"><a href="${pad("p"+v.nr)}" class="vorig">${pijl(0)}<span><small>${t("vorigp")}</small>${esc(L(v,"titel"))}</span></a><a href="${pad("p"+n.nr)}" class="volg"><span><small>${t("volgp")}</small>${esc(L(n,"titel"))}</span>${pijl(1)}</a></nav>`;
 }
 function alleBeelden(items,i){
   if(items.length<2) return "";
   return `<p class="alle-kop pad">${t("overzicht")} (${items.length})</p><div class="alle">${items.map((f,k)=>
     `<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}>${kleinImg(f.beeld,[L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}</button>`).join("")}</div>`;
 }
+/* volledig scherm: alle beelden van het project, vegen/scrollen, pijlen, toetsen; klik op een beeld om in te zoomen */
 function vergroot(k){
-  if(!cur||!cur.items) return; const f=cur.items[k??beeld];
-  const lb=document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true');
-  lb.innerHTML=`<span class="hint">${t("zoom")}</span><button class="x" aria-label="${t("sluit")}">×</button><img src="${esc(f.beeld)}" alt="${esc(L(f,"bijschrift"))}">`;
-  lb.querySelector('img').onclick=()=>lb.classList.toggle('full');
-  lb.querySelector('.x').onclick=()=>lb.remove();
-  document.body.appendChild(lb); lb.querySelector('.x').focus();
+  if(!cur||!cur.items) return; const items=cur.items, n=items.length; k=Math.max(0,Math.min(n-1,k??beeld));
+  document.querySelector('.lb')?.remove();
+  const pijl=r=>`<svg viewBox="0 0 20 40" aria-hidden="true"><path d="${r?"M3 3 L17 20 L3 37":"M17 3 L3 20 L17 37"}"/></svg>`;
+  const lb=document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label',L(cur,"titel"));
+  lb.innerHTML=`<div class="lbkop pad"><span class="lbnr">${k+1}/${n}</span><span class="lbcap"></span><button class="x" aria-label="${t("sluit")}">×</button></div>
+    <div class="lbspoor">${items.map((f,j)=>`<figure class="lbdia"><img src="${esc(f.beeld)}" alt="${esc([L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" ${Math.abs(j-k)>1?'loading="lazy"':""}></figure>`).join("")}</div>
+    ${n>1?`<button class="lbpijl l" data-lb="-1" aria-label="${t("vorige")}">${pijl(0)}</button><button class="lbpijl r" data-lb="1" aria-label="${t("volgende")}">${pijl(1)}</button>`:""}`;
+  document.body.appendChild(lb); document.documentElement.style.overflow="hidden";
+  const sp=lb.querySelector('.lbspoor'), dias=[...sp.children];
+  let i=k;
+  const zet=j=>{i=j;lb.querySelector('.lbnr').textContent=`${j+1}/${n}`;lb.querySelector('.lbcap').textContent=L(items[j],"bijschrift");
+    lb.querySelector('.l')?.toggleAttribute('disabled',j===0);lb.querySelector('.r')?.toggleAttribute('disabled',j===n-1)};
+  const naar=(j,glad=true)=>{j=Math.max(0,Math.min(n-1,j));dias.forEach(d=>d.classList.remove('zoom'));sp.scrollTo({left:j*sp.clientWidth,behavior:glad&&!rustig()?"smooth":"auto"});zet(j)};
+  requestAnimationFrame(()=>naar(k,false));
+  sp.addEventListener('scroll',()=>{const j=Math.round(sp.scrollLeft/sp.clientWidth);if(j!==i&&j>=0&&j<n)zet(j)},{passive:true});
+  const sluit=()=>{lb.remove();document.documentElement.style.overflow="";removeEventListener('keydown',toets,true)};
+  const toets=e=>{if(!document.body.contains(lb))return;
+    if(e.key==="Escape"){e.stopPropagation();sluit()}
+    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();e.stopPropagation();naar(i+(e.key==="ArrowRight"?1:-1))}};
+  addEventListener('keydown',toets,true);
+  lb.addEventListener('click',e=>{
+    if(e.target.closest('.x')) return sluit();
+    const p=e.target.closest('[data-lb]'); if(p) return naar(i+ +p.dataset.lb);
+    const img=e.target.closest('.lbdia img'); if(img) return img.parentElement.classList.toggle('zoom');
+    if(e.target.classList.contains('lbdia')) sluit();
+  });
+  lb.querySelector('.x').focus();
 }
 /* Studio bovenaan, contactgegevens daaronder; Contact in het menu springt daar direct naartoe */
 const isContact=x=>/mail|instagram|linkedin|samenwerk|collab|contact|adres|address|telefoon|phone/i.test(x.kop||"");
@@ -911,7 +969,8 @@ function zetTitel(h){
   const p=/^p/.test(h)&&SITE.projecten.find(x=>"p"+x.nr===h), n=/^n-/.test(h)&&SITE.nieuws.find(x=>"n-"+x.id===h);
   const kop={projecten:t("werk"),werk:t("werk"),studies:t("studies"),studio:t("studio"),contact:t("contact"),nieuws:t("nieuws"),zoek:t("zoektitel")}[h];
   if(p&&location.pathname!==pad(h)) history.replaceState(null,"",pad(h));
-  document.title=h&&!p&&!n&&!kop?"Niet gevonden · THURBO":p?`${L(p,"titel")}${L(p,"plaats")?" – "+L(p,"plaats"):""} · THURBO`:n?`${L(n,"titel")} · THURBO`:kop?`${kop} · THURBO`:"THURBO · ontwerpstudio van Thorben Contant & Beau Schellevis";
+  const naam=h&&!p&&!n&&!kop?(lang==="nl"?"Niet gevonden":"Not found"):p?L(p,"titel"):n?L(n,"titel"):kop;
+  document.title=naam?`THURBO – ${naam}`:(lang==="nl"?"THURBO – ontwerpstudio van Thorben Contant & Beau Schellevis":"THURBO – design studio of Thorben Contant & Beau Schellevis");
 }
 function render(){
   if(!SITE) return;
@@ -962,8 +1021,7 @@ app.addEventListener('click',e=>{
   if(b.dataset.terug) terug();
   if(b.dataset.groot!==undefined&&!B?.gesleept) vergroot(+b.dataset.groot);
   if(b.dataset.tekspring&&cur&&B){const k=cur.items[beeld].soort==="tekeningen"?0:cur.fotos.length;B.ga(k)}
-  if(b.dataset.kies&&B){B.ga(+b.dataset.kies);document.querySelector('.phead')?.scrollIntoView({behavior:rustig()?"auto":"smooth"})}
-  if(b.id==="grootBtn") vergroot();
+  if(b.dataset.kies) vergroot(+b.dataset.kies);
   if(b.id==="infoBtn") document.getElementById('info').scrollIntoView({behavior:"smooth"});
 });
 addEventListener('keydown',e=>{
