@@ -864,7 +864,11 @@ function render(){
   if(!SITE) return;
   clearInterval(timer);
   if(kaartObj){kaartObj.remove();kaartObj=null}
-  const h=location.hash.slice(1);
+  let h=location.hash.slice(1);
+  /* thurbo.nl/thorben en thurbo.nl/beau: projecten van die persoon, alsof je op de naam klikt */
+  const wie={thorben:"Thorben",beau:"Beau"}[h.toLowerCase()];
+  if(wie){persoon=wie;h="projecten";history.replaceState(null,"","#projecten");stapel[stapel.length-1]=h;
+    document.querySelectorAll('.name button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.p===wie))}
   if(h==="zoek") document.getElementById("zoekknop").setAttribute("aria-current","page"); else document.getElementById("zoekknop").removeAttribute("aria-current");
   if(open){beeld=open.k;tab=open.s;open=null}
   if(h==="werk"||h==="projecten") return werk(false);
