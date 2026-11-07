@@ -7,18 +7,18 @@
 <meta name="description" content="THURBO is de ontwerpstudio van Thorben Contant en Beau Schellevis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Courier+Prime&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Courier+Prime&display=swap">
 <style>
 /* Layout: één kopregel, raster van dunne lijnen, beelden schermbreed. Zwart-wit; het werk draagt de kleur.
    De typemachineletter komt uit Thorbens portfolio en wordt gebruikt voor feiten en bijschriften. */
 :root{color-scheme:light;
-  --bg:#fbfbf9; --fg:#121212; --muted:#6d6d68; --line:#121212; --stage:#f1f1ed;
+  --bg:#fbfbf9; --fg:#121212; --muted:#6d6d68; --line:#121212; --veil:rgba(251,251,249,.97);
   --sans:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
   --type:"Courier Prime","Courier New",ui-monospace,monospace;
   --s1:clamp(15px,1.1vw+11px,19px); --s2:clamp(17px,1.4vw+12px,24px); --s3:clamp(32px,4vw+14px,56px);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--stage:#1c1c1a;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--stage:#1c1c1a;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--veil:rgba(17,17,16,.97);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111110;--fg:#ececea;--muted:#9a9a94;--line:#ececea;--veil:rgba(17,17,16,.97);color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--s1);line-height:1.4;margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
@@ -27,10 +27,12 @@ a{color:inherit}
 img{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--fg);outline-offset:3px}
 .pad{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.ext{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.ext:hover{text-decoration-style:dotted}
 
 /* kopregel */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:22px;padding-block:18px;font-size:var(--s2)}
-.burger{width:32px;height:14px;display:grid;align-content:space-between;flex:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:22px;padding-block:18px;font-size:var(--s2)}
+.burger{width:32px;height:14px;display:grid;align-content:space-between;flex:none;align-self:center}
 .burger i{display:block;height:1.5px;background:var(--fg)}
 .burger.x i:first-child{transform:translateY(6.25px) rotate(45deg)}
 .burger.x i:last-child{transform:translateY(-6.25px) rotate(-45deg)}
@@ -39,19 +41,27 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .name .brand{font-weight:500;letter-spacing:.02em}
 .name button[aria-pressed="true"]{text-decoration-line:underline}
 .name button:hover{text-decoration-line:underline;text-decoration-style:dotted}
+.lang{margin-left:auto;flex:none;font-weight:300;letter-spacing:.04em;white-space:nowrap}
+.lang span{color:var(--muted)}
+.lang span.on{color:var(--fg)}
 
-/* binnenkomer */
-.hero{position:relative;width:100%;max-width:100%;aspect-ratio:3/4;max-height:88vh;overflow:hidden;background:#000;display:block}
-@media (min-width:800px){.hero{aspect-ratio:16/9}}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
-.cap{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:10px}
+/* slideshow */
+.show{position:relative;width:100%;max-width:100%;aspect-ratio:3/4;max-height:86vh;overflow:hidden;background:#000}
+@media (min-width:800px){.show{aspect-ratio:16/9}}
+.show a{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+.show a.on{opacity:1;pointer-events:auto}
+.show img{width:100%;height:100%;object-fit:cover}
+.capbar{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-family:var(--type);font-size:13px;color:var(--muted);padding-block:10px}
+.capbar .nav{display:flex;gap:14px;font-variant-numeric:tabular-nums;flex:none}
+.capbar button{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){.show a{transition:none}}
 
 /* menu */
 .menu{display:grid;grid-template-columns:1fr 1fr}
-.menu button{aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:var(--s2);text-transform:uppercase;letter-spacing:.04em;display:grid;place-items:center;text-align:center;padding:12px}
-.menu button:nth-child(2n){border-right:0}
-.menu button:hover{background:var(--fg);color:var(--bg)}
-@media (min-width:900px){.menu{grid-template-columns:repeat(4,1fr)}.menu button:nth-child(2n){border-right:1px solid var(--line)}.menu button:nth-child(4n){border-right:0}.menu button{aspect-ratio:4/3}}
+.menu button,.menu a{aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:var(--s2);text-transform:uppercase;letter-spacing:.04em;display:grid;place-items:center;text-align:center;padding:12px;text-decoration:none}
+.menu > :nth-child(2n){border-right:0}
+.menu button:hover,.menu a:hover{background:var(--fg);color:var(--bg)}
+@media (min-width:900px){.menu{grid-template-columns:repeat(3,1fr)}.menu > :nth-child(2n){border-right:1px solid var(--line)}.menu > :nth-child(3n){border-right:0}.menu button,.menu a{aspect-ratio:4/3}}
 
 /* filter */
 .chips{display:flex;gap:18px;flex-wrap:wrap;padding-block:14px;border-bottom:1px solid var(--line)}
@@ -73,104 +83,179 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .cell:hover .thumb img{opacity:.7}
 .empty{grid-column:1/-1;padding:40px 20px;color:var(--muted);text-align:center}
 
-/* projectpagina */
+/* projectpagina: beelden in hun eigen verhouding */
 .phead{display:flex;justify-content:space-between;gap:16px;padding-block:18px;font-size:var(--s2);line-height:1.25}
 .phead strong{font-weight:400;text-transform:uppercase;letter-spacing:.02em}
 .close{font-size:30px;line-height:1;flex:none;text-decoration:none}
-.stage{position:relative;height:min(68vh,78vw);min-height:260px;max-width:100%;background:var(--stage);display:grid;place-items:center;overflow:hidden}
-.stage img{max-width:100%;max-height:100%;object-fit:contain}
+.stage{position:relative;max-width:1680px;margin-inline:auto;display:flex;justify-content:center}
+.stage img{width:auto;height:auto;max-width:100%}
+.stage.foto img{max-height:calc(100svh - 190px)}
+.stage.tek img{width:100%;object-fit:contain}
+.stage.tek img.staand{width:auto;max-height:calc(100svh - 190px)}
 .stage .tap{position:absolute;top:0;bottom:0;left:0;width:50%;cursor:w-resize}
 .stage .tap.r{left:50%;cursor:e-resize}
-.bij{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:10px 0;min-height:1.4em}
-.pbar{display:flex;justify-content:space-between;align-items:center;padding-block:12px 18px;font-variant-numeric:tabular-nums}
+.bij{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:10px 0;min-height:1.4em;margin:0}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px 18px;font-variant-numeric:tabular-nums;flex-wrap:wrap}
 .pbar button[aria-pressed="true"]{text-decoration:underline;text-underline-offset:5px}
 .info{display:grid;gap:28px;padding-block:8px 64px;max-width:66ch}
 .info p{margin:0}
 .facts{display:grid;grid-template-columns:minmax(110px,32%) 1fr;gap:6px 16px;margin:0;font-family:var(--type);font-size:.92em}
 .facts dt{color:var(--muted)}
-.facts dd{margin:0}
+.facts dd{margin:0;min-width:0}
+
+/* vergroting */
+.lb{position:fixed;inset:0;z-index:40;background:var(--veil);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 56px) 0 calc(env(safe-area-inset-bottom,0px) + 24px)}
+.lb img{margin:0 auto;cursor:zoom-in;max-width:none;width:100%}
+.lb.full img{width:auto;cursor:zoom-out}
+.lb .x{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(20px,env(safe-area-inset-right,0px));font-size:30px;line-height:1;z-index:41}
+.lb .hint{position:fixed;top:calc(env(safe-area-inset-top,0px) + 20px);left:max(20px,env(safe-area-inset-left,0px));font-family:var(--type);font-size:13px;color:var(--muted)}
 
 /* studio */
 .list{display:grid;grid-template-columns:minmax(110px,30%) 1fr;gap:26px 16px;padding-block:32px 64px;max-width:860px;margin:0}
 .list dt{font-size:.9em;color:var(--muted)}
-.list dd{margin:0;max-width:56ch}
-.note{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:14px;border-top:1px solid var(--line);margin:0}
+.list dd{margin:0;max-width:56ch;min-width:0;overflow-wrap:anywhere}
 @media (prefers-reduced-motion:no-preference){.fade{animation:f .35s ease}@keyframes f{from{opacity:.4}}}
 </style>
 </head>
 <body>
 <header id="hdr" class="pad">
-  <button class="burger" id="burger" aria-label="Menu openen"><i></i><i></i></button>
-  <nav class="name" aria-label="Filter op ontwerper"><button class="brand" data-p="Alle" aria-pressed="true">THURBO</button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
+  <nav class="name" aria-label="Filter"><button class="brand" data-p="Alle" aria-pressed="true">THURBO</button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
+  <button class="lang" id="lang" aria-label="Taal / Language"><span data-l="nl">NL</span> / <span data-l="en">EN</span></button>
 </header>
 <main id="app"></main>
 <script>
-/* ===== INHOUD =====
-   Later komt dit uit één bestand (content/projecten.json) dat jullie via het beheerscherm aanpassen.
-   Per project: de eerste foto is ook de miniatuur in het overzicht. */
-let SITE;
-/* De inhoud staat in content/site.json en wordt beheerd via Pages CMS. */
+/* De inhoud staat in content/site.json en wordt beheerd via Pages CMS.
+   Velden die eindigen op _en zijn de Engelse versie; is een _en-veld leeg, dan toont de site het Nederlands. */
+let SITE, lang;
+try{ lang=localStorage.getItem('thurbo-lang') }catch(e){}
+if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().startsWith("nl")?"nl":"en";
+
+const T={
+  nl:{werk:"Werk",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
+      leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",
+      cats:{}},
+  en:{werk:"Work",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
+      leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",
+      cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
+};
+const t=k=>T[lang][k];
+const catNaam=c=>T[lang].cats[c]||c;
+const L=(o,k)=>(lang==="en"&&o[k+"_en"])?o[k+"_en"]:(o[k]||"");
+
 fetch('/content/site.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
-  SITE={hoofdbeeld:{src:d.hoofdbeeld.beeld,bijschrift:d.hoofdbeeld.bijschrift},
-    projecten:d.projecten.map(p=>({nr:p.nummer,titel:p.titel,plaats:p.plaats,cat:p.categorie,door:p.ontworpen_door||[],jaar:p.jaar,locatie:p.locatie,opgave:p.opgave,type:p.type,status:p.status,bureau:p.bureau_of_begeleiding||"",team:p.ontwerpteam,tekst:p.tekst,
-      fotos:(p.fotos||[]).map(f=>[f.beeld,f.bijschrift||""]),tekeningen:(p.tekeningen||[]).map(f=>[f.beeld,f.bijschrift||""])}))
-      .sort((a,b)=>b.nr.localeCompare(a.nr,undefined,{numeric:true})),
-    studio:d.studio.map(x=>[x.kop,x.tekst])};
+  SITE={
+    slides:(d.slideshow||(d.hoofdbeeld?[d.hoofdbeeld]:[])).filter(s=>s.beeld),
+    projecten:(d.projecten||[]).map(p=>({...p,nr:p.nummer,cat:p.categorie,door:p.ontworpen_door||[],
+      fotos:(p.fotos||[]).filter(f=>f.beeld),tekeningen:(p.tekeningen||[]).filter(f=>f.beeld)}))
+      .sort((a,b)=>String(b.nr).localeCompare(String(a.nr),undefined,{numeric:true})),
+    studio:d.studio||[]};
   start();
 });
-/* ===== weergaven ===== */
+
 const NAMEN={Thorben:"Thorben Contant",Beau:"Beau Schellevis"};
 const initialen=p=>["Thorben","Beau"].filter(n=>p.door.includes(n)).map(n=>n[0].toLowerCase()).join("");
 let CATS=[];
 const app=document.getElementById('app'), burger=document.getElementById('burger');
-let persoon="Alle", filter="Alle", menuOpen=false, beeld=0, tab="fotos", cur=null;
+let persoon="Alle", filter="Alle", menuOpen=false, beeld=0, tab="fotos", cur=null, slide=0, timer=null;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ext=(href,txt)=>`<a class="ext" href="${esc(href)}" target="_blank" rel="noopener">${esc(txt)}</a>`;
+/* tekst met regeleinden; e-mailadressen worden klikbaar */
+const rijk=s=>esc(s).replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g,m=>`<a class="ext" href="mailto:${m}">${m}</a>`).replace(/\n/g,"<br>");
 
+/* ===== homepage: slideshow ===== */
 function home(){
-  app.innerHTML=`<a class="hero fade" href="#werk" aria-label="Naar het werk"><img src="${SITE.hoofdbeeld.src}" alt=""></a><p class="cap pad">${esc(SITE.hoofdbeeld.bijschrift)}</p>`;
+  const S=SITE.slides; if(!S.length){app.innerHTML="";return}
+  slide=slide%S.length;
+  app.innerHTML=`<div class="show fade">${S.map((s,i)=>`<a href="${s.project?"#p"+esc(s.project):"#werk"}" class="${i===slide?"on":""}" aria-label="${esc(L(s,"bijschrift"))}"><img src="${esc(s.beeld)}" alt="" ${i>1?'loading="lazy"':""}></a>`).join("")}</div>
+  <div class="capbar pad"><span id="cap">${esc(L(S[slide],"bijschrift"))}</span>${S.length>1?`<span class="nav"><button data-sl="-1" aria-label="${t("vorige")}">‹</button><span id="cnt">${slide+1}/${S.length}</span><button data-sl="1" aria-label="${t("volgende")}">›</button></span>`:""}</div>`;
+  play();
 }
+function zetSlide(n){
+  const S=SITE.slides, as=app.querySelectorAll('.show a'); if(!as.length) return;
+  slide=(n+S.length)%S.length;
+  as.forEach((a,i)=>a.classList.toggle('on',i===slide));
+  document.getElementById('cap').textContent=L(S[slide],"bijschrift");
+  const c=document.getElementById('cnt'); if(c) c.textContent=`${slide+1}/${S.length}`;
+}
+function play(){
+  clearInterval(timer);
+  if(SITE.slides.length<2||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  timer=setInterval(()=>{ if(!document.hidden) zetSlide(slide+1) },5000);
+}
+
 function menu(){
-  app.innerHTML=`<nav class="menu fade">${["Werk","Studies","Studio","Contact"].map(m=>`<button data-go="${m.toLowerCase()}">${m}</button>`).join("")}</nav>`;
+  const ig=SITE.studio.find(x=>/instagram/i.test(x.kop)&&x.link);
+  app.innerHTML=`<nav class="menu fade">${["werk","studies","studio","contact"].map(m=>`<button data-go="${m}">${t(m)}</button>`).join("")}
+    ${ig?`<a href="${esc(ig.link)}" target="_blank" rel="noopener">Instagram</a>`:""}
+    <button data-taal="1">${lang==="nl"?"English":"Nederlands"}</button></nav>`;
 }
 function werk(alleenStudies){
   const lijst=SITE.projecten.filter(p=>(!alleenStudies||p.cat==="Studie")&&(filter==="Alle"||p.cat===filter)&&(persoon==="Alle"||p.door.includes(persoon)));
-  app.innerHTML=`<div class="chips pad">${["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${c}">${c}</button>`).join("")}</div>
-  <div class="grid fade">${lijst.length?lijst.map(p=>`<a class="cell" href="#p${p.nr}">
-    <div class="num">${p.nr}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
-    <div class="thumb"><img src="${p.fotos[0]?p.fotos[0][0]:""}" alt="" loading="lazy"></div>
-    <div class="ttl"><strong>${esc(p.titel)}</strong> – ${esc(p.plaats)}</div></a>`).join(""):`<p class="empty">Nog geen projecten in deze selectie.</p>`}</div>`;
+  app.innerHTML=`<div class="chips pad">${["Alle",...CATS].map(c=>`<button aria-pressed="${c===filter}" data-f="${esc(c)}">${c==="Alle"?t("alle"):esc(catNaam(c))}</button>`).join("")}</div>
+  <div class="grid fade">${lijst.length?lijst.map(p=>`<a class="cell" href="#p${esc(p.nr)}">
+    <div class="num">${esc(p.nr)}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
+    <div class="thumb">${p.fotos[0]?`<img src="${esc(p.fotos[0].beeld)}" alt="" loading="lazy">`:""}</div>
+    <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div></a>`).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
 }
-function feit(k,v){return v?`<dt>${k}</dt><dd>${esc(v)}</dd>`:""}
+function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
 function project(nr){
-  const p=SITE.projecten.find(x=>x.nr===nr); if(!p){location.hash="werk";return}
+  const p=SITE.projecten.find(x=>String(x.nr)===nr); if(!p){location.hash="werk";return}
   cur=p; if(tab==="tekeningen"&&!p.tekeningen.length) tab="fotos";
-  if(!p.fotos.length){app.innerHTML='<p class="empty">Dit project heeft nog geen foto\'s.</p>';return}
-  const set=p[tab], n=set.length, i=Math.min(beeld,n-1), [src,bij]=set[i];
-  app.innerHTML=`<div class="phead pad"><div>THURBO ${p.nr}<span class="by">${initialen(p)}</span><br><strong>${esc(p.titel)}</strong> – ${esc(p.plaats)}</div><a class="close" href="#werk" aria-label="Sluiten">×</a></div>
-  <div class="stage"><img class="fade" src="${src}" alt="${esc(bij)}">
-    ${n>1?`<button class="tap" data-step="-1" aria-label="Vorige"></button><button class="tap r" data-step="1" aria-label="Volgende"></button>`:""}</div>
+  if(!p.fotos.length&&!p.tekeningen.length){app.innerHTML=`<p class="empty">${t("geenfoto")}</p>`;return}
+  if(!p.fotos.length) tab="tekeningen";
+  const set=p[tab], n=set.length, i=Math.min(beeld,n-1), f=set[i], bij=L(f,"bijschrift");
+  app.innerHTML=`<div class="phead pad"><div>THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div><a class="close" href="#werk" aria-label="${t("sluit")}">×</a></div>
+  <div class="stage ${tab==="tekeningen"?"tek":"foto"}"><img class="fade" src="${esc(f.beeld)}" alt="${esc(bij)}" onload="maat(this)">
+    ${n>1?`<button class="tap" data-step="-1" aria-label="${t("vorige")}"></button><button class="tap r" data-step="1" aria-label="${t("volgende")}"></button>`:""}</div>
   <p class="bij pad">${esc(bij)}</p>
-  <div class="pbar pad"><span>${i+1}/${n}</span><button id="infoBtn">↓ Info</button>
-    ${p.tekeningen.length?`<button aria-pressed="${tab==="tekeningen"}" data-tab="${tab==="tekeningen"?"fotos":"tekeningen"}">${tab==="tekeningen"?"Beelden":"Tekeningen"}</button>`:`<span></span>`}</div>
-  <section class="info pad" id="info"><p>${esc(p.tekst)}</p>
-    <dl class="facts">${feit("Jaar",p.jaar)}${feit("Locatie",p.locatie)}${feit("Opgave",p.opgave)}${feit("Type",p.type)}${feit("Status",p.status)}${feit(p.cat==="Praktijk"?"Bureau":"Begeleiding",p.bureau)}${feit("Ontwerpteam",p.team)}</dl></section>`;
+  <div class="pbar pad"><span>${i+1}/${n}</span><button id="grootBtn">${t("groot")} ⤢</button><button id="infoBtn">${t("info")}</button>
+    ${p.tekeningen.length&&p.fotos.length?`<button aria-pressed="${tab==="tekeningen"}" data-tab="${tab==="tekeningen"?"fotos":"tekeningen"}">${tab==="tekeningen"?t("beelden"):t("tek")}</button>`:`<span></span>`}</div>
+  <section class="info pad" id="info"><p>${rijk(L(p,"tekst"))}</p>
+    <dl class="facts">${feit(t("jaar"),p.jaar)}${feit(t("locatie"),L(p,"locatie"))}${feit(t("opgave"),L(p,"opgave"))}${feit(t("type"),L(p,"type"))}${feit(t("status"),L(p,"status"))}${feit(p.cat==="Praktijk"?t("bureau"):t("begeleiding"),p.bureau_of_begeleiding,p.bureau_link)}${feit(t("team"),p.ontwerpteam)}</dl></section>`;
+}
+/* tekeningen zo groot mogelijk, maar niet meer dan 1,5x vergroot (anders worden ze wazig); staande tekeningen passen in het scherm */
+function maat(img){
+  if(!img.closest('.tek')) return;
+  img.style.maxWidth=Math.min(img.parentNode.clientWidth,Math.round(img.naturalWidth*1.5))+"px";
+  if(img.naturalHeight>img.naturalWidth) img.classList.add('staand');
+}
+function vergroot(){
+  if(!cur) return; const f=cur[tab][Math.min(beeld,cur[tab].length-1)];
+  const lb=document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true');
+  lb.innerHTML=`<span class="hint">${t("zoom")}</span><button class="x" aria-label="${t("sluit")}">×</button><img src="${esc(f.beeld)}" alt="${esc(L(f,"bijschrift"))}">`;
+  lb.querySelector('img').onclick=()=>lb.classList.toggle('full');
+  lb.querySelector('.x').onclick=()=>lb.remove();
+  document.body.appendChild(lb); lb.querySelector('.x').focus();
 }
 function studio(){
-  app.innerHTML=`<dl class="list pad fade">${SITE.studio.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`;
+  app.innerHTML=`<dl class="list pad fade">${SITE.studio.map(x=>{
+    const tekst=L(x,"tekst");
+    return `<dt>${esc(L(x,"kop"))}</dt><dd>${x.link?ext(x.link,tekst||x.link):rijk(tekst)}</dd>`}).join("")}</dl>`;
 }
 
+function zetTaal(l){
+  lang=l; try{localStorage.setItem('thurbo-lang',l)}catch(e){}
+  document.documentElement.lang=l;
+  document.querySelectorAll('#lang span').forEach(s=>s.classList.toggle('on',s.dataset.l===l));
+  burger.setAttribute('aria-label',l==="nl"?"Menu":"Menu");
+}
 function render(){
   if(!SITE) return;
+  clearInterval(timer);
   const h=location.hash.slice(1);
-  burger.classList.toggle('x',menuOpen); burger.setAttribute('aria-label',menuOpen?"Menu sluiten":"Menu openen");
+  burger.classList.toggle('x',menuOpen);
   if(menuOpen) return menu();
   if(h==="werk") return werk(false);
   if(h==="studies") return werk(true);
   if(h==="studio"||h==="contact") return studio();
-  if(/^p\d+$/.test(h)) return project(h.slice(1));
+  if(/^p[\w-]+$/.test(h)) return project(h.slice(1));
   home();
 }
 burger.onclick=()=>{menuOpen=!menuOpen;render();window.scrollTo(0,0)};
+document.getElementById('lang').onclick=()=>{zetTaal(lang==="nl"?"en":"nl");render()};
 document.querySelector('.name').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   persoon=b.dataset.p; menuOpen=false;
@@ -179,17 +264,25 @@ document.querySelector('.name').addEventListener('click',e=>{
   if(persoon==="Alle"){ if(h) location.hash=""; else render(); window.scrollTo(0,0); return; }
   if(h==="werk"||h==="studies") render(); else location.hash="werk";
 });
-addEventListener('hashchange',()=>{menuOpen=false;beeld=0;tab="fotos";render();window.scrollTo(0,0)});
+addEventListener('hashchange',()=>{menuOpen=false;beeld=0;tab="fotos";document.querySelector('.lb')?.remove();render();window.scrollTo(0,0)});
 app.addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   if(b.dataset.go){menuOpen=false; if(location.hash==="#"+b.dataset.go) render(); else location.hash=b.dataset.go}
+  if(b.dataset.taal){menuOpen=false;zetTaal(lang==="nl"?"en":"nl");render()}
   if(b.dataset.f){filter=b.dataset.f;render()}
+  if(b.dataset.sl){zetSlide(slide+ +b.dataset.sl);play()}
   if(b.dataset.step&&cur){const n=cur[tab].length;beeld=((Math.min(beeld,n-1))+ +b.dataset.step+n)%n;render()}
   if(b.dataset.tab){tab=b.dataset.tab;beeld=0;render()}
+  if(b.id==="grootBtn") vergroot();
   if(b.id==="infoBtn") document.getElementById('info').scrollIntoView({behavior:"smooth"});
 });
-addEventListener('keydown',e=>{if(cur&&/^#p/.test(location.hash)&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){const n=cur[tab].length;beeld=(Math.min(beeld,n-1)+(e.key==="ArrowRight"?1:-1)+n)%n;render()}});
-function start(){CATS=[...new Set(SITE.projecten.map(p=>p.cat))];render();}
+addEventListener('keydown',e=>{
+  const lb=document.querySelector('.lb');
+  if(e.key==="Escape"&&lb){lb.remove();return}
+  if(lb) return;
+  if(cur&&/^#p/.test(location.hash)&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){const n=cur[tab].length;beeld=(Math.min(beeld,n-1)+(e.key==="ArrowRight"?1:-1)+n)%n;render()}
+});
+function start(){CATS=[...new Set(SITE.projecten.map(p=>p.cat).filter(Boolean))];zetTaal(lang);render();}
 </script>
 </body>
 </html>
