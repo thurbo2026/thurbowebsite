@@ -114,10 +114,13 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .zonder{font-family:var(--type);font-size:13px;color:var(--muted);padding-block:14px 48px;margin:0}
 .zonder a{color:var(--fg)}
 .pin{background:none;border:0}
-.pin span{display:inline-grid;place-items:center;min-width:34px;height:26px;padding:0 6px;background:var(--fg);color:var(--bg);font:400 14px/1 var(--sans);font-variant-numeric:tabular-nums;transform:translate(-50%,-50%);transition:transform .25s}
+.pin span{display:inline-flex;align-items:baseline;justify-content:center;white-space:nowrap;line-height:26px;min-width:34px;height:26px;padding:0 6px;background:var(--fg);color:var(--bg);font:400 14px/1 var(--sans);font-variant-numeric:tabular-nums;transform:translate(-50%,-50%);transition:transform .25s}
 .pin span sup{font-family:var(--type);font-size:10px;margin-left:2px}
 .pin:hover span{transform:translate(-50%,-50%) scale(1.12)}
 .leaflet-container{font-family:var(--sans);background:var(--hair)}
+/* OpenStreetMap in zwart-wit, passend bij de site; in donkere modus omgekeerd */
+.kaart .leaflet-tile-pane{filter:grayscale(1) contrast(.85) brightness(1.06)}
+.kaart.donker .leaflet-tile-pane{filter:grayscale(1) invert(1) contrast(.85) brightness(.9)}
 .leaflet-popup-content-wrapper{border-radius:0;background:var(--bg);color:var(--fg);box-shadow:none;border:1px solid var(--fg)}
 .leaflet-popup-tip{background:var(--bg);box-shadow:none;border:1px solid var(--fg)}
 .leaflet-popup-content{margin:10px;width:200px!important}
@@ -362,8 +365,9 @@ function kaart(lijst,chips){
     if(kaartObj){kaartObj.remove();kaartObj=null}
     const donker=document.documentElement.dataset.theme==="dark"||(document.documentElement.dataset.theme!=="light"&&matchMedia('(prefers-color-scheme: dark)').matches);
     kaartObj=Lf.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-    Lf.tileLayer(`https://{s}.basemaps.cartocdn.com/${donker?"dark_all":"light_all"}/{z}/{x}/{y}{r}.png`,{subdomains:"abcd",maxZoom:19,
-      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(kaartObj);
+    el.classList.toggle('donker',donker);
+    Lf.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(kaartObj);
     const punten=met.map(p=>{
       const ll=[parseFloat(p.lat),parseFloat(p.lng)];
       Lf.marker(ll,{icon:Lf.divIcon({className:"pin",html:`<span>${esc(p.nr)}<sup>${initialen(p)}</sup></span>`,iconSize:[0,0]}),title:L(p,"titel")}).addTo(kaartObj)
