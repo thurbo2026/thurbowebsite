@@ -732,5 +732,26 @@
       "kolom": "Studio",
       "contact": true
     }
+  ],
+  "nieuws": [
+    {
+      "datum": "2026-11-07",
+      "soort": "Studio",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "titel": "De website staat online",
+      "titel_en": "The website is live",
+      "tekst": "Vanaf vandaag is THURBO online: een plek voor ons werk, onze studies en wat ons verder bezighoudt. Hier delen we binnenkort ook kunst, recepten, foto's en andere dingen buiten de architectuur. Volg ons ook op [Instagram](https://www.instagram.com/studio.thurbo/).",
+      "tekst_en": "As of today THURBO is online: a place for our work, our studies and whatever else keeps us busy. Soon we will also share art, recipes, photos and other things beyond architecture here. Follow us on [Instagram](https://www.instagram.com/studio.thurbo/) too.",
+      "beelden": [
+        {
+          "beeld": "/img/hero.jpg",
+          "bijschrift": "Portfolio, omslagfoto",
+          "bijschrift_en": "Portfolio, cover photo"
+        }
+      ]
+    }
   ]
 }

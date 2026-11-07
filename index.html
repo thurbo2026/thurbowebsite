@@ -66,17 +66,30 @@ body.turbo .show .baan{transition-duration:.12s}
 @media (prefers-reduced-motion:reduce){.show .baan{transition:none}}
 
 /* menu: vouwt van boven open over de pagina */
-.menuvlak{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));bottom:0;z-index:19;background:var(--bg);color:var(--fg);overflow:auto;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s .75s}
+.menuvlak{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));bottom:0;z-index:19;background:var(--bg);color:var(--fg);overflow:auto;display:flex;flex-direction:column;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s .75s}
 .menuvlak.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s}
+.mbinnen{flex:1;display:flex;flex-direction:column;min-height:0}
 .mlijst{display:grid;padding-block:8px 0}
+.mbeeld{display:none}
+@media (min-width:900px){
+  /* links een beeld, even breed als de namenregel bovenin; rechts de lijst */
+  .mbinnen{display:grid;grid-template-columns:var(--mw,420px) 1fr;column-gap:clamp(32px,4vw,72px);padding-left:var(--mx,20px);padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:20px 0}
+  .mbinnen .pad{padding-left:0;padding-right:0}
+  .mbeeld{display:block;position:relative;grid-row:1 / span 2;align-self:stretch;min-height:320px;margin-bottom:24px;overflow:hidden;background:var(--zwart)}
+  .mbeeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
+  .mbeeld img.aan{opacity:1}
+  .mbeeld figcaption{position:absolute;left:16px;right:16px;bottom:14px;font-family:var(--type);font-size:12px;color:#f3f3ef;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+  .mlijst{align-self:start}
+}
 .mitem{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding-block:clamp(10px,1.4vw,18px);border-bottom:1px solid var(--hair);text-decoration:none;text-align:left;width:100%;overflow:hidden}
 .mnaam{font-size:clamp(30px,2.6vw + 14px,60px);font-weight:300;line-height:1.02;letter-spacing:-.015em;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.mpijl{display:block;height:clamp(40px,3.4vw + 18px,84px);color:var(--muted);transform:translateX(-10px);transition:color .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.mpijl{display:block;height:clamp(40px,3.4vw + 18px,84px);color:var(--fg);opacity:0;transform:translateX(-14px);transition:opacity .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
 .mpijl svg{height:100%;width:auto;display:block;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .mitem:hover .mnaam,.mitem:focus-visible .mnaam{transform:translateX(18px)}
-.mitem:hover .mpijl,.mitem:focus-visible .mpijl{color:var(--fg);transform:none}
+.mitem:hover .mpijl,.mitem:focus-visible .mpijl{opacity:1;transform:none}
 .mitem[aria-current="page"] .mnaam{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
-.mvoet{display:flex;flex-wrap:wrap;gap:10px 28px;padding-block:22px 32px;font-family:var(--type);font-size:13px;color:var(--muted)}
+.mvoet{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:auto;padding-block:16px 28px;border-top:1px solid var(--hair);font-family:var(--type);font-size:13px;color:var(--muted);align-self:end}
+@media (max-width:899px){.mvoet{margin-top:auto}.mlijst{margin-bottom:40px}}
 .mvoet a,.mvoet button{color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 @media (prefers-reduced-motion:no-preference){
   .mitem .mnaam{transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
@@ -90,8 +103,8 @@ body.turbo .show .baan{transition-duration:.12s}
 
 /* paginakop: grote titel, rechts de knoppen; krimpt bij scrollen en blijft staan */
 .pkop{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));z-index:15;background:var(--bg);border-bottom:1px solid var(--hair)}
-.pkop-rij{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:clamp(22px,4vw,56px) 16px;transition:padding .45s cubic-bezier(.2,.7,.2,1)}
-.pkop h1{margin:0;font-weight:300;font-size:clamp(44px,5.2vw + 18px,96px);line-height:.95;letter-spacing:-.02em;transition:font-size .45s cubic-bezier(.2,.7,.2,1)}
+.pkop-rij{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:clamp(20px,3vw,40px) 16px;transition:padding .45s cubic-bezier(.2,.7,.2,1)}
+.pkop h1{margin:0;font-weight:300;font-size:clamp(30px,2.6vw + 14px,60px);line-height:1.02;letter-spacing:-.015em;transition:font-size .45s cubic-bezier(.2,.7,.2,1)}
 .pkop.klein .pkop-rij{padding-block:12px 12px}
 .pkop.klein h1{font-size:var(--s2);letter-spacing:0}
 .pctl{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;font-weight:300}
@@ -220,6 +233,23 @@ body.turbo .show .baan{transition-duration:.12s}
   .zweef.in{opacity:1;transform:none}
 }
 
+/* nieuws */
+.feed{columns:3 300px;column-gap:28px;padding-block:28px 72px}
+.nkaart{display:block;break-inside:avoid;margin-bottom:40px;text-decoration:none}
+.nkaart img{width:100%;height:auto}
+.nkaart h2{font-size:var(--s2);font-weight:400;margin:6px 0 0;line-height:1.2;text-wrap:balance}
+.nkaart:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.nmeta{font-family:var(--type);font-size:13px;color:var(--muted);margin:12px 0 0}
+.nkort{margin:8px 0 0;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.nlang{display:grid;gap:28px;max-width:980px;padding-block:8px 72px}
+.ntekst{max-width:62ch}
+.nlang figure{margin:0}
+.nlang figure img{width:100%;height:auto;max-height:86svh;object-fit:contain}
+.nlang figcaption{font-family:var(--type);font-size:13px;color:var(--muted);margin-top:8px}
+.insta{max-width:540px;width:100%}
+.insta iframe{width:100%;height:680px;border:0;background:var(--bg)}
+.insta.klein iframe{height:520px;pointer-events:none}
+
 /* studio */
 .drie{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;padding-block:36px 48px}
 .kolom h2{font-size:var(--s2);font-weight:400;margin:0 0 14px}
@@ -301,12 +331,12 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Projecten",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",
       cats:{}},
   en:{werk:"Projects",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
-      cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",
+      soorten:{"Kunst":"Art","Recept":"Recipe","Fotografie":"Photography","Project":"Project","Studio":"Studio","Overig":"Other"},cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
 const catNaam=c=>T[lang].cats[c]||c;
@@ -317,7 +347,10 @@ fetch('/content/site.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
     slides:(d.slideshow||(d.hoofdbeeld?[d.hoofdbeeld]:[])).filter(s=>s.beeld),
     projecten:(d.projecten||[]).map(p=>({...p,nr:p.nummer,cat:p.categorie,door:p.ontworpen_door||[],
       fotos:(p.fotos||[]).filter(f=>f.beeld),tekeningen:(p.tekeningen||[]).filter(f=>f.beeld)})),
-    studio:d.studio||[]};
+    studio:d.studio||[],
+    nieuws:(d.nieuws||[]).map((n,i)=>({...n,door:n.door||[],beelden:(n.beelden||[]).filter(f=>f.beeld),
+      id:(n.datum||"")+"-"+norm(n.titel||String(i)).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}))
+      .sort((a,b)=>String(b.datum||"").localeCompare(String(a.datum||"")))};
   start();
 });
 
@@ -392,9 +425,23 @@ function vulMenu(){
     if(x.link) r.push([L(x,"kop"),x.link]);
     for(const m of tx.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)) r.push([/linkedin/i.test(m[2])?"LinkedIn "+(x.kolom||""):m[1],m[2]]);
     return r}).filter(([n,u])=>/instagram|linkedin/i.test(u));
-  const items=[["projecten","werk"],["studies","studies"],["studio","studio"],["contact","contact"]];
-  menuvlak.innerHTML=`<nav class="mlijst pad" aria-label="Menu">${items.map(([hh,k],i)=>`<button class="mitem" data-go="${hh}" style="--i:${i}"${h===hh||(hh==="projecten"&&h==="werk")?' aria-current="page"':""}><span class="mnaam">${t(k)}</span><span class="mpijl" aria-hidden="true"><svg viewBox="0 0 20 40"><path d="M3 3 L17 20 L3 37"/></svg></span></button>`).join("")}</nav>
-    <div class="mvoet pad">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}<button data-taal="1">${lang==="nl"?"English":"Nederlands"}</button></div>`;
+  const items=[["projecten","werk"],["nieuws","nieuws"],["studio","studio"],["contact","contact"]];
+  /* per menu-item een beeld; wisselt als je eroverheen gaat */
+  const S=SITE.slides, P=SITE.projecten.filter(p=>p.fotos[0]), N=(SITE.nieuws||[]).find(n=>n.beelden[0]);
+  const beeld={
+    projecten:P[0]?[P[0].fotos[0].beeld,L(P[0],"titel")+(L(P[0],"plaats")?", "+L(P[0],"plaats"):"")]:null,
+    nieuws:N?[N.beelden[0].beeld,L(N,"titel")]:(S[2]?[S[2].beeld,L(S[2],"bijschrift")]:null),
+    studio:S[0]?[S[0].beeld,L(S[0],"bijschrift")]:null,
+    contact:S[6]?[S[6].beeld,L(S[6],"bijschrift")]:(S[1]?[S[1].beeld,L(S[1],"bijschrift")]:null)};
+  const eerste=items.find(([hh])=>h===hh)?.[0]||"projecten";
+  const r=document.querySelector('.name').getBoundingClientRect();
+  menuvlak.style.setProperty('--mx',Math.round(r.left)+'px'); menuvlak.style.setProperty('--mw',Math.round(r.width)+'px');
+  menuvlak.innerHTML=`<div class="mbinnen"><figure class="mbeeld" aria-hidden="true">${items.map(([hh])=>beeld[hh]?`<img data-m="${hh}" src="${esc(beeld[hh][0])}" alt=""${hh===eerste?' class="aan"':""}>`:"").join("")}<figcaption id="mcap">${esc(beeld[eerste]?.[1]||"")}</figcaption></figure>
+    <nav class="mlijst pad" aria-label="Menu">${items.map(([hh,k],i)=>`<button class="mitem" data-go="${hh}" style="--i:${i}"${h===hh||(hh==="projecten"&&h==="werk")?' aria-current="page"':""}><span class="mnaam">${t(k)}</span><span class="mpijl" aria-hidden="true"><svg viewBox="0 0 20 40"><path d="M3 3 L17 20 L3 37"/></svg></span></button>`).join("")}</nav>
+    <div class="mvoet pad">${links.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}<button data-taal="1">${lang==="nl"?"English":"Nederlands"}</button></div></div>`;
+  menuvlak.querySelectorAll('.mitem').forEach(b=>{const toon=()=>{const k=b.dataset.go;if(!beeld[k])return;
+    menuvlak.querySelectorAll('.mbeeld img').forEach(i=>i.classList.toggle('aan',i.dataset.m===k));document.getElementById('mcap').textContent=beeld[k][1]};
+    b.addEventListener('mouseenter',toon);b.addEventListener('focus',toon)});
 }
 function zetMenu(aan){
   menuOpen=aan; burger.classList.toggle('x',aan); burger.setAttribute('aria-expanded',aan);
@@ -406,10 +453,35 @@ function zetMenu(aan){
 menuvlak.addEventListener('click',e=>{
   const b=e.target.closest('button,a'); if(!b) return;
   if(b.dataset.go){const g=b.dataset.go;
-    if(g==="projecten"||g==="studies"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
+    if(g==="projecten"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
     zetMenu(false); if(location.hash==="#"+g) render(); else location.hash=g}
   if(b.dataset.taal){zetTaal(lang==="nl"?"en":"nl");vulMenu();render()}
 });
+/* ===== nieuws: kunst, recepten, foto's, Instagram ===== */
+let nsoort="Alles";
+const instaId=u=>{const m=String(u||"").match(/instagram\.com\/(?:p|reel|tv)\/([\w-]+)/);return m?m[1]:null};
+const insta=(u,klein)=>{const id=instaId(u);return id?`<div class="insta${klein?" klein":""}"><iframe src="https://www.instagram.com/p/${id}/embed/" loading="lazy" title="Instagram" allowtransparency="true" scrolling="no"></iframe></div>`:""};
+const ndatum=d=>{if(!d)return "";const x=new Date(d+"T12:00:00");return isNaN(x)?esc(d):x.toLocaleDateString(lang==="nl"?"nl-NL":"en-GB",{day:"numeric",month:"long",year:"numeric"})};
+function nieuws(){
+  const alle=SITE.nieuws, soorten=[...new Set(alle.map(n=>n.soort).filter(Boolean))];
+  const knoppen=soorten.length>1?["Alles",...soorten].map(x=>`<button data-ns="${esc(x)}" aria-pressed="${x===nsoort}">${x==="Alles"?t("alles"):esc(L({k:x,k_en:T.en.soorten?.[x]},"k"))}</button>`).join(""):"";
+  const lijst=alle.filter(n=>nsoort==="Alles"||n.soort===nsoort);
+  app.innerHTML=paginakop(t("nieuws"),knoppen,"")+(lijst.length?`<div class="feed pad">${lijst.map(n=>`<a class="nkaart" href="#n-${esc(n.id)}">
+      ${n.beelden[0]?`<img src="${esc(n.beelden[0].beeld)}" alt="" loading="lazy">`:insta(n.instagram,true)}
+      <p class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></p>
+      <h2>${esc(L(n,"titel"))}</h2>${L(n,"tekst")?`<p class="nkort">${esc(L(n,"tekst").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1"))}</p>`:""}</a>`).join("")}</div>`:`<p class="empty">${t("nleeg")}</p>`);
+  document.getElementById('pkop').classList.toggle('klein',scrollY>30); zweef();
+}
+function nieuwsItem(id){
+  const n=SITE.nieuws.find(x=>x.id===id); if(!n) return niets();
+  app.innerHTML=`<div class="phead pad"><div><span class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></span><br><strong>${esc(L(n,"titel"))}</strong></div><a class="close" href="#nieuws" aria-label="${t("terugn")}">×</a></div>
+    <article class="nlang pad fade">${L(n,"tekst")?`<div class="ntekst">${rijk(L(n,"tekst"))}</div>`:""}
+      ${n.beelden.map(f=>`<figure><img src="${esc(f.beeld)}" alt="${esc(L(f,"bijschrift"))}" loading="lazy">${L(f,"bijschrift")?`<figcaption>${esc(L(f,"bijschrift"))}</figcaption>`:""}</figure>`).join("")}
+      ${insta(n.instagram)}${n.instagram?`<p><a class="ext" href="${esc(n.instagram)}" target="_blank" rel="noopener">${t("opinsta")}</a></p>`:""}
+      ${n.link?`<p>${ext(n.link,n.link.replace(/^https?:\/\/(www\.)?/,""))}</p>`:""}
+      <p><a class="ext" href="#nieuws">${t("terugn")}</a></p></article>`;
+}
+
 /* ===== paginakop ===== */
 const pijlOmlaag='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4 6 8.5 10.5 4"/></svg>';
 const vergrootglas='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg>';
@@ -529,7 +601,7 @@ function zweef(){
   if(rustig()||!("IntersectionObserver" in window)) return;
   kijker?.disconnect();
   kijker=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');kijker.unobserve(e.target)}}),{rootMargin:"0px 0px -10% 0px"});
-  app.querySelectorAll('.cell,.rij').forEach((el,i)=>{el.classList.add('zweef');el.style.setProperty('--d',(i%4)*140+"ms");kijker.observe(el)});
+  app.querySelectorAll('.cell,.rij,.nkaart').forEach((el,i)=>{el.classList.add('zweef');el.style.setProperty('--d',(i%4)*140+"ms");kijker.observe(el)});
 }
 
 /* ===== zoeken ===== */
@@ -718,6 +790,8 @@ function render(){
   if(h==="studio") return studio(false);
   if(h==="contact") return studio(true);
   if(h==="zoek") return zoek();
+  if(h==="nieuws") return nieuws();
+  if(/^n-/.test(h)) return nieuwsItem(h.slice(2));
   if(/^p[\w-]+$/.test(h)) return project(h.slice(1));
   if(h) return niets();
   home();
@@ -746,6 +820,7 @@ app.addEventListener('click',e=>{
     if(b.dataset.sort) sorteer=b.dataset.sort;
     const y=scrollY; render(); scrollTo(0,y)}
   if(b.dataset.spring){document.getElementById(b.dataset.spring)?.scrollIntoView({behavior:rustig()?"auto":"smooth"})}
+  if(b.dataset.ns){nsoort=b.dataset.ns;render()}
   if(b.dataset.w){weergave=b.dataset.w;try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){};const y=scrollY;render();scrollTo(0,Math.min(y,80))}
   if(b.dataset.open){if(gesleept){gesleept=false;return}const [nr,s,k]=b.dataset.open.split("|");open={s,k:+k};location.hash="p"+nr}
   if(b.dataset.sl){zetSlide(slide+ +b.dataset.sl);play()}

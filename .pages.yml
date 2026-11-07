@@ -77,6 +77,38 @@ content:
               - { name: bijschrift, label: Bijschrift, type: string }
               - { name: bijschrift_en, label: Bijschrift EN, type: string }
 
+      - name: nieuws
+        label: "Nieuws (kunst, recepten, foto's, Instagram)"
+        type: object
+        list: true
+        fields:
+          - { name: datum, label: Datum, type: date }
+          - { name: titel, label: Titel, type: string, required: true }
+          - { name: titel_en, label: Titel EN, type: string }
+          - name: soort
+            label: Soort
+            type: select
+            options:
+              values: [Kunst, Recept, Fotografie, Project, Studio, Overig]
+          - name: door
+            label: Door
+            type: select
+            options:
+              multiple: true
+              values: [Thorben, Beau]
+          - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
+          - { name: tekst_en, label: "Tekst EN", type: text }
+          - name: beelden
+            label: "Foto's (de eerste staat op de nieuwspagina)"
+            type: object
+            list: true
+            fields:
+              - { name: beeld, label: Foto, type: image }
+              - { name: bijschrift, label: Bijschrift, type: string }
+              - { name: bijschrift_en, label: Bijschrift EN, type: string }
+          - { name: instagram, label: "Instagram-post (link, bijv. https://www.instagram.com/p/...)", type: string }
+          - { name: link, label: "Extra link (https://...)", type: string }
+
       - name: studio
         label: Studio en contact
         type: object
