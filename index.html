@@ -119,6 +119,7 @@ button.bitem{cursor:zoom-in}
 
 /* menu: vouwt van boven open over de pagina */
 .menuvlak{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px));bottom:0;z-index:19;background:var(--bg);color:var(--fg);overflow:auto;display:flex;flex-direction:column;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s .75s}
+.menuvlak.vliegt .mbinnen{opacity:0;transition:opacity .2s ease}
 .menuvlak.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .75s cubic-bezier(.76,0,.24,1),visibility 0s}
 .mbinnen{flex:1;display:flex;flex-direction:column;min-height:0}
 .mlijst{display:grid;padding-block:8px 0}
@@ -163,8 +164,8 @@ button.bitem{cursor:zoom-in}
 .mlinks svg .vol{fill:currentColor;stroke:none}
 .mvoet button:not(.mtaal){color:var(--fg);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 @media (prefers-reduced-motion:no-preference){
-  .mitem .mnaam{transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
-  .menuvlak.open .mitem .mnaam{transform:none;transition-delay:calc(var(--i) * 70ms + 180ms)}
+  .mitem .mnaam{transform:translateX(70px);opacity:0;transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .6s ease,-webkit-text-stroke-width .3s}
+  .menuvlak.open .mitem .mnaam{transform:none;opacity:1;transition-delay:calc(var(--i) * 70ms + 180ms)}
   .menuvlak.open .mitem:hover .mnaam{transform:translateX(18px);transition-delay:0s}
   .mvoet{opacity:0;transition:opacity .6s .5s}
   .menuvlak.open .mvoet{opacity:1}
@@ -578,7 +579,7 @@ function startBand({n,lus,auto,begin=0,opIndex,gluur}){
   let tm;
   const normaal=()=>{if(!basis)return;const w=links(2*basis)-links(basis),x=sp.scrollLeft;
     if(x<links(basis)-w/2) sp.scrollLeft=x+w; else if(x>=links(2*basis)) sp.scrollLeft=x-w};
-  sp.addEventListener('scroll',()=>{meld();clearTimeout(tm);tm=setTimeout(normaal,160)},{passive:true});
+  sp.addEventListener('scroll',()=>{if(!sp.isConnected){cancelAnimationFrame(anim);return}meld();clearTimeout(tm);tm=setTimeout(normaal,160)},{passive:true});
   const raak=()=>{B.aangeraakt=true;B.pauze=Date.now()+9000;B.stop()};
   ['pointerdown','wheel','touchstart'].forEach(ev=>sp.addEventListener(ev,raak,{passive:true}));
   sp.addEventListener('pointerdown',e=>{if(e.pointerType==="mouse"&&e.button===0) sleep={sp,x0:e.clientX,s0:sp.scrollLeft,weg:false}});
@@ -642,16 +643,33 @@ function zetThema(m){
 }
 function zetMenu(aan){
   menuOpen=aan; document.body.classList.toggle('menu-open',aan); burger.classList.toggle('x',aan); burger.setAttribute('aria-expanded',aan);
-  if(aan) vulMenu();
+  if(aan){menuvlak.classList.remove('vliegt');vulMenu()}
   menuvlak.classList.toggle('open',aan); menuvlak.setAttribute('aria-hidden',!aan);
   document.documentElement.style.overflow=aan?"hidden":"";
   if(aan) setTimeout(()=>menuvlak.querySelector('.mitem')?.focus({preventScroll:true}),300);
+}
+/* de gekozen titel vliegt van het menu naar de plek van de paginatitel */
+function vlieg(bron,g){
+  const r=bron.getBoundingClientRect(), cs=getComputedStyle(bron);
+  menuvlak.classList.add('vliegt'); zetMenu(false); ga(g);
+  const doel=g!=="contact"&&document.querySelector('#pkop h1');
+  if(!doel||rustig()) return;
+  const t=doel.getBoundingClientRect(), d=document.createElement('div');
+  d.textContent=bron.textContent; d.setAttribute('aria-hidden','true');
+  d.style.cssText=`position:fixed;left:${r.left}px;top:${r.top}px;margin:0;z-index:60;pointer-events:none;white-space:nowrap;color:var(--fg);font-family:${cs.fontFamily};font-size:${cs.fontSize};font-weight:${cs.fontWeight};letter-spacing:${cs.letterSpacing};line-height:${cs.lineHeight}`;
+  document.body.appendChild(d);
+  /* basislijnen gelijk leggen: verschil in regelhoogte meenemen */
+  const dy=(t.top+t.height/2)-(r.top+r.height/2), dx=t.left-r.left;
+  doel.style.visibility='hidden';
+  const a=d.animate([{transform:'translate(0,0)'},{transform:`translate(${dx}px,${dy}px)`}],{duration:750,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'});
+  const klaar=()=>{doel.style.visibility='';d.remove()};
+  a.onfinish=klaar; setTimeout(klaar,1200);
 }
 menuvlak.addEventListener('click',e=>{
   const b=e.target.closest('button,a'); if(!b) return;
   if(b.dataset.go){const g=b.dataset.go;
     if(g==="projecten"){weergave="raster";try{localStorage.setItem('thurbo-weergave',weergave)}catch(e){}}
-    zetMenu(false); ga(g)}
+    vlieg(b.querySelector('.mnaam'),g); }
   if(b.dataset.thema){zetThema(b.dataset.thema);vulMenu();return}
   if(b.dataset.taal){zetTaal(lang==="nl"?"en":"nl");vulMenu();render()}
 });

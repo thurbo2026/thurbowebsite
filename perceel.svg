@@ -22,13 +22,13 @@
     <line x1="180" y1="92" x2="612" y2="76"/><line x1="180" y1="84" x2="180" y2="122"/><line x1="612" y1="68" x2="612" y2="106"/>
     <line x1="174" y1="98" x2="186" y2="86"/><line x1="606" y1="82" x2="618" y2="70"/>
   </g>
-  <text class="f" x="396" y="74" font-size="15" text-anchor="middle" transform="rotate(-2.1 396 74)">24.000</text>
+  <text class="f" x="396" y="74" font-size="15" text-anchor="middle" transform="rotate(-2.1 396 74)">132.000</text>
   <!-- maatvoering links -->
   <g class="l" stroke-width="1">
     <line x1="140" y1="129" x2="128" y2="445"/><line x1="134" y1="129" x2="174" y2="129"/><line x1="122" y1="445" x2="162" y2="445"/>
     <line x1="134" y1="135" x2="146" y2="123"/><line x1="122" y1="451" x2="134" y2="439"/>
   </g>
-  <text class="f" x="116" y="290" font-size="15" text-anchor="middle" transform="rotate(-87.8 116 290)">18.500</text>
+  <text class="f" x="116" y="290" font-size="15" text-anchor="middle" transform="rotate(-87.8 116 290)">404.000</text>
   <!-- noordpijl -->
   <g class="l" stroke-width="1.2">
     <circle cx="712" cy="96" r="26"/>
@@ -46,6 +46,6 @@
   </g>
   <text class="f" x="654" y="321" font-size="15" letter-spacing="1">THURBO</text>
   <text class="f" x="654" y="348" font-size="12">PERCEEL 404</text>
-  <text class="f" x="654" y="373" font-size="12">SCHAAL 1:200</text>
+  <text class="f" x="654" y="373" font-size="12">SCHAAL 1:404</text>
   <text class="f" x="654" y="397" font-size="12">NIET VERGUND</text>
 </svg>
