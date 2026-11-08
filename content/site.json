@@ -4,8 +4,7 @@
     {
       "beeld": "/img/hero.jpg",
       "bijschrift": "Portfolio, omslagfoto",
-      "bijschrift_en": "Portfolio, cover photo",
-      "project": ""
+      "bijschrift_en": "Portfolio, cover photo"
     },
     {
       "beeld": "/img/ks-impressie.jpg",
@@ -58,260 +57,28 @@
   ],
   "projecten": [
     {
-      "nummer": "10",
-      "titel": "Vormstudies",
-      "plaats": "Fysieke modellen",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Beau"
-      ],
-      "opgave": "Fysieke modellen",
-      "type": "Maquettes",
-      "status": "Studie",
-      "ontwerpteam": "Beau Schellevis",
-      "tekst": "Een reeks vormstudies in fysieke modellen: ruimte, licht en massa onderzocht met karton, hout en gips.",
-      "fotos": [
-        {
-          "beeld": "/img/vm-2.jpg",
-          "bijschrift": "Vormstudie",
-          "bijschrift_en": "Form study"
-        },
-        {
-          "beeld": "/img/vm-1.jpg",
-          "bijschrift": "Maquette in tentoonstellingsruimte",
-          "bijschrift_en": "Model in exhibition space"
-        },
-        {
-          "beeld": "/img/vm-3.jpg",
-          "bijschrift": "Lichtstudie",
-          "bijschrift_en": "Light study"
-        },
-        {
-          "beeld": "/img/vm-4.jpg",
-          "bijschrift": "Vormstudie",
-          "bijschrift_en": "Form study"
-        },
-        {
-          "beeld": "/img/vm-5.jpg",
-          "bijschrift": "Massamodel",
-          "bijschrift_en": "Massing model"
-        }
-      ],
-      "titel_en": "Form Studies",
-      "plaats_en": "Physical models",
-      "opgave_en": "Physical models",
-      "type_en": "Models",
-      "status_en": "Study",
-      "tekst_en": "A series of form studies in physical models: space, light and mass explored in cardboard, wood and plaster."
-    },
-    {
-      "nummer": "09",
-      "titel": "Collages",
-      "plaats": "Lost City, Mill on a Hill",
-      "categorie": "Eigen werk",
-      "ontworpen_door": [
-        "Thorben"
-      ],
-      "type": "Collage",
-      "status": "Eigen werk",
-      "ontwerpteam": "Thorben Contant",
-      "tekst": "Twee conceptcollages: een verloren stad die door de natuur wordt teruggenomen, en een molen op een heuvel boven zee.",
-      "fotos": [
-        {
-          "beeld": "/img/collage-lost-city.jpg",
-          "bijschrift": "Collage, Lost City",
-          "bijschrift_en": "Collage, Lost City"
-        },
-        {
-          "beeld": "/img/collage-mill.jpg",
-          "bijschrift": "Collage, Mill on a Hill",
-          "bijschrift_en": "Collage, Mill on a Hill"
-        }
-      ],
-      "titel_en": "Collages",
-      "type_en": "Collage",
-      "status_en": "Personal work",
-      "tekst_en": "Two concept collages: a lost city being reclaimed by nature, and a mill on a hill above the sea."
-    },
-    {
-      "nummer": "08",
-      "titel": "CRM Milos",
-      "plaats": "Lefkada",
-      "categorie": "Praktijk",
-      "ontworpen_door": [
-        "Thorben"
-      ],
-      "jaar": "2025",
-      "locatie": "Agios Nikitas, Lefkada, GR",
-      "opgave": "Grotvilla die opgaat in het landschap",
-      "type": "Wonen",
-      "status": "Ontwerp",
-      "bureau_of_begeleiding": "LA^ARC, Lefkada",
-      "ontwerpteam": "Thorben Contant, Lila Yiamopoulou, Aimon Litinas",
-      "tekst": "Een mediterrane grotvilla op een extreem steile helling bij Agios Nikitas. Het strand eronder is alleen te voet bereikbaar. Wie vanaf het dorp over de heuvel komt, ziet eerst een traditionele Griekse molen: de naamgever van de plek en het vertrekpunt voor het ontwerp. De villa volgt de terrassen van de helling en verdwijnt grotendeels in de grond. Ontwikkeld als junior ontwerper bij LA^ARC.",
-      "fotos": [
-        {
-          "beeld": "/img/crm-vogelvlucht-1.jpg",
-          "bijschrift": "Vogelvlucht, samenwerking",
-          "bijschrift_en": "Aerial view, collaboration"
-        },
-        {
-          "beeld": "/img/crm-vogelvlucht-2.jpg",
-          "bijschrift": "Vogelvlucht, samenwerking",
-          "bijschrift_en": "Aerial view, collaboration"
-        },
-        {
-          "beeld": "/img/crm-keuken.jpg",
-          "bijschrift": "Keuken, samenwerking",
-          "bijschrift_en": "Kitchen, collaboration"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/crm-t-masterplan.jpg",
-          "bijschrift": "Masterplan 1:150, eigen werk",
-          "bijschrift_en": "Masterplan 1:150, own work"
-        },
-        {
-          "beeld": "/img/crm-t-doorsnede-molen.jpg",
-          "bijschrift": "Doorsnede molen B-B 1:100, eigen werk",
-          "bijschrift_en": "Section mill B-B 1:100, own work"
-        },
-        {
-          "beeld": "/img/crm-t-gevel.jpg",
-          "bijschrift": "Gevelaanzicht 1:150, eigen werk",
-          "bijschrift_en": "Elevation 1:150, own work"
-        },
-        {
-          "beeld": "/img/crm-t-gastenhuis.jpg",
-          "bijschrift": "Gevelaanzicht gastenhuis 1:150, eigen werk",
-          "bijschrift_en": "Elevation guest house 1:150, own work"
-        }
-      ],
-      "titel_en": "CRM Milos",
-      "opgave_en": "Cave villa that merges with the landscape",
-      "type_en": "Housing",
-      "status_en": "Design",
-      "bureau_link": "https://www.la-rc.com/",
-      "tekst_en": "A Mediterranean cave villa on an extremely steep slope near Agios Nikitas. The beach below can only be reached on foot. Coming over the hill from the village, you first see a traditional Greek mill: the namesake of the place and the starting point for the design. The villa follows the terraces of the slope and largely disappears into the ground. Developed as a junior designer at LA^ARC.",
-      "lat": "38.7889",
-      "lng": "20.6137",
-      "datum": "2025-07"
-    },
-    {
-      "nummer": "07",
-      "titel": "Research Center",
-      "plaats": "Maquette",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Thorben"
-      ],
-      "opgave": "New Generation Research Center",
-      "type": "Onderzoek",
-      "status": "Studieproject",
-      "ontwerpteam": "Thorben Contant",
-      "tekst": "Maquette van het New Generation Research Center. Projecttekst volgt.",
-      "fotos": [
-        {
-          "beeld": "/img/rc-model.jpg",
-          "bijschrift": "Maquette, eigen werk",
-          "bijschrift_en": "Model, own work"
-        },
-        {
-          "beeld": "/img/rc-model-2.jpg",
-          "bijschrift": "Maquette, trappen achter de gevel",
-          "bijschrift_en": "Model, stairs behind the facade"
-        },
-        {
-          "beeld": "/img/rc-model-3.jpg",
-          "bijschrift": "Maquette, doorkijk",
-          "bijschrift_en": "Model, view through"
-        }
-      ],
-      "titel_en": "Research Center",
-      "plaats_en": "Model",
-      "type_en": "Research",
-      "status_en": "Study project",
-      "tekst_en": "Model of the New Generation Research Center. Project text to follow."
-    },
-    {
-      "nummer": "06",
-      "titel": "The Monastery",
-      "plaats": "Sitlisalp",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Thorben"
-      ],
-      "jaar": "12.2024",
-      "locatie": "Sitlisalp, CH",
-      "opgave": "Remoteness and Identity, ETH Zürich",
-      "type": "Wonen, landbouw",
-      "status": "Studieproject",
-      "bureau_of_begeleiding": "Adam Caruso",
-      "ontwerpteam": "Loris Angst, Thorben Contant, Lazar Riva",
-      "tekst": "Een toevluchtsoord voor mensen en planten op de Sitlisalp. We noemen het een klooster, maar het heeft niets met religie te maken: het is volledig gewijd aan planten. We kozen twaalf bedreigde plantensoorten die op grote hoogte groeien en elk een nut hebben. Van de gele gentiaan wordt de wortel likeur, de stengel poetsmiddel en het blad salade. Rond deze planten ontwierpen we een dagritme, en dat ritme bepaalt de architectuur van het huis. Gepresenteerd met twee grote maquettes en een reeks tekeningen.",
-      "fotos": [
-        {
-          "beeld": "/img/mo-gevelmodel.jpg",
-          "bijschrift": "Gevelmaquette",
-          "bijschrift_en": "Facade model"
-        },
-        {
-          "beeld": "/img/mo-interieurmodel.jpg",
-          "bijschrift": "Interieurmaquette, gemeenschappelijke hal",
-          "bijschrift_en": "Interior model, communal hall"
-        },
-        {
-          "beeld": "/img/mo-impressie-1.jpg",
-          "bijschrift": "Impressietekening",
-          "bijschrift_en": "Impression drawing"
-        },
-        {
-          "beeld": "/img/mo-impressie-2.jpg",
-          "bijschrift": "Impressietekening",
-          "bijschrift_en": "Impression drawing"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/mo-t-plattegrond.jpg",
-          "bijschrift": "Plattegrond 1827 m boven zeeniveau",
-          "bijschrift_en": "Floor plan, 1827 m above sea level"
-        },
-        {
-          "beeld": "/img/mo-t-gevel-zuid.jpg",
-          "bijschrift": "Aanzicht en doorsnede zuid",
-          "bijschrift_en": "South elevation and section"
-        },
-        {
-          "beeld": "/img/mo-t-gevel-oost.jpg",
-          "bijschrift": "Aanzicht en doorsnede oost",
-          "bijschrift_en": "East elevation and section"
-        }
-      ],
-      "titel_en": "The Monastery",
-      "type_en": "Housing, agriculture",
-      "status_en": "Study project",
-      "tekst_en": "A refuge for people and plants on the Sitlisalp. We call it a monastery, but it has nothing to do with religion: it is entirely devoted to plants. We chose twelve endangered plant species that grow at high altitude and each have a use. The root of the yellow gentian becomes liqueur, the stem a cleaning agent and the leaf a salad. Around these plants we designed a daily rhythm, and that rhythm shapes the architecture of the house. Presented with two large models and a series of drawings.",
-      "lat": "46.855",
-      "lng": "8.79",
-      "datum": "2024-12"
-    },
-    {
       "nummer": "05",
       "titel": "Crematorium",
+      "titel_en": "Crematorium",
       "plaats": "Bleiswijk",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "BSc, semester 6",
+      "jaar": "2024",
+      "datum": "2024-06",
       "locatie": "Bleiswijk, NL",
+      "lat": "52.0115",
+      "lng": "4.532",
       "opgave": "Bachelor eindproject, TU Delft",
+      "opgave_en": "Bachelor graduation project, TU Delft",
       "type": "Uitvaart",
+      "type_en": "Funerary",
       "status": "Studieproject",
+      "status_en": "Study project",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "Een crematorium in Bleiswijk waarin de beleving van bezoekers en nabestaanden centraal staat, met oog voor een goede landschappelijke en stedenbouwkundige inpassing. Door zorgvuldig licht en uitzicht toe te voegen of weg te laten, en door te variëren in materialen en in de richting van de houten spanten, wordt de bezoeker door het gebouw en het rouwproces geleid. De familie krijgt een eigen, beschermde route; andere bezoekers worden op een natuurlijke manier door het gebouw geleid. De draagconstructie is volledig losmaakbaar en remontabel, net als de binnen- en buitenafwerking.",
+      "tekst_en": "A crematorium in Bleiswijk that puts the experience of visitors and relatives first, with care for how it fits into the landscape and the town. By adding or withholding light and views, and by varying the materials and the direction of the timber frames, visitors are guided through the building and through the process of mourning. The family has its own sheltered route; other visitors are led through the building naturally. The structure is fully demountable and reusable, as are the interior and exterior finishes.",
       "fotos": [
         {
           "beeld": "/img/cr-buiten.jpg",
@@ -350,32 +117,175 @@
           "bijschrift": "Geveldetails",
           "bijschrift_en": "Facade details"
         }
+      ]
+    },
+    {
+      "nummer": "08",
+      "titel": "CRM Milos",
+      "titel_en": "CRM Milos",
+      "plaats": "Lefkada",
+      "categorie": "Praktijk",
+      "ontworpen_door": [
+        "Thorben"
       ],
-      "titel_en": "Crematorium",
-      "opgave_en": "Bachelor graduation project, TU Delft",
-      "type_en": "Funerary",
+      "jaar": "2025",
+      "datum": "2025-07",
+      "locatie": "Agios Nikitas, Lefkada, GR",
+      "lat": "38.7889",
+      "lng": "20.6137",
+      "opgave": "Grotvilla die opgaat in het landschap",
+      "opgave_en": "Cave villa that merges with the landscape",
+      "type": "Wonen",
+      "type_en": "Housing",
+      "status": "Ontwerp",
+      "status_en": "Design",
+      "bureau_of_begeleiding": "LA^ARC, Lefkada",
+      "bureau_link": "https://www.la-rc.com/",
+      "ontwerpteam": "Thorben Contant, Lila Yiamopoulou, Aimon Litinas",
+      "tekst": "Een mediterrane grotvilla op een extreem steile helling bij Agios Nikitas. Het strand eronder is alleen te voet bereikbaar. Wie vanaf het dorp over de heuvel komt, ziet eerst een traditionele Griekse molen: de naamgever van de plek en het vertrekpunt voor het ontwerp. De villa volgt de terrassen van de helling en verdwijnt grotendeels in de grond. Ontwikkeld als junior ontwerper bij LA^ARC.",
+      "tekst_en": "A Mediterranean cave villa on an extremely steep slope near Agios Nikitas. The beach below can only be reached on foot. Coming over the hill from the village, you first see a traditional Greek mill: the namesake of the place and the starting point for the design. The villa follows the terraces of the slope and largely disappears into the ground. Developed as a junior designer at LA^ARC.",
+      "fotos": [
+        {
+          "beeld": "/img/crm-vogelvlucht-1.jpg",
+          "bijschrift": "Vogelvlucht, samenwerking",
+          "bijschrift_en": "Aerial view, collaboration"
+        },
+        {
+          "beeld": "/img/crm-vogelvlucht-2.jpg",
+          "bijschrift": "Vogelvlucht, samenwerking",
+          "bijschrift_en": "Aerial view, collaboration"
+        },
+        {
+          "beeld": "/img/crm-keuken.jpg",
+          "bijschrift": "Keuken, samenwerking",
+          "bijschrift_en": "Kitchen, collaboration"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/crm-t-masterplan.jpg",
+          "bijschrift": "Masterplan 1:150, eigen werk",
+          "bijschrift_en": "Masterplan 1:150, own work"
+        },
+        {
+          "beeld": "/img/crm-t-doorsnede-molen.jpg",
+          "bijschrift": "Doorsnede molen B-B 1:100, eigen werk",
+          "bijschrift_en": "Section mill B-B 1:100, own work"
+        },
+        {
+          "beeld": "/img/crm-t-gevel.jpg",
+          "bijschrift": "Gevelaanzicht 1:150, eigen werk",
+          "bijschrift_en": "Elevation 1:150, own work"
+        },
+        {
+          "beeld": "/img/crm-t-gastenhuis.jpg",
+          "bijschrift": "Gevelaanzicht gastenhuis 1:150, eigen werk",
+          "bijschrift_en": "Elevation guest house 1:150, own work"
+        }
+      ]
+    },
+    {
+      "nummer": "02",
+      "titel": "Stedelijke Aanleunwoningen",
+      "titel_en": "Urban Housing for Elderly ",
+      "plaats": "Den Haag",
+      "plaats_en": "The Hague",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Beau"
+      ],
+      "jaar": "2023",
+      "datum": "2023-06",
+      "locatie": "Den Haag, NL",
+      "locatie_en": "The Hague, NL",
+      "lat": "52.0869",
+      "lng": "4.2963",
+      "opgave": "Transformatie NIBC-kantoor, thema Affordable Luxury",
+      "opgave_en": "Transformation of the NIBC office, theme Affordable Luxury",
+      "type": "Wonen, transformatie",
+      "type_en": "Housing, transformation",
+      "status": "Studieproject",
       "status_en": "Study project",
-      "tekst_en": "A crematorium in Bleiswijk that puts the experience of visitors and relatives first, with care for how it fits into the landscape and the town. By adding or withholding light and views, and by varying the materials and the direction of the timber frames, visitors are guided through the building and through the process of mourning. The family has its own sheltered route; other visitors are led through the building naturally. The structure is fully demountable and reusable, as are the interior and exterior finishes.",
-      "lat": "52.0115",
-      "lng": "4.532",
-      "datum": "2024-06"
+      "bureau_of_begeleiding": "Powerhouse Company",
+      "bureau_link": "www.powerhouse-company.com",
+      "ontwerpteam": "Beau Schellevis",
+      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
+      "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
+      "fotos": [
+        {
+          "beeld": "/img/ba-modellen.jpg",
+          "bijschrift": "Maquettes woningtypes",
+          "bijschrift_en": "Models of the dwelling types"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/ba-t-doorsnede.jpg",
+          "bijschrift": "Doorsnede basisconfiguratie",
+          "bijschrift_en": "Section of the base configuration"
+        },
+        {
+          "beeld": "/img/ba-t-plattegronden.jpg",
+          "bijschrift": "Plattegronden, begane grond tot +4",
+          "bijschrift_en": "Floor plans, ground floor to +4"
+        },
+        {
+          "beeld": "/img/ba-t-typologie.jpg",
+          "bijschrift": "Opbouw van de typologie",
+          "bijschrift_en": "Build-up of the typology"
+        },
+        {
+          "beeld": "/img/ba-t-woningtypes.jpg",
+          "bijschrift": "Doorsneden type A en type B",
+          "bijschrift_en": "Sections type A and type B"
+        },
+        {
+          "beeld": "/img/ba-t-plattegrond-bg.jpg",
+          "bijschrift": "Plattegrond begane grond",
+          "bijschrift_en": "Ground floor plan"
+        },
+        {
+          "beeld": "/img/ba-t-gevels.jpg",
+          "bijschrift": "Noord- en zuidgevel",
+          "bijschrift_en": "North and south elevations"
+        },
+        {
+          "beeld": "/img/ba-t-gevelfragment.jpg",
+          "bijschrift": "Gevelfragment",
+          "bijschrift_en": "Facade fragment"
+        },
+        {
+          "beeld": "/img/ba-t-ontstaan.jpg",
+          "bijschrift": "Ontstaan van de typologie",
+          "bijschrift_en": "Origin of the typology"
+        }
+      ]
     },
     {
       "nummer": "04",
       "titel": "Keerzijde Strijp-S",
+      "titel_en": "Keerzijde Strijp-S",
       "plaats": "Eindhoven",
       "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
       ],
       "jaar": "06.2024",
+      "datum": "2024-06",
       "locatie": "Strijp-S, Eindhoven, NL",
+      "lat": "51.4486",
+      "lng": "5.4565",
       "opgave": "Ontwerpstudio 4, gestapeld woongebouw, TU Delft",
+      "opgave_en": "Design studio 4, stacked housing, TU Delft",
       "type": "Wonen",
+      "type_en": "Housing",
       "status": "Studieproject",
+      "status_en": "Study project",
       "bureau_of_begeleiding": "KAAN Architecten",
+      "bureau_link": "https://kaanarchitecten.com/",
       "ontwerpteam": "Anna Avermaete, Thorben Contant",
       "tekst": "Een gestapeld woongebouw op Strijp-S, het voormalige Philipsterrein dat volop verandert. Op de begane grond wonen studenten, op de verdiepingen daarboven starters in vriendenwoningen: appartementen met gelijkwaardige kamers, zodat bewoners hun woonruimte met vrienden kunnen delen. Het gebouw staat in een raster dat is afgeleid van de bestaande leidingenstructuur op het terrein. Op de hoek breekt het raster open, zodat bij de kruising een open, uitnodigende plek ontstaat die de hoek van de straat volgt.",
+      "tekst_en": "A stacked housing block on Strijp-S, the former Philips site that is changing rapidly. Students live on the ground floor; on the floors above, starters live in friends apartments: dwellings with equal rooms, so residents can share their home with friends. The building sits on a grid derived from the existing pipe structure on the site. At the corner the grid opens up, creating an open, inviting place at the crossing that follows the corner of the street.",
       "fotos": [
         {
           "beeld": "/img/ks-impressie.jpg",
@@ -439,32 +349,208 @@
           "bijschrift": "Geveldetail",
           "bijschrift_en": "Facade detail"
         }
-      ],
-      "titel_en": "Keerzijde Strijp-S",
-      "opgave_en": "Design studio 4, stacked housing, TU Delft",
-      "type_en": "Housing",
-      "status_en": "Study project",
-      "bureau_link": "https://kaanarchitecten.com/",
-      "tekst_en": "A stacked housing block on Strijp-S, the former Philips site that is changing rapidly. Students live on the ground floor; on the floors above, starters live in friends apartments: dwellings with equal rooms, so residents can share their home with friends. The building sits on a grid derived from the existing pipe structure on the site. At the corner the grid opens up, creating an open, inviting place at the crossing that follows the corner of the street.",
-      "lat": "51.4486",
-      "lng": "5.4565",
-      "datum": "2024-06"
+      ]
     },
     {
-      "nummer": "03",
-      "titel": "Urbanism Studio",
-      "plaats": "Kopenhagen",
+      "nummer": "06",
+      "titel": "The Monastery",
+      "titel_en": "The Monastery",
+      "plaats": "Sitlisalp",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "jaar": "12.2024",
+      "datum": "2024-12",
+      "locatie": "Sitlisalp, CH",
+      "lat": "46.855",
+      "lng": "8.79",
+      "opgave": "Remoteness and Identity, ETH Zürich",
+      "type": "Wonen, landbouw",
+      "type_en": "Housing, agriculture",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "bureau_of_begeleiding": "Adam Caruso",
+      "ontwerpteam": "Loris Angst, Thorben Contant, Lazar Riva",
+      "tekst": "Een toevluchtsoord voor mensen en planten op de Sitlisalp. We noemen het een klooster, maar het heeft niets met religie te maken: het is volledig gewijd aan planten. We kozen twaalf bedreigde plantensoorten die op grote hoogte groeien en elk een nut hebben. Van de gele gentiaan wordt de wortel likeur, de stengel poetsmiddel en het blad salade. Rond deze planten ontwierpen we een dagritme, en dat ritme bepaalt de architectuur van het huis. Gepresenteerd met twee grote maquettes en een reeks tekeningen.",
+      "tekst_en": "A refuge for people and plants on the Sitlisalp. We call it a monastery, but it has nothing to do with religion: it is entirely devoted to plants. We chose twelve endangered plant species that grow at high altitude and each have a use. The root of the yellow gentian becomes liqueur, the stem a cleaning agent and the leaf a salad. Around these plants we designed a daily rhythm, and that rhythm shapes the architecture of the house. Presented with two large models and a series of drawings.",
+      "fotos": [
+        {
+          "beeld": "/img/mo-gevelmodel.jpg",
+          "bijschrift": "Gevelmaquette",
+          "bijschrift_en": "Facade model"
+        },
+        {
+          "beeld": "/img/mo-interieurmodel.jpg",
+          "bijschrift": "Interieurmaquette, gemeenschappelijke hal",
+          "bijschrift_en": "Interior model, communal hall"
+        },
+        {
+          "beeld": "/img/mo-impressie-1.jpg",
+          "bijschrift": "Impressietekening",
+          "bijschrift_en": "Impression drawing"
+        },
+        {
+          "beeld": "/img/mo-impressie-2.jpg",
+          "bijschrift": "Impressietekening",
+          "bijschrift_en": "Impression drawing"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/mo-t-plattegrond.jpg",
+          "bijschrift": "Plattegrond 1827 m boven zeeniveau",
+          "bijschrift_en": "Floor plan, 1827 m above sea level"
+        },
+        {
+          "beeld": "/img/mo-t-gevel-zuid.jpg",
+          "bijschrift": "Aanzicht en doorsnede zuid",
+          "bijschrift_en": "South elevation and section"
+        },
+        {
+          "beeld": "/img/mo-t-gevel-oost.jpg",
+          "bijschrift": "Aanzicht en doorsnede oost",
+          "bijschrift_en": "East elevation and section"
+        }
+      ]
+    },
+    {
+      "nummer": "10",
+      "titel": "Vormstudies",
+      "titel_en": "Form Studies",
+      "plaats": "Fysieke modellen",
+      "plaats_en": "Physical models",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "BSc, semester 5",
+      "opgave": "Fysieke modellen",
+      "opgave_en": "Physical models",
+      "type": "Maquettes",
+      "type_en": "Models",
+      "status": "Studie",
+      "status_en": "Study",
+      "ontwerpteam": "Beau Schellevis",
+      "tekst": "Een reeks vormstudies in fysieke modellen: ruimte, licht en massa onderzocht met karton, hout en gips.",
+      "tekst_en": "A series of form studies in physical models: space, light and mass explored in cardboard, wood and plaster.",
+      "fotos": [
+        {
+          "beeld": "/img/vm-2.jpg",
+          "bijschrift": "Vormstudie",
+          "bijschrift_en": "Form study"
+        },
+        {
+          "beeld": "/img/vm-1.jpg",
+          "bijschrift": "Maquette in tentoonstellingsruimte",
+          "bijschrift_en": "Model in exhibition space"
+        },
+        {
+          "beeld": "/img/vm-3.jpg",
+          "bijschrift": "Lichtstudie crematorium",
+          "bijschrift_en": "Light study crematorium"
+        },
+        {
+          "beeld": "/img/vm-4.jpg",
+          "bijschrift": "Vormstudie",
+          "bijschrift_en": "Form study"
+        },
+        {
+          "beeld": "/img/vm-5.jpg",
+          "bijschrift": "Massamodel Europese School bij cepezed",
+          "bijschrift_en": "Massing model European School by cepezed"
+        }
+      ]
+    },
+    {
+      "nummer": "09",
+      "titel": "Collages",
+      "titel_en": "Collages",
+      "plaats": "Lost City, Mill on a Hill",
+      "categorie": "Eigen werk",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "type": "Collage",
+      "type_en": "Collage",
+      "status": "Eigen werk",
+      "status_en": "Personal work",
+      "ontwerpteam": "Thorben Contant",
+      "tekst": "Twee conceptcollages: een verloren stad die door de natuur wordt teruggenomen, en een molen op een heuvel boven zee.",
+      "tekst_en": "Two concept collages: a lost city being reclaimed by nature, and a mill on a hill above the sea.",
+      "fotos": [
+        {
+          "beeld": "/img/collage-lost-city.jpg",
+          "bijschrift": "Collage, Lost City",
+          "bijschrift_en": "Collage, Lost City"
+        },
+        {
+          "beeld": "/img/collage-mill.jpg",
+          "bijschrift": "Collage, Mill on a Hill",
+          "bijschrift_en": "Collage, Mill on a Hill"
+        }
+      ]
+    },
+    {
+      "nummer": "07",
+      "titel": "Research Center",
+      "titel_en": "Research Center",
+      "plaats": "Maquette",
+      "plaats_en": "Model",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "opgave": "New Generation Research Center",
+      "type": "Onderzoek",
+      "type_en": "Research",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "ontwerpteam": "Thorben Contant",
+      "tekst": "Maquette van het New Generation Research Center. Projecttekst volgt.",
+      "tekst_en": "Model of the New Generation Research Center. Project text to follow.",
+      "fotos": [
+        {
+          "beeld": "/img/rc-model.jpg",
+          "bijschrift": "Maquette, eigen werk",
+          "bijschrift_en": "Model, own work"
+        },
+        {
+          "beeld": "/img/rc-model-2.jpg",
+          "bijschrift": "Maquette, trappen achter de gevel",
+          "bijschrift_en": "Model, stairs behind the facade"
+        },
+        {
+          "beeld": "/img/rc-model-3.jpg",
+          "bijschrift": "Maquette, doorkijk",
+          "bijschrift_en": "Model, view through"
+        }
+      ]
+    },
+    {
+      "nummer": "03",
+      "titel": "Urbanism Studio",
+      "titel_en": "Urbanism Studio",
+      "plaats": "Kopenhagen",
+      "plaats_en": "Copenhagen",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Beau"
+      ],
+      "jaar": "2023",
+      "datum": "2023-12",
       "locatie": "Skjolds Plads, Kopenhagen, DK",
+      "locatie_en": "Skjolds Plads, Copenhagen, DK",
+      "lat": "55.7046",
+      "lng": "12.5455",
       "opgave": "Minor Urbanism, University of Copenhagen",
+      "opgave_en": "Minor Urbanism, University of Copenhagen",
       "type": "Stedenbouw",
+      "type_en": "Urbanism",
       "status": "Groepswerk",
+      "status_en": "Group project",
       "ontwerpteam": "Beau Schellevis, Anna Plechacova, Kit Sandra Christensen, Melissa Munkholm Kristensen, Angeliki Nikoloudaki",
       "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
+      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
       "fotos": [
         {
           "beeld": "/img/us-visie.jpg",
@@ -498,108 +584,33 @@
           "bijschrift": "Analyse en ontwerptools",
           "bijschrift_en": "Analysis and design tools"
         }
-      ],
-      "titel_en": "Urbanism Studio",
-      "plaats_en": "Copenhagen",
-      "opgave_en": "Minor Urbanism, University of Copenhagen",
-      "type_en": "Urbanism",
-      "status_en": "Group project",
-      "locatie_en": "Skjolds Plads, Copenhagen, DK",
-      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
-      "lat": "55.7046",
-      "lng": "12.5455",
-      "datum": "2023-12"
-    },
-    {
-      "nummer": "02",
-      "titel": "Stedelijke Aanleunwoningen",
-      "plaats": "Den Haag",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Beau"
-      ],
-      "jaar": "BSc, semester 4",
-      "locatie": "Den Haag, NL",
-      "opgave": "Transformatie NIBC-kantoor, thema Affordable Luxury",
-      "type": "Wonen, transformatie",
-      "status": "Studieproject",
-      "ontwerpteam": "Beau Schellevis",
-      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
-      "fotos": [
-        {
-          "beeld": "/img/ba-modellen.jpg",
-          "bijschrift": "Maquettes woningtypes",
-          "bijschrift_en": "Models of the dwelling types"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/ba-t-doorsnede.jpg",
-          "bijschrift": "Doorsnede basisconfiguratie",
-          "bijschrift_en": "Section of the base configuration"
-        },
-        {
-          "beeld": "/img/ba-t-plattegronden.jpg",
-          "bijschrift": "Plattegronden, begane grond tot +4",
-          "bijschrift_en": "Floor plans, ground floor to +4"
-        },
-        {
-          "beeld": "/img/ba-t-typologie.jpg",
-          "bijschrift": "Opbouw van de typologie",
-          "bijschrift_en": "Build-up of the typology"
-        },
-        {
-          "beeld": "/img/ba-t-woningtypes.jpg",
-          "bijschrift": "Doorsneden type A en type B",
-          "bijschrift_en": "Sections type A and type B"
-        },
-        {
-          "beeld": "/img/ba-t-plattegrond-bg.jpg",
-          "bijschrift": "Plattegrond begane grond",
-          "bijschrift_en": "Ground floor plan"
-        },
-        {
-          "beeld": "/img/ba-t-gevels.jpg",
-          "bijschrift": "Noord- en zuidgevel",
-          "bijschrift_en": "North and south elevations"
-        },
-        {
-          "beeld": "/img/ba-t-gevelfragment.jpg",
-          "bijschrift": "Gevelfragment",
-          "bijschrift_en": "Facade fragment"
-        },
-        {
-          "beeld": "/img/ba-t-ontstaan.jpg",
-          "bijschrift": "Ontstaan van de typologie",
-          "bijschrift_en": "Origin of the typology"
-        }
-      ],
-      "titel_en": "Urban Sheltered Housing",
-      "plaats_en": "The Hague",
-      "locatie_en": "The Hague, NL",
-      "opgave_en": "Transformation of the NIBC office, theme Affordable Luxury",
-      "type_en": "Housing, transformation",
-      "status_en": "Study project",
-      "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
-      "lat": "52.0869",
-      "lng": "4.2963",
-      "datum": "2023-06"
+      ]
     },
     {
       "nummer": "01",
       "titel": "Beeldentuin",
+      "titel_en": "Sculpture Garden",
       "plaats": "Den Haag",
+      "plaats_en": "The Hague",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "BSc, semester 3",
+      "jaar": "2022",
+      "datum": "2022-12",
       "locatie": "Den Haag, NL",
-      "opgave": "Verdiepte beeldentuin, parametrisch ontworpen in Grasshopper",
+      "locatie_en": "The Hague, NL",
+      "lat": "52.0833169",
+      "lng": "4.3139305",
+      "opgave": "Parametrisch ontworpen Verdiepte beeldentuin, in Grasshopper",
+      "opgave_en": "Parametric designed sunken sculpture garden, in Grasshopper",
       "type": "Publiek",
+      "type_en": "Public",
       "status": "Studieproject",
+      "status_en": "Study project",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "Een verdiepte beeldentuin in Den Haag, ontworpen met het parametrische programma Grasshopper. De tuin brengt de bezoeker van straatniveau naar de entree op niveau -1. Bewust geplaatste wanden, smalle of juist grote openingen, trappen en plateaus vormen een reeks ruimtes die elk een eigen sfeer hebben en de bezoeker uitnodigen verder te gaan. Twee complementaire kleuren geven samenhang en laten de schaduwen goed tot hun recht komen.",
+      "tekst_en": "A sunken sculpture garden in The Hague, designed with the parametric software Grasshopper. The garden leads visitors from street level to the entrance on level -1. Carefully placed walls, narrow or wide openings, stairs and platforms form a sequence of spaces, each with its own atmosphere, inviting visitors to go further. Two complementary colours give coherence and bring out the shadows.",
       "fotos": [
         {
           "beeld": "/img/bt-render-1.jpg",
@@ -616,34 +627,50 @@
           "bijschrift": "Impressies",
           "bijschrift_en": "Impressions"
         }
+      ]
+    }
+  ],
+  "nieuws": [
+    {
+      "datum": "2026-11-07",
+      "titel": "De website staat online",
+      "titel_en": "The website is live",
+      "soort": "Studio",
+      "door": [
+        "Thorben",
+        "Beau"
       ],
-      "titel_en": "Sculpture Garden",
-      "plaats_en": "The Hague",
-      "locatie_en": "The Hague, NL",
-      "opgave_en": "Sunken sculpture garden, designed parametrically in Grasshopper",
-      "type_en": "Public",
-      "status_en": "Study project",
-      "tekst_en": "A sunken sculpture garden in The Hague, designed with the parametric software Grasshopper. The garden leads visitors from street level to the entrance on level -1. Carefully placed walls, narrow or wide openings, stairs and platforms form a sequence of spaces, each with its own atmosphere, inviting visitors to go further. Two complementary colours give coherence and bring out the shadows.",
-      "datum": "2022-12"
+      "tekst": "Vanaf vandaag is THURBO online: een plek voor ons werk, onze studies en wat ons verder bezighoudt. Hier delen we binnenkort ook kunst, recepten, foto's en andere dingen buiten de architectuur. Volg ons ook op [Instagram](https://www.instagram.com/studio.thurbo/).",
+      "tekst_en": "As of today THURBO is online: a place for our work, our studies and whatever else keeps us busy. Soon we will also share art, recipes, photos and other things beyond architecture here. Follow us on [Instagram](https://www.instagram.com/studio.thurbo/) too.",
+      "beelden": [
+        {
+          "beeld": "/img/hero.jpg",
+          "bijschrift": "Portfolio, omslagfoto",
+          "bijschrift_en": "Portfolio, cover photo"
+        }
+      ]
     }
   ],
   "studio": [
     {
+      "kolom": "Studio",
+      "contact": false,
       "kop": "Studio",
-      "tekst": "THURBO is de ontwerpstudio van Thorben Contant & Beau Schellevis.",
       "kop_en": "Studio",
-      "tekst_en": "THURBO is the design studio of Thorben Contant & Beau Schellevis.",
-      "kolom": "Studio"
-    },
-    {
-      "kop": "Thorben Contant",
-      "tekst": "Studeert architectuur aan de TU Delft, waar hij de bachelor Architecture, Urbanism and Building Sciences volgde, samen met het Honours Programme. In 2024–2025 deed hij een uitwisseling aan de ETH Zürich, in de ontwerpstudio van Adam Caruso, met aanvullende vakken in onder meer maquettebouw en wereldwijde woningbouwvraagstukken. In 2025 werkte hij als junior architect bij [LA^ARC](https://www.la-rc.com/) op Lefkada: eerst op locatie in Griekenland, daarna op afstand naast zijn bachelor-eindproject. Hij ontwierp en tekende mee aan CRM Milos en had veel contact met de opdrachtgever.\n\nEerder volgde hij de Art & Design Pre-Academy aan ArtEZ in Arnhem. Bij studievereniging Stylos was hij secretaris van de Business Tour-commissie, en hij was mentor voor eerstejaars bouwkundestudenten. In 2018 hielp hij als vrijwilliger bij de inrichting van het Friendship-ziekenhuis in Shyamnagar, Bangladesh, dat later de RIBA International Prize won.",
-      "kop_en": "Thorben Contant",
-      "tekst_en": "Studies architecture at TU Delft, where he followed the bachelor Architecture, Urbanism and Building Sciences together with the Honours Programme. In 2024–2025 he did an exchange at ETH Zürich, in the design studio of Adam Caruso, with additional courses in model making and global housing issues, among others. In 2025 he worked as a junior architect at [LA^ARC](https://www.la-rc.com/) on Lefkada: first on site in Greece, then remotely alongside his bachelor graduation project. He helped design and draw CRM Milos and was in close contact with the client.\n\nBefore that he followed the Art & Design Pre-Academy at ArtEZ in Arnhem. At the study association Stylos he was secretary of the Business Tour committee, and he mentored first-year architecture students. In 2018 he volunteered on the setup of the Friendship Hospital in Shyamnagar, Bangladesh, which later won the RIBA International Prize.",
-      "kolom": "Thorben"
+      "tekst": "THURBO is de ontwerpstudio van Thorben Contant & Beau Schellevis.",
+      "tekst_en": "THURBO is the design studio of Thorben Contant & Beau Schellevis."
     },
     {
       "kolom": "Thorben",
+      "contact": false,
+      "kop": "Thorben Contant",
+      "kop_en": "Thorben Contant",
+      "tekst": "Studeert architectuur aan de TU Delft, waar hij de bachelor Architecture, Urbanism and Building Sciences volgde, samen met het Honours Programme. In 2024–2025 deed hij een uitwisseling aan de ETH Zürich, in de ontwerpstudio van Adam Caruso, met aanvullende vakken in onder meer maquettebouw en wereldwijde woningbouwvraagstukken. In 2025 werkte hij als junior architect bij [LA^ARC](https://www.la-rc.com/) op Lefkada: eerst op locatie in Griekenland, daarna op afstand naast zijn bachelor-eindproject. Hij ontwierp en tekende mee aan CRM Milos en had veel contact met de opdrachtgever.\n\nEerder volgde hij de Art & Design Pre-Academy aan ArtEZ in Arnhem. Bij studievereniging Stylos was hij secretaris van de Business Tour-commissie, en hij was mentor voor eerstejaars bouwkundestudenten. In 2018 hielp hij als vrijwilliger bij de inrichting van het Friendship-ziekenhuis in Shyamnagar, Bangladesh, dat later de RIBA International Prize won.",
+      "tekst_en": "Studies architecture at TU Delft, where he followed the bachelor Architecture, Urbanism and Building Sciences together with the Honours Programme. In 2024–2025 he did an exchange at ETH Zürich, in the design studio of Adam Caruso, with additional courses in model making and global housing issues, among others. In 2025 he worked as a junior architect at [LA^ARC](https://www.la-rc.com/) on Lefkada: first on site in Greece, then remotely alongside his bachelor graduation project. He helped design and draw CRM Milos and was in close contact with the client.\n\nBefore that he followed the Art & Design Pre-Academy at ArtEZ in Arnhem. At the study association Stylos he was secretary of the Business Tour committee, and he mentored first-year architecture students. In 2018 he volunteered on the setup of the Friendship Hospital in Shyamnagar, Bangladesh, which later won the RIBA International Prize."
+    },
+    {
+      "kolom": "Thorben",
+      "contact": false,
       "kop": "Software",
       "kop_en": "Software",
       "tekst": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator",
@@ -651,47 +678,49 @@
     },
     {
       "kolom": "Thorben",
+      "contact": false,
       "kop": "Talen",
       "kop_en": "Languages",
       "tekst": "Nederlands en Duits (moedertaal), Engels",
       "tekst_en": "Dutch and German (native), English"
     },
     {
+      "kolom": "Beau",
+      "contact": false,
       "kop": "Beau Schellevis",
-      "tekst": "Rondde in februari 2025 de bachelor Bouwkunde aan de TU Delft af, met een minor Urbanism aan de University of Copenhagen in het najaar van 2023. Daarna liep hij vijf maanden stage bij de tenderafdeling van [cepezed](https://www.cepezed.nl/) in Delft, waar hij werkte aan tenders voor onder meer een Europese School, een archiefbewaarplaats en een kantoorgebouw.\n\nNu volgt hij de master Architecture aan de TU Delft en is hij penningmeester van Bestuur 132 van D.B.S.G. Stylos, de studievereniging van Bouwkunde. Eerder was hij voorzitter van de Exchange-commissie en secretaris van de Business Tour-commissie. Naast architectuur gaat zijn interesse uit naar kunst, muziek, fotografie en goed eten.",
       "kop_en": "Beau Schellevis",
-      "tekst_en": "Completed the bachelor Architecture at TU Delft in February 2025, with a minor in Urbanism at the University of Copenhagen in autumn 2023. He then spent five months as an intern in the tender department of [cepezed](https://www.cepezed.nl/) in Delft, working on tenders for a European School, an archive building and an office building, among others.\n\nHe now follows the master Architecture at TU Delft and is treasurer of the 132nd board of D.B.S.G. Stylos, the study association of the Faculty of Architecture. Before that he chaired the Exchange committee and was secretary of the Business Tour committee. Besides architecture he is interested in art, music, photography and good food.",
-      "kolom": "Beau"
+      "tekst": "Rondde in februari 2025 de bachelor Bouwkunde aan de TU Delft af, met een minor Urbanism aan de University of Copenhagen in het najaar van 2023. Daarna liep hij vijf maanden stage bij de tenderafdeling van [cepezed](https://www.cepezed.nl/) in Delft, waar hij werkte aan tenders voor onder meer een Europese School, een archiefbewaarplaats en een kantoorgebouw.\n\nNu volgt hij de master Architecture aan de TU Delft en is hij penningmeester van Bestuur 132 van D.B.S.G. Stylos, de studievereniging van Bouwkunde. Eerder was hij voorzitter van de Exchange-commissie en secretaris van de Business Tour-commissie. Naast architectuur gaat zijn interesse uit naar kunst, muziek, fotografie en goed eten.",
+      "tekst_en": "Completed the bachelor Architecture at TU Delft in February 2025, with a minor in Urbanism at the University of Copenhagen in autumn 2023. He then spent five months as an intern in the tender department of [cepezed](https://www.cepezed.nl/) in Delft, working on tenders for a European School, an archive building and an office building, among others.\n\nHe now follows the master Architecture at TU Delft and is treasurer of the 132nd board of D.B.S.G. Stylos, the study association of the Faculty of Architecture. Before that he chaired the Exchange committee and was secretary of the Business Tour committee. Besides architecture he is interested in art, music, photography and good food."
     },
     {
       "kolom": "Beau",
+      "contact": false,
       "kop": "Software",
       "kop_en": "Software",
-      "tekst": "Rhino, Grasshopper, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator",
-      "tekst_en": "Rhino, Grasshopper, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator"
+      "tekst": "Rhino, Grasshopper, ArchiCAD, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator",
+      "tekst_en": "Rhino, Grasshopper, ArchiCAD, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator"
     },
     {
       "kolom": "Beau",
+      "contact": false,
       "kop": "Talen",
       "kop_en": "Languages",
-      "tekst": "Nederlands, Engels, Duits, Frans",
-      "tekst_en": "Dutch, English, German, French"
+      "tekst": "Nederlands, Engels, Duits",
+      "tekst_en": "Dutch, English, German"
     },
     {
       "kolom": "Studio",
       "contact": true,
-      "kop": "",
-      "kop_en": "",
       "tekst": "Voor opdrachten, prijsvragen en samenwerkingen: [info@thurbo.nl](mailto:info@thurbo.nl)",
       "tekst_en": "For commissions, competitions and collaborations: [info@thurbo.nl](mailto:info@thurbo.nl)"
     },
     {
-      "kop": "Instagram",
-      "tekst": "@studio.thurbo",
-      "kop_en": "Instagram",
-      "link": "https://www.instagram.com/studio.thurbo/",
       "kolom": "Studio",
-      "contact": true
+      "contact": true,
+      "kop": "Instagram",
+      "kop_en": "Instagram",
+      "tekst": "@studio.thurbo",
+      "link": "https://www.instagram.com/studio.thurbo/"
     },
     {
       "kolom": "Thorben",
@@ -702,12 +731,12 @@
       "tekst_en": "thorben@thurbo.nl"
     },
     {
+      "kolom": "Thorben",
+      "contact": true,
       "kop": "LinkedIn",
       "kop_en": "LinkedIn",
       "tekst": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
-      "tekst_en": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
-      "kolom": "Thorben",
-      "contact": true
+      "tekst_en": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)"
     },
     {
       "kolom": "Beau",
@@ -718,41 +747,20 @@
       "tekst_en": "beau@thurbo.nl"
     },
     {
+      "kolom": "Beau",
+      "contact": true,
       "kop": "LinkedIn",
       "kop_en": "LinkedIn",
       "tekst": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
-      "tekst_en": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
-      "kolom": "Beau",
-      "contact": true
+      "tekst_en": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)"
     },
     {
-      "kop": "Colofon",
-      "tekst": "Ontwerp en beelden: THURBO",
-      "kop_en": "Colophon",
-      "tekst_en": "Design and images: THURBO",
       "kolom": "Studio",
-      "contact": true
-    }
-  ],
-  "nieuws": [
-    {
-      "datum": "2026-11-07",
-      "soort": "Studio",
-      "door": [
-        "Thorben",
-        "Beau"
-      ],
-      "titel": "De website staat online",
-      "titel_en": "The website is live",
-      "tekst": "Vanaf vandaag is THURBO online: een plek voor ons werk, onze studies en wat ons verder bezighoudt. Hier delen we binnenkort ook kunst, recepten, foto's en andere dingen buiten de architectuur. Volg ons ook op [Instagram](https://www.instagram.com/studio.thurbo/).",
-      "tekst_en": "As of today THURBO is online: a place for our work, our studies and whatever else keeps us busy. Soon we will also share art, recipes, photos and other things beyond architecture here. Follow us on [Instagram](https://www.instagram.com/studio.thurbo/) too.",
-      "beelden": [
-        {
-          "beeld": "/img/hero.jpg",
-          "bijschrift": "Portfolio, omslagfoto",
-          "bijschrift_en": "Portfolio, cover photo"
-        }
-      ]
+      "contact": true,
+      "kop": "Colofon",
+      "kop_en": "Colophon",
+      "tekst": "Ontwerp en beelden: THURBO",
+      "tekst_en": "Design and images: THURBO"
     }
   ]
 }
