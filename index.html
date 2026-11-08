@@ -60,14 +60,16 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .merk.naarhuis .huis{opacity:1;transform:translateX(-50%);transition-delay:.1s}
 .merk .meet{position:absolute;visibility:hidden;left:0;top:0;white-space:pre}
 .merk .streep{position:absolute;left:0;right:0;height:var(--bl,2px);background:currentColor;transition:opacity .3s}
-.brand[aria-pressed="false"] .merk .streep{opacity:0}
-.brand[aria-pressed="false"]:hover .merk .streep{opacity:.35}
 /* namen komen pas na het intro-effect */
 .name button:not(.brand){transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 header.intro .name button:not(.brand){opacity:0;transform:translateX(-10px);pointer-events:none}
 @media (prefers-reduced-motion:reduce){.merk .lt,.merk.actief{transition:none}}
-.name button[aria-pressed="true"]{text-decoration-line:underline}
-.name button:hover{text-decoration-line:underline;text-decoration-style:dotted}
+/* één streep die naar de aangewezen of gekozen naam schuift */
+.name{position:relative}
+.name button{text-decoration:none!important}
+.naamlijn{position:absolute;left:0;top:0;height:var(--bl,2px);width:0;background:currentColor;color:var(--fg);pointer-events:none;transition:transform .45s cubic-bezier(.65,0,.35,1),width .45s cubic-bezier(.65,0,.35,1)}
+.naamlijn.stil{transition:none}
+.merk .streep{visibility:hidden}
 .rechts{margin-left:auto;flex:none;display:flex;align-items:baseline;gap:18px}
 @media (min-width:700px){header{font-size:clamp(16px,.55vw + 11px,20px);padding-block:13px;gap:18px}.name button{text-decoration-thickness:2px!important}.burger{width:26px;height:var(--bh,12px)}.name button{text-underline-offset:5px}}
 @media (max-width:699px){.rechts{flex-direction:column;align-items:flex-end;gap:4px}header{font-size:16px}
@@ -1137,6 +1139,33 @@ let introBezig=false;
   setTimeout(()=>MERK.zet("namen"),700);
   setTimeout(()=>MERK.zet("thurbo"),2900);
   setTimeout(()=>{document.getElementById('hdr').classList.remove('intro');introBezig=false},3800);
+})();
+/* streep onder de namen: schuift mee met de muis en staat anders onder de gekozen naam */
+const NAAMLIJN=(()=>{
+  const nav=document.querySelector('.name'); if(!nav) return null;
+  const lijn=document.createElement('i'); lijn.className='naamlijn stil'; lijn.setAttribute('aria-hidden','true'); nav.appendChild(lijn);
+  let doel=null;
+  const gekozen=()=>nav.querySelector('button[aria-pressed="true"]')||nav.querySelector('.brand');
+  const naar=(b,anim=true)=>{
+    doel=b; const n=nav.getBoundingClientRect(); let x,y,w;
+    const st=b.classList.contains('brand')&&b.querySelector('.streep');
+    if(st){const r=st.getBoundingClientRect(),m=b.querySelector('.merk').getBoundingClientRect();x=m.left;w=m.width;y=r.top}
+    else{const r=b.getBoundingClientRect(),m=document.createElement('span');m.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';b.appendChild(m);
+      y=m.getBoundingClientRect().top+5;m.remove();x=r.left;w=r.width}
+    lijn.classList.toggle('stil',!anim);
+    lijn.style.transform=`translate(${x-n.left}px,${y-n.top}px)`; lijn.style.width=w+'px';
+  };
+  const terug=(anim=true)=>naar(gekozen(),anim);
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    nav.addEventListener('mouseover',e=>{const b=e.target.closest('button');if(b&&b!==doel&&!document.getElementById('hdr').classList.contains('intro'))naar(b)});
+    nav.addEventListener('mouseleave',()=>terug());
+  }
+  new MutationObserver(()=>terug()).observe(nav,{attributes:true,subtree:true,attributeFilter:['aria-pressed']});
+  /* THURBO verandert van breedte tijdens het intro-effect: de streep volgt */
+  if('ResizeObserver' in window) new ResizeObserver(()=>{if(doel?.classList.contains('brand'))naar(doel,false)}).observe(nav.querySelector('.merk'));
+  addEventListener('resize',()=>terug(false)); document.fonts?.ready.then(()=>terug(false));
+  terug(false);
+  return {terug};
 })();
 /* met de muis op THURBO: HOME, zodat je weet waar je heen gaat */
 if(MERK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
