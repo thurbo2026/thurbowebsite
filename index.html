@@ -1126,12 +1126,10 @@ const MERK=(()=>{
   opnieuw(); document.fonts?.ready.then(()=>{opnieuw();lijnUit()}); addEventListener('resize',opnieuw);
   return {zet,get nu(){return nu}};
 })();
-/* bij binnenkomst op de homepagina: THURBO → THORBEN & BEAU → THURBO, daarna verschijnen de namen */
+/* bij elke keer dat de site (opnieuw) laadt: THURBO → THORBEN & BEAU → THURBO, daarna verschijnen de namen; niet bij klikken binnen de site */
 let introBezig=false;
 (()=>{
-  let gezien=false; try{gezien=sessionStorage.getItem('thurbo-intro')==="1"}catch(e){}
-  if(!MERK||gezien||R()!==""||rustig()) return;
-  try{sessionStorage.setItem('thurbo-intro',"1")}catch(e){}
+  if(!MERK||rustig()) return;
   introBezig=true; document.getElementById('hdr').classList.add('intro');
   setTimeout(()=>MERK.zet("namen"),700);
   setTimeout(()=>MERK.zet("thurbo"),2900);
