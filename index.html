@@ -137,7 +137,9 @@ button.bitem{cursor:zoom-in}
 .mpijl svg{height:100%;width:auto;display:block;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .mitem:hover .mnaam,.mitem:focus-visible .mnaam{transform:translateX(18px)}
 .mitem:hover .mpijl,.mitem:focus-visible .mpijl{opacity:1;transform:none}
-.mitem[aria-current="page"] .mnaam{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
+/* aanwijzen: pijl, opschuiven en iets dikkere letters; de huidige pagina staat ook iets dikker */
+.mnaam{-webkit-text-stroke:0 currentColor;transition:transform .5s cubic-bezier(.2,.7,.2,1),-webkit-text-stroke-width .3s}
+.mitem:hover .mnaam,.mitem:focus-visible .mnaam,.mitem[aria-current="page"] .mnaam{-webkit-text-stroke-width:.6px}
 .mvoet{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:auto;padding-block:16px 28px;border-top:1px solid var(--hair);font-family:var(--type);font-size:13px;color:var(--muted);align-self:end}
 @media (max-width:899px){.mvoet{margin-top:auto;align-self:stretch}.mlinks{justify-content:space-between;gap:10px 8px!important;flex-wrap:nowrap!important;font-size:12px}.mlinks a{gap:5px!important;white-space:nowrap}.mlinks svg{width:14px!important;height:14px!important}.mlijst{margin-bottom:40px}}
 .kop-taal{display:none}@media (min-width:700px){.kop-taal{display:inline}.mtaal{display:none}}
