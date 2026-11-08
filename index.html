@@ -48,7 +48,20 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .burger.x i:last-child{transform:translateY(-6px) rotate(-45deg)}
 .name{display:flex;gap:.6em;flex-wrap:wrap;align-items:baseline;min-width:0}
 .name button{white-space:nowrap;text-decoration-thickness:1.5px;text-underline-offset:7px}
-.name .brand{font-weight:500;letter-spacing:.02em}
+.name .brand{font-weight:500;letter-spacing:.02em;text-decoration:none!important}
+/* woordmerk: letters schuiven tussen THURBO, THORBEN & BEAU en HOME */
+.merk{position:relative;display:inline-block;white-space:nowrap;vertical-align:baseline}
+.merk.actief{transition:width .9s cubic-bezier(.76,0,.24,1)}
+.merk .lt{position:absolute;left:0;top:0;transition:transform .9s cubic-bezier(.76,0,.24,1),opacity .45s ease}
+.merk .lt.weg{opacity:0;transition:transform .9s cubic-bezier(.76,0,.24,1),opacity .35s ease}
+.merk .meet{position:absolute;visibility:hidden;left:0;top:0;white-space:pre}
+.merk .streep{position:absolute;left:0;right:0;height:2px;background:currentColor;transition:opacity .3s}
+.brand[aria-pressed="false"] .merk .streep{opacity:0}
+.brand[aria-pressed="false"]:hover .merk .streep{opacity:.35}
+/* namen komen pas na het intro-effect */
+.name button:not(.brand){transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+header.intro .name button:not(.brand){opacity:0;transform:translateX(-10px);pointer-events:none}
+@media (prefers-reduced-motion:reduce){.merk .lt,.merk.actief{transition:none}}
 .name button[aria-pressed="true"]{text-decoration-line:underline}
 .name button:hover{text-decoration-line:underline;text-decoration-style:dotted}
 .rechts{margin-left:auto;flex:none;display:flex;align-items:baseline;gap:18px}
@@ -415,7 +428,7 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 <body>
 <header id="hdr" class="pad">
   <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
-  <nav class="name" aria-label="Filter"><button class="brand" data-p="Alle" aria-pressed="true">THURBO</button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
+  <nav class="name" aria-label="Filter"><button class="brand" data-p="Alle" aria-pressed="true" aria-label="THURBO"><span class="merk" aria-hidden="true">THURBO</span></button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
   <div class="rechts">
     <button class="lang kop-taal" id="lang" aria-label="Taal / Language"><span data-l="nl">NL</span> / <span data-l="en">EN</span></button>
     <button class="zoekknop" id="zoekknop"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><path d="M10.2 10.2 15 15"/></svg><span id="zoeklabel">Zoek</span></button>
@@ -1072,15 +1085,69 @@ function render(){
   home();
 }
 burger.onclick=()=>zetMenu(!menuOpen);
+/* ===== woordmerk ===== */
+const MERK=(()=>{
+  const el=document.querySelector('.name .brand .merk'); if(!el) return null;
+  const WOORD={thurbo:"THURBO",namen:"THORBEN & BEAU",home:"HOME"};
+  /* elke letter met zijn plek in elk woord: zo ruilen U en O van plek en schuiven de andere ertussen */
+  const LETTERS=[["T",{thurbo:0,namen:0}],["H",{thurbo:1,namen:1,home:0}],["O",{thurbo:5,namen:2,home:1}],["R",{thurbo:3,namen:3}],["B",{thurbo:4,namen:4}],
+    ["E",{namen:5,home:3}],["N",{namen:6}],["&",{namen:8}],["B",{namen:10}],["E",{namen:11}],["A",{namen:12}],["U",{thurbo:2,namen:13}],["M",{home:2}]];
+  el.innerHTML=`<span class="bl">\u200b</span>${LETTERS.map(([c])=>`<span class="lt">${c}</span>`).join("")}<i class="streep"></i>`;
+  const lt=[...el.querySelectorAll('.lt')], streep=el.querySelector('.streep');
+  let maat={}, nu="thurbo";
+  const meet=()=>{
+    for(const k in WOORD){const m=document.createElement('span');m.className='meet';
+      m.innerHTML=[...WOORD[k]].map(c=>`<i style="font-style:normal">${c===" "?"&nbsp;":c}</i>`).join("");el.appendChild(m);
+      maat[k]={x:[...m.children].map(i=>i.offsetLeft),w:m.offsetWidth};m.remove()}
+    const b=document.createElement('span');b.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';el.appendChild(b);
+    streep.style.top=(b.offsetTop+5)+'px';b.remove();
+  };
+  const zet=(k,anim=true)=>{
+    nu=k; el.classList.toggle('actief',anim&&!rustig());
+    const M=maat[k];
+    lt.forEach((s,i)=>{const pos=LETTERS[i][1][k];
+      let x;
+      if(pos!==undefined) x=M.x[pos];
+      else{ /* verdwijnende letter: blijft ongeveer op zijn plek in het vorige woord */
+        const ander=Object.keys(LETTERS[i][1])[0]; x=Math.min(maat[ander].x[LETTERS[i][1][ander]]*M.w/maat[ander].w,M.w)}
+      s.classList.toggle('weg',pos===undefined);
+      if(!anim) s.style.transition='none';
+      s.style.transform=`translateX(${x}px)`;
+      if(!anim) requestAnimationFrame(()=>s.style.transition='');
+    });
+    el.style.width=M.w+'px';
+  };
+  const opnieuw=()=>{meet();zet(nu,false);if(typeof lijnUit==='function')lijnUit()};
+  opnieuw(); document.fonts?.ready.then(()=>{opnieuw();lijnUit()}); addEventListener('resize',opnieuw);
+  return {zet,get nu(){return nu}};
+})();
+/* bij binnenkomst op de homepagina: THURBO → THORBEN & BEAU → THURBO, daarna verschijnen de namen */
+let introBezig=false;
+(()=>{
+  let gezien=false; try{gezien=sessionStorage.getItem('thurbo-intro')==="1"}catch(e){}
+  if(!MERK||gezien||R()!==""||rustig()) return;
+  try{sessionStorage.setItem('thurbo-intro',"1")}catch(e){}
+  introBezig=true; document.getElementById('hdr').classList.add('intro');
+  setTimeout(()=>MERK.zet("namen"),700);
+  setTimeout(()=>MERK.zet("thurbo"),2900);
+  setTimeout(()=>{document.getElementById('hdr').classList.remove('intro');introBezig=false},3800);
+})();
+/* met de muis op THURBO: HOME, zodat je weet waar je heen gaat */
+if(MERK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+  const br=document.querySelector('.name .brand');
+  br.addEventListener('mouseenter',()=>{if(!introBezig)MERK.zet("home")});
+  br.addEventListener('mouseleave',()=>{if(!introBezig)MERK.zet("thurbo")});
+}
 /* de onderste streep van het menu-icoon ligt precies op de lijn onder THURBO, en het icoon staat op hele pixels zodat beide strepen even dik zijn */
 function lijnUit(){
   burger.style.translate="";
   const dpr=devicePixelRatio||1, br=document.querySelector('.name .brand'), r=burger.getBoundingClientRect();
   let d=0;
   if(matchMedia('(min-width:700px)').matches&&br){
-    const m=document.createElement('span'); m.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline'; br.appendChild(m);
-    const basis=m.getBoundingClientRect().top; m.remove();
-    const cs=getComputedStyle(br), onder=basis+parseFloat(cs.textUnderlineOffset||5)+parseFloat(cs.textDecorationThickness||2);
+    const st=br.querySelector('.streep'); let onder;
+    if(st) onder=st.getBoundingClientRect().bottom;
+    else{const m=document.createElement('span'); m.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline'; br.appendChild(m);
+      const basis=m.getBoundingClientRect().top; m.remove(); onder=basis+7}
     d=onder-r.bottom;
   }
   d=Math.round((r.top+d)*dpr)/dpr-r.top;
