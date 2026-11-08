@@ -18,8 +18,11 @@ a{color:inherit}
 .pad{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 header{border-bottom:1px solid var(--line);padding-block:18px;font-size:var(--s2)}
 header a{font-weight:500;letter-spacing:.02em;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:7px}
-main{max-width:980px;margin:0 auto;padding-block:32px 64px;display:grid;gap:24px}
-img{width:100%;height:auto;display:block}
+main{max-width:1280px;margin:0 auto;padding-block:32px 48px;display:grid;gap:16px;align-content:start}
+img{width:100%;height:auto;display:block;max-height:calc(100svh - 300px);object-fit:contain;object-position:left top}
+@media (min-width:800px){main{grid-template-columns:minmax(0,2.2fr) minmax(220px,1fr);grid-template-rows:1fr auto auto auto;column-gap:48px;align-items:end;min-height:calc(100svh - 80px);align-content:center}
+  img{grid-row:1 / 5;max-height:calc(100svh - 160px);object-position:center}
+  main > :not(img){grid-column:2}main > h1{grid-row:2}main > p{grid-row:3}main > a{grid-row:4;justify-self:start}}
 h1{font-weight:400;font-size:var(--s2);margin:0;text-wrap:balance}
 p{margin:0;font-family:var(--type);font-size:14px;color:var(--muted)}
 .terug{font-size:var(--s1);text-underline-offset:5px}

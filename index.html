@@ -426,8 +426,11 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 .plane path.s{fill:var(--fg);opacity:.12}
 @keyframes vlieg{0%{transform:translate(-50%,-50%) scale(.2) rotate(0);opacity:0}12%{transform:translate(-50%,-50%) scale(1) rotate(-8deg);opacity:1}35%{transform:translate(-90%,-10%) scale(1) rotate(-20deg)}70%{transform:translate(120%,-120%) scale(.8) rotate(-28deg)}100%{transform:translate(900%,-700%) scale(.5) rotate(-34deg);opacity:1}}
 /* niet vergund */
-.niets{max-width:980px;margin:0 auto;padding-block:32px 64px;display:grid;gap:24px}
-.niets img{width:100%;height:auto}
+.niets{max-width:1280px;margin:0 auto;padding-block:32px 48px;display:grid;gap:16px;align-content:start}
+.niets img{width:100%;height:auto;max-height:calc(100svh - var(--kop,62px) - 220px);object-fit:contain;object-position:left top}
+@media (min-width:800px){.niets{grid-template-columns:minmax(0,2.2fr) minmax(220px,1fr);grid-template-rows:1fr auto auto auto;column-gap:48px;align-items:end;min-height:calc(100svh - var(--kop,62px));align-content:center}
+  .niets img{grid-row:1 / 5;max-height:calc(100svh - var(--kop,62px) - 96px);object-position:center}
+  .niets > :not(img){grid-column:2}.niets > h1{grid-row:2}.niets > p{grid-row:3}.niets > a{grid-row:4;justify-self:start}.niets h1{align-self:end}}
 .niets h1{font-weight:400;font-size:var(--s2);margin:0}
 .niets p{margin:0;font-family:var(--type);font-size:14px;color:var(--muted)}
 .js .ssr{display:none}
