@@ -122,7 +122,10 @@ export function pagina(path, S) {
     beschrijving: "Nieuws van THURBO: projecten, kunst, recepten en fotografie.",
     inhoud: `<h1>Nieuws</h1><ul>${S.nieuws.map(n => `<li><a href="${n.pad}">${esc(n.titel)}</a>${n.datum ? ` (${esc(n.datum)})` : ""}</li>`).join("")}</ul>` };
   if ((m = path.match(/^\/nieuws\/(.+)$/))) {
-    const n = S.nieuws.find(x => x.id === m[1]); if (!n) return null;
+    const n = S.nieuws.find(x => x.id === m[1]);
+    /* Instagram-posts komen pas in de browser binnen: gewoon de pagina geven, niet indexeren */
+    if (!n && m[1].startsWith("ig-")) return { titel: "THURBO – Nieuws", beschrijving: "Instagram-post van THURBO.", inhoud: `<h1>Nieuws</h1>`, noindex: true };
+    if (!n) return null;
     return { titel: `THURBO – ${n.titel}`, canoniek: n.pad, beeld: n.beelden[0]?.beeld || thuis, type: "article", beschrijving: kort(n.tekst) || n.titel,
       inhoud: `<article><h1>${esc(n.titel)}</h1>${n.datum ? `<p><time datetime="${esc(n.datum)}">${esc(n.datum)}</time></p>` : ""}${rijk(n.tekst)}${n.beelden.map(f => beeldHTML(f, n.titel)).join("")}</article>`,
       extra: { "@context": "https://schema.org", "@type": "BlogPosting", headline: n.titel, datePublished: n.datum || undefined, url: BASIS + n.pad,
