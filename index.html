@@ -335,6 +335,8 @@ button.bitem{cursor:zoom-in}
 
 /* nieuws */
 .feed{columns:3 300px;column-gap:28px;padding-block:28px 72px}
+.ncel .nmeta{margin:0}
+.ncel .thumb .insta{width:82%;max-height:100%;overflow:hidden}
 .nkaart{display:block;break-inside:avoid;margin-bottom:40px;text-decoration:none}
 .nkaart img{width:100%;height:auto}
 .nkaart h2{font-size:var(--s2);font-weight:400;margin:6px 0 0;line-height:1.2;text-wrap:balance}
@@ -683,7 +685,7 @@ function haalInsta(){
   if(igPosts||!SITE.igfeed) return Promise.resolve();
   return fetch(SITE.igfeed).then(r=>r.json()).then(d=>{
     igPosts=(d.posts||(Array.isArray(d)?d:[])).map(p=>{const cap=(p.prunedCaption||p.caption||"").trim();
-      return {id:"ig-"+p.id,datum:String(p.timestamp||"").slice(0,10),soort:"Instagram",door:[],
+      return {id:"ig-"+p.id,datum:String(p.timestamp||"").slice(0,10),soort:"Instagram",door:["Thorben","Beau"],
         titel:(cap.split("\n")[0]||"Instagram").slice(0,90),tekst:cap.split("\n").slice(1).join("\n").trim(),
         beelden:[{beeld:(p.sizes&&(p.sizes.large||p.sizes.medium)||{}).mediaUrl||p.thumbnailUrl||p.mediaUrl}].filter(f=>f.beeld),
         permalink:p.permalink}});
@@ -698,10 +700,11 @@ function nieuws(){
   const alle=alleNieuws(), soorten=[...new Set(alle.map(n=>n.soort).filter(Boolean))];
   const knoppen=soorten.length>1?["Alles",...soorten].map(x=>`<button data-ns="${esc(x)}" aria-pressed="${x===nsoort}">${x==="Alles"?t("alles"):esc(L({k:x,k_en:T.en.soorten?.[x]},"k"))}</button>`).join(""):"";
   const lijst=alle.filter(n=>nsoort==="Alles"||n.soort===nsoort);
-  app.innerHTML=paginakop(t("nieuws"),knoppen,"")+(lijst.length?`<div class="feed pad">${lijst.map(n=>`<a class="nkaart" href="/nieuws/${esc(n.id)}">
-      ${n.beelden[0]?`${kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"))}`:insta(n.instagram,true)}
+  /* zelfde raster als de projecten: vaste vakken, beeld in een vast kader, titel eronder */
+  app.innerHTML=paginakop(t("nieuws"),knoppen,"")+(lijst.length?`<div class="grid">${lijst.map(n=>`<a class="cell ncel" href="/nieuws/${esc(n.id)}">
       <p class="nmeta">${ndatum(n.datum)}${n.soort?` · ${esc(L({k:n.soort,k_en:T.en.soorten?.[n.soort]},"k"))}`:""}<span class="by">${initialen(n)}</span></p>
-      <h2>${esc(L(n,"titel"))}</h2>${L(n,"tekst")?`<p class="nkort">${esc(L(n,"tekst").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1"))}</p>`:""}</a>`).join("")}</div>`:`<p class="empty">${t("nleeg")}</p>`);
+      <div class="thumb">${n.beelden[0]?`${kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"))}`:insta(n.instagram,true)}</div>
+      <div class="ttl"><strong>${esc(L(n,"titel"))}</strong></div></a>`).join("")}</div>`:`<p class="empty">${t("nleeg")}</p>`);
   meetKop(); zweef();
 }
 function nieuwsItem(id){
