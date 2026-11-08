@@ -1033,7 +1033,7 @@ function studioKolommen(naarContact){
   if(naarContact) requestAnimationFrame(()=>document.getElementById('contact')?.scrollIntoView({behavior:rustig()?"auto":"smooth"}));
 }
 function niets(){
-  app.innerHTML=`<section class="niets pad fade"><img src="/perceel.svg" alt="Tekening van een leeg perceel, perceel 404"><h1>${t("niets")}</h1><p>${t("niets2")}</p><a class="ext" href="/" style="font-size:var(--s1)">${t("terug")}</a></section>`;
+  app.innerHTML=`<section class="niets pad fade"><img src="/perceel.svg?v=404" alt="Tekening van een leeg perceel, perceel 404"><h1>${t("niets")}</h1><p>${t("niets2")}</p><a class="ext" href="/" style="font-size:var(--s1)">${t("terug")}</a></section>`;
 }
 
 /* ===== easter eggs ===== */
