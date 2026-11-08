@@ -54,6 +54,9 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .merk.actief{transition:width .9s cubic-bezier(.76,0,.24,1)}
 .merk .lt{position:absolute;left:0;top:0;transition:transform .9s cubic-bezier(.76,0,.24,1),opacity .45s ease}
 .merk .lt.weg{opacity:0;transition:transform .9s cubic-bezier(.76,0,.24,1),opacity .35s ease}
+.merk .huis{position:absolute;left:50%;width:auto;transform:translateX(-50%) translateY(4px);opacity:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.merk.naarhuis .lt{opacity:0;transition:opacity .25s ease}
+.merk.naarhuis .huis{opacity:1;transform:translateX(-50%);transition-delay:.1s}
 .merk .meet{position:absolute;visibility:hidden;left:0;top:0;white-space:pre}
 .merk .streep{position:absolute;left:0;right:0;height:2px;background:currentColor;transition:opacity .3s}
 .brand[aria-pressed="false"] .merk .streep{opacity:0}
@@ -1092,7 +1095,7 @@ const MERK=(()=>{
   /* elke letter met zijn plek in elk woord: zo ruilen U en O van plek en schuiven de andere ertussen */
   const LETTERS=[["T",{thurbo:0,namen:0}],["H",{thurbo:1,namen:1,home:0}],["O",{thurbo:5,namen:2,home:1}],["R",{thurbo:3,namen:3}],["B",{thurbo:4,namen:4}],
     ["E",{namen:5,home:3}],["N",{namen:6}],["&",{namen:8}],["B",{namen:10}],["E",{namen:11}],["A",{namen:12}],["U",{thurbo:2,namen:13}],["M",{home:2}]];
-  el.innerHTML=`<span class="bl">\u200b</span>${LETTERS.map(([c])=>`<span class="lt">${c}</span>`).join("")}<i class="streep"></i>`;
+  el.innerHTML=`<span class="bl">\u200b</span>${LETTERS.map(([c])=>`<span class="lt">${c}</span>`).join("")}<svg class="huis" viewBox="0 1 24 20.6" aria-hidden="true"><path d="M2.5 10.5 12 2.5l9.5 8M5 8.5V20.5h14V8.5M10 20.5v-6h4v6"/></svg><i class="streep"></i>`;
   const lt=[...el.querySelectorAll('.lt')], streep=el.querySelector('.streep');
   let maat={}, nu="thurbo";
   const meet=()=>{
@@ -1100,7 +1103,9 @@ const MERK=(()=>{
       m.innerHTML=[...WOORD[k]].map(c=>`<i style="font-style:normal">${c===" "?"&nbsp;":c}</i>`).join("");el.appendChild(m);
       maat[k]={x:[...m.children].map(i=>i.offsetLeft),w:m.offsetWidth};m.remove()}
     const b=document.createElement('span');b.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';el.appendChild(b);
-    streep.style.top=(b.offsetTop+5)+'px';b.remove();
+    streep.style.top=(b.offsetTop+5)+'px';
+    const huis=el.querySelector('.huis'), cap=b.offsetTop*1.02; huis.style.height=cap+'px'; huis.style.top=(b.offsetTop-cap)+'px';
+    b.remove();
   };
   const zet=(k,anim=true)=>{
     nu=k; el.classList.toggle('actief',anim&&!rustig());
@@ -1135,8 +1140,9 @@ let introBezig=false;
 /* met de muis op THURBO: HOME, zodat je weet waar je heen gaat */
 if(MERK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
   const br=document.querySelector('.name .brand');
-  br.addEventListener('mouseenter',()=>{if(!introBezig)MERK.zet("home")});
-  br.addEventListener('mouseleave',()=>{if(!introBezig)MERK.zet("thurbo")});
+  const m=br.querySelector('.merk');
+  br.addEventListener('mouseenter',()=>{if(!introBezig)m.classList.add('naarhuis')});
+  br.addEventListener('mouseleave',()=>m.classList.remove('naarhuis'));
 }
 /* de onderste streep van het menu-icoon ligt precies op de lijn onder THURBO, en het icoon staat op hele pixels zodat beide strepen even dik zijn */
 function lijnUit(){
