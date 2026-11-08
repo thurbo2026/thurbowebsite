@@ -172,7 +172,8 @@ button.bitem{cursor:zoom-in}
 
 /* paginakop: grote titel, rechts de knoppen; krimpt bij scrollen en blijft staan */
 .pkop{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px) - var(--krimp,0px));z-index:15;background:var(--bg);border-bottom:1px solid var(--hair)}
-.pkop-rij{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:clamp(18px,2vw,28px) 14px}
+.pkop-rij{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:18px 14px}
+@media (min-width:700px){.pkop-rij{padding-block:16px}}
 .terug{display:inline-flex;align-items:center;height:.78em;margin-right:.32em;color:var(--fg);vertical-align:baseline;transform:translateY(.04em)}
 .terug svg{height:100%;width:auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .terug:hover svg{stroke-width:2.6}
@@ -710,7 +711,7 @@ function meetKop(){
   const naast=ctl&&ctl.children.length&&Math.abs(ctl.getBoundingClientRect().bottom-h1.getBoundingClientRect().bottom)<24;
   const doel=24; /* hoogte van de kleine titel */
   const zicht=ctl&&ctl.children.length?rij.offsetHeight-ctlTop+12:doel+28;
-  const krimp=Math.max(0,rij.offsetHeight-Math.max(zicht,naast?doel+28:zicht));
+  const krimp=naast?0:Math.max(0,rij.offsetHeight-zicht);
   kopMaat={k,h1,krimp,naast,schaal:naast?Math.min(1,doel/h1.offsetHeight):1};
   k.style.setProperty('--krimp',krimp+'px'); pasKop();
 }
