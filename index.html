@@ -132,8 +132,8 @@ button.bitem{cursor:zoom-in}
   .mlijst{align-self:start}
 }
 .mitem{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding-block:clamp(10px,1.4vw,18px);border-bottom:1px solid var(--hair);text-decoration:none;text-align:left;width:100%;overflow:hidden}
-.mnaam{font-size:clamp(22px,.5vw + 17px,26px);font-weight:300;line-height:1.02;letter-spacing:-.015em;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.mpijl{display:block;height:1.5em;font-size:clamp(22px,.5vw + 17px,26px);color:var(--fg);opacity:0;transform:translateX(-14px);transition:opacity .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.mnaam{font-size:24px;font-weight:300;line-height:1.02;letter-spacing:-.015em;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.mpijl{display:block;height:1.5em;font-size:24px;color:var(--fg);opacity:0;transform:translateX(-14px);transition:opacity .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
 .mpijl svg{height:100%;width:auto;display:block;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .mitem:hover .mnaam,.mitem:focus-visible .mnaam{transform:translateX(18px)}
 .mitem:hover .mpijl,.mitem:focus-visible .mpijl{opacity:1;transform:none}
@@ -170,18 +170,18 @@ button.bitem{cursor:zoom-in}
 
 /* paginakop: grote titel, rechts de knoppen; krimpt bij scrollen en blijft staan */
 .pkop{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--kop,62px) - var(--krimp,0px));z-index:15;background:var(--bg);border-bottom:1px solid var(--hair)}
-.pkop-rij{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:clamp(20px,3vw,40px) 16px}
+.pkop-rij{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:clamp(18px,2vw,28px) 14px}
 .terug{display:inline-flex;align-items:center;height:.78em;margin-right:.32em;color:var(--fg);vertical-align:baseline;transform:translateY(.04em)}
 .terug svg{height:100%;width:auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .terug:hover svg{stroke-width:2.6}
 .phead .terug{height:1.6em;margin-right:14px;align-self:center}
 .phead{align-items:center}
-.pkop h1{margin:0;font-weight:300;font-size:clamp(30px,2.6vw + 14px,60px);line-height:1.02;letter-spacing:-.015em;transform-origin:0 100%;will-change:transform}
+.pkop h1{margin:0;font-weight:300;font-size:24px;line-height:1.1;letter-spacing:-.015em;transform-origin:0 100%;will-change:transform}
 .pctl{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;font-weight:300}
 .ktitel{display:none}
 @media (max-width:699px){.pctl:has(.fknop){flex:1 1 100%;flex-wrap:nowrap;gap:8px 20px}.pctl .fknop{margin-left:auto}
   /* bij scrollen: alleen de titel met het filter ernaast */
-  .pkop.compact .ktitel{display:inline;color:var(--fg);font-weight:400;animation:inzwaai .3s ease}
+  .pkop.compact .ktitel{display:inline;color:var(--fg);font-weight:300;font-size:24px;line-height:1;animation:inzwaai .3s ease}
   .pkop.compact .pctl [data-w]{display:none}}
 @keyframes inzwaai{from{opacity:0}to{opacity:1}}
 .pctl button{color:var(--muted)}
