@@ -41,11 +41,12 @@ img{display:block;max-width:100%}
 
 /* kopregel */
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--hair);display:flex;align-items:baseline;gap:22px;padding-block:18px;font-size:var(--s2)}
-.burger{width:32px;height:14px;display:grid;align-content:space-between;flex:none;align-self:center}
-.burger i{display:block;height:2px;background:var(--fg);transition:transform .45s cubic-bezier(.65,0,.35,1)}
+.burger{width:32px;height:14px;position:relative;display:block;flex:none;align-self:center}
+.burger i{position:absolute;left:0;right:0;top:0;height:var(--bl,2px);transform-origin:50% 50%;transform:none;background:var(--fg);transition:transform .45s cubic-bezier(.65,0,.35,1)}
 @media (prefers-reduced-motion:reduce){.burger i{transition:none}}
-.burger.x i:first-child{transform:translateY(6px) rotate(45deg)}
-.burger.x i:last-child{transform:translateY(-6px) rotate(-45deg)}
+.burger i:last-child{transform:translateY(var(--bgap,10px))}
+.burger.x i:first-child{transform:translateY(calc(var(--bgap,10px)/2)) rotate(45deg)}
+.burger.x i:last-child{transform:translateY(calc(var(--bgap,10px)/2)) rotate(-45deg)}
 .name{display:flex;gap:.6em;flex-wrap:wrap;align-items:baseline;min-width:0}
 .name button{white-space:nowrap;text-decoration-thickness:1.5px;text-underline-offset:7px}
 .name .brand{font-weight:500;letter-spacing:.02em;text-decoration:none!important}
@@ -58,7 +59,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .merk.naarhuis .lt{opacity:0;transition:opacity .25s ease}
 .merk.naarhuis .huis{opacity:1;transform:translateX(-50%);transition-delay:.1s}
 .merk .meet{position:absolute;visibility:hidden;left:0;top:0;white-space:pre}
-.merk .streep{position:absolute;left:0;right:0;height:2px;background:currentColor;transition:opacity .3s}
+.merk .streep{position:absolute;left:0;right:0;height:var(--bl,2px);background:currentColor;transition:opacity .3s}
 .brand[aria-pressed="false"] .merk .streep{opacity:0}
 .brand[aria-pressed="false"]:hover .merk .streep{opacity:.35}
 /* namen komen pas na het intro-effect */
@@ -68,12 +69,11 @@ header.intro .name button:not(.brand){opacity:0;transform:translateX(-10px);poin
 .name button[aria-pressed="true"]{text-decoration-line:underline}
 .name button:hover{text-decoration-line:underline;text-decoration-style:dotted}
 .rechts{margin-left:auto;flex:none;display:flex;align-items:baseline;gap:18px}
-@media (min-width:700px){header{font-size:clamp(16px,.55vw + 11px,20px);padding-block:13px;gap:18px}.name button{text-decoration-thickness:2px!important}.burger{width:26px;height:12px}.burger.x i:first-child{transform:translateY(5px) rotate(45deg)}.burger.x i:last-child{transform:translateY(-5px) rotate(-45deg)}.name button{text-underline-offset:5px}}
+@media (min-width:700px){header{font-size:clamp(16px,.55vw + 11px,20px);padding-block:13px;gap:18px}.name button{text-decoration-thickness:2px!important}.burger{width:26px;height:var(--bh,12px)}.name button{text-underline-offset:5px}}
 @media (max-width:699px){.rechts{flex-direction:column;align-items:flex-end;gap:4px}header{font-size:16px}
   /* alles hangt aan de eerste regel: menu-icoon, THURBO, Thorben en het zoekicoon op één lijn, Beau eronder */
   header{align-items:flex-start;gap:16px;padding-block:14px;line-height:22px}
-  .burger{align-self:center;margin-top:0;width:26px;height:12px}
-  .burger.x i:first-child{transform:translateY(5px) rotate(45deg)}.burger.x i:last-child{transform:translateY(-5px) rotate(-45deg)}
+  .burger{align-self:center;margin-top:0;width:26px;height:var(--bh,12px)}
   .rechts{align-self:center}.zoekknop{padding:3px 0 3px 6px}
   .name button{text-underline-offset:5px;text-decoration-thickness:2px}
   /* THURBO zakt iets, zodat de streep eronder precies gelijk ligt met de onderste streep van het menu-icoon */
@@ -1147,7 +1147,12 @@ if(MERK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
 /* de onderste streep van het menu-icoon ligt precies op de lijn onder THURBO, en het icoon staat op hele pixels zodat beide strepen even dik zijn */
 function lijnUit(){
   burger.style.translate="";
-  const dpr=devicePixelRatio||1, br=document.querySelector('.name .brand'), r=burger.getBoundingClientRect();
+  const dpr0=devicePixelRatio||1, lijn=Math.max(1,Math.round(2*dpr0)), hoog=Math.round(12*dpr0);
+  /* dikte en afstand in hele schermpixels; de tussenruimte ook, zodat beide strepen op een hele pixel beginnen */
+  /* via transform, want die wordt niet afgerond zoals gewone maten: zo vallen beide strepen precies op hele schermpixels */
+  const st=document.documentElement.style;
+  st.setProperty('--bl',lijn/dpr0+'px'); st.setProperty('--blf',lijn/dpr0); st.setProperty('--bgap',(hoog-lijn)/dpr0+'px'); st.setProperty('--bh',hoog/dpr0+'px');
+  const dpr=dpr0, br=document.querySelector('.name .brand'), r=burger.getBoundingClientRect();
   let d=0;
   if(matchMedia('(min-width:700px)').matches&&br){
     const st=br.querySelector('.streep'); let onder;
