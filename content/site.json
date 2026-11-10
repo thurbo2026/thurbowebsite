@@ -99,22 +99,12 @@
           "bijschrift_en": "Floating City, at eye level"
         },
         {
-          "beeld": "/img/iop-floating-schets.jpg",
-          "bijschrift": "Floating City, eerste vogelvlucht",
-          "bijschrift_en": "Floating City, first bird's-eye sketch"
-        },
-        {
           "beeld": "/img/iop-noordpolder-vogelvlucht.jpg",
           "bijschrift": "Noordpolder, van kas tot natuur",
           "bijschrift_en": "Noordpolder, from greenhouse to nature"
         },
         {
-          "beeld": "/img/iop-nieuweland-vogelvlucht.jpg",
-          "bijschrift": "Nieuweland, vogelvlucht",
-          "bijschrift_en": "Nieuweland, bird's-eye view"
-        },
-        {
-          "beeld": "/img/iop-nieuweland-typologie.jpg",
+          "beeld": "/img/Woontypologie industrie.png",
           "bijschrift": "Nieuweland, werken beneden en wonen boven",
           "bijschrift_en": "Nieuweland, working below and living above"
         },
