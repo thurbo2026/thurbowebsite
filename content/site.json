@@ -57,6 +57,224 @@
   ],
   "projecten": [
     {
+      "nummer": "13",
+      "titel": "Barbican Centre",
+      "titel_en": "Barbican Centre",
+      "plaats": "Londen",
+      "plaats_en": "London",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "jaar": "2024",
+      "datum": "2024-11",
+      "locatie": "Barbican Centre, Londen, UK",
+      "locatie_en": "Barbican Centre, London, UK",
+      "lat": "51.5202",
+      "lng": "-0.0938",
+      "opgave": "Grondslagen 3, TU Delft",
+      "opgave_en": "Grondslagen 3, TU Delft",
+      "type": "Maquette",
+      "type_en": "Model",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "bureau_of_begeleiding": "Paul Kuitenbrouwer",
+      "ontwerpteam": "Emma Berghuis Cases, Luke Brennan, Thorben Contant, Rosa Demmers",
+      "tekst": "Een maquette-onderzoek naar de ruimtelijke taal van het Barbican Centre in Londen. Kenmerkende elementen van het complex, zoals de bogen, het cassetteplafond met daglichtopeningen, de zware kolommen en de oranje accenten van het interieur, zijn vertaald naar een eigen interieur op schaal. Van buiten is het een witte doos met boogvormige openingen; van binnen opent zich een reeks ruimtes met lichtinval van boven, trappen en verdiepte plekken.",
+      "tekst_en": "A model study of the spatial language of the Barbican Centre in London. Characteristic elements of the complex, such as the arches, the coffered ceiling with rooflights, the heavy columns and the orange accents of the interior, are translated into an interior of our own at scale. From outside it is a white box with arched openings; inside, a sequence of spaces opens up, with light from above, stairs and sunken places.",
+      "fotos": [
+        {
+          "beeld": "/img/gr3-07.jpg",
+          "bijschrift": "Interieur, cassetteplafond met daglicht",
+          "bijschrift_en": "Interior, coffered ceiling with daylight"
+        },
+        {
+          "beeld": "/img/gr3-02.jpg",
+          "bijschrift": "Maquette met situatie",
+          "bijschrift_en": "Model with site"
+        },
+        {
+          "beeld": "/img/gr3-05.jpg",
+          "bijschrift": "Gevel met bogen",
+          "bijschrift_en": "Facade with arches"
+        },
+        {
+          "beeld": "/img/gr3-06.jpg",
+          "bijschrift": "Interieur",
+          "bijschrift_en": "Interior"
+        },
+        {
+          "beeld": "/img/gr3-08.jpg",
+          "bijschrift": "Kolommen",
+          "bijschrift_en": "Columns"
+        },
+        {
+          "beeld": "/img/gr3-11.jpg",
+          "bijschrift": "Doorkijk",
+          "bijschrift_en": "View through"
+        },
+        {
+          "beeld": "/img/gr3-09.jpg",
+          "bijschrift": "Trap",
+          "bijschrift_en": "Stair"
+        },
+        {
+          "beeld": "/img/gr3-10.jpg",
+          "bijschrift": "Onder de verdieping",
+          "bijschrift_en": "Beneath the upper floor"
+        },
+        {
+          "beeld": "/img/gr3-03.jpg",
+          "bijschrift": "Maquette, opengeklapt",
+          "bijschrift_en": "Model, opened up"
+        },
+        {
+          "beeld": "/img/gr3-04.jpg",
+          "bijschrift": "Bovenaanzicht dak",
+          "bijschrift_en": "Roof seen from above"
+        },
+        {
+          "beeld": "/img/gr3-12.jpg",
+          "bijschrift": "Bovenaanzicht interieur",
+          "bijschrift_en": "Interior seen from above"
+        }
+      ],
+      "tekeningen": []
+    },
+    {
+      "nummer": "12",
+      "titel": "Styx",
+      "titel_en": "Styx",
+      "plaats": "Crematorium",
+      "plaats_en": "Crematorium",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "jaar": "2026",
+      "datum": "2026-01",
+      "locatie": "",
+      "opgave": "IOP 2, crematorium, TU Delft",
+      "opgave_en": "IOP 2, crematorium, TU Delft",
+      "type": "Uitvaart",
+      "type_en": "Funerary",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "bureau_of_begeleiding": "Erika Lopulalan",
+      "ontwerpteam": "Thorben Contant",
+      "tekst": "Een crematorium, genoemd naar Styx, de rivier die in de Griekse mythologie de grens vormt tussen leven en dood. Een lange zuilengang van larikshouten kolommen leidt bezoekers van binnen naar buiten, met zicht op het landschap. Het gebouw is opgevat als infrastructuur: een houten dak en kolommen vormen een vast raster, waarbinnen de dragende gevels van klei als losse elementen staan en later kunnen veranderen of worden aangebouwd. De golvende kleiwanden met kalkhennepisolatie geven stabiliteit en ruimte aan vleermuizen, vogels en insecten. Het programma omvat een grote en een kleine aula, opbaarruimten, condoleanceruimte en columbarium. Onderzocht in maquettes, houtskoolschetsen, renders en details op 1:20.",
+      "tekst_en": "A crematorium named after Styx, the river that in Greek mythology forms the boundary between life and death. A long colonnade of larch columns leads visitors from inside to outside, with views over the landscape. The building is conceived as infrastructure: a timber roof and columns form a fixed grid, within which load-bearing clay facades stand as separate elements that can later change or be extended. The undulating clay walls with lime-hemp insulation provide stability and room for bats, birds and insects. The programme includes a large and a small auditorium, viewing rooms, a condolence room and a columbarium. Explored through models, charcoal sketches, renders and 1:20 details.",
+      "fotos": [
+        {
+          "beeld": "/img/styx-colonnade.jpg",
+          "bijschrift": "Zuilengang, van binnen naar buiten",
+          "bijschrift_en": "Colonnade, from inside to outside"
+        },
+        {
+          "beeld": "/img/styx-uitzicht.jpg",
+          "bijschrift": "Uitzicht op het landschap",
+          "bijschrift_en": "View over the landscape"
+        },
+        {
+          "beeld": "/img/styx-gevel.jpg",
+          "bijschrift": "Kleigevel en houten kolommen",
+          "bijschrift_en": "Clay facade and timber columns"
+        },
+        {
+          "beeld": "/img/styx-maquette-1.jpg",
+          "bijschrift": "Maquette, houten draagstructuur",
+          "bijschrift_en": "Model, timber structure"
+        },
+        {
+          "beeld": "/img/styx-maquette-2.jpg",
+          "bijschrift": "Maquette, vooraanzicht",
+          "bijschrift_en": "Model, front view"
+        },
+        {
+          "beeld": "/img/styx-maquette-3.jpg",
+          "bijschrift": "Maquette met dak",
+          "bijschrift_en": "Model with roof"
+        },
+        {
+          "beeld": "/img/styx-maquette-4.jpg",
+          "bijschrift": "Maquette, kleiwand onder het dak",
+          "bijschrift_en": "Model, clay wall under the roof"
+        },
+        {
+          "beeld": "/img/styx-kleine-aula.jpg",
+          "bijschrift": "Kleine aula, houtskoolschets",
+          "bijschrift_en": "Small auditorium, charcoal sketch"
+        },
+        {
+          "beeld": "/img/styx-schets.jpg",
+          "bijschrift": "Dak en kleiwand, houtskoolschets",
+          "bijschrift_en": "Roof and clay wall, charcoal sketch"
+        },
+        {
+          "beeld": "/img/styx-concept-1.jpg",
+          "bijschrift": "Conceptmaquette",
+          "bijschrift_en": "Concept model"
+        },
+        {
+          "beeld": "/img/styx-concept-2.jpg",
+          "bijschrift": "Conceptmaquette",
+          "bijschrift_en": "Concept model"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/styx-t-plattegrond.jpg",
+          "bijschrift": "Plattegrond 1:200",
+          "bijschrift_en": "Floor plan 1:200"
+        },
+        {
+          "beeld": "/img/styx-t-doorsnede.jpg",
+          "bijschrift": "Doorsneden 1:200",
+          "bijschrift_en": "Sections 1:200"
+        },
+        {
+          "beeld": "/img/styx-t-situatie.jpg",
+          "bijschrift": "Situatiedoorsnede",
+          "bijschrift_en": "Site section"
+        },
+        {
+          "beeld": "/img/styx-t-gevelfragment.jpg",
+          "bijschrift": "Gevelfragment 1:20",
+          "bijschrift_en": "Facade fragment 1:20"
+        },
+        {
+          "beeld": "/img/styx-t-details.jpg",
+          "bijschrift": "Details",
+          "bijschrift_en": "Details"
+        },
+        {
+          "beeld": "/img/styx-t-axo.jpg",
+          "bijschrift": "Axonometrie draagstructuur",
+          "bijschrift_en": "Axonometric of the structure"
+        },
+        {
+          "beeld": "/img/styx-t-wand.jpg",
+          "bijschrift": "Kleiwand als los element",
+          "bijschrift_en": "Clay wall as a separate element"
+        },
+        {
+          "beeld": "/img/styx-t-natuur.jpg",
+          "bijschrift": "Natuurinclusieve gevel",
+          "bijschrift_en": "Nature-inclusive facade"
+        },
+        {
+          "beeld": "/img/styx-t-orientatie.jpg",
+          "bijschrift": "Oriëntatie en positie",
+          "bijschrift_en": "Orientation and position"
+        },
+        {
+          "beeld": "/img/styx-t-rivier.jpg",
+          "bijschrift": "Diagram rivier",
+          "bijschrift_en": "River diagram"
+        }
+      ]
+    },
+    {
       "nummer": "11",
       "titel": "Leven met Water",
       "titel_en": "Living with Water",
