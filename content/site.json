@@ -57,6 +57,112 @@
   ],
   "projecten": [
     {
+      "nummer": "11",
+      "titel": "Leven met Water",
+      "titel_en": "Living with Water",
+      "plaats": "Lansingerland",
+      "plaats_en": "Lansingerland",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "jaar": "2025",
+      "datum": "2025-10",
+      "locatie": "Berkel en Rodenrijs, Lansingerland, NL",
+      "locatie_en": "Berkel en Rodenrijs, Lansingerland, NL",
+      "lat": "52.0035",
+      "lng": "4.4750",
+      "opgave": "IOP 1, integraal stedenbouwkundig plan, TU Delft",
+      "opgave_en": "IOP 1, integrated urban plan, TU Delft",
+      "type": "Stedenbouw",
+      "type_en": "Urbanism",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "bureau_of_begeleiding": "Chris Smith",
+      "ontwerpteam": "Thorben Contant (stedenbouw), Jantine Burger, Guus Kuijper, Isabel Gowers, Guillaume Trân, Zinzi van der Maas",
+      "tekst": "Een masterplan voor Berkel en Rodenrijs in Lansingerland, waarin we leren leven met water in plaats van ertegen te vechten. De regio lijkt groen, maar bijna de helft is intensieve landbouwgrond; wateroverlast, bodemdaling en hittestress nemen toe. In het plan wordt water het element dat de ruimte ordent, van noord naar zuid. In de Noordpolder loopt een gradiënt van kassen via woningen naar wetlands. Centraal ligt de Floating City, een compacte drijvende wijk van vier tot zes lagen met zones voor wonen, recreatie en natuur. Het dorpscentrum wordt verdicht door optopping en hergebruik, het HSL-park wordt via ecobruggen een verbindend park, en in het Nieuweland worden bedrijventerreinen woon-werkbuurten langs een brede groene beek. Binnen de groep had ik de rol van stedenbouwkundige; het masterplan tekende ik digitaal, de perspectieven bewust met de hand.",
+      "tekst_en": "A masterplan for Berkel en Rodenrijs in Lansingerland that learns to live with water instead of fighting it. The region looks green, but almost half of it is intensive farmland, and flooding, subsidence and heat stress are increasing. In the plan, water becomes the element that organises the area from north to south. In the Noordpolder a gradient runs from greenhouses through housing to wetlands. At the centre lies the Floating City, a compact floating neighbourhood of four to six storeys with zones for living, recreation and nature. The village centre is densified by adding storeys and reusing buildings, the HSL park becomes a connecting park through eco-bridges, and in Nieuweland business parks become live-work neighbourhoods along a wide green stream. Within the group I took the role of urban designer; I drew the masterplan digitally and the perspectives deliberately by hand.",
+      "fotos": [
+        {
+          "beeld": "/img/iop-collage.jpg",
+          "bijschrift": "Collage, Berkel aan het water",
+          "bijschrift_en": "Collage, Berkel on the water"
+        },
+        {
+          "beeld": "/img/iop-floating-vogelvlucht.jpg",
+          "bijschrift": "Floating City, vogelvlucht",
+          "bijschrift_en": "Floating City, bird's-eye view"
+        },
+        {
+          "beeld": "/img/iop-floating-ooghoogte.jpg",
+          "bijschrift": "Floating City, op ooghoogte",
+          "bijschrift_en": "Floating City, at eye level"
+        },
+        {
+          "beeld": "/img/iop-floating-schets.jpg",
+          "bijschrift": "Floating City, eerste vogelvlucht",
+          "bijschrift_en": "Floating City, first bird's-eye sketch"
+        },
+        {
+          "beeld": "/img/iop-noordpolder-vogelvlucht.jpg",
+          "bijschrift": "Noordpolder, van kas tot natuur",
+          "bijschrift_en": "Noordpolder, from greenhouse to nature"
+        },
+        {
+          "beeld": "/img/iop-nieuweland-vogelvlucht.jpg",
+          "bijschrift": "Nieuweland, vogelvlucht",
+          "bijschrift_en": "Nieuweland, bird's-eye view"
+        },
+        {
+          "beeld": "/img/iop-nieuweland-typologie.jpg",
+          "bijschrift": "Nieuweland, werken beneden en wonen boven",
+          "bijschrift_en": "Nieuweland, working below and living above"
+        },
+        {
+          "beeld": "/img/iop-collage-centrum.jpg",
+          "bijschrift": "Collage, centrum Berkel",
+          "bijschrift_en": "Collage, Berkel centre"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/iop-t-masterplan.jpg",
+          "bijschrift": "Masterplan 1:20.000",
+          "bijschrift_en": "Masterplan 1:20,000"
+        },
+        {
+          "beeld": "/img/iop-t-floating-city.jpg",
+          "bijschrift": "Floating City 1:4000",
+          "bijschrift_en": "Floating City 1:4000"
+        },
+        {
+          "beeld": "/img/iop-t-floating-doorsnede.jpg",
+          "bijschrift": "Floating City, doorsnede en bovenaanzicht",
+          "bijschrift_en": "Floating City, section and plan"
+        },
+        {
+          "beeld": "/img/iop-t-floating-doorsnede-2.jpg",
+          "bijschrift": "Floating City, doorsnede",
+          "bijschrift_en": "Floating City, section"
+        },
+        {
+          "beeld": "/img/iop-t-centrum.jpg",
+          "bijschrift": "Centrum Berkel",
+          "bijschrift_en": "Berkel centre"
+        },
+        {
+          "beeld": "/img/iop-t-kassen-noord.jpg",
+          "bijschrift": "Kassen Noord 1:4000",
+          "bijschrift_en": "Kassen Noord 1:4000"
+        },
+        {
+          "beeld": "/img/iop-t-nieuweland.jpg",
+          "bijschrift": "Nieuweland en Berkel-Zuid 1:6000",
+          "bijschrift_en": "Nieuweland and Berkel-Zuid 1:6000"
+        }
+      ]
+    },
+    {
       "nummer": "05",
       "titel": "Crematorium",
       "titel_en": "Crematorium",
