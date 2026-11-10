@@ -57,91 +57,6 @@
   ],
   "projecten": [
     {
-      "nummer": "13",
-      "titel": "Barbican Centre",
-      "titel_en": "Barbican Centre",
-      "plaats": "Londen",
-      "plaats_en": "London",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Thorben"
-      ],
-      "jaar": "2024",
-      "datum": "2024-11",
-      "locatie": "Barbican Centre, Londen, UK",
-      "locatie_en": "Barbican Centre, London, UK",
-      "lat": "51.5202",
-      "lng": "-0.0938",
-      "opgave": "Grondslagen 3, TU Delft",
-      "opgave_en": "Grondslagen 3, TU Delft",
-      "type": "Maquette",
-      "type_en": "Model",
-      "status": "Groepswerk",
-      "status_en": "Group project",
-      "bureau_of_begeleiding": "Paul Kuitenbrouwer",
-      "ontwerpteam": "Emma Berghuis Cases, Luke Brennan, Thorben Contant, Rosa Demmers",
-      "tekst": "Een maquette-onderzoek naar de ruimtelijke taal van het Barbican Centre in Londen. Kenmerkende elementen van het complex, zoals de bogen, het cassetteplafond met daglichtopeningen, de zware kolommen en de oranje accenten van het interieur, zijn vertaald naar een eigen interieur op schaal. Van buiten is het een witte doos met boogvormige openingen; van binnen opent zich een reeks ruimtes met lichtinval van boven, trappen en verdiepte plekken.",
-      "tekst_en": "A model study of the spatial language of the Barbican Centre in London. Characteristic elements of the complex, such as the arches, the coffered ceiling with rooflights, the heavy columns and the orange accents of the interior, are translated into an interior of our own at scale. From outside it is a white box with arched openings; inside, a sequence of spaces opens up, with light from above, stairs and sunken places.",
-      "fotos": [
-        {
-          "beeld": "/img/gr3-07.jpg",
-          "bijschrift": "Interieur, cassetteplafond met daglicht",
-          "bijschrift_en": "Interior, coffered ceiling with daylight"
-        },
-        {
-          "beeld": "/img/gr3-02.jpg",
-          "bijschrift": "Maquette met situatie",
-          "bijschrift_en": "Model with site"
-        },
-        {
-          "beeld": "/img/gr3-05.jpg",
-          "bijschrift": "Gevel met bogen",
-          "bijschrift_en": "Facade with arches"
-        },
-        {
-          "beeld": "/img/gr3-06.jpg",
-          "bijschrift": "Interieur",
-          "bijschrift_en": "Interior"
-        },
-        {
-          "beeld": "/img/gr3-08.jpg",
-          "bijschrift": "Kolommen",
-          "bijschrift_en": "Columns"
-        },
-        {
-          "beeld": "/img/gr3-11.jpg",
-          "bijschrift": "Doorkijk",
-          "bijschrift_en": "View through"
-        },
-        {
-          "beeld": "/img/gr3-09.jpg",
-          "bijschrift": "Trap",
-          "bijschrift_en": "Stair"
-        },
-        {
-          "beeld": "/img/gr3-10.jpg",
-          "bijschrift": "Onder de verdieping",
-          "bijschrift_en": "Beneath the upper floor"
-        },
-        {
-          "beeld": "/img/gr3-03.jpg",
-          "bijschrift": "Maquette, opengeklapt",
-          "bijschrift_en": "Model, opened up"
-        },
-        {
-          "beeld": "/img/gr3-04.jpg",
-          "bijschrift": "Bovenaanzicht dak",
-          "bijschrift_en": "Roof seen from above"
-        },
-        {
-          "beeld": "/img/gr3-12.jpg",
-          "bijschrift": "Bovenaanzicht interieur",
-          "bijschrift_en": "Interior seen from above"
-        }
-      ],
-      "tekeningen": []
-    },
-    {
       "nummer": "12",
       "titel": "Styx",
       "titel_en": "Styx",
@@ -271,6 +186,83 @@
           "beeld": "/img/styx-t-rivier.jpg",
           "bijschrift": "Diagram rivier",
           "bijschrift_en": "River diagram"
+        }
+      ]
+    },
+    {
+      "nummer": "02",
+      "titel": "Stedelijke Aanleunwoningen",
+      "titel_en": "Urban Housing for Elderly ",
+      "plaats": "Den Haag",
+      "plaats_en": "The Hague",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Beau"
+      ],
+      "jaar": "2023",
+      "datum": "2023-06",
+      "locatie": "Den Haag, NL",
+      "locatie_en": "The Hague, NL",
+      "lat": "52.0869",
+      "lng": "4.2963",
+      "opgave": "Transformatie NIBC-kantoor, thema Affordable Luxury",
+      "opgave_en": "Transformation of the NIBC office, theme Affordable Luxury",
+      "type": "Wonen, transformatie",
+      "type_en": "Housing, transformation",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "bureau_of_begeleiding": "Powerhouse Company",
+      "bureau_link": "www.powerhouse-company.com",
+      "ontwerpteam": "Beau Schellevis",
+      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
+      "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
+      "fotos": [
+        {
+          "beeld": "/img/ba-modellen.jpg",
+          "bijschrift": "Maquettes woningtypes",
+          "bijschrift_en": "Models of the dwelling types"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/ba-t-doorsnede.jpg",
+          "bijschrift": "Doorsnede basisconfiguratie",
+          "bijschrift_en": "Section of the base configuration"
+        },
+        {
+          "beeld": "/img/ba-t-plattegronden.jpg",
+          "bijschrift": "Plattegronden, begane grond tot +4",
+          "bijschrift_en": "Floor plans, ground floor to +4"
+        },
+        {
+          "beeld": "/img/ba-t-typologie.jpg",
+          "bijschrift": "Opbouw van de typologie",
+          "bijschrift_en": "Build-up of the typology"
+        },
+        {
+          "beeld": "/img/ba-t-woningtypes.jpg",
+          "bijschrift": "Doorsneden type A en type B",
+          "bijschrift_en": "Sections type A and type B"
+        },
+        {
+          "beeld": "/img/ba-t-plattegrond-bg.jpg",
+          "bijschrift": "Plattegrond begane grond",
+          "bijschrift_en": "Ground floor plan"
+        },
+        {
+          "beeld": "/img/ba-t-gevels.jpg",
+          "bijschrift": "Noord- en zuidgevel",
+          "bijschrift_en": "North and south elevations"
+        },
+        {
+          "beeld": "/img/ba-t-gevelfragment.jpg",
+          "bijschrift": "Gevelfragment",
+          "bijschrift_en": "Facade fragment"
+        },
+        {
+          "beeld": "/img/ba-t-ontstaan.jpg",
+          "bijschrift": "Ontstaan van de typologie",
+          "bijschrift_en": "Origin of the typology"
         }
       ]
     },
@@ -499,79 +491,62 @@
       ]
     },
     {
-      "nummer": "02",
-      "titel": "Stedelijke Aanleunwoningen",
-      "titel_en": "Urban Housing for Elderly ",
-      "plaats": "Den Haag",
-      "plaats_en": "The Hague",
+      "nummer": "03",
+      "titel": "Urbanism Studio",
+      "titel_en": "Urbanism Studio",
+      "plaats": "Kopenhagen",
+      "plaats_en": "Copenhagen",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
       "jaar": "2023",
-      "datum": "2023-06",
-      "locatie": "Den Haag, NL",
-      "locatie_en": "The Hague, NL",
-      "lat": "52.0869",
-      "lng": "4.2963",
-      "opgave": "Transformatie NIBC-kantoor, thema Affordable Luxury",
-      "opgave_en": "Transformation of the NIBC office, theme Affordable Luxury",
-      "type": "Wonen, transformatie",
-      "type_en": "Housing, transformation",
-      "status": "Studieproject",
-      "status_en": "Study project",
-      "bureau_of_begeleiding": "Powerhouse Company",
-      "bureau_link": "www.powerhouse-company.com",
-      "ontwerpteam": "Beau Schellevis",
-      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
-      "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
+      "datum": "2023-12",
+      "locatie": "Skjolds Plads, Kopenhagen, DK",
+      "locatie_en": "Skjolds Plads, Copenhagen, DK",
+      "lat": "55.7046",
+      "lng": "12.5455",
+      "opgave": "Minor Urbanism, University of Copenhagen",
+      "opgave_en": "Minor Urbanism, University of Copenhagen",
+      "type": "Stedenbouw",
+      "type_en": "Urbanism",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "ontwerpteam": "Beau Schellevis, Anna Plechacova, Kit Sandra Christensen, Melissa Munkholm Kristensen, Angeliki Nikoloudaki",
+      "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
+      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
       "fotos": [
         {
-          "beeld": "/img/ba-modellen.jpg",
-          "bijschrift": "Maquettes woningtypes",
-          "bijschrift_en": "Models of the dwelling types"
+          "beeld": "/img/us-visie.jpg",
+          "bijschrift": "Visie",
+          "bijschrift_en": "Vision"
         }
       ],
       "tekeningen": [
         {
-          "beeld": "/img/ba-t-doorsnede.jpg",
-          "bijschrift": "Doorsnede basisconfiguratie",
-          "bijschrift_en": "Section of the base configuration"
+          "beeld": "/img/us-t-krakas-plads.jpg",
+          "bijschrift": "Plattegrond Krakas Plads",
+          "bijschrift_en": "Plan Krakas Plads"
         },
         {
-          "beeld": "/img/ba-t-plattegronden.jpg",
-          "bijschrift": "Plattegronden, begane grond tot +4",
-          "bijschrift_en": "Floor plans, ground floor to +4"
+          "beeld": "/img/us-t-haraldspark.jpg",
+          "bijschrift": "Plattegrond Haraldspark",
+          "bijschrift_en": "Plan Haraldspark"
         },
         {
-          "beeld": "/img/ba-t-typologie.jpg",
-          "bijschrift": "Opbouw van de typologie",
-          "bijschrift_en": "Build-up of the typology"
+          "beeld": "/img/us-t-doorsnede.jpg",
+          "bijschrift": "Doorsneden Krakas Plads",
+          "bijschrift_en": "Sections Krakas Plads"
         },
         {
-          "beeld": "/img/ba-t-woningtypes.jpg",
-          "bijschrift": "Doorsneden type A en type B",
-          "bijschrift_en": "Sections type A and type B"
+          "beeld": "/img/us-t-concept.jpg",
+          "bijschrift": "Concept: connectiviteit, waterbeheer, karakter, identiteit",
+          "bijschrift_en": "Concept: connectivity, water management, character, identity"
         },
         {
-          "beeld": "/img/ba-t-plattegrond-bg.jpg",
-          "bijschrift": "Plattegrond begane grond",
-          "bijschrift_en": "Ground floor plan"
-        },
-        {
-          "beeld": "/img/ba-t-gevels.jpg",
-          "bijschrift": "Noord- en zuidgevel",
-          "bijschrift_en": "North and south elevations"
-        },
-        {
-          "beeld": "/img/ba-t-gevelfragment.jpg",
-          "bijschrift": "Gevelfragment",
-          "bijschrift_en": "Facade fragment"
-        },
-        {
-          "beeld": "/img/ba-t-ontstaan.jpg",
-          "bijschrift": "Ontstaan van de typologie",
-          "bijschrift_en": "Origin of the typology"
+          "beeld": "/img/us-t-analyse.jpg",
+          "bijschrift": "Analyse en ontwerptools",
+          "bijschrift_en": "Analysis and design tools"
         }
       ]
     },
@@ -662,6 +637,49 @@
           "beeld": "/img/ks-t-geveldetail.jpg",
           "bijschrift": "Geveldetail",
           "bijschrift_en": "Facade detail"
+        }
+      ]
+    },
+    {
+      "nummer": "01",
+      "titel": "Beeldentuin",
+      "titel_en": "Sculpture Garden",
+      "plaats": "Den Haag",
+      "plaats_en": "The Hague",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Beau"
+      ],
+      "jaar": "2022",
+      "datum": "2022-12",
+      "locatie": "Den Haag, NL",
+      "locatie_en": "The Hague, NL",
+      "lat": "52.0833169",
+      "lng": "4.3139305",
+      "opgave": "Parametrisch ontworpen Verdiepte beeldentuin, in Grasshopper",
+      "opgave_en": "Parametric designed sunken sculpture garden, in Grasshopper",
+      "type": "Publiek",
+      "type_en": "Public",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "ontwerpteam": "Beau Schellevis",
+      "tekst": "Een verdiepte beeldentuin in Den Haag, ontworpen met het parametrische programma Grasshopper. De tuin brengt de bezoeker van straatniveau naar de entree op niveau -1. Bewust geplaatste wanden, smalle of juist grote openingen, trappen en plateaus vormen een reeks ruimtes die elk een eigen sfeer hebben en de bezoeker uitnodigen verder te gaan. Twee complementaire kleuren geven samenhang en laten de schaduwen goed tot hun recht komen.",
+      "tekst_en": "A sunken sculpture garden in The Hague, designed with the parametric software Grasshopper. The garden leads visitors from street level to the entrance on level -1. Carefully placed walls, narrow or wide openings, stairs and platforms form a sequence of spaces, each with its own atmosphere, inviting visitors to go further. Two complementary colours give coherence and bring out the shadows.",
+      "fotos": [
+        {
+          "beeld": "/img/bt-render-1.jpg",
+          "bijschrift": "Impressie beeldentuin",
+          "bijschrift_en": "Impression of the sculpture garden"
+        },
+        {
+          "beeld": "/img/bt-render-2.jpg",
+          "bijschrift": "Impressie wanden en openingen",
+          "bijschrift_en": "Impression of walls and openings"
+        },
+        {
+          "beeld": "/img/bt-renders.jpg",
+          "bijschrift": "Impressies",
+          "bijschrift_en": "Impressions"
         }
       ]
     },
@@ -805,6 +823,91 @@
       ]
     },
     {
+      "nummer": "13",
+      "titel": "Barbican Centre",
+      "titel_en": "Barbican Centre",
+      "plaats": "Londen",
+      "plaats_en": "London",
+      "categorie": "Studie",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "jaar": "2024",
+      "datum": "2024-11",
+      "locatie": "Barbican Centre, Londen, UK",
+      "locatie_en": "Barbican Centre, London, UK",
+      "lat": "51.5202",
+      "lng": "-0.0938",
+      "opgave": "Grondslagen 3, TU Delft",
+      "opgave_en": "Grondslagen 3, TU Delft",
+      "type": "Maquette",
+      "type_en": "Model",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "bureau_of_begeleiding": "Paul Kuitenbrouwer",
+      "ontwerpteam": "Emma Berghuis Cases, Luke Brennan, Thorben Contant, Rosa Demmers",
+      "tekst": "Een maquette-onderzoek naar de ruimtelijke taal van het Barbican Centre in Londen. Kenmerkende elementen van het complex, zoals de bogen, het cassetteplafond met daglichtopeningen, de zware kolommen en de oranje accenten van het interieur, zijn vertaald naar een eigen interieur op schaal. Van buiten is het een witte doos met boogvormige openingen; van binnen opent zich een reeks ruimtes met lichtinval van boven, trappen en verdiepte plekken.",
+      "tekst_en": "A model study of the spatial language of the Barbican Centre in London. Characteristic elements of the complex, such as the arches, the coffered ceiling with rooflights, the heavy columns and the orange accents of the interior, are translated into an interior of our own at scale. From outside it is a white box with arched openings; inside, a sequence of spaces opens up, with light from above, stairs and sunken places.",
+      "fotos": [
+        {
+          "beeld": "/img/gr3-07.jpg",
+          "bijschrift": "Interieur, cassetteplafond met daglicht",
+          "bijschrift_en": "Interior, coffered ceiling with daylight"
+        },
+        {
+          "beeld": "/img/gr3-02.jpg",
+          "bijschrift": "Maquette met situatie",
+          "bijschrift_en": "Model with site"
+        },
+        {
+          "beeld": "/img/gr3-05.jpg",
+          "bijschrift": "Gevel met bogen",
+          "bijschrift_en": "Facade with arches"
+        },
+        {
+          "beeld": "/img/gr3-06.jpg",
+          "bijschrift": "Interieur",
+          "bijschrift_en": "Interior"
+        },
+        {
+          "beeld": "/img/gr3-08.jpg",
+          "bijschrift": "Kolommen",
+          "bijschrift_en": "Columns"
+        },
+        {
+          "beeld": "/img/gr3-11.jpg",
+          "bijschrift": "Doorkijk",
+          "bijschrift_en": "View through"
+        },
+        {
+          "beeld": "/img/gr3-09.jpg",
+          "bijschrift": "Trap",
+          "bijschrift_en": "Stair"
+        },
+        {
+          "beeld": "/img/gr3-10.jpg",
+          "bijschrift": "Onder de verdieping",
+          "bijschrift_en": "Beneath the upper floor"
+        },
+        {
+          "beeld": "/img/gr3-03.jpg",
+          "bijschrift": "Maquette, opengeklapt",
+          "bijschrift_en": "Model, opened up"
+        },
+        {
+          "beeld": "/img/gr3-04.jpg",
+          "bijschrift": "Bovenaanzicht dak",
+          "bijschrift_en": "Roof seen from above"
+        },
+        {
+          "beeld": "/img/gr3-12.jpg",
+          "bijschrift": "Bovenaanzicht interieur",
+          "bijschrift_en": "Interior seen from above"
+        }
+      ],
+      "tekeningen": []
+    },
+    {
       "nummer": "07",
       "titel": "Research Center",
       "titel_en": "Research Center",
@@ -837,109 +940,6 @@
           "beeld": "/img/rc-model-3.jpg",
           "bijschrift": "Maquette, doorkijk",
           "bijschrift_en": "Model, view through"
-        }
-      ]
-    },
-    {
-      "nummer": "03",
-      "titel": "Urbanism Studio",
-      "titel_en": "Urbanism Studio",
-      "plaats": "Kopenhagen",
-      "plaats_en": "Copenhagen",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Beau"
-      ],
-      "jaar": "2023",
-      "datum": "2023-12",
-      "locatie": "Skjolds Plads, Kopenhagen, DK",
-      "locatie_en": "Skjolds Plads, Copenhagen, DK",
-      "lat": "55.7046",
-      "lng": "12.5455",
-      "opgave": "Minor Urbanism, University of Copenhagen",
-      "opgave_en": "Minor Urbanism, University of Copenhagen",
-      "type": "Stedenbouw",
-      "type_en": "Urbanism",
-      "status": "Groepswerk",
-      "status_en": "Group project",
-      "ontwerpteam": "Beau Schellevis, Anna Plechacova, Kit Sandra Christensen, Melissa Munkholm Kristensen, Angeliki Nikoloudaki",
-      "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
-      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
-      "fotos": [
-        {
-          "beeld": "/img/us-visie.jpg",
-          "bijschrift": "Visie",
-          "bijschrift_en": "Vision"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/us-t-krakas-plads.jpg",
-          "bijschrift": "Plattegrond Krakas Plads",
-          "bijschrift_en": "Plan Krakas Plads"
-        },
-        {
-          "beeld": "/img/us-t-haraldspark.jpg",
-          "bijschrift": "Plattegrond Haraldspark",
-          "bijschrift_en": "Plan Haraldspark"
-        },
-        {
-          "beeld": "/img/us-t-doorsnede.jpg",
-          "bijschrift": "Doorsneden Krakas Plads",
-          "bijschrift_en": "Sections Krakas Plads"
-        },
-        {
-          "beeld": "/img/us-t-concept.jpg",
-          "bijschrift": "Concept: connectiviteit, waterbeheer, karakter, identiteit",
-          "bijschrift_en": "Concept: connectivity, water management, character, identity"
-        },
-        {
-          "beeld": "/img/us-t-analyse.jpg",
-          "bijschrift": "Analyse en ontwerptools",
-          "bijschrift_en": "Analysis and design tools"
-        }
-      ]
-    },
-    {
-      "nummer": "01",
-      "titel": "Beeldentuin",
-      "titel_en": "Sculpture Garden",
-      "plaats": "Den Haag",
-      "plaats_en": "The Hague",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Beau"
-      ],
-      "jaar": "2022",
-      "datum": "2022-12",
-      "locatie": "Den Haag, NL",
-      "locatie_en": "The Hague, NL",
-      "lat": "52.0833169",
-      "lng": "4.3139305",
-      "opgave": "Parametrisch ontworpen Verdiepte beeldentuin, in Grasshopper",
-      "opgave_en": "Parametric designed sunken sculpture garden, in Grasshopper",
-      "type": "Publiek",
-      "type_en": "Public",
-      "status": "Studieproject",
-      "status_en": "Study project",
-      "ontwerpteam": "Beau Schellevis",
-      "tekst": "Een verdiepte beeldentuin in Den Haag, ontworpen met het parametrische programma Grasshopper. De tuin brengt de bezoeker van straatniveau naar de entree op niveau -1. Bewust geplaatste wanden, smalle of juist grote openingen, trappen en plateaus vormen een reeks ruimtes die elk een eigen sfeer hebben en de bezoeker uitnodigen verder te gaan. Twee complementaire kleuren geven samenhang en laten de schaduwen goed tot hun recht komen.",
-      "tekst_en": "A sunken sculpture garden in The Hague, designed with the parametric software Grasshopper. The garden leads visitors from street level to the entrance on level -1. Carefully placed walls, narrow or wide openings, stairs and platforms form a sequence of spaces, each with its own atmosphere, inviting visitors to go further. Two complementary colours give coherence and bring out the shadows.",
-      "fotos": [
-        {
-          "beeld": "/img/bt-render-1.jpg",
-          "bijschrift": "Impressie beeldentuin",
-          "bijschrift_en": "Impression of the sculpture garden"
-        },
-        {
-          "beeld": "/img/bt-render-2.jpg",
-          "bijschrift": "Impressie wanden en openingen",
-          "bijschrift_en": "Impression of walls and openings"
-        },
-        {
-          "beeld": "/img/bt-renders.jpg",
-          "bijschrift": "Impressies",
-          "bijschrift_en": "Impressions"
         }
       ]
     }
