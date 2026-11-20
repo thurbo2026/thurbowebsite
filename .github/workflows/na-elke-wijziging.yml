@@ -1,4 +1,5 @@
 # Draait vanzelf na elke wijziging (ook vanuit Pages CMS):
+# 0. vult lege Engelse velden met een vertaling (DeepL; alleen als de secret DEEPL_KEY is ingesteld)
 # 1. maakt kleine versies van nieuwe beelden voor de overzichten (img/klein/)
 # 2. zet naam en auteursrecht in de gegevens (EXIF, IPTC, XMP) van elk beeld dat dat nog niet heeft
 # 3. laat Bing en andere zoekmachines (IndexNow) weten dat er iets nieuw is
@@ -14,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Engelse teksten vertalen
+        env:
+          DEEPL_KEY: ${{ secrets.DEEPL_KEY }}
+        run: python3 .github/scripts/vertaal.py || echo "Vertalen mislukt; de site toont dan het Nederlands"
       - name: Kleine beelden maken
         run: |
           pip install --quiet pillow
@@ -50,11 +55,12 @@ jobs:
             img || true
       - name: Opslaan als er iets nieuw is
         run: |
-          git add img
+          git add img content .github/scripts/vertalingen.json 2>/dev/null || git add img content
           if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
           git config user.name "THURBO automatisch"
           git config user.email "actions@users.noreply.github.com"
-          git commit -m "Kleine beelden en auteursrecht in beeldgegevens bijgewerkt"
+          git commit -m "Vertalingen, kleine beelden en auteursrecht in beeldgegevens bijgewerkt"
+          git pull --rebase -q || true
           git push
 
   indexnow:

@@ -1,6 +1,7 @@
 # Instellingen voor het beheerscherm (Pages CMS, pagescms.org). Snel naar het beheerscherm: thurbo.nl/admin
 # De onderdelen staan in dezelfde volgorde als het menu op de site.
-# Velden met "EN" zijn de Engelse versie. Laat je die leeg, dan toont de site het Nederlands.
+# Velden met "EN" zijn de Engelse versie. Laat je die leeg, dan vult GitHub ze na het opslaan vanzelf met een vertaling (DeepL).
+# Een Engelse tekst die je zelf invult, blijft staan.
 # Links in teksten: [woord](https://adres). Losse https-adressen en e-mailadressen worden vanzelf klikbaar.
 media:
   input: img
@@ -25,10 +26,13 @@ content:
       type: string
       required: true
     - name: titel_en
-      label: Titel EN
+      label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: plaats
-      label: "Plaats (achter de titel; geldt voor Nederlands en Engels)"
+      label: Plaats (achter de titel)
+      type: string
+    - name: plaats_en
+      label: "Plaats EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: ontworpen_door
       label: "Ontworpen door (bepaalt de letter t, b of tb)"
@@ -56,7 +60,7 @@ content:
         label: Bijschrift
         type: string
       - name: bijschrift_en
-        label: Bijschrift EN
+        label: "Bijschrift EN (leeg laten: wordt vanzelf vertaald)"
         type: string
     - name: tekeningen
       label: Tekeningen
@@ -73,13 +77,13 @@ content:
         label: Bijschrift
         type: string
       - name: bijschrift_en
-        label: Bijschrift EN
+        label: "Bijschrift EN (leeg laten: wordt vanzelf vertaald)"
         type: string
     - name: tekst
       label: "Projecttekst (link: [woord](https://adres))"
       type: text
     - name: tekst_en
-      label: "Projecttekst EN (link: [word](https://address))"
+      label: "Projecttekst EN (leeg laten: wordt vanzelf vertaald) (link: [word](https://address))"
       type: text
     - name: jaar
       label: Jaar
@@ -88,25 +92,25 @@ content:
       label: Locatie
       type: string
     - name: locatie_en
-      label: Locatie EN
+      label: "Locatie EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: opgave
       label: Opgave
       type: string
     - name: opgave_en
-      label: Opgave EN
+      label: "Opgave EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: type
       label: Type
       type: string
     - name: type_en
-      label: Type EN
+      label: "Type EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: status
       label: Status
       type: string
     - name: status_en
-      label: Status EN
+      label: "Status EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: bureau_of_begeleiding
       label: Bureau of begeleiding
@@ -154,13 +158,13 @@ content:
       label: Titel
       type: string
     - name: titel_en
-      label: Titel EN
+      label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: bijschrift
       label: "Bijschrift (bijv. collage, foto, maquette)"
       type: string
     - name: bijschrift_en
-      label: Bijschrift EN
+      label: "Bijschrift EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: jaar
       label: Jaar
@@ -179,8 +183,8 @@ content:
   path: content/nieuws.json
   format: json
   fields:
-  - name: nieuws
-    label: "Nieuws (drie rijen: eigen artikelen, nieuws en Instagram)"
+  - name: eigen_artikelen
+    label: "Eigen artikelen (bovenste rij: recepten, boeken, kaarten, websites…)"
     type: object
     list:
       collapsible:
@@ -198,10 +202,10 @@ content:
       type: string
       required: true
     - name: titel_en
-      label: Titel EN
+      label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: soort
-      label: "Soort (bepaalt de rij: Nieuws, Project en Studio staan in de middelste rij, Instagram onderaan, de rest bovenaan bij Eigen artikelen)"
+      label: Soort (staat als label bij het bericht)
       type: select
       options:
         values:
@@ -212,10 +216,6 @@ content:
         - Kunst
         - Fotografie
         - Overig
-        - Nieuws
-        - Project
-        - Studio
-        - Instagram
     - name: door
       label: Door
       type: select
@@ -228,7 +228,7 @@ content:
       label: "Tekst (link: [woord](https://adres))"
       type: text
     - name: tekst_en
-      label: Tekst EN
+      label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
       type: text
     - name: beelden
       label: Foto's (de eerste staat op de nieuwspagina)
@@ -245,7 +245,7 @@ content:
         label: Bijschrift
         type: string
       - name: bijschrift_en
-        label: Bijschrift EN
+        label: "Bijschrift EN (leeg laten: wordt vanzelf vertaald)"
         type: string
     - name: instagram
       label: "Instagram-post (link, bijv. https://www.instagram.com/p/...)"
@@ -253,8 +253,129 @@ content:
     - name: link
       label: "Extra link (https://...)"
       type: string
+  - name: nieuwsberichten
+    label: Nieuws (middelste rij)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{titel}"
+    fields:
+    - name: datum
+      label: Datum
+      type: date
+    - name: concept
+      label: Concept (aangevinkt = nog niet zichtbaar op de site)
+      type: boolean
+    - name: titel
+      label: Titel
+      type: string
+      required: true
+    - name: titel_en
+      label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
+      type: string
+    - name: soort
+      label: Soort (staat als label bij het bericht)
+      type: select
+      options:
+        values:
+        - Nieuws
+        - Project
+        - Studio
+    - name: door
+      label: Door
+      type: select
+      options:
+        multiple: true
+        values:
+        - Thorben
+        - Beau
+    - name: tekst
+      label: "Tekst (link: [woord](https://adres))"
+      type: text
+    - name: tekst_en
+      label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
+      type: text
+    - name: beelden
+      label: Foto's (de eerste staat op de nieuwspagina)
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{bijschrift}"
+      fields:
+      - name: beeld
+        label: Foto
+        type: image
+      - name: bijschrift
+        label: Bijschrift
+        type: string
+      - name: bijschrift_en
+        label: "Bijschrift EN (leeg laten: wordt vanzelf vertaald)"
+        type: string
+    - name: instagram
+      label: "Instagram-post (link, bijv. https://www.instagram.com/p/...)"
+      type: string
+    - name: link
+      label: "Extra link (https://...)"
+      type: string
+  - name: instagram_posts
+    label: "Instagram (onderste rij; posts van Instagram komen er vanzelf bij, hier zet je er zelf een bij)"
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{titel}"
+    fields:
+    - name: datum
+      label: Datum
+      type: date
+    - name: concept
+      label: Concept (aangevinkt = nog niet zichtbaar op de site)
+      type: boolean
+    - name: titel
+      label: Titel
+      type: string
+      required: true
+    - name: titel_en
+      label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
+      type: string
+    - name: door
+      label: Door
+      type: select
+      options:
+        multiple: true
+        values:
+        - Thorben
+        - Beau
+    - name: tekst
+      label: "Tekst (link: [woord](https://adres))"
+      type: text
+    - name: tekst_en
+      label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
+      type: text
+    - name: beelden
+      label: Foto's (de eerste staat op de nieuwspagina)
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{bijschrift}"
+      fields:
+      - name: beeld
+        label: Foto
+        type: image
+      - name: bijschrift
+        label: Bijschrift
+        type: string
+      - name: bijschrift_en
+        label: "Bijschrift EN (leeg laten: wordt vanzelf vertaald)"
+        type: string
+    - name: instagram
+      label: "Instagram-post (link, bijv. https://www.instagram.com/p/...)"
+      type: string
   - name: instagram_verbergen
-    label: Instagram-posts verbergen (plak de link van de post; handig als je een post op Instagram hebt verwijderd)
+    label: Instagram-posts verbergen (plak de link van een post die niet meer op de site mag staan)
     type: string
     list: true
 - name: studio
@@ -275,13 +396,13 @@ content:
         label: Kop van de kolom
         type: string
       - name: kop_en
-        label: Kop van de kolom EN
+        label: "Kop van de kolom EN (leeg laten: wordt vanzelf vertaald)"
         type: string
       - name: tekst
         label: "Hoofdtekst (link: [woord](https://adres))"
         type: text
       - name: tekst_en
-        label: Hoofdtekst EN
+        label: "Hoofdtekst EN (leeg laten: wordt vanzelf vertaald)"
         type: text
       - name: regels
         label: "Extra regels, bijv. Software en Talen"
@@ -295,13 +416,13 @@ content:
           label: Kop
           type: string
         - name: kop_en
-          label: Kop EN
+          label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
           label: "Tekst (link: [woord](https://adres))"
           type: text
         - name: tekst_en
-          label: Tekst EN
+          label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
           type: text
         - name: link
           label: "Link (https://...), maakt de tekst klikbaar"
@@ -318,13 +439,13 @@ content:
           label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)"
           type: string
         - name: kop_en
-          label: Kop EN
+          label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
           label: Tekst (een los e-mailadres of link wordt een icoon)
           type: text
         - name: tekst_en
-          label: Tekst EN
+          label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
           type: text
         - name: link
           label: "Link (https://...), maakt de tekst klikbaar"
@@ -337,7 +458,7 @@ content:
         label: Naam
         type: string
       - name: kop_en
-        label: Naam EN
+        label: "Naam EN (leeg laten: wordt vanzelf vertaald)"
         type: string
       - name: foto
         label: Portretfoto (mag leeg)
@@ -346,7 +467,7 @@ content:
         label: "Hoofdtekst (link: [woord](https://adres))"
         type: text
       - name: tekst_en
-        label: Hoofdtekst EN
+        label: "Hoofdtekst EN (leeg laten: wordt vanzelf vertaald)"
         type: text
       - name: regels
         label: "Extra regels, bijv. Software en Talen"
@@ -360,13 +481,13 @@ content:
           label: Kop
           type: string
         - name: kop_en
-          label: Kop EN
+          label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
           label: "Tekst (link: [woord](https://adres))"
           type: text
         - name: tekst_en
-          label: Tekst EN
+          label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
           type: text
         - name: link
           label: "Link (https://...), maakt de tekst klikbaar"
@@ -383,13 +504,13 @@ content:
           label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)"
           type: string
         - name: kop_en
-          label: Kop EN
+          label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
           label: Tekst (een los e-mailadres of link wordt een icoon)
           type: text
         - name: tekst_en
-          label: Tekst EN
+          label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
           type: text
         - name: link
           label: "Link (https://...), maakt de tekst klikbaar"
@@ -402,7 +523,7 @@ content:
         label: Naam
         type: string
       - name: kop_en
-        label: Naam EN
+        label: "Naam EN (leeg laten: wordt vanzelf vertaald)"
         type: string
       - name: foto
         label: Portretfoto (mag leeg)
@@ -411,7 +532,7 @@ content:
         label: "Hoofdtekst (link: [woord](https://adres))"
         type: text
       - name: tekst_en
-        label: Hoofdtekst EN
+        label: "Hoofdtekst EN (leeg laten: wordt vanzelf vertaald)"
         type: text
       - name: regels
         label: "Extra regels, bijv. Software en Talen"
@@ -425,13 +546,13 @@ content:
           label: Kop
           type: string
         - name: kop_en
-          label: Kop EN
+          label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
           label: "Tekst (link: [woord](https://adres))"
           type: text
         - name: tekst_en
-          label: Tekst EN
+          label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
           type: text
         - name: link
           label: "Link (https://...), maakt de tekst klikbaar"
@@ -448,13 +569,13 @@ content:
           label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)"
           type: string
         - name: kop_en
-          label: Kop EN
+          label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
           label: Tekst (een los e-mailadres of link wordt een icoon)
           type: text
         - name: tekst_en
-          label: Tekst EN
+          label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
           type: text
         - name: link
           label: "Link (https://...), maakt de tekst klikbaar"
@@ -473,7 +594,7 @@ content:
       label: "Tekst (link: [woord](https://adres))"
       type: text
     - name: tekst_en
-      label: Tekst EN
+      label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
       type: text
 - name: instellingen
   label: Instellingen

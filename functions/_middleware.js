@@ -36,8 +36,8 @@ export function data(d) {
   for (const p of projecten) Object.assign(p, {
     door: p.ontworpen_door || [],
     fotos: (p.fotos || []).filter(f => f.beeld), tekeningen: (p.tekeningen || []).filter(f => f.beeld),
-    pad: `/projecten/${p.nr}-${slug(p.titel)}` });
-  const nieuws = (d.nieuws || []).filter(n => !n.concept).map((n, i) => ({ ...n, beelden: (n.beelden || []).filter(f => f.beeld),
+    pad: `/projecten/${slug(p.titel)}` });
+  const nieuws = [...(d.eigen_artikelen || []), ...(d.nieuwsberichten || []), ...(d.instagram_posts || []), ...(d.nieuws || [])].filter(n => !n.concept).map((n, i) => ({ ...n, beelden: (n.beelden || []).filter(f => f.beeld),
     id: (n.datum || "") + "-" + slug(n.titel || String(i)) })).map(n => ({ ...n, pad: `/nieuws/${n.id}` }))
     .sort((a, b) => String(b.datum || "").localeCompare(String(a.datum || "")));
   /* de slideshow op de homepage: de eerste 10 projecten met een foto, in de volgorde van het beheerscherm */
@@ -122,9 +122,10 @@ export function pagina(path, S) {
       extra: { "@context": "https://schema.org", "@type": "CollectionPage", name: st ? "Studies" : "Projecten", url: BASIS + path,
         hasPart: lijst.map(p => ({ "@type": "CreativeWork", name: p.titel, url: BASIS + p.pad })) } };
   }
-  if ((m = path.match(/^\/projecten\/(\d+)(?:-([^/]*))?/))) {
-    /* eerst op naam, dan op nummer: zo blijven oude links werken als een nummer verschuift */
-    const p = (m[2] && S.projecten.find(x => slug(x.titel) === m[2])) || S.projecten.find(x => x.nr === m[1].padStart(2, "0") || x.nr === m[1]); if (!p) return null;
+  if ((m = path.match(/^\/projecten\/([^/]+)/))) {
+    /* /projecten/styx; oude adressen met nummer (/projecten/12-styx, /projecten/12) worden doorgestuurd */
+    const o = m[1].match(/^(\d+)(?:-(.*))?$/), naam = o ? o[2] : m[1], nr = o ? o[1].padStart(2, "0") : "";
+    const p = (naam && S.projecten.find(x => slug(x.titel) === naam)) || (nr && S.projecten.find(x => x.nr === nr)); if (!p) return null;
     const beelden = [...p.fotos, ...p.tekeningen];
     const titel = `${p.titel}${p.plaats ? " – " + p.plaats : ""}`;
     return { titel: `THURBO – ${titel}`, canoniek: p.pad, beeld: p.fotos[0]?.beeld || beelden[0]?.beeld, type: "article",
@@ -241,6 +242,9 @@ export async function onRequest(ctx) {
       const html = (await basis.text()).replace(/<title>[^<]*<\/title>/, "<title>THURBO – Niet gevonden</title>").replace("<head>", '<head>\n<meta name="robots" content="noindex">');
       return new Response(html, { status: 404, headers: { "content-type": "text/html; charset=utf-8" } });
     }
+    /* oud adres van een project: blijvend doorsturen naar het nieuwe */
+    if (pg.canoniek && url.pathname.startsWith("/projecten/") && decodeURI(url.pathname).replace(/\/+$/, "") !== pg.canoniek)
+      return Response.redirect(url.origin + pg.canoniek + url.search, 301);
     pg.ld = organisatie(S);
     const html = vulIn(await basis.text(), pg, url.pathname);
     return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=0, must-revalidate" } });

@@ -1,5 +1,5 @@
 {
-  "nieuws": [
+  "eigen_artikelen": [
     {
       "datum": "2026-11-20",
       "titel": "Handige websites voor architectuur",
@@ -51,7 +51,9 @@
       "tekst": "Concept: geef de lijst een titel (bijvoorbeeld architectuur in een stad), schrijf er een paar zinnen bij en plak de deellink van de lijst in Google Maps in het veld Extra link. Zet daarna het vinkje Concept uit.",
       "tekst_en": "",
       "link": ""
-    },
+    }
+  ],
+  "nieuwsberichten": [
     {
       "datum": "2026-11-07",
       "titel": "De website staat online",
@@ -72,5 +74,6 @@
       ]
     }
   ],
+  "instagram_posts": [],
   "instagram_verbergen": []
 }

@@ -5,6 +5,7 @@
       "titel": "Styx",
       "titel_en": "Styx",
       "plaats": "Crematorium",
+      "plaats_en": "Crematorium",
       "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
@@ -137,6 +138,7 @@
       "titel": "Stedelijke Aanleunwoningen",
       "titel_en": "Urban Housing for Elderly ",
       "plaats": "Den Haag",
+      "plaats_en": "The Hague",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
@@ -213,6 +215,7 @@
       "titel": "Leven met Water",
       "titel_en": "Living with Water",
       "plaats": "Lansingerland",
+      "plaats_en": "Lansingerland",
       "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
@@ -436,6 +439,7 @@
       "titel": "Urbanism Studio",
       "titel_en": "Urbanism Studio",
       "plaats": "Kopenhagen",
+      "plaats_en": "Copenhagen",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
@@ -585,6 +589,7 @@
       "titel": "Beeldentuin",
       "titel_en": "Sculpture Garden",
       "plaats": "Den Haag",
+      "plaats_en": "The Hague",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
@@ -690,6 +695,7 @@
       "titel": "Vormstudies",
       "titel_en": "Form Studies",
       "plaats": "Fysieke modellen",
+      "plaats_en": "Physical models",
       "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
@@ -765,6 +771,7 @@
       "titel": "Barbican Centre",
       "titel_en": "Barbican Centre",
       "plaats": "Londen",
+      "plaats_en": "London",
       "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
@@ -849,6 +856,7 @@
       "titel": "Research Center",
       "titel_en": "Research Center",
       "plaats": "Maquette",
+      "plaats_en": "Model",
       "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
