@@ -84,6 +84,9 @@ content:
           - Rechtsboven
           - Linksonder
           - Rechtsonder
+      - name: naast_omschrijving
+        label: "Naast omschrijving (dit beeld komt rechts naast de tekst; kies er één per project, leeg = feiten links en tekst rechts)"
+        type: boolean
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -109,6 +112,9 @@ content:
         label: Focus (welk deel blijft zichtbaar bij bijsnijden)
         type: select
         options: *id002
+      - name: naast_omschrijving
+        label: "Naast omschrijving (dit beeld komt rechts naast de tekst; kies er één per project, leeg = feiten links en tekst rechts)"
+        type: boolean
       - name: bijschrift
         label: Bijschrift
         type: string
