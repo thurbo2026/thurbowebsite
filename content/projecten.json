@@ -680,24 +680,28 @@
         },
         {
           "beeld": "/img/ucph-straattypes.jpg",
+          "bijsnijden": "34.9 0 100 100",
           "naast_omschrijving": false,
           "bijschrift": "Straattypes: wolkbreukstraat, vertragingsstraat en groene straat",
           "bijschrift_en": "Street types: cloudburst street, detention street and green street"
         },
         {
           "beeld": "/img/ucph-masterplan-1.jpg",
+          "bijsnijden": "0 3 100 87.5",
           "naast_omschrijving": false,
           "bijschrift": "Masterplan na 1 jaar, 1:5000",
           "bijschrift_en": "Masterplan after 1 year, 1:5000"
         },
         {
           "beeld": "/img/ucph-masterplan-10.jpg",
+          "bijsnijden": "0 3 100 87.5",
           "naast_omschrijving": false,
           "bijschrift": "Masterplan na 10 jaar, 1:5000",
           "bijschrift_en": "Masterplan after 10 years, 1:5000"
         },
         {
           "beeld": "/img/ucph-masterplan-70.jpg",
+          "bijsnijden": "0 3 100 87.5",
           "naast_omschrijving": false,
           "bijschrift": "Masterplan na 70 jaar, 1:2000",
           "bijschrift_en": "Masterplan after 70 years, 1:2000"
