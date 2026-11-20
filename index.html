@@ -38,6 +38,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 a{color:inherit}
 img{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.naarinhoud{position:fixed;left:12px;top:-60px;z-index:999;background:var(--fg);color:var(--bg);padding:8px 12px;font-size:13px}
+.naarinhoud:focus{top:12px}
 .pad{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 .ext{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .ext:hover{text-decoration-style:dotted}
@@ -285,7 +287,8 @@ button.bitem{cursor:zoom-in}
 
 /* projectpagina: beelden in hun eigen verhouding */
 .phead{display:flex;justify-content:space-between;gap:16px;padding-block:18px;font-size:var(--s2);line-height:1.25}
-.phead strong{font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+.phead strong,.phead h1{font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+.phead h1{display:inline;font-size:inherit;margin:0;line-height:inherit}
 .close{font-size:30px;line-height:1;flex:none;text-decoration:none}
 /* vast kader: elk beeld past erin zonder bijsnijden, de rest blijft wit (of zwart in donkere modus) */
 .stage{position:relative;height:clamp(300px,min(72svh,78vw),980px);max-width:100%;display:grid;place-items:center;overflow:hidden;background:var(--bg)}
@@ -307,7 +310,7 @@ button.bitem{cursor:zoom-in}
   .info{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(40px,6vw,120px);align-items:start}
   .info>.facts{grid-column:1;grid-row:1}.info>p{grid-column:2;grid-row:1}
 }
-@media (max-width:899px){.info>p{order:-1}}
+@media (max-width:899px){.info>p{order:-1}.info .naast{display:none}}
 .facts{display:grid;grid-template-columns:minmax(110px,32%) 1fr;gap:6px 16px;margin:0;font-family:var(--type);font-size:1em}
 .facts dt{color:var(--muted)}
 .facts dd{margin:0;min-width:0}
@@ -521,6 +524,13 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 .vw p{margin:0}
 /* de drie puntjes: rond (Helvetica heeft vierkante punten), als laadicoon en aan het eind van lege plekken */
 .puntjes{display:inline-flex;gap:.17em;align-items:flex-end;height:.72em;margin-left:.05em;vertical-align:baseline}
+/* beeld dat nog laadt: drie ronde puntjes in het midden, verdwijnen zodra het beeld er is */
+.thumb,.alle button,.lbdia,.aw button,.bitem,.strook button,.nbeeld,.naast button{position:relative}
+.thumb::before,.alle button::before,.lbdia::before,.aw button::before,.strook button::before,.naast button::before{content:"";position:absolute;left:50%;top:50%;width:34px;height:8px;translate:-50% -50%;z-index:0;pointer-events:none;
+  background:radial-gradient(circle,var(--muted) 3px,transparent 3.5px) 0 0/13px 8px repeat-x;opacity:.5}
+@media (prefers-reduced-motion:no-preference){.thumb::before,.alle button::before,.lbdia::before,.aw button::before,.strook button::before,.naast button::before{animation:puntje 1.4s ease-in-out infinite}}
+.thumb img,.alle button img,.lbdia img,.aw button img,.strook button img,.naast button img{position:relative;z-index:1}
+.klaar::before{display:none}
 .puntjes i{width:.19em;height:.19em;border-radius:50%;background:currentColor;display:block}
 @media (prefers-reduced-motion:no-preference){.puntjes.loop i{animation:puntje 1.4s ease-in-out infinite}.puntjes.loop i:nth-child(2){animation-delay:.18s}.puntjes.loop i:nth-child(3){animation-delay:.36s}}
 @keyframes puntje{0%,70%,100%{opacity:.18}25%{opacity:1}}
@@ -534,6 +544,7 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 </style>
 </head>
 <body>
+<a class="naarinhoud" href="#app">Naar de inhoud</a>
 <header id="hdr" class="pad">
   <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
   <nav class="name" aria-label="Filter"><button class="brand" data-p="Alle" aria-pressed="true" aria-label="THURBO"><span class="merk" aria-hidden="true">THURBO</span></button><button data-p="Thorben" aria-pressed="false">Thorben Contant</button><button data-p="Beau" aria-pressed="false">Beau Schellevis</button></nav>
@@ -543,7 +554,7 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
   </div>
 </header>
 <div class="menuvlak" id="menuvlak" aria-hidden="true"></div>
-<main id="app"></main>
+<main id="app" tabindex="-1"></main>
 <script>
 /* De inhoud staat in content/*.json (één bestand per onderdeel) en wordt beheerd via Pages CMS (thurbo.nl/admin).
    Velden die eindigen op _en zijn de Engelse versie; is een _en-veld leeg, dan toont de site het Nederlands. */
@@ -600,6 +611,7 @@ const infoHTML=(p,items)=>{
   const f=items[k];
   return `<section class="info pad" id="info"><div class="links">${tekst}${feiten}</div>
     <figure class="naast"><button data-kies="${k}" aria-label="${esc(L(f,"bijschrift")||t("groot"))}"><img src="${esc(f.beeld)}" alt="${esc([L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" loading="lazy"${uitAttr(f)}></button>${L(f,"bijschrift")?`<figcaption>${esc(L(f,"bijschrift"))}</figcaption>`:""}</figure></section>`};
+document.addEventListener('load',e=>{const b=e.target;if(b.tagName==='IMG')b.parentElement?.classList.add('klaar')},true);
 const puntjes=(loop=true)=>`<span class="puntjes${loop?" loop":""}" aria-hidden="true"><i></i><i></i><i></i></span>`;
 /* projectnummer: op datum, het oudste project is 01; zonder datum achteraan. De volgorde op de site blijft die van het beheerscherm. */
 function nummer(P){
@@ -643,6 +655,7 @@ const rijk=s=>{
     .replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)]/g,u=>bewaar(`<a class="ext" href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\/(www\.)?/,"")}</a>`))
     .replace(/[\w.+-]+@[\w-]+\.[\w.-]*\w/g,m=>bewaar(`<a class="ext" href="mailto:${m}">${m}</a>`))
     .replace(/\n*^## (.+)$\n?/gm,'<span class="tkop">$1</span>')
+    .replace(/\.\.\.|…/g,()=>puntjes(false))
     .replace(/\n/g,"<br>");
   return r.replace(/\u0000(\d+)\u0000/g,(m,n)=>links[n]);
 };
@@ -1095,7 +1108,7 @@ function toonTreffers(){
     const titelHit=woorden.every(w=>norm(L(p,"titel")+" "+L(p,"plaats")).includes(w));
     let snip="";
     if(!titelHit&&tx.length===n.length){const at=n.indexOf(woorden[0]);const a=Math.max(0,at-30);
-      snip=(a>0?"…":"")+esc(tx.slice(a,at))+"<mark>"+esc(tx.slice(at,at+woorden[0].length))+"</mark>"+esc(tx.slice(at+woorden[0].length,at+90))+"…";}
+      snip=(a>0?puntjes(false)+" ":"")+esc(tx.slice(a,at))+"<mark>"+esc(tx.slice(at,at+woorden[0].length))+"</mark>"+esc(tx.slice(at+woorden[0].length,at+90))+puntjes(false);}
     return cel(p,snip)}).join(""):`<p class="empty">${t("leeg")}</p>`}</div>`;
   zweef();
 }
@@ -1114,7 +1127,7 @@ function project(nr){
   cur.items=items;
   const i=Math.min(tab==="tekeningen"?p.fotos.length+beeld:beeld,items.length-1); beeld=i; tab="fotos";
   const tekKnop=()=>p.tekeningen.length&&p.fotos.length?`<button id="tekBtn" data-tekspring="1">${items[beeld].soort==="tekeningen"?t("beelden"):t("tek")}</button>`:`<span></span>`;
-  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div></div>
+  app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><h1>${esc(L(p,"titel"))}</h1>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div></div>
   ${bandHTML(items.map(f=>({beeld:f.beeld,stijl:uitAttr(f),label:L(f,"bijschrift"),alt:[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – ")})),false,"proj")}
   <p class="bij pad"><span id="cap">${esc(L(items[i],"bijschrift"))}</span><span class="cred">${cred(p)}</span></p>
   <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span></div>
