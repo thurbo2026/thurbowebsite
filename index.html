@@ -234,8 +234,9 @@ button.bitem{cursor:zoom-in}
 @media (min-width:900px){.cell:nth-child(2n){border-right:1px solid var(--hair)}.cell:nth-child(4n){border-right:0}}
 .num{font-size:clamp(22px,1.6vw + 14px,34px);font-weight:300;line-height:1;font-variant-numeric:tabular-nums}
 .by{font-family:var(--type);font-size:13px;vertical-align:super;margin-left:3px;color:var(--muted)}
-.thumb{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;overflow:hidden}
-.thumb img{max-height:100%;max-width:82%;object-fit:contain}
+/* alle miniaturen in hetzelfde kader: 4:3, gevuld (bijsnijden met het veld Focus) */
+.thumb{aspect-ratio:4/3;width:82%;margin:0 auto;display:grid;place-items:center;overflow:hidden}
+.thumb img{width:100%;height:100%;max-width:none;object-fit:cover}
 .ttl{font-size:13px;min-width:0;display:grid;gap:3px}
 .ttl strong,.ttl .loc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ttl .loc{font-size:13px;color:var(--muted)}
@@ -560,7 +561,7 @@ Promise.all(DELEN.map(n=>fetch(`/content/${n}.json`,{cache:'no-cache'}).then(r=>
       fotos:(p.fotos||[]).filter(f=>f.beeld),tekeningen:(p.tekeningen||[]).filter(f=>f.beeld)})));
   SITE={
     /* de slideshow op de homepage volgt de volgorde van de projecten: de eerste 10 met een foto */
-    slides:projecten.filter(p=>p.fotos[0]).slice(0,10).map(p=>({beeld:p.fotos[0].beeld,project:p.nr,
+    slides:projecten.filter(p=>p.fotos[0]).slice(0,10).map(p=>({beeld:p.fotos[0].beeld,uitsnede:p.fotos[0].uitsnede,focus:p.fotos[0].focus,project:p.nr,
       bijschrift:[p.titel,p.plaats].filter(Boolean).join(", "),bijschrift_en:[p.titel_en||p.titel,p.plaats_en||p.plaats].filter(Boolean).join(", ")})),
     projecten, studio:studioRijen(d.studio), igfeed:d.instagram_feed||"",
     ander:(d.andere_werken||[]).filter(x=>x.beeld).map(x=>({...x,door:x.door||[]})), voorwaarden:d.voorwaarden||{},
@@ -574,6 +575,11 @@ Promise.all(DELEN.map(n=>fetch(`/content/${n}.json`,{cache:'no-cache'}).then(r=>
 });
 
 const NAMEN={Thorben:"Thorben Contant",Beau:"Beau Schellevis"};
+/* bijsnijden (velden Uitsnede en Focus in het beheerscherm): alleen op de site, het originele bestand blijft heel */
+const UITSNEDE={"Vierkant":"1/1","Liggend 4:3":"4/3","Liggend 3:2":"3/2","Breed 16:9":"16/9","Panorama 2:1":"2/1","Panorama 3:1":"3/1","Staand 4:5":"4/5","Staand 2:3":"2/3"};
+const FOCUS={"Midden":"50% 50%","Boven":"50% 0%","Onder":"50% 100%","Links":"0% 50%","Rechts":"100% 50%","Linksboven":"0% 0%","Rechtsboven":"100% 0%","Linksonder":"0% 100%","Rechtsonder":"100% 100%"};
+const uitAttr=f=>{const r=f&&UITSNEDE[f.uitsnede];return r?` style="aspect-ratio:${r};object-fit:cover;object-position:${FOCUS[f.focus]||"50% 50%"}"`:""};
+const focusAttr=f=>f&&FOCUS[f.focus]?` style="object-position:${FOCUS[f.focus]}"`:"";
 const puntjes=(loop=true)=>`<span class="puntjes${loop?" loop":""}" aria-hidden="true"><i></i><i></i><i></i></span>`;
 /* projectnummer: op datum, het oudste project is 01; zonder datum achteraan. De volgorde op de site blijft die van het beheerscherm. */
 function nummer(P){
@@ -672,8 +678,8 @@ function bandHTML(items,lus,klas){
   let h="";
   for(let c=0;c<kopie;c++) items.forEach((it,i)=>{const verborgen=c===mid?"":' tabindex="-1" aria-hidden="true"';
     const prio=c===mid&&i===0?' fetchpriority="high"':' decoding="async"';
-    h+=it.href?`<a class="bitem" href="${esc(it.href)}" aria-label="${esc(it.label||"")}" draggable="false"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"${prio}></a>`
-              :`<button class="bitem" data-groot="${i}" aria-label="${esc(it.label||"")}"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"${prio}></button>`});
+    h+=it.href?`<a class="bitem" href="${esc(it.href)}" aria-label="${esc(it.label||"")}" draggable="false"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"${prio}${it.stijl||""}></a>`
+              :`<button class="bitem" data-groot="${i}" aria-label="${esc(it.label||"")}"${verborgen}><img src="${esc(it.beeld)}" alt="${esc(it.alt||it.label||"")}" draggable="false"${prio}${it.stijl||""}></button>`});
   return `<div class="band${klas?" "+klas:""}"><div class="spoor" id="spoor">${h}</div>${items.length>1?`<button class="rand l" data-bnav="-1" aria-label="${t("vorige")}"></button><button class="rand r" data-bnav="1" aria-label="${t("volgende")}"></button>`:""}</div>`;
 }
 let B=null, sleep=null;
@@ -719,7 +725,7 @@ function play(){}
 /* ===== homepage ===== */
 function home(){
   const S=SITE.slides; if(!S.length){app.innerHTML="";return}
-  app.innerHTML=bandHTML(S.map(s=>({beeld:s.beeld,href:pad("p"+s.project),label:L(s,"bijschrift")})),true)+
+  app.innerHTML=bandHTML(S.map(s=>({beeld:s.beeld,href:pad("p"+s.project),label:L(s,"bijschrift"),stijl:uitAttr(s)})),true)+
     `<p class="capbar pad"><span id="cap">${esc(L(S[0],"bijschrift"))}</span>${S.length>1?`<span class="nav"><button data-bnav="-1" aria-label="${t("vorige")}">‹</button><span id="cnt">1/${S.length}</span><button data-bnav="1" aria-label="${t("volgende")}">›</button></span>`:""}</p>`;
   startBand({n:S.length,lus:true,auto:true,opIndex:k=>{slide=k;document.getElementById('cap').textContent=L(S[k],"bijschrift");const c=document.getElementById('cnt');if(c)c.textContent=`${k+1}/${S.length}`}});
 }
@@ -821,7 +827,7 @@ function nieuws(){
   if(SITE.igfeed&&igPosts===null){haalInsta().then(()=>{if(R()==="nieuws") nieuws()})}
   const alle=alleNieuws();
   const kaart=n=>`<a class="nkaart2" href="/nieuws/${esc(n.id)}" draggable="false">
-      <div class="nbeeld${!n.beelden[0]&&!n.instagram?" leeg":""}">${n.beelden[0]?kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"),' draggable="false"'):n.instagram?insta(n.instagram,true):puntjes(false)}</div>
+      <div class="nbeeld${!n.beelden[0]&&!n.instagram?" leeg":""}">${n.beelden[0]?kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"),' draggable="false"'+focusAttr(n.beelden[0])):n.instagram?insta(n.instagram,true):puntjes(false)}</div>
       <p class="nmeta">${ndatum(n.datum)}${n.soort&&n.soort!=="Instagram"?` · ${soortNaam(n.soort)}`:""}<span class="by">${initialen(n)}</span></p>
       <strong>${esc(L(n,"titel"))}</strong></a>`;
   const rij=(k,kop)=>{const l=alle.filter(n=>rijVan(n)===k);
@@ -955,7 +961,7 @@ function rij(p){
   const meta=[catNaam(p.cat),p.jaar].filter(Boolean).map(esc).join(" · ");
   return `<article class="rij"><a class="rijkop pad" href="${pad("p"+p.nr)}"><span class="rnr">${esc(p.nr)}<span class="by">${initialen(p)}</span></span>
     <span><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="rloc">${esc(L(p,"plaats"))}</span>`:""}</span><span class="rmeta">${meta}</span></a>
-    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}">${kleinImg(f.beeld,[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "),' draggable="false"')}</button>`).join("")}</div></article>`;
+    <div class="strook">${b.map(([s,k,f])=>`<button data-open="${esc(p.nr)}|${s}|${k}" aria-label="${esc(L(f,"bijschrift"))}">${kleinImg(f.beeld,[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "),' draggable="false"'+uitAttr(f))}</button>`).join("")}</div></article>`;
 }
 /* met de muis slepen om horizontaal te scrollen; op telefoon en trackpad werkt vegen vanzelf */
 let gesleept=false;
@@ -1076,7 +1082,7 @@ function toonTreffers(){
 function cel(p,extra){
   return `<a class="cell" href="${pad("p"+p.nr)}">
     <div class="num">${esc(p.nr)}<span class="by" title="${p.door.map(d=>NAMEN[d]).join(', ')}">${initialen(p)}</span></div>
-    <div class="thumb">${p.fotos[0]?`${kleinImg(p.fotos[0].beeld,[L(p,"titel"),L(p.fotos[0],"bijschrift")].filter(Boolean).join(" – "))}`:""}</div>
+    <div class="thumb">${p.fotos[0]?`${kleinImg(p.fotos[0].beeld,[L(p,"titel"),L(p.fotos[0],"bijschrift")].filter(Boolean).join(" – "),focusAttr(p.fotos[0]))}`:""}</div>
     <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="loc">${esc(L(p,"plaats"))}</span>`:""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
 }
 function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
@@ -1089,7 +1095,7 @@ function project(nr){
   const i=Math.min(tab==="tekeningen"?p.fotos.length+beeld:beeld,items.length-1); beeld=i; tab="fotos";
   const tekKnop=()=>p.tekeningen.length&&p.fotos.length?`<button id="tekBtn" data-tekspring="1">${items[beeld].soort==="tekeningen"?t("beelden"):t("tek")}</button>`:`<span></span>`;
   app.innerHTML=`<div class="phead pad">${terugKnop()}<div style="flex:1;min-width:0">THURBO ${esc(p.nr)}<span class="by">${initialen(p)}</span><br><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?" – "+esc(L(p,"plaats")):""}</div></div>
-  ${bandHTML(items.map(f=>({beeld:f.beeld,label:L(f,"bijschrift"),alt:[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – ")})),false,"proj")}
+  ${bandHTML(items.map(f=>({beeld:f.beeld,stijl:uitAttr(f),label:L(f,"bijschrift"),alt:[L(p,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – ")})),false,"proj")}
   <p class="bij pad"><span id="cap">${esc(L(items[i],"bijschrift"))}</span><span class="cred">${cred(p)}</span></p>
   <div class="pbar pad"><span id="cnt">${i+1}/${items.length}</span></div>
   <section class="info pad" id="info"><p>${rijk(L(p,"tekst"))}</p>
@@ -1107,7 +1113,7 @@ function volgendeProjecten(p){
 }
 function alleBeelden(items,i){
   if(items.length<2) return "";
-  const tegel=(f,k)=>`<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}>${kleinImg(f.beeld,[L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}</button>`;
+  const tegel=(f,k)=>`<button class="${f.soort==="fotos"?"foto":"tek"}" data-kies="${k}" aria-label="${esc(L(f,"bijschrift"))}" ${k===i?'aria-current="true"':""}>${kleinImg(f.beeld,[L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "),focusAttr(f))}</button>`;
   const groep=(soort,kop)=>{const g=items.map((f,k)=>[f,k]).filter(([f])=>f.soort===soort);
     return g.length?`<p class="alle-kop pad">${kop} (${g.length})</p><div class="alle">${g.map(([f,k])=>tegel(f,k)).join("")}</div>`:""};
   return groep("fotos",t("fotos"))+groep("tekeningen",t("tek"));
@@ -1119,14 +1125,15 @@ function vergroot(k){
   const pijl=r=>`<svg viewBox="0 0 20 40" aria-hidden="true"><path d="${r?"M3 3 L17 20 L3 37":"M17 3 L3 20 L17 37"}"/></svg>`;
   const lb=document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label',L(cur,"titel"));
   lb.innerHTML=`<div class="lbkop pad"><span class="lbnr">${k+1}/${n}</span><span class="lbcap"></span><button class="x" aria-label="${t("sluit")}">×</button></div><span class="lbcred"></span>
-    <div class="lbspoor">${items.map((f,j)=>`<figure class="lbdia"><img src="${esc(f.beeld)}" alt="${esc([L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" ${Math.abs(j-k)>1?'loading="lazy"':""}></figure>`).join("")}</div>
+    <div class="lbspoor">${items.map((f,j)=>`<figure class="lbdia"><img src="${esc(f.beeld)}" alt="${esc([L(cur,"titel"),L(f,"bijschrift")].filter(Boolean).join(" – "))}" ${Math.abs(j-k)>1?'loading="lazy"':""}${uitAttr(f)}></figure>`).join("")}</div>
     ${n>1?`<button class="lbpijl l" data-lb="-1" aria-label="${t("vorige")}">${pijl(0)}</button><button class="lbpijl r" data-lb="1" aria-label="${t("volgende")}">${pijl(1)}</button>`:""}`;
   document.body.appendChild(lb); document.documentElement.style.overflow="hidden";
   const sp=lb.querySelector('.lbspoor'), dias=[...sp.children];
   let i=k;
   const zet=j=>{i=j;lb.querySelector('.lbnr').textContent=`${j+1}/${n}`;lb.querySelector('.lbcap').textContent=L(items[j],"bijschrift");lb.querySelector('.lbcred').textContent=items[j].cred||"";
-    lb.querySelector('.l')?.toggleAttribute('disabled',j===0);lb.querySelector('.r')?.toggleAttribute('disabled',j===n-1)};
-  const naar=(j,glad=true)=>{j=Math.max(0,Math.min(n-1,j));dias.forEach(d=>d.classList.remove('zoom'));sp.scrollTo({left:j*sp.clientWidth,behavior:glad&&!rustig()?"smooth":"auto"});zet(j)};
+    };
+  /* rond: na de laatste weer de eerste, voor de eerste de laatste */
+  const naar=(j,glad=true)=>{const rond=j<0||j>=n;j=(j%n+n)%n;if(rond)glad=false;dias.forEach(d=>d.classList.remove('zoom'));sp.scrollTo({left:j*sp.clientWidth,behavior:glad&&!rustig()?"smooth":"auto"});zet(j)};
   requestAnimationFrame(()=>naar(k,false));
   sp.addEventListener('scroll',()=>{const j=Math.round(sp.scrollLeft/sp.clientWidth);if(j!==i&&j>=0&&j<n)zet(j)},{passive:true});
   const sluit=()=>{lb.remove();document.documentElement.style.overflow="";removeEventListener('keydown',toets,true)};
@@ -1182,10 +1189,10 @@ function studioKolommen(naarContact){
 function anderWerk(){
   const A=SITE.ander;
   cur={titel:t("ander"),items:A.map(x=>({beeld:x.beeld,bijschrift:[x.titel,x.bijschrift].filter(Boolean).join(", "),
-    bijschrift_en:[x.titel_en||x.titel,x.bijschrift_en||x.bijschrift].filter(Boolean).join(", "),cred:cred(x)}))};
+    bijschrift_en:[x.titel_en||x.titel,x.bijschrift_en||x.bijschrift].filter(Boolean).join(", "),cred:cred(x),uitsnede:x.uitsnede,focus:x.focus}))};
   app.innerHTML=paginakop(t("ander"),"","")+(A.length?`<div class="aws pad">${A.map((x,i)=>{
     const onder=[L(x,"titel")?`<strong>${esc(L(x,"titel"))}</strong>`:"",L(x,"bijschrift")?esc(L(x,"bijschrift")):"",x.jaar?esc(x.jaar):""].filter(Boolean).join(", ");
-    return `<figure class="aw"><button data-kies="${i}" aria-label="${esc(L(x,"titel")||t("groot"))}">${kleinImg(x.beeld,[L(x,"titel"),L(x,"bijschrift")].filter(Boolean).join(" – "))}</button>
+    return `<figure class="aw"><button data-kies="${i}" aria-label="${esc(L(x,"titel")||t("groot"))}">${kleinImg(x.beeld,[L(x,"titel"),L(x,"bijschrift")].filter(Boolean).join(" – "),uitAttr(x))}</button>
       ${onder?`<figcaption>${onder}${x.door.length?`<span class="by">${initialen(x)}</span>`:""}</figcaption>`:""}</figure>`}).join("")}</div>`:`<p class="empty">${t("rleeg")}${puntjes()}</p>`);
   meetKop(); zweef();
 }

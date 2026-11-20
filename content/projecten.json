@@ -250,13 +250,13 @@
         },
         {
           "beeld": "/img/hhh-gevel-noord.jpg",
-          "bijschrift": "Gevelaanzicht voorzijde",
-          "bijschrift_en": "Front elevation"
+          "bijschrift": "Zuidgevel, 1:100",
+          "bijschrift_en": "South facade, 1:100"
         },
         {
           "beeld": "/img/hhh-gevel-zuid.jpg",
-          "bijschrift": "Gevelaanzicht achterzijde",
-          "bijschrift_en": "Rear elevation"
+          "bijschrift": "Noordgevel, 1:100",
+          "bijschrift_en": "North facade, 1:100"
         },
         {
           "beeld": "/img/hhh-schets-entree.jpg",

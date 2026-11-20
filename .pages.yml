@@ -14,7 +14,7 @@ content:
   format: json
   fields:
   - name: projecten
-    label: Projecten (sleep om de volgorde te bepalen; de eerste 10 staan ook in de slideshow op de homepage)
+    label: "Projecten (sleep om de volgorde te bepalen; de eerste 10 staan ook in de slideshow op de homepage)"
     type: object
     list:
       collapsible:
@@ -56,6 +56,34 @@ content:
       - name: beeld
         label: Foto
         type: image
+      - name: uitsnede
+        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
+        type: select
+        options: &id001
+          values:
+          - Origineel
+          - Vierkant
+          - "Liggend 4:3"
+          - "Liggend 3:2"
+          - "Breed 16:9"
+          - "Panorama 2:1"
+          - "Panorama 3:1"
+          - "Staand 4:5"
+          - "Staand 2:3"
+      - name: focus
+        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
+        type: select
+        options: &id002
+          values:
+          - Midden
+          - Boven
+          - Onder
+          - Links
+          - Rechts
+          - Linksboven
+          - Rechtsboven
+          - Linksonder
+          - Rechtsonder
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -73,6 +101,14 @@ content:
       - name: beeld
         label: Tekening
         type: image
+      - name: uitsnede
+        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
+        type: select
+        options: *id001
+      - name: focus
+        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
+        type: select
+        options: *id002
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -143,7 +179,7 @@ content:
   format: json
   fields:
   - name: andere_werken
-    label: Ander Werk (foto's en collages; sleep om de volgorde te bepalen)
+    label: "Ander Werk (foto's en collages; sleep om de volgorde te bepalen)"
     type: object
     list:
       collapsible:
@@ -154,6 +190,14 @@ content:
       label: Beeld
       type: image
       required: true
+    - name: uitsnede
+      label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
+      type: select
+      options: *id001
+    - name: focus
+      label: Focus (welk deel blijft zichtbaar bij bijsnijden)
+      type: select
+      options: *id002
     - name: titel
       label: Titel
       type: string
@@ -229,6 +273,14 @@ content:
       - name: beeld
         label: Foto
         type: image
+      - name: uitsnede
+        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
+        type: select
+        options: *id001
+      - name: focus
+        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
+        type: select
+        options: *id002
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -287,6 +339,14 @@ content:
       - name: beeld
         label: Foto
         type: image
+      - name: uitsnede
+        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
+        type: select
+        options: *id001
+      - name: focus
+        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
+        type: select
+        options: *id002
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -345,6 +405,14 @@ content:
       - name: beeld
         label: Foto
         type: image
+      - name: uitsnede
+        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
+        type: select
+        options: *id001
+      - name: focus
+        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
+        type: select
+        options: *id002
       - name: bijschrift
         label: Bijschrift
         type: string
