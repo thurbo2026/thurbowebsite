@@ -645,18 +645,6 @@
           "naast_omschrijving": false,
           "bijschrift": "Impressie van de nieuwe fietsstraat",
           "bijschrift_en": "Impression of the new cycle street"
-        },
-        {
-          "beeld": "/img/ucph-krakas-impressie.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Zoom-in Krakas Plads",
-          "bijschrift_en": "Zoom-in Krakas Plads"
-        },
-        {
-          "beeld": "/img/ucph-haraldspark-impressie.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Zoom-in Haraldspark",
-          "bijschrift_en": "Zoom-in Haraldspark"
         }
       ],
       "tekeningen": [
@@ -673,16 +661,16 @@
           "bijschrift_en": "Identity through interviews with residents and workers"
         },
         {
-          "beeld": "/img/ucph-analyse.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Analysediagrammen: bestaand en voorstel voor wijken, verbindingen, regenwater en groen",
-          "bijschrift_en": "Analysis diagrams: current situation and proposal for districts, connections, stormwater and green"
-        },
-        {
           "beeld": "/img/ucph-concept.jpg",
           "naast_omschrijving": false,
           "bijschrift": "Concept: connectiviteit, waterbeheer, karakter en samenhang",
           "bijschrift_en": "Concept: connectivity, water management, character and connectivity"
+        },
+        {
+          "beeld": "/img/ucph-analyse.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Analysediagrammen: bestaand en voorstel voor wijken, verbindingen, regenwater en groen",
+          "bijschrift_en": "Analysis diagrams: current situation and proposal for districts, connections, stormwater and green"
         },
         {
           "beeld": "/img/ucph-ontwerptools.jpg",
@@ -737,10 +725,22 @@
           "naast_omschrijving": false,
           "bijschrift": "Doorsnede Haraldspark",
           "bijschrift_en": "Section of Haraldspark"
+        },
+        {
+          "beeld": "/img/ucph-haraldspark-impressie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zoom in Haraldspark",
+          "bijschrift_en": "Zoom in Haraldspark"
+        },
+        {
+          "beeld": "/img/ucph-krakas-impressie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zoom in Krakasplads",
+          "bijschrift_en": "Zoom in Krakasplads"
         }
       ],
-      "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
-      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
+      "tekst": "Een ontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. \nEen nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. \nDe klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
+      "tekst_en": "A design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
       "jaar": "2023",
       "locatie": "Skjolds Plads, Kopenhagen, DK",
       "locatie_en": "Skjolds Plads, Copenhagen, DK",
