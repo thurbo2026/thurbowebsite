@@ -546,8 +546,10 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
    Velden die eindigen op _en zijn de Engelse versie; is een _en-veld leeg, dan toont de site het Nederlands. */
 let SITE, lang;
 if('scrollRestoration' in history) history.scrollRestoration='manual';
-try{ lang=localStorage.getItem('thurbo-lang') }catch(e){}
-if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().startsWith("nl")?"nl":"en";
+/* taal volgt het adres: /en/... is Engels, de rest Nederlands. Wie eerder zelf EN koos, gaat naar de Engelse versie. */
+const OPEN=/^\/en(\/|$)/.test(location.pathname);
+lang=OPEN?"en":"nl";
+if(!OPEN){try{if(localStorage.getItem('thurbo-lang')==="en"&&location.pathname!=="/admin"){lang="en";history.replaceState(null,"","/en"+(location.pathname==="/"?"":location.pathname)+location.search+location.hash)}}catch(e){}}
 
 const T={
   nl:{werk:"Projecten",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
@@ -650,7 +652,9 @@ const klein=u=>/^\/img\/[^/]+\.(jpe?g|png|webp)$/i.test(u||"")?u.replace(/^\/img
 const kleinImg=(u,alt,extra="")=>`<img src="${esc(klein(u))}" alt="${esc(alt||"")}" loading="lazy" decoding="async"${klein(u)!==u?` onerror="this.onerror=null;this.src='${esc(u)}'"`:""}${extra}>`;
 const VAST=["projecten","studies","studio","contact","nieuws","zoek","ander-werk","voorwaarden"];
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-function pad(r){
+/* adres van een route, met /en ervoor in het Engels */
+function pad(r){const p=padNL(r);return lang==="en"?"/en"+(p==="/"?"":p):p}
+function padNL(r){
   if(!r) return "/";
   if(r==="werk") return "/projecten";
   if(VAST.includes(r)) return "/"+r;
@@ -659,7 +663,7 @@ function pad(r){
   return "/"+r;
 }
 function routeVan(path){
-  path=decodeURI(path).replace(/\/+$/,"")||"/";
+  path=decodeURI(path).replace(/^\/en(?=\/|$)/,"").replace(/\/+$/,"")||"/";
   let m;
   if(path==="/") return "";
   if((m=path.match(/^\/projecten\/([^/]+)/))) return "p"+m[1];
@@ -1270,8 +1274,9 @@ function vliegtuig(){
 }
 
 function zetTaal(l){
-  lang=l; try{localStorage.setItem('thurbo-lang',l)}catch(e){}
+  const r=R(); lang=l; try{localStorage.setItem('thurbo-lang',l)}catch(e){}
   document.documentElement.lang=l;
+  if(location.pathname!==pad(r)) history.replaceState(null,"",pad(r)+location.search);
   document.querySelectorAll('#lang span').forEach(s=>s.classList.toggle('on',s.dataset.l===l));
   document.getElementById('zoeklabel').textContent=T[l].zoek;
   document.getElementById('zoekknop').setAttribute('aria-label',T[l].zoek);

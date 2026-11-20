@@ -91,36 +91,75 @@ function organisatie(S) {
   };
 }
 
-const feit = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>` : "";
-const beeldHTML = (f, titel) => `<figure><img src="${esc(f.beeld)}" alt="${esc([titel, f.bijschrift].filter(Boolean).join(" – "))}" loading="lazy">${f.bijschrift ? `<figcaption>${esc(f.bijschrift)}</figcaption>` : ""}</figure>`;
-const navHTML = `<nav aria-label="Hoofdmenu"><a href="/">THURBO</a> · <a href="/projecten">Projecten</a> · <a href="/studies">Studies</a> · <a href="/ander-werk">Ander Werk</a> · <a href="/nieuws">Nieuws</a> · <a href="/studio">Studio</a> · <a href="/contact">Contact</a></nav>`;
-const voetHTML = `<footer><p>© ${new Date().getFullYear()} Studio THURBO — Thorben Contant &amp; Beau Schellevis. Alle rechten voorbehouden. <a href="/voorwaarden">Gebruiksvoorwaarden</a></p></footer>`;
-
-function projectLijst(lijst) {
-  return `<ul>${lijst.map(p => `<li><a href="${p.pad}">${esc(p.nr)} ${esc(p.titel)}</a>${p.plaats ? ` – ${esc(p.plaats)}` : ""}${p.jaar ? `, ${esc(p.jaar)}` : ""}${p.categorie ? ` (${esc(p.categorie)})` : ""}${p.door.length ? `, ontwerp: ${esc(p.door.map(n => NAMEN[n] || n).join(" & "))}` : ""}</li>`).join("")}</ul>`;
+/* Engelse versie onder /en: dezelfde pagina's, met de _en-velden en Engelse labels */
+const EN = { "Projecten": "Projects", "Studies": "Studies", "Ander Werk": "Other Work", "Nieuws": "News", "Studio": "Studio", "Contact": "Contact",
+  "Alle projecten": "All projects", "Ontwerp": "Design", "Categorie": "Category", "Jaar": "Year", "Locatie": "Location", "Opgave": "Brief", "Type": "Type",
+  "Status": "Status", "Bureau": "Office", "Begeleiding": "Tutors", "Ontwerpteam": "Design team", "Gebruiksvoorwaarden": "Terms of use", "Zoeken": "Search",
+  "ontwerp": "design", "Studie": "Study", "Praktijk": "Practice", "Hoofdmenu": "Main menu", "Alle rechten voorbehouden.": "All rights reserved.",
+  "Projecten van THURBO": "Projects by THURBO", "Studieprojecten van THURBO": "Study projects by THURBO",
+  "OMSCHRIJVING": "THURBO is the design studio of Thorben Contant and Beau Schellevis: architecture, urbanism, studies and own work.",
+  "TITEL_THUIS": "THURBO – design studio of Thorben Contant & Beau Schellevis",
+  "NIEUWS_BESCHR": "News from THURBO: projects, art, recipes and photography.",
+  "ANDER_BESCHR": "Other Work by THURBO: photos, collages and models by Thorben Contant and Beau Schellevis.",
+  "VOORW_BESCHR": "Copyright and use of the work of Studio THURBO. No reuse without written permission.",
+  "ZOEK_BESCHR": "Search the projects of THURBO." };
+const NL = { "OMSCHRIJVING": OMSCHRIJVING, "TITEL_THUIS": "THURBO – ontwerpstudio van Thorben Contant & Beau Schellevis",
+  "NIEUWS_BESCHR": "Nieuws van THURBO: projecten, kunst, recepten en fotografie.",
+  "ANDER_BESCHR": "Ander Werk van THURBO: foto's, collages en maquettes van Thorben Contant en Beau Schellevis.",
+  "VOORW_BESCHR": "Auteursrecht en gebruik van het werk van Studio THURBO. Geen hergebruik zonder schriftelijke toestemming.",
+  "ZOEK_BESCHR": "Zoek in de projecten van THURBO." };
+const woord = taal => s => taal === "en" ? (EN[s] ?? s) : (NL[s] ?? s);
+const metTaal = (taal, p) => taal === "en" ? "/en" + (p === "/" ? "" : p) : p;
+/* alle velden die een _en-versie hebben vervangen door die versie (leeg _en-veld: Nederlands blijft staan) */
+function engels(o) {
+  if (Array.isArray(o)) return o.map(engels);
+  if (!o || typeof o !== "object") return o;
+  const r = {};
+  for (const [k, v] of Object.entries(o)) if (!k.endsWith("_en")) r[k] = engels(v);
+  for (const [k, v] of Object.entries(o)) if (k.endsWith("_en") && v && String(v).trim()) r[k.slice(0, -3)] = v;
+  return r;
+}
+function inTaal(S, taal) {
+  if (taal !== "en") return S;
+  const E = engels(S);
+  for (const p of E.projecten) p.pad = "/en" + p.pad;
+  for (const n of E.nieuws) n.pad = "/en" + n.pad;
+  return E;
 }
 
-function studioHTML(S, metContact) {
+const feit = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>` : "";
+const beeldHTML = (f, titel) => `<figure><img src="${esc(f.beeld)}" alt="${esc([titel, f.bijschrift].filter(Boolean).join(" – "))}" loading="lazy">${f.bijschrift ? `<figcaption>${esc(f.bijschrift)}</figcaption>` : ""}</figure>`;
+const navHTML = taal => { const w = woord(taal), P = p => metTaal(taal, p);
+  return `<nav aria-label="${w("Hoofdmenu")}"><a href="${P("/")}">THURBO</a> · ${["/projecten:Projecten", "/studies:Studies", "/ander-werk:Ander Werk", "/nieuws:Nieuws", "/studio:Studio", "/contact:Contact"].map(x => { const [p, n] = x.split(":"); return `<a href="${P(p)}">${w(n)}</a>`; }).join(" · ")} · <a href="${taal === "en" ? "/" : "/en"}" hreflang="${taal === "en" ? "nl" : "en"}">${taal === "en" ? "Nederlands" : "English"}</a></nav>`; };
+const voetHTML = taal => `<footer><p>© ${new Date().getFullYear()} Studio THURBO — Thorben Contant &amp; Beau Schellevis. ${woord(taal)("Alle rechten voorbehouden.")} <a href="${metTaal(taal, "/voorwaarden")}">${woord(taal)("Gebruiksvoorwaarden")}</a></p></footer>`;
+
+function projectLijst(lijst, w = s => s) {
+  return `<ul>${lijst.map(p => `<li><a href="${p.pad}">${esc(p.nr)} ${esc(p.titel)}</a>${p.plaats ? ` – ${esc(p.plaats)}` : ""}${p.jaar ? `, ${esc(p.jaar)}` : ""}${p.categorie ? ` (${esc(w(p.categorie))})` : ""}${p.door.length ? `, ${w("ontwerp")}: ${esc(p.door.map(n => NAMEN[n] || n).join(" & "))}` : ""}</li>`).join("")}</ul>`;
+}
+
+function studioHTML(S, metContact, w = s => s) {
   const kolom = wie => S.studio.filter(x => x.kolom === wie);
   const deel = (wie, contact) => kolom(wie).filter(x => !!x.contact === contact)
     .map(x => `${x.kop && x.kop !== NAMEN[wie] && x.kop !== wie ? `<h3>${esc(x.kop)}</h3>` : ""}${x.link ? `<p><a href="${esc(x.link)}">${esc(x.tekst || x.link)}</a></p>` : rijk(x.tekst)}`).join("");
-  return `<h1>Studio</h1>${["Studio", "Thorben", "Beau"].map(w => `<section><h2>${esc(w === "Studio" ? "THURBO" : NAMEN[w])}</h2>${deel(w, false)}</section>`).join("")}
+  return `<h1>${w("Studio")}</h1>${["Studio", "Thorben", "Beau"].map(w => `<section><h2>${esc(w === "Studio" ? "THURBO" : NAMEN[w])}</h2>${deel(w, false)}</section>`).join("")}
     ${metContact !== false ? `<h2 id="contact">Contact</h2>${["Studio", "Thorben", "Beau"].map(w => `<section><h3>${esc(w === "Studio" ? "THURBO" : NAMEN[w])}</h3>${deel(w, true)}</section>`).join("")}` : ""}`;
 }
 
 /* per adres: titel, beschrijving, beeld, inhoud en eventuele extra gestructureerde gegevens */
-export function pagina(path, S) {
+export function pagina(path, S, taal = "nl") {
   path = decodeURI(path).replace(/\/+$/, "") || "/";
+  S = inTaal(S, taal);
+  const w = woord(taal), P = p => metTaal(taal, p), OMSCHRIJVING = w("OMSCHRIJVING");
   const thuis = S.slides[0]?.beeld || S.projecten[0]?.fotos[0]?.beeld;
   let m;
-  if (path === "/") return { titel: "THURBO – ontwerpstudio van Thorben Contant & Beau Schellevis", beschrijving: OMSCHRIJVING, beeld: thuis,
-    inhoud: `<h1>THURBO</h1><p>${esc(OMSCHRIJVING)}</p><h2>Projecten</h2>${projectLijst(S.projecten)}${studioHTML(S)}` };
+  if (path === "/") return { titel: w("TITEL_THUIS"), beschrijving: OMSCHRIJVING, beeld: thuis,
+    inhoud: `<h1>THURBO</h1><p>${esc(OMSCHRIJVING)}</p><h2>${w("Projecten")}</h2>${projectLijst(S.projecten, w)}${studioHTML(S)}` };
   if (path === "/projecten" || path === "/studies") {
     const st = path === "/studies", lijst = st ? S.projecten.filter(p => p.categorie === "Studie") : S.projecten;
-    return { titel: `THURBO – ${st ? "Studies" : "Projecten"}`, beeld: lijst[0]?.fotos[0]?.beeld || thuis,
-      beschrijving: `${st ? "Studieprojecten" : "Projecten"} van THURBO: ${lijst.slice(0, 6).map(p => p.titel).join(", ")}.`,
-      inhoud: `<h1>${st ? "Studies" : "Projecten"}</h1>${projectLijst(lijst)}`,
-      extra: { "@context": "https://schema.org", "@type": "CollectionPage", name: st ? "Studies" : "Projecten", url: BASIS + path,
+    return { titel: `THURBO – ${w(st ? "Studies" : "Projecten")}`, beeld: lijst[0]?.fotos[0]?.beeld || thuis,
+      beschrijving: `${w(st ? "Studieprojecten van THURBO" : "Projecten van THURBO")}: ${lijst.slice(0, 6).map(p => p.titel).join(", ")}.`,
+      inhoud: `<h1>${w(st ? "Studies" : "Projecten")}</h1>${projectLijst(lijst, w)}`,
+      extra: { "@context": "https://schema.org", "@type": "CollectionPage", name: w(st ? "Studies" : "Projecten"), url: BASIS + P(path), inLanguage: taal,
         hasPart: lijst.map(p => ({ "@type": "CreativeWork", name: p.titel, url: BASIS + p.pad })) } };
   }
   if ((m = path.match(/^\/projecten\/([^/]+)/))) {
@@ -130,14 +169,13 @@ export function pagina(path, S) {
     const beelden = [...p.fotos, ...p.tekeningen];
     const titel = `${p.titel}${p.plaats ? " – " + p.plaats : ""}`;
     return { titel: `THURBO – ${titel}`, canoniek: p.pad, beeld: p.fotos[0]?.beeld || beelden[0]?.beeld, type: "article",
-      beschrijving: kort(p.tekst) || `${p.titel}, ${[p.type, p.plaats, p.jaar].filter(Boolean).join(", ")}. Ontwerp door ${p.door.map(n => NAMEN[n]).join(" & ")} (THURBO).`,
+      beschrijving: kort(p.tekst) || `${p.titel}, ${[p.type, p.plaats, p.jaar].filter(Boolean).join(", ")}. ${w("Ontwerp")}: ${p.door.map(n => NAMEN[n]).join(" & ")} (THURBO).`,
       inhoud: `<article><p>THURBO ${esc(p.nr)}</p><h1>${esc(p.titel)}</h1>${p.plaats ? `<p>${esc(p.plaats)}</p>` : ""}${rijk(p.tekst)}
-        <dl>${feit("Ontwerp", p.door.map(n => NAMEN[n] || n).join(" & "))}${feit("Categorie", p.categorie)}${feit("Jaar", p.jaar)}${feit("Locatie", p.locatie)}${feit("Opgave", p.opgave)}${feit("Type", p.type)}${feit("Status", p.status)}${feit(p.categorie === "Praktijk" ? "Bureau" : "Begeleiding", p.bureau_of_begeleiding)}${feit("Ontwerpteam", p.ontwerpteam)}</dl>
+        <dl>${feit(w("Ontwerp"), p.door.map(n => NAMEN[n] || n).join(" & "))}${feit(w("Categorie"), w(p.categorie))}${feit(w("Jaar"), p.jaar)}${feit(w("Locatie"), p.locatie)}${feit(w("Opgave"), p.opgave)}${feit(w("Type"), p.type)}${feit(w("Status"), p.status)}${feit(w(p.categorie === "Praktijk" ? "Bureau" : "Begeleiding"), p.bureau_of_begeleiding)}${feit(w("Ontwerpteam"), p.ontwerpteam)}</dl>
         ${beelden.map(f => beeldHTML(f, p.titel)).join("")}
-        ${p.tekst_en ? `<section lang="en"><h2>${esc(p.titel_en || p.titel)} (English)</h2>${rijk(p.tekst_en)}</section>` : ""}
-        <p><a href="/projecten">Alle projecten</a></p></article>`,
+        <p><a href="${P("/projecten")}">${w("Alle projecten")}</a></p></article>`,
       extra: { "@context": "https://schema.org", "@type": "CreativeWork", additionalType: "https://schema.org/ArchitecturalProject",
-        name: p.titel, alternateName: p.titel_en || undefined, url: BASIS + p.pad, description: kort(p.tekst, 500) || undefined,
+        name: p.titel, url: BASIS + p.pad, inLanguage: taal, description: kort(p.tekst, 500) || undefined,
         genre: p.categorie, dateCreated: p.datum || p.jaar || undefined, keywords: [p.type, p.opgave, p.categorie].filter(Boolean).join(", ") || undefined,
         locationCreated: p.locatie || p.plaats ? { "@type": "Place", name: p.locatie || p.plaats,
           geo: p.lat && p.lng ? { "@type": "GeoCoordinates", latitude: +p.lat, longitude: +p.lng } : undefined } : undefined,
@@ -147,38 +185,40 @@ export function pagina(path, S) {
   }
   if (path === "/studio" || path === "/contact") {
     const g = gegevens(S);
-    return { titel: `THURBO – ${path === "/studio" ? "Studio" : "Contact"}`, beeld: thuis,
-      beschrijving: path === "/contact" ? `Neem contact op met THURBO via ${g.info}. Thorben Contant en Beau Schellevis.` : kort(S.studio.filter(x => !x.contact).map(x => x.tekst).join(" ")),
-      inhoud: studioHTML(S) };
+    return { titel: `THURBO – ${w(path === "/studio" ? "Studio" : "Contact")}`, beeld: thuis,
+      beschrijving: path === "/contact" ? (taal === "en" ? `Contact THURBO at ${g.info}. Thorben Contant and Beau Schellevis.` : `Neem contact op met THURBO via ${g.info}. Thorben Contant en Beau Schellevis.`) : kort(S.studio.filter(x => !x.contact).map(x => x.tekst).join(" ")),
+      inhoud: studioHTML(S, true, w) };
   }
-  if (path === "/nieuws") return { titel: "THURBO – Nieuws", beeld: S.nieuws[0]?.beelden[0]?.beeld || thuis,
-    beschrijving: "Nieuws van THURBO: projecten, kunst, recepten en fotografie.",
-    inhoud: `<h1>Nieuws</h1><ul>${S.nieuws.map(n => `<li><a href="${n.pad}">${esc(n.titel)}</a>${n.datum ? ` (${esc(n.datum)})` : ""}</li>`).join("")}</ul>` };
+  if (path === "/nieuws") return { titel: `THURBO – ${w("Nieuws")}`, beeld: S.nieuws[0]?.beelden[0]?.beeld || thuis,
+    beschrijving: w("NIEUWS_BESCHR"),
+    inhoud: `<h1>${w("Nieuws")}</h1><ul>${S.nieuws.map(n => `<li><a href="${n.pad}">${esc(n.titel)}</a>${n.datum ? ` (${esc(n.datum)})` : ""}</li>`).join("")}</ul>` };
   if ((m = path.match(/^\/nieuws\/(.+)$/))) {
     const n = S.nieuws.find(x => x.id === m[1]);
     /* Instagram-posts komen pas in de browser binnen: gewoon de pagina geven, niet indexeren */
-    if (!n && m[1].startsWith("ig-")) return { titel: "THURBO – Nieuws", beschrijving: "Instagram-post van THURBO.", inhoud: `<h1>Nieuws</h1>`, noindex: true };
+    if (!n && m[1].startsWith("ig-")) return { titel: `THURBO – ${w("Nieuws")}`, beschrijving: "Instagram – THURBO", inhoud: `<h1>${w("Nieuws")}</h1>`, noindex: true };
     if (!n) return null;
     return { titel: `THURBO – ${n.titel}`, canoniek: n.pad, beeld: n.beelden[0]?.beeld || thuis, type: "article", beschrijving: kort(n.tekst) || n.titel,
       inhoud: `<article><h1>${esc(n.titel)}</h1>${n.datum ? `<p><time datetime="${esc(n.datum)}">${esc(n.datum)}</time></p>` : ""}${rijk(n.tekst)}${n.beelden.map(f => beeldHTML(f, n.titel)).join("")}</article>`,
-      extra: { "@context": "https://schema.org", "@type": "BlogPosting", headline: n.titel, datePublished: n.datum || undefined, url: BASIS + n.pad,
+      extra: { "@context": "https://schema.org", "@type": "BlogPosting", headline: n.titel, datePublished: n.datum || undefined, url: BASIS + n.pad, inLanguage: taal,
         image: n.beelden.map(f => abs(f.beeld)), author: (n.door || []).map(x => ({ "@id": `${BASIS}/#${x.toLowerCase()}` })), publisher: { "@id": `${BASIS}/#studio` } } };
   }
-  if (path === "/ander-werk") return { titel: "THURBO – Ander Werk", beeld: S.ander[0]?.beeld || thuis,
-    beschrijving: "Ander Werk van THURBO: foto's, collages en maquettes van Thorben Contant en Beau Schellevis.",
-    inhoud: `<h1>Ander Werk</h1>${S.ander.map(x => beeldHTML({ beeld: x.beeld, bijschrift: [x.titel, x.bijschrift, x.jaar].filter(Boolean).join(", ") }, x.titel || "Ander Werk")).join("")}`,
-    extra: { "@context": "https://schema.org", "@type": "ImageGallery", name: "Ander Werk", url: BASIS + path,
+  if (path === "/ander-werk") return { titel: `THURBO – ${w("Ander Werk")}`, beeld: S.ander[0]?.beeld || thuis,
+    beschrijving: w("ANDER_BESCHR"),
+    inhoud: `<h1>${w("Ander Werk")}</h1>${S.ander.map(x => beeldHTML({ beeld: x.beeld, bijschrift: [x.titel, x.bijschrift, x.jaar].filter(Boolean).join(", ") }, x.titel || w("Ander Werk"))).join("")}`,
+    extra: { "@context": "https://schema.org", "@type": "ImageGallery", name: w("Ander Werk"), url: BASIS + P(path),
       image: S.ander.map(x => ({ "@type": "ImageObject", contentUrl: abs(x.beeld), name: x.titel || undefined,
         creditText: "Studio THURBO", copyrightNotice: "© Studio THURBO", creator: { "@id": `${BASIS}/#studio` } })) } };
-  if (path === "/voorwaarden") return { titel: "THURBO – Gebruiksvoorwaarden", beeld: thuis,
-    beschrijving: "Auteursrecht en gebruik van het werk van Studio THURBO. Geen hergebruik zonder schriftelijke toestemming.",
-    inhoud: `<h1>Gebruiksvoorwaarden</h1>${rijk(S.voorwaarden.tekst)}${S.voorwaarden.tekst_en ? `<section lang="en"><h2>Terms of use</h2>${rijk(S.voorwaarden.tekst_en)}</section>` : ""}` };
-  if (path === "/zoek") return { titel: "THURBO – Zoeken", beschrijving: "Zoek in de projecten van THURBO.", beeld: thuis, inhoud: `<h1>Zoeken</h1>${projectLijst(S.projecten)}`, noindex: true };
+  if (path === "/voorwaarden") return { titel: `THURBO – ${w("Gebruiksvoorwaarden")}`, beeld: thuis,
+    beschrijving: w("VOORW_BESCHR"),
+    inhoud: `<h1>${w("Gebruiksvoorwaarden")}</h1>${rijk(S.voorwaarden.tekst)}` };
+  if (path === "/zoek") return { titel: `THURBO – ${w("Zoeken")}`, beschrijving: w("ZOEK_BESCHR"), beeld: thuis, inhoud: `<h1>${w("Zoeken")}</h1>${projectLijst(S.projecten, w)}`, noindex: true };
   return null;
 }
 
-export function vulIn(html, pg, path) {
-  const canon = BASIS + (pg.canoniek || (decodeURI(path).replace(/\/+$/, "") || "/"));
+export function vulIn(html, pg, path, taal = "nl") {
+  const kaalPad = decodeURI(path).replace(/^\/en(?=\/|$)/, "").replace(/\/+$/, "") || "/";
+  const basisPad = pg.canoniek ? pg.canoniek.replace(/^\/en(?=\/|$)/, "") || "/" : kaalPad;
+  const canon = BASIS + metTaal(taal, basisPad);
   const beeld = abs(pg.beeld);
   const kop = [
     `<link rel="canonical" href="${esc(canon)}">`,
@@ -188,7 +228,8 @@ export function vulIn(html, pg, path) {
     `<meta property="og:title" content="${esc(pg.titel)}">`,
     `<meta property="og:description" content="${esc(pg.beschrijving)}">`,
     `<meta property="og:url" content="${esc(canon)}">`,
-    `<meta property="og:locale" content="nl_NL"><meta property="og:locale:alternate" content="en_GB">`,
+    pg.noindex ? "" : `<link rel="alternate" hreflang="nl" href="${esc(BASIS + basisPad)}"><link rel="alternate" hreflang="en" href="${esc(BASIS + metTaal("en", basisPad))}"><link rel="alternate" hreflang="x-default" href="${esc(BASIS + basisPad)}">`,
+    taal === "en" ? `<meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="nl_NL">` : `<meta property="og:locale" content="nl_NL"><meta property="og:locale:alternate" content="en_GB">`,
     beeld ? `<meta property="og:image" content="${esc(beeld)}"><meta name="twitter:image" content="${esc(beeld)}">` : "",
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${esc(pg.titel)}"><meta name="twitter:description" content="${esc(pg.beschrijving)}">`,
@@ -197,15 +238,17 @@ export function vulIn(html, pg, path) {
     pg.extra ? `<script type="application/ld+json">${JSON.stringify(pg.extra).replace(/</g, "\\u003c")}</script>` : "",
   ].filter(Boolean).join("\n");
   return html
+    .replace('<html lang="nl">', `<html lang="${taal}">`)
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(pg.titel)}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(pg.beschrijving)}">\n${kop}`)
-    .replace('<main id="app"></main>', `<main id="app"><div class="ssr">${navHTML}${pg.inhoud}${voetHTML}</div></main>`);
+    .replace('<main id="app" tabindex="-1"></main>', `<main id="app" tabindex="-1"><div class="ssr">${navHTML(taal)}${pg.inhoud}${voetHTML(taal)}</div></main>`);
 }
 
 export function sitemap(S) {
   const vandaag = new Date().toISOString().slice(0, 10);
-  const u = (p, d) => `<url><loc>${BASIS}${p}</loc>${d ? `<lastmod>${d}</lastmod>` : ""}</url>`;
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  const alt = p => `<xhtml:link rel="alternate" hreflang="nl" href="${BASIS}${p}"/><xhtml:link rel="alternate" hreflang="en" href="${BASIS}${metTaal("en", p)}"/>`;
+  const u = (p, d) => ["nl", "en"].map(t => `<url><loc>${BASIS}${metTaal(t, p)}</loc>${d ? `<lastmod>${d}</lastmod>` : ""}${alt(p)}</url>`).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
     [u("/", vandaag), u("/projecten", vandaag), u("/studies"), u("/ander-werk"), u("/studio"), u("/contact"), u("/nieuws", S.nieuws[0]?.datum), u("/voorwaarden"),
       ...S.projecten.map(p => u(p.pad)), ...S.nieuws.map(n => u(n.pad, n.datum))].join("\n") + "\n</urlset>\n";
 }
@@ -214,7 +257,7 @@ export function sitemap(S) {
 export function llms(S) {
   const g = gegevens(S);
   const r = [`# THURBO`, ``, `> ${OMSCHRIJVING}`, ``,
-    `THURBO is opgericht door ${NAMEN.Thorben} en ${NAMEN.Beau}, beiden architectuurstudenten aan de TU Delft. De site is tweetalig (Nederlands en Engels).`, ``,
+    `THURBO is opgericht door ${NAMEN.Thorben} en ${NAMEN.Beau}, beiden architectuurstudenten aan de TU Delft. De site is tweetalig: Nederlands op ${BASIS}/, Engels op ${BASIS}/en.`, ``,
     `Contact: ${g.info}${g.insta ? ` · Instagram: ${g.insta}` : ""}`, ``, `## Mensen`, ``];
   for (const w of ["Thorben", "Beau"]) r.push(`- [${NAMEN[w]}](${BASIS}/${w.toLowerCase()}): ${kort(g.bio(w)?.tekst, 400)}${g.mail(w) ? ` E-mail: ${g.mail(w)}.` : ""}${g.linkedin(w) ? ` LinkedIn: ${g.linkedin(w)}` : ""}`);
   r.push(``, `## Projecten`, ``);
@@ -236,7 +279,9 @@ export async function onRequest(ctx) {
     const S = data(d);
     if (url.pathname === "/sitemap.xml") return new Response(sitemap(S), { headers: { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=600" } });
     if (url.pathname === "/llms.txt") return new Response(llms(S), { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=600" } });
-    const pg = pagina(url.pathname, S);
+    const taal = /^\/en(\/|$)/.test(url.pathname) ? "en" : "nl";
+    const binnen = taal === "en" ? (url.pathname.slice(3) || "/") : url.pathname;
+    const pg = pagina(binnen, S, taal);
     const basis = await env.ASSETS.fetch(new URL("/", url));
     if (!pg) {
       /* onbekende pagina: de site toont zelf "Perceel 404" */
@@ -244,10 +289,10 @@ export async function onRequest(ctx) {
       return new Response(html, { status: 404, headers: { "content-type": "text/html; charset=utf-8" } });
     }
     /* oud adres van een project: blijvend doorsturen naar het nieuwe */
-    if (pg.canoniek && url.pathname.startsWith("/projecten/") && decodeURI(url.pathname).replace(/\/+$/, "") !== pg.canoniek)
+    if (pg.canoniek && binnen.startsWith("/projecten/") && decodeURI(url.pathname).replace(/\/+$/, "") !== pg.canoniek)
       return Response.redirect(url.origin + pg.canoniek + url.search, 301);
     pg.ld = organisatie(S);
-    const html = vulIn(await basis.text(), pg, url.pathname);
+    const html = vulIn(await basis.text(), pg, url.pathname, taal);
     return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=0, must-revalidate" } });
   } catch (e) {
     return next();

@@ -14,7 +14,9 @@
     "/llms.txt",
     "/api/*",
     "/ander-werk",
-    "/voorwaarden"
+    "/voorwaarden",
+    "/en",
+    "/en/*"
   ],
   "exclude": []
 }
