@@ -5,13 +5,13 @@ De website van THURBO, de ontwerpstudio van Thorben Contant en Beau Schellevis.
 ## Wat staat waar
 
 - `index.html` is het ontwerp van de site: lettertypes, raster, menu en filters.
-- `content/site.json` bevat alle inhoud: projecten, ander werk, nieuws, de studiotekst en de gebruiksvoorwaarden.
+- `content/` bevat de inhoud, één bestand per onderdeel: `projecten.json`, `ander-werk.json`, `nieuws.json`, `studio.json`, `voorwaarden.json` en `instellingen.json`.
 - `img/` bevat alle foto's en tekeningen.
 - `.pages.yml` stelt het beheerscherm in.
 
 ## Inhoud aanpassen
 
-Log in op https://app.pagescms.org met je GitHub-account en kies deze repository.
+Ga naar https://thurbo.nl/admin (dat stuurt door naar Pages CMS) en log in. De onderdelen staan daar in dezelfde volgorde als het menu op de site.
 Daar voeg je projecten toe, zet je foto's erin of haal je ze weg. Na opslaan staat
 de wijziging binnen een minuut op de site.
 
@@ -23,6 +23,7 @@ Tips:
 - Nieuws staat in drie rijen. Het veld Soort bepaalt de rij: Nieuws, Project en Studio in het midden, Instagram onderaan, de rest (recepten, boeken, kaarten, websites) bovenaan.
 - Nieuwe beelden krijgen na het opslaan vanzelf jullie naam en het auteursrecht in de bestandsgegevens.
 - Bij "Ontworpen door" bepaal je de letter t, b of tb en het filter op naam.
+- Het projectnummer gaat vanzelf op datum: het oudste project is 01. Vul dus bij elk project de datum in (jjjj-mm).
 
 ## Logo
 

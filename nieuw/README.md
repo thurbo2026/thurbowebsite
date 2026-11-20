@@ -12,7 +12,7 @@ Zet hier het materiaal voor een nieuw project neer. Claude maakt er een projectp
 3. Vraag Claude: *"Verwerk de nieuwe projecten in de map nieuw."*
 
 Claude haalt de beelden en tekeningen eruit, schrijft de projecttekst in het Nederlands en het Engels,
-zet het project in `content/site.json` en verplaatst de map daarna naar `nieuw/verwerkt/`.
+zet het project in `content/projecten.json` en verplaatst de map daarna naar `nieuw/verwerkt/`.
 
 Uploaden kan op github.com: open deze map, klik op *Add file* en daarna *Upload files*.
 Bestanden groter dan 25 MB passen niet via de website; verklein de pdf dan eerst.

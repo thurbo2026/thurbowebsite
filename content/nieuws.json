@@ -1,0 +1,76 @@
+{
+  "nieuws": [
+    {
+      "datum": "2026-11-20",
+      "titel": "Handige websites voor architectuur",
+      "titel_en": "Useful websites for architecture",
+      "soort": "Website",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "tekst": "Websites die van pas komen bij ontwerpen en onderzoek.\n\n[ArchDaily](https://www.archdaily.com): projecten en referenties van over de hele wereld.\n[Dezeen](https://www.dezeen.com): nieuws over architectuur en design.\n[Divisare](https://divisare.com): goed gefotografeerde projecten, per bureau te bekijken.\n[BAG Viewer](https://bagviewer.kadaster.nl): bouwjaar, oppervlakte en gebruik van elk gebouw in Nederland.\n[Topotijdreis](https://www.topotijdreis.nl): topografische kaarten van Nederland door de jaren heen.",
+      "tekst_en": "Websites that come in handy for design and research.\n\n[ArchDaily](https://www.archdaily.com): projects and references from around the world.\n[Dezeen](https://www.dezeen.com): architecture and design news.\n[Divisare](https://divisare.com): well-photographed projects, browsable by office.\n[BAG Viewer](https://bagviewer.kadaster.nl): construction year, floor area and use of every building in the Netherlands.\n[Topotijdreis](https://www.topotijdreis.nl): topographic maps of the Netherlands through the years."
+    },
+    {
+      "datum": "2026-11-20",
+      "titel": "Boekentip",
+      "titel_en": "Book tip",
+      "soort": "Boek",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "concept": true,
+      "tekst": "Concept: zet hier de titel en schrijver van het boek en waarom jullie het aanraden. Voeg een foto van de omslag of een pagina toe. Zet daarna het vinkje Concept uit.",
+      "tekst_en": ""
+    },
+    {
+      "datum": "2026-11-20",
+      "titel": "Recept",
+      "titel_en": "Recipe",
+      "soort": "Recept",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "concept": true,
+      "tekst": "Concept: zet hier de ingrediënten en de bereiding, en voeg een foto toe. Zet daarna het vinkje Concept uit.",
+      "tekst_en": ""
+    },
+    {
+      "datum": "2026-11-20",
+      "titel": "Google Maps-lijst",
+      "titel_en": "Google Maps list",
+      "soort": "Kaart",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "concept": true,
+      "tekst": "Concept: geef de lijst een titel (bijvoorbeeld architectuur in een stad), schrijf er een paar zinnen bij en plak de deellink van de lijst in Google Maps in het veld Extra link. Zet daarna het vinkje Concept uit.",
+      "tekst_en": "",
+      "link": ""
+    },
+    {
+      "datum": "2026-11-07",
+      "titel": "De website staat online",
+      "titel_en": "The website is live",
+      "soort": "Studio",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "tekst": "Vanaf vandaag is THURBO online: een plek voor ons werk, onze studies en wat ons verder bezighoudt. Hier delen we binnenkort ook kunst, recepten, foto's en andere dingen buiten de architectuur. Volg ons ook op [Instagram](https://www.instagram.com/studio.thurbo/).",
+      "tekst_en": "As of today THURBO is online: a place for our work, our studies and whatever else keeps us busy. Soon we will also share art, recipes, photos and other things beyond architecture here. Follow us on [Instagram](https://www.instagram.com/studio.thurbo/) too.",
+      "beelden": [
+        {
+          "beeld": "/img/hero.jpg",
+          "bijschrift": "Portfolio, omslagfoto",
+          "bijschrift_en": "Portfolio, cover photo"
+        }
+      ]
+    }
+  ],
+  "instagram_verbergen": []
+}

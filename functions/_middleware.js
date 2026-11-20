@@ -1,6 +1,6 @@
 /* Zet per pagina de echte inhoud, titel, beschrijving, deelpreview en gestructureerde gegevens in de HTML.
    Zo kunnen zoekmachines en AI-assistenten de site lezen zonder JavaScript uit te voeren.
-   Alles komt uit content/site.json, dus wat jullie in Pages CMS aanpassen staat hier vanzelf ook goed. */
+   Alles komt uit content/*.json (één bestand per onderdeel), dus wat jullie in Pages CMS aanpassen staat hier vanzelf ook goed. */
 
 const BASIS = "https://thurbo.nl";
 const NAMEN = { Thorben: "Thorben Contant", Beau: "Beau Schellevis" };
@@ -17,12 +17,27 @@ const rijk = s => esc(s || "")
   .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g, '<a href="$2">$1</a>')
   .split(/\n{2,}/).map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
 
+/* projectnummer op datum: het oudste project is 01, zonder datum achteraan (zelfde regel als in index.html) */
+function datumVan(p) {
+  if (p.datum) return String(p.datum);
+  const j = String(p.jaar || ""), m = j.match(/(\d{1,2})\.(\d{4})/); if (m) return m[2] + "-" + m[1].padStart(2, "0");
+  const y = j.match(/(19|20)\d\d/); return y ? y[0] + "-00" : "";
+}
+function nummer(P) {
+  P.map((p, i) => ({ p, i, d: datumVan(p), oud: parseInt(p.nummer, 10) || 999 }))
+    .sort((a, b) => (!a.d) - (!b.d) || (a.d < b.d ? -1 : a.d > b.d ? 1 : 0) || a.oud - b.oud || a.i - b.i)
+    .forEach((x, k) => { x.p.nr = String(k + 1).padStart(2, "0"); });
+  return P;
+}
+export const DELEN = ["projecten", "ander-werk", "nieuws", "studio", "voorwaarden", "instellingen"];
+
 export function data(d) {
-  const projecten = (d.projecten || []).map(p => ({
-    ...p, nr: String(p.nummer || ""), door: p.ontworpen_door || [],
+  const projecten = nummer((d.projecten || []).map(p => ({ ...p })));
+  for (const p of projecten) Object.assign(p, {
+    door: p.ontworpen_door || [],
     fotos: (p.fotos || []).filter(f => f.beeld), tekeningen: (p.tekeningen || []).filter(f => f.beeld),
-  })).map(p => ({ ...p, pad: `/projecten/${p.nr}-${slug(p.titel)}` }));
-  const nieuws = (d.nieuws || []).map((n, i) => ({ ...n, beelden: (n.beelden || []).filter(f => f.beeld),
+    pad: `/projecten/${p.nr}-${slug(p.titel)}` });
+  const nieuws = (d.nieuws || []).filter(n => !n.concept).map((n, i) => ({ ...n, beelden: (n.beelden || []).filter(f => f.beeld),
     id: (n.datum || "") + "-" + slug(n.titel || String(i)) })).map(n => ({ ...n, pad: `/nieuws/${n.id}` }))
     .sort((a, b) => String(b.datum || "").localeCompare(String(a.datum || "")));
   /* de slideshow op de homepage: de eerste 10 projecten met een foto, in de volgorde van het beheerscherm */
@@ -77,7 +92,7 @@ function organisatie(S) {
 
 const feit = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>` : "";
 const beeldHTML = (f, titel) => `<figure><img src="${esc(f.beeld)}" alt="${esc([titel, f.bijschrift].filter(Boolean).join(" – "))}" loading="lazy">${f.bijschrift ? `<figcaption>${esc(f.bijschrift)}</figcaption>` : ""}</figure>`;
-const navHTML = `<nav aria-label="Hoofdmenu"><a href="/">THURBO</a> · <a href="/projecten">Projecten</a> · <a href="/studies">Studies</a> · <a href="/ander-werk">Ander werk</a> · <a href="/nieuws">Nieuws</a> · <a href="/studio">Studio</a> · <a href="/contact">Contact</a></nav>`;
+const navHTML = `<nav aria-label="Hoofdmenu"><a href="/">THURBO</a> · <a href="/projecten">Projecten</a> · <a href="/studies">Studies</a> · <a href="/ander-werk">Ander Werk</a> · <a href="/nieuws">Nieuws</a> · <a href="/studio">Studio</a> · <a href="/contact">Contact</a></nav>`;
 const voetHTML = `<footer><p>© ${new Date().getFullYear()} Studio THURBO — Thorben Contant &amp; Beau Schellevis. Alle rechten voorbehouden. <a href="/voorwaarden">Gebruiksvoorwaarden</a></p></footer>`;
 
 function projectLijst(lijst) {
@@ -107,8 +122,9 @@ export function pagina(path, S) {
       extra: { "@context": "https://schema.org", "@type": "CollectionPage", name: st ? "Studies" : "Projecten", url: BASIS + path,
         hasPart: lijst.map(p => ({ "@type": "CreativeWork", name: p.titel, url: BASIS + p.pad })) } };
   }
-  if ((m = path.match(/^\/projecten\/([^/-]+)/))) {
-    const p = S.projecten.find(x => x.nr === m[1]); if (!p) return null;
+  if ((m = path.match(/^\/projecten\/(\d+)(?:-([^/]*))?/))) {
+    /* eerst op naam, dan op nummer: zo blijven oude links werken als een nummer verschuift */
+    const p = (m[2] && S.projecten.find(x => slug(x.titel) === m[2])) || S.projecten.find(x => x.nr === m[1].padStart(2, "0") || x.nr === m[1]); if (!p) return null;
     const beelden = [...p.fotos, ...p.tekeningen];
     const titel = `${p.titel}${p.plaats ? " – " + p.plaats : ""}`;
     return { titel: `THURBO – ${titel}`, canoniek: p.pad, beeld: p.fotos[0]?.beeld || beelden[0]?.beeld, type: "article",
@@ -146,10 +162,10 @@ export function pagina(path, S) {
       extra: { "@context": "https://schema.org", "@type": "BlogPosting", headline: n.titel, datePublished: n.datum || undefined, url: BASIS + n.pad,
         image: n.beelden.map(f => abs(f.beeld)), author: (n.door || []).map(x => ({ "@id": `${BASIS}/#${x.toLowerCase()}` })), publisher: { "@id": `${BASIS}/#studio` } } };
   }
-  if (path === "/ander-werk") return { titel: "THURBO – Ander werk", beeld: S.ander[0]?.beeld || thuis,
-    beschrijving: "Ander werk van THURBO: foto's, collages en maquettes van Thorben Contant en Beau Schellevis.",
-    inhoud: `<h1>Ander werk</h1>${S.ander.map(x => beeldHTML({ beeld: x.beeld, bijschrift: [x.titel, x.bijschrift, x.jaar].filter(Boolean).join(", ") }, x.titel || "Ander werk")).join("")}`,
-    extra: { "@context": "https://schema.org", "@type": "ImageGallery", name: "Ander werk", url: BASIS + path,
+  if (path === "/ander-werk") return { titel: "THURBO – Ander Werk", beeld: S.ander[0]?.beeld || thuis,
+    beschrijving: "Ander Werk van THURBO: foto's, collages en maquettes van Thorben Contant en Beau Schellevis.",
+    inhoud: `<h1>Ander Werk</h1>${S.ander.map(x => beeldHTML({ beeld: x.beeld, bijschrift: [x.titel, x.bijschrift, x.jaar].filter(Boolean).join(", ") }, x.titel || "Ander Werk")).join("")}`,
+    extra: { "@context": "https://schema.org", "@type": "ImageGallery", name: "Ander Werk", url: BASIS + path,
       image: S.ander.map(x => ({ "@type": "ImageObject", contentUrl: abs(x.beeld), name: x.titel || undefined,
         creditText: "Studio THURBO", copyrightNotice: "© Studio THURBO", creator: { "@id": `${BASIS}/#studio` } })) } };
   if (path === "/voorwaarden") return { titel: "THURBO – Gebruiksvoorwaarden", beeld: thuis,
@@ -201,10 +217,10 @@ export function llms(S) {
   for (const w of ["Thorben", "Beau"]) r.push(`- [${NAMEN[w]}](${BASIS}/${w.toLowerCase()}): ${kort(g.bio(w)?.tekst, 400)}${g.mail(w) ? ` E-mail: ${g.mail(w)}.` : ""}${g.linkedin(w) ? ` LinkedIn: ${g.linkedin(w)}` : ""}`);
   r.push(``, `## Projecten`, ``);
   for (const p of S.projecten) r.push(`- [${p.nr} ${p.titel}](${BASIS}${p.pad}): ${[p.plaats, p.jaar, p.categorie, p.type].filter(Boolean).join(", ")}. Ontwerp: ${p.door.map(n => NAMEN[n]).join(" & ")}.${p.tekst ? " " + kort(p.tekst, 300) : ""}`);
-  r.push(``, `## Pagina's`, ``, `- [Projecten](${BASIS}/projecten)`, `- [Studies](${BASIS}/studies)`, `- [Ander werk](${BASIS}/ander-werk)`, `- [Studio](${BASIS}/studio)`, `- [Contact](${BASIS}/contact)`, `- [Nieuws](${BASIS}/nieuws)`, `- [Gebruiksvoorwaarden](${BASIS}/voorwaarden)`);
+  r.push(``, `## Pagina's`, ``, `- [Projecten](${BASIS}/projecten)`, `- [Studies](${BASIS}/studies)`, `- [Ander Werk](${BASIS}/ander-werk)`, `- [Studio](${BASIS}/studio)`, `- [Contact](${BASIS}/contact)`, `- [Nieuws](${BASIS}/nieuws)`, `- [Gebruiksvoorwaarden](${BASIS}/voorwaarden)`);
   r.push(``, `Alle beelden en teksten: © Studio THURBO. Hergebruik alleen met schriftelijke toestemming (${g.info}).`);
   if (S.nieuws.length) { r.push(``, `## Nieuws`, ``); for (const n of S.nieuws) r.push(`- [${n.titel}](${BASIS}${n.pad})${n.datum ? ` (${n.datum})` : ""}`); }
-  r.push(``, `## Optional`, ``, `- [Sitemap](${BASIS}/sitemap.xml)`, `- [Alle inhoud als JSON](${BASIS}/content/site.json)`, ``);
+  r.push(``, `## Optional`, ``, `- [Sitemap](${BASIS}/sitemap.xml)`, ...DELEN.map(n => `- [Inhoud: ${n} (JSON)](${BASIS}/content/${n}.json)`), ``);
   return r.join("\n");
 }
 
@@ -213,7 +229,8 @@ export async function onRequest(ctx) {
   const url = new URL(request.url);
   if (request.method !== "GET" && request.method !== "HEAD" || url.pathname.startsWith("/api/")) return next();
   try {
-    const d = await env.ASSETS.fetch(new URL("/content/site.json", url)).then(r => r.json());
+    const delen = await Promise.all(DELEN.map(n => env.ASSETS.fetch(new URL(`/content/${n}.json`, url)).then(r => r.ok ? r.json() : {}).catch(() => ({}))));
+    const d = Object.assign({}, ...delen);
     const S = data(d);
     if (url.pathname === "/sitemap.xml") return new Response(sitemap(S), { headers: { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=600" } });
     if (url.pathname === "/llms.txt") return new Response(llms(S), { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=600" } });

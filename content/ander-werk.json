@@ -1,0 +1,54 @@
+{
+  "andere_werken": [
+    {
+      "beeld": "/img/collage-lost-city.jpg",
+      "titel": "Lost City",
+      "titel_en": "Lost City",
+      "bijschrift": "Conceptcollage",
+      "bijschrift_en": "Concept collage",
+      "door": [
+        "Thorben"
+      ]
+    },
+    {
+      "beeld": "/img/vm-1.jpg",
+      "titel": "Vormstudie",
+      "titel_en": "Form study",
+      "bijschrift": "Maquette",
+      "bijschrift_en": "Model",
+      "door": [
+        "Beau"
+      ]
+    },
+    {
+      "beeld": "/img/vm-3.jpg",
+      "titel": "Lichtstudie",
+      "titel_en": "Light study",
+      "bijschrift": "Maquette",
+      "bijschrift_en": "Model",
+      "door": [
+        "Beau"
+      ]
+    },
+    {
+      "beeld": "/img/collage-mill.jpg",
+      "titel": "Mill on a Hill",
+      "titel_en": "Mill on a Hill",
+      "bijschrift": "Conceptcollage",
+      "bijschrift_en": "Concept collage",
+      "door": [
+        "Thorben"
+      ]
+    },
+    {
+      "beeld": "/img/vm-5.jpg",
+      "titel": "Vormstudie",
+      "titel_en": "Form study",
+      "bijschrift": "Maquette",
+      "bijschrift_en": "Model",
+      "door": [
+        "Beau"
+      ]
+    }
+  ]
+}

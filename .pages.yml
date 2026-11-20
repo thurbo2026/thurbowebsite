@@ -1,258 +1,486 @@
-# Instellingen voor het beheerscherm (Pages CMS, pagescms.org)
+# Instellingen voor het beheerscherm (Pages CMS, pagescms.org). Snel naar het beheerscherm: thurbo.nl/admin
+# De onderdelen staan in dezelfde volgorde als het menu op de site.
 # Velden met "EN" zijn de Engelse versie. Laat je die leeg, dan toont de site het Nederlands.
 # Links in teksten: [woord](https://adres). Losse https-adressen en e-mailadressen worden vanzelf klikbaar.
 media:
   input: img
   output: /img
-
 content:
-  - name: site
-    label: THURBO website
-    type: file
-    path: content/site.json
-    format: json
+- name: projecten
+  label: 1. Projecten
+  type: file
+  path: content/projecten.json
+  format: json
+  fields:
+  - name: projecten
+    label: Projecten (sleep om de volgorde te bepalen; de eerste 10 staan ook in de slideshow op de homepage)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{titel}"
     fields:
-      - { name: instagram_feed, label: "Instagram-feed (Behold JSON-link, https://feeds.behold.so/...)", type: string }
-      - name: projecten
-        label: "Projecten (sleep om de volgorde te bepalen; de eerste 10 staan ook in de slideshow op de homepage)"
+    - name: titel
+      label: Titel
+      type: string
+      required: true
+    - name: titel_en
+      label: Titel EN
+      type: string
+    - name: plaats
+      label: "Plaats (achter de titel; geldt voor Nederlands en Engels)"
+      type: string
+    - name: ontworpen_door
+      label: "Ontworpen door (bepaalt de letter t, b of tb)"
+      type: select
+      options:
+        multiple: true
+        values:
+        - Thorben
+        - Beau
+    - name: datum
+      label: "Datum (jjjj-mm, bijv. 2024-06); bepaalt het projectnummer: het oudste project is 01; zonder datum komt het achteraan"
+      type: string
+    - name: fotos
+      label: Foto's (de eerste is ook de miniatuur en het beeld in de slideshow)
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{bijschrift}"
+      fields:
+      - name: beeld
+        label: Foto
+        type: image
+      - name: bijschrift
+        label: Bijschrift
+        type: string
+      - name: bijschrift_en
+        label: Bijschrift EN
+        type: string
+    - name: tekeningen
+      label: Tekeningen
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{bijschrift}"
+      fields:
+      - name: beeld
+        label: Tekening
+        type: image
+      - name: bijschrift
+        label: Bijschrift
+        type: string
+      - name: bijschrift_en
+        label: Bijschrift EN
+        type: string
+    - name: tekst
+      label: "Projecttekst (link: [woord](https://adres))"
+      type: text
+    - name: tekst_en
+      label: "Projecttekst EN (link: [word](https://address))"
+      type: text
+    - name: jaar
+      label: Jaar
+      type: string
+    - name: locatie
+      label: Locatie
+      type: string
+    - name: locatie_en
+      label: Locatie EN
+      type: string
+    - name: opgave
+      label: Opgave
+      type: string
+    - name: opgave_en
+      label: Opgave EN
+      type: string
+    - name: type
+      label: Type
+      type: string
+    - name: type_en
+      label: Type EN
+      type: string
+    - name: status
+      label: Status
+      type: string
+    - name: status_en
+      label: Status EN
+      type: string
+    - name: bureau_of_begeleiding
+      label: Bureau of begeleiding
+      type: string
+    - name: bureau_link
+      label: "Website bureau (https://...)"
+      type: string
+    - name: ontwerpteam
+      label: Ontwerpteam (alle namen)
+      type: string
+    - name: categorie
+      label: Categorie (voor het filter)
+      type: select
+      options:
+        values:
+        - Studie
+        - Praktijk
+        - Eigen werk
+        - Prijsvraag
+    - name: lat
+      label: "Kaart: breedtegraad (bijv. 51.4486)"
+      type: string
+    - name: lng
+      label: "Kaart: lengtegraad (bijv. 5.4565)"
+      type: string
+- name: ander-werk
+  label: 2. Ander Werk
+  type: file
+  path: content/ander-werk.json
+  format: json
+  fields:
+  - name: andere_werken
+    label: Ander Werk (foto's en collages; sleep om de volgorde te bepalen)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{titel}"
+    fields:
+    - name: beeld
+      label: Beeld
+      type: image
+      required: true
+    - name: titel
+      label: Titel
+      type: string
+    - name: titel_en
+      label: Titel EN
+      type: string
+    - name: bijschrift
+      label: "Bijschrift (bijv. collage, foto, maquette)"
+      type: string
+    - name: bijschrift_en
+      label: Bijschrift EN
+      type: string
+    - name: jaar
+      label: Jaar
+      type: string
+    - name: door
+      label: Gemaakt door
+      type: select
+      options:
+        multiple: true
+        values:
+        - Thorben
+        - Beau
+- name: nieuws
+  label: 3. Nieuws
+  type: file
+  path: content/nieuws.json
+  format: json
+  fields:
+  - name: nieuws
+    label: "Nieuws (drie rijen: eigen artikelen, nieuws en Instagram)"
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{titel}"
+    fields:
+    - name: datum
+      label: Datum
+      type: date
+    - name: concept
+      label: Concept (aangevinkt = nog niet zichtbaar op de site)
+      type: boolean
+    - name: titel
+      label: Titel
+      type: string
+      required: true
+    - name: titel_en
+      label: Titel EN
+      type: string
+    - name: soort
+      label: "Soort (bepaalt de rij: Nieuws, Project en Studio staan in de middelste rij, Instagram onderaan, de rest bovenaan bij Eigen artikelen)"
+      type: select
+      options:
+        values:
+        - Recept
+        - Boek
+        - Kaart
+        - Website
+        - Kunst
+        - Fotografie
+        - Overig
+        - Nieuws
+        - Project
+        - Studio
+        - Instagram
+    - name: door
+      label: Door
+      type: select
+      options:
+        multiple: true
+        values:
+        - Thorben
+        - Beau
+    - name: tekst
+      label: "Tekst (link: [woord](https://adres))"
+      type: text
+    - name: tekst_en
+      label: Tekst EN
+      type: text
+    - name: beelden
+      label: Foto's (de eerste staat op de nieuwspagina)
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{bijschrift}"
+      fields:
+      - name: beeld
+        label: Foto
+        type: image
+      - name: bijschrift
+        label: Bijschrift
+        type: string
+      - name: bijschrift_en
+        label: Bijschrift EN
+        type: string
+    - name: instagram
+      label: "Instagram-post (link, bijv. https://www.instagram.com/p/...)"
+      type: string
+    - name: link
+      label: "Extra link (https://...)"
+      type: string
+  - name: instagram_verbergen
+    label: Instagram-posts verbergen (plak de link van de post; handig als je een post op Instagram hebt verwijderd)
+    type: string
+    list: true
+- name: studio
+  label: 4. Studio en contact
+  type: file
+  path: content/studio.json
+  format: json
+  fields:
+  - name: studio
+    label: Studio en contact
+    type: object
+    fields:
+    - name: thurbo
+      label: THURBO (linker kolom)
+      type: object
+      fields:
+      - name: kop
+        label: Kop van de kolom
+        type: string
+      - name: kop_en
+        label: Kop van de kolom EN
+        type: string
+      - name: tekst
+        label: "Hoofdtekst (link: [woord](https://adres))"
+        type: text
+      - name: tekst_en
+        label: Hoofdtekst EN
+        type: text
+      - name: regels
+        label: "Extra regels, bijv. Software en Talen"
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{titel}"
+            summary: "{kop}"
         fields:
-          - { name: nummer, label: Nummer (bijv. 11), type: string, required: true }
-          - { name: titel, label: Titel, type: string, required: true }
-          - { name: titel_en, label: Titel EN, type: string }
-          - { name: plaats, label: Plaats (achter de titel), type: string }
-          - { name: plaats_en, label: Plaats EN, type: string }
-          - name: categorie
-            label: Categorie
-            type: select
-            options:
-              values: [Studie, Praktijk, Eigen werk, Prijsvraag]
-          - name: ontworpen_door
-            label: Ontworpen door
-            type: select
-            options:
-              multiple: true
-              values: [Thorben, Beau]
-          - { name: jaar, label: Jaar, type: string }
-          - { name: datum, label: "Datum voor sorteren (jjjj-mm, bijv. 2024-06)", type: string }
-          - { name: locatie, label: Locatie, type: string }
-          - { name: locatie_en, label: Locatie EN, type: string }
-          - { name: lat, label: "Kaart: breedtegraad (bijv. 51.4486)", type: string }
-          - { name: lng, label: "Kaart: lengtegraad (bijv. 5.4565)", type: string }
-          - { name: opgave, label: Opgave, type: string }
-          - { name: opgave_en, label: Opgave EN, type: string }
-          - { name: type, label: Type, type: string }
-          - { name: type_en, label: Type EN, type: string }
-          - { name: status, label: Status, type: string }
-          - { name: status_en, label: Status EN, type: string }
-          - { name: bureau_of_begeleiding, label: Bureau of begeleiding, type: string }
-          - { name: bureau_link, label: "Website bureau (https://...)", type: string }
-          - { name: ontwerpteam, label: Ontwerpteam (alle namen), type: string }
-          - { name: tekst, label: "Projecttekst (link: [woord](https://adres))", type: text }
-          - { name: tekst_en, label: "Projecttekst EN (link: [word](https://address))", type: text }
-          - name: fotos
-            label: "Foto's (de eerste is ook de miniatuur en het beeld in de slideshow)"
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{bijschrift}"
-            fields:
-              - { name: beeld, label: Foto, type: image }
-              - { name: bijschrift, label: Bijschrift, type: string }
-              - { name: bijschrift_en, label: Bijschrift EN, type: string }
-          - name: tekeningen
-            label: Tekeningen
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{bijschrift}"
-            fields:
-              - { name: beeld, label: Tekening, type: image }
-              - { name: bijschrift, label: Bijschrift, type: string }
-              - { name: bijschrift_en, label: Bijschrift EN, type: string }
-
-      - name: nieuws
-        label: "Nieuws (drie rijen: eigen artikelen, nieuws en Instagram)"
+        - name: kop
+          label: Kop
+          type: string
+        - name: kop_en
+          label: Kop EN
+          type: string
+        - name: tekst
+          label: "Tekst (link: [woord](https://adres))"
+          type: text
+        - name: tekst_en
+          label: Tekst EN
+          type: text
+        - name: link
+          label: "Link (https://...), maakt de tekst klikbaar"
+          type: string
+      - name: contact
+        label: Contactgegevens (onder het kopje Contact)
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{titel}"
+            summary: "{kop} {tekst}"
         fields:
-          - { name: datum, label: Datum, type: date }
-          - { name: titel, label: Titel, type: string, required: true }
-          - { name: titel_en, label: Titel EN, type: string }
-          - name: soort
-            label: "Soort (bepaalt de rij: Nieuws, Project en Studio staan in de middelste rij, Instagram onderaan, de rest bovenaan bij Eigen artikelen)"
-            type: select
-            options:
-              values: [Recept, Boek, Kaart, Website, Kunst, Fotografie, Overig, Nieuws, Project, Studio, Instagram]
-          - name: door
-            label: Door
-            type: select
-            options:
-              multiple: true
-              values: [Thorben, Beau]
-          - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
-          - { name: tekst_en, label: "Tekst EN", type: text }
-          - name: beelden
-            label: "Foto's (de eerste staat op de nieuwspagina)"
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{bijschrift}"
-            fields:
-              - { name: beeld, label: Foto, type: image }
-              - { name: bijschrift, label: Bijschrift, type: string }
-              - { name: bijschrift_en, label: Bijschrift EN, type: string }
-          - { name: instagram, label: "Instagram-post (link, bijv. https://www.instagram.com/p/...)", type: string }
-          - { name: link, label: "Extra link (https://...)", type: string }
-
-      - name: studio
-        label: Studio en contact
-        type: object
-        fields:
-          - name: thurbo
-            label: "THURBO (linker kolom)"
-            type: object
-            fields:
-              - { name: kop, label: "Kop van de kolom", type: string }
-              - { name: kop_en, label: "Kop van de kolom EN", type: string }
-              - { name: tekst, label: "Hoofdtekst (link: [woord](https://adres))", type: text }
-              - { name: tekst_en, label: "Hoofdtekst EN", type: text }
-              - name: regels
-                label: "Extra regels, bijv. Software en Talen"
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{kop}"
-                fields:
-                  - { name: kop, label: Kop, type: string }
-                  - { name: kop_en, label: Kop EN, type: string }
-                  - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
-                  - { name: tekst_en, label: Tekst EN, type: text }
-                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
-              - name: contact
-                label: "Contactgegevens (onder het kopje Contact)"
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{kop} {tekst}"
-                fields:
-                  - { name: kop, label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)", type: string }
-                  - { name: kop_en, label: Kop EN, type: string }
-                  - { name: tekst, label: "Tekst (een los e-mailadres of link wordt een icoon)", type: text }
-                  - { name: tekst_en, label: Tekst EN, type: text }
-                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
-          - name: thorben
-            label: "Thorben"
-            type: object
-            fields:
-              - { name: kop, label: "Naam", type: string }
-              - { name: kop_en, label: "Naam EN", type: string }
-              - { name: foto, label: "Portretfoto (mag leeg)", type: image }
-              - { name: tekst, label: "Hoofdtekst (link: [woord](https://adres))", type: text }
-              - { name: tekst_en, label: "Hoofdtekst EN", type: text }
-              - name: regels
-                label: "Extra regels, bijv. Software en Talen"
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{kop}"
-                fields:
-                  - { name: kop, label: Kop, type: string }
-                  - { name: kop_en, label: Kop EN, type: string }
-                  - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
-                  - { name: tekst_en, label: Tekst EN, type: text }
-                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
-              - name: contact
-                label: "Contactgegevens (onder het kopje Contact)"
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{kop} {tekst}"
-                fields:
-                  - { name: kop, label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)", type: string }
-                  - { name: kop_en, label: Kop EN, type: string }
-                  - { name: tekst, label: "Tekst (een los e-mailadres of link wordt een icoon)", type: text }
-                  - { name: tekst_en, label: Tekst EN, type: text }
-                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
-          - name: beau
-            label: "Beau"
-            type: object
-            fields:
-              - { name: kop, label: "Naam", type: string }
-              - { name: kop_en, label: "Naam EN", type: string }
-              - { name: foto, label: "Portretfoto (mag leeg)", type: image }
-              - { name: tekst, label: "Hoofdtekst (link: [woord](https://adres))", type: text }
-              - { name: tekst_en, label: "Hoofdtekst EN", type: text }
-              - name: regels
-                label: "Extra regels, bijv. Software en Talen"
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{kop}"
-                fields:
-                  - { name: kop, label: Kop, type: string }
-                  - { name: kop_en, label: Kop EN, type: string }
-                  - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
-                  - { name: tekst_en, label: Tekst EN, type: text }
-                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
-              - name: contact
-                label: "Contactgegevens (onder het kopje Contact)"
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{kop} {tekst}"
-                fields:
-                  - { name: kop, label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)", type: string }
-                  - { name: kop_en, label: Kop EN, type: string }
-                  - { name: tekst, label: "Tekst (een los e-mailadres of link wordt een icoon)", type: text }
-                  - { name: tekst_en, label: Tekst EN, type: text }
-                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
-
-      - name: andere_werken
-        label: "Ander werk (foto's en collages; sleep om de volgorde te bepalen)"
+        - name: kop
+          label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)"
+          type: string
+        - name: kop_en
+          label: Kop EN
+          type: string
+        - name: tekst
+          label: Tekst (een los e-mailadres of link wordt een icoon)
+          type: text
+        - name: tekst_en
+          label: Tekst EN
+          type: text
+        - name: link
+          label: "Link (https://...), maakt de tekst klikbaar"
+          type: string
+    - name: thorben
+      label: Thorben
+      type: object
+      fields:
+      - name: kop
+        label: Naam
+        type: string
+      - name: kop_en
+        label: Naam EN
+        type: string
+      - name: foto
+        label: Portretfoto (mag leeg)
+        type: image
+      - name: tekst
+        label: "Hoofdtekst (link: [woord](https://adres))"
+        type: text
+      - name: tekst_en
+        label: Hoofdtekst EN
+        type: text
+      - name: regels
+        label: "Extra regels, bijv. Software en Talen"
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{titel}"
+            summary: "{kop}"
         fields:
-          - { name: beeld, label: Beeld, type: image, required: true }
-          - { name: titel, label: Titel, type: string }
-          - { name: titel_en, label: Titel EN, type: string }
-          - { name: bijschrift, label: "Bijschrift (bijv. collage, foto, maquette)", type: string }
-          - { name: bijschrift_en, label: Bijschrift EN, type: string }
-          - { name: jaar, label: Jaar, type: string }
-          - name: door
-            label: Gemaakt door
-            type: select
-            options:
-              multiple: true
-              values: [Thorben, Beau]
-          - name: formaat
-            label: "Formaat op de pagina"
-            type: select
-            options:
-              values: [Groot, Middel, Klein]
-
-      - name: voorwaarden
-        label: "Gebruiksvoorwaarden (pagina /voorwaarden)"
+        - name: kop
+          label: Kop
+          type: string
+        - name: kop_en
+          label: Kop EN
+          type: string
+        - name: tekst
+          label: "Tekst (link: [woord](https://adres))"
+          type: text
+        - name: tekst_en
+          label: Tekst EN
+          type: text
+        - name: link
+          label: "Link (https://...), maakt de tekst klikbaar"
+          type: string
+      - name: contact
+        label: Contactgegevens (onder het kopje Contact)
         type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{kop} {tekst}"
         fields:
-          - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
-          - { name: tekst_en, label: Tekst EN, type: text }
+        - name: kop
+          label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)"
+          type: string
+        - name: kop_en
+          label: Kop EN
+          type: string
+        - name: tekst
+          label: Tekst (een los e-mailadres of link wordt een icoon)
+          type: text
+        - name: tekst_en
+          label: Tekst EN
+          type: text
+        - name: link
+          label: "Link (https://...), maakt de tekst klikbaar"
+          type: string
+    - name: beau
+      label: Beau
+      type: object
+      fields:
+      - name: kop
+        label: Naam
+        type: string
+      - name: kop_en
+        label: Naam EN
+        type: string
+      - name: foto
+        label: Portretfoto (mag leeg)
+        type: image
+      - name: tekst
+        label: "Hoofdtekst (link: [woord](https://adres))"
+        type: text
+      - name: tekst_en
+        label: Hoofdtekst EN
+        type: text
+      - name: regels
+        label: "Extra regels, bijv. Software en Talen"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{kop}"
+        fields:
+        - name: kop
+          label: Kop
+          type: string
+        - name: kop_en
+          label: Kop EN
+          type: string
+        - name: tekst
+          label: "Tekst (link: [woord](https://adres))"
+          type: text
+        - name: tekst_en
+          label: Tekst EN
+          type: text
+        - name: link
+          label: "Link (https://...), maakt de tekst klikbaar"
+          type: string
+      - name: contact
+        label: Contactgegevens (onder het kopje Contact)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{kop} {tekst}"
+        fields:
+        - name: kop
+          label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)"
+          type: string
+        - name: kop_en
+          label: Kop EN
+          type: string
+        - name: tekst
+          label: Tekst (een los e-mailadres of link wordt een icoon)
+          type: text
+        - name: tekst_en
+          label: Tekst EN
+          type: text
+        - name: link
+          label: "Link (https://...), maakt de tekst klikbaar"
+          type: string
+- name: voorwaarden
+  label: 5. Gebruiksvoorwaarden
+  type: file
+  path: content/voorwaarden.json
+  format: json
+  fields:
+  - name: voorwaarden
+    label: Gebruiksvoorwaarden (pagina /voorwaarden)
+    type: object
+    fields:
+    - name: tekst
+      label: "Tekst (link: [woord](https://adres))"
+      type: text
+    - name: tekst_en
+      label: Tekst EN
+      type: text
+- name: instellingen
+  label: Instellingen
+  type: file
+  path: content/instellingen.json
+  format: json
+  fields:
+  - name: instagram_feed
+    label: "Instagram-feed (Behold JSON-link, https://feeds.behold.so/...)"
+    type: string
