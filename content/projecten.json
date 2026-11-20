@@ -166,8 +166,7 @@
           "beeld": "/img/crb-binnentuin.jpg",
           "naast_omschrijving": false,
           "bijschrift": "Sfeerimpressie binnentuin",
-          "bijschrift_en": "Atmosphere, inner garden",
-          "bijsnijden": "0 3.1 100 100"
+          "bijschrift_en": "Atmosphere, inner garden"
         },
         {
           "beeld": "/img/crb-ontvangst.jpg",
@@ -273,8 +272,8 @@
       "jaar": "2024",
       "locatie": "Bleiswijk, NL",
       "locatie_en": "Bleiswijk, NL",
-      "opgave": "IOP 2, bachelor eindproject, TU Delft",
-      "opgave_en": "IOP 2, bachelor graduation project, TU Delft",
+      "opgave": "TU Delft IOP 2, bachelor eindproject",
+      "opgave_en": "TU Delft IOP 2, bachelor graduation project",
       "type": "Uitvaart",
       "type_en": "Funerary",
       "status": "Studieproject",
@@ -551,19 +550,18 @@
           "bijschrift_en": "Final presentation, poster 2"
         }
       ],
-      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
+      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. \nDe doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. \nDe twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
       "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
       "jaar": "2023",
       "locatie": "Den Haag, NL",
       "locatie_en": "The Hague, NL",
-      "opgave": "Ontwerpen 4, studio Affordable Luxury: renovatie NIBC-gebouw, TU Delft",
-      "opgave_en": "Design 4, studio Affordable Luxury: renovation of the NIBC building, TU Delft",
+      "opgave": "TU Delft Ontwerpen 4 - studio Affordable Luxury",
+      "opgave_en": "TU Delft Design 4, studio Affordable Luxury",
       "type": "Wonen, transformatie",
       "type_en": "Housing, transformation",
       "status": "Studieproject",
       "status_en": "Study project",
       "bureau_of_begeleiding": "Nolly Vos ([Powerhouse Company](https://www.powerhouse-company.com)) & Martijn van den Ban",
-      "bureau_link": "",
       "ontwerpteam": "Beau Schellevis",
       "categorie": "Studie",
       "lat": "52.0869",
