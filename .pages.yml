@@ -213,7 +213,7 @@ content:
         - Thorben
         - Beau
     - name: tekst
-      label: "Tekst (link: [woord](https://adres))"
+      label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
       type: text
     - name: tekst_en
       label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
@@ -271,7 +271,7 @@ content:
         - Thorben
         - Beau
     - name: tekst
-      label: "Tekst (link: [woord](https://adres))"
+      label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
       type: text
     - name: tekst_en
       label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
@@ -329,7 +329,7 @@ content:
         - Thorben
         - Beau
     - name: tekst
-      label: "Tekst (link: [woord](https://adres))"
+      label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
       type: text
     - name: tekst_en
       label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
@@ -399,7 +399,7 @@ content:
           label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
-          label: "Tekst (link: [woord](https://adres))"
+          label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
           type: text
         - name: tekst_en
           label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
@@ -464,7 +464,7 @@ content:
           label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
-          label: "Tekst (link: [woord](https://adres))"
+          label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
           type: text
         - name: tekst_en
           label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
@@ -529,7 +529,7 @@ content:
           label: "Kop EN (leeg laten: wordt vanzelf vertaald)"
           type: string
         - name: tekst
-          label: "Tekst (link: [woord](https://adres))"
+          label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
           type: text
         - name: tekst_en
           label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"
@@ -571,7 +571,7 @@ content:
     type: object
     fields:
     - name: tekst
-      label: "Tekst (link: [woord](https://adres))"
+      label: "Tekst (link: [woord](https://adres); kopje: begin een regel met ## )"
       type: text
     - name: tekst_en
       label: "Tekst EN (leeg laten: wordt vanzelf vertaald)"

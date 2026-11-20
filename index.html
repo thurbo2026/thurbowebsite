@@ -515,6 +515,8 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 .laden{min-height:calc(100svh - var(--kop,62px));display:grid;place-items:center;font-size:44px;color:var(--fg)}
 .laden .puntjes{margin:0}
 .nbeeld.leeg .puntjes{font-size:34px;margin:0;color:var(--muted)}
+/* kopje in een tekst: een regel die begint met ## */
+.tkop{display:block;margin:1.6em 0 .3em;font-family:var(--type);font-size:13px;color:var(--muted)}
 .js .ssr{display:none}
 .ssr{padding:20px;max-width:70ch}
 </style>
@@ -614,6 +616,7 @@ const rijk=s=>{
     .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g,(m,txt,url)=>bewaar(`<a class="ext" href="${url}"${url.startsWith("http")?' target="_blank" rel="noopener"':""}>${txt}</a>`))
     .replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)]/g,u=>bewaar(`<a class="ext" href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\/(www\.)?/,"")}</a>`))
     .replace(/[\w.+-]+@[\w-]+\.[\w.-]*\w/g,m=>bewaar(`<a class="ext" href="mailto:${m}">${m}</a>`))
+    .replace(/\n*^## (.+)$\n?/gm,'<span class="tkop">$1</span>')
     .replace(/\n/g,"<br>");
   return r.replace(/\u0000(\d+)\u0000/g,(m,n)=>links[n]);
 };

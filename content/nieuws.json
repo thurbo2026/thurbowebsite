@@ -8,53 +8,19 @@
         "Thorben",
         "Beau"
       ],
-      "tekst": "Websites die van pas komen bij ontwerpen en onderzoek.\n\n[ArchDaily](https://www.archdaily.com): projecten en referenties van over de hele wereld.\n[Dezeen](https://www.dezeen.com): nieuws over architectuur en design.\n[Divisare](https://divisare.com): goed gefotografeerde projecten, per bureau te bekijken.\n[BAG Viewer](https://bagviewer.kadaster.nl): bouwjaar, oppervlakte en gebruik van elk gebouw in Nederland.\n[Topotijdreis](https://www.topotijdreis.nl): topografische kaarten van Nederland door de jaren heen.",
-      "tekst_en": "Websites that come in handy for design and research.\n\n[ArchDaily](https://www.archdaily.com): projects and references from around the world.\n[Dezeen](https://www.dezeen.com): architecture and design news.\n[Divisare](https://divisare.com): well-photographed projects, browsable by office.\n[BAG Viewer](https://bagviewer.kadaster.nl): construction year, floor area and use of every building in the Netherlands.\n[Topotijdreis](https://www.topotijdreis.nl): topographic maps of the Netherlands through the years."
+      "tekst": "Websites die van pas komen bij ontwerpen en onderzoek.\n\n## Referenties\n[ArchDaily](https://www.archdaily.com): projecten en referenties van over de hele wereld.\n[Dezeen](https://www.dezeen.com): nieuws over architectuur en design.\n[Divisare](https://divisare.com): goed gefotografeerde projecten, per bureau te bekijken.\n\n## Kaarten en ondergronden\n[Cadmapper](https://cadmapper.com/): kaarten van elke plek als CAD-bestand.\n[AHN-viewer](https://www.ahn.nl/ahn-viewer): hoogtekaarten van Nederland.\n[BAG Viewer](https://bagviewer.kadaster.nl): bouwjaar, oppervlakte en gebruik van elk gebouw in Nederland.\n[Topotijdreis](https://www.topotijdreis.nl): topografische kaarten van Nederland door de jaren heen.\n[OpenStreetMap](https://www.openstreetmap.org): vrije kaart van de hele wereld.\n[Snazzy Maps](https://snazzymaps.com/explore): vereenvoudigde kaartstijlen voor presentaties.\n[Bezonningskaart](https://www.arcgis.com/home/webscene/viewer.html?layers=2c5ed17fcdd5491dafb293cdfb7bc141): zon en schaduw in 3D.\n\n## Ontwerpen en analyseren\n[Autodesk Forma](https://www.autodesk.com/products/forma): snelle analyses van zon, wind en geluid in een vroeg ontwerp.\n[Joost de Vree](https://www.joostdevree.nl/index.shtml): bouwkundige begrippen uitgelegd.\n[Bouwzo](https://bouwzo.nl/search?DocumentType=Referentiedetail): referentiedetails van constructies.\n\n## Presentatie\n[Architextures](https://architextures.org/): texturen voor gevels en vloeren.\n[Pimp My Drawing](https://pimpmydrawing.com/), [Skalgubbar](https://skalgubbar.se/) en [MrCutout](https://www.mrcutout.com/): silhouetten van mensen.\n[The Noun Project](https://thenounproject.com/): iconen en symbolen.\n[Coolors](https://coolors.co/): kleurenpaletten.\n[Fontjoy](https://fontjoy.com/): lettertypes combineren.\n[remove.bg](https://www.remove.bg/upload): achtergrond uit een foto halen.\n[Smallpdf](https://smallpdf.com/): pdf's verkleinen en omzetten.\n\nEen deel komt uit de lijst met [nuttige links van Stylos](https://stylos.nl/nl/onderwijs/nuttige-links).",
+      "tekst_en": "Websites that come in handy for design and research.\n\n## References\n[ArchDaily](https://www.archdaily.com): projects and references from around the world.\n[Dezeen](https://www.dezeen.com): architecture and design news.\n[Divisare](https://divisare.com): well-photographed projects, browsable by office.\n\n## Maps and base drawings\n[Cadmapper](https://cadmapper.com/): maps of any place as a CAD file.\n[AHN viewer](https://www.ahn.nl/ahn-viewer): elevation maps of the Netherlands.\n[BAG Viewer](https://bagviewer.kadaster.nl): construction year, floor area and use of every building in the Netherlands.\n[Topotijdreis](https://www.topotijdreis.nl): topographic maps of the Netherlands through the years.\n[OpenStreetMap](https://www.openstreetmap.org): a free map of the whole world.\n[Snazzy Maps](https://snazzymaps.com/explore): simplified map styles for presentations.\n[Sun map](https://www.arcgis.com/home/webscene/viewer.html?layers=2c5ed17fcdd5491dafb293cdfb7bc141): sun and shadow in 3D.\n\n## Design and analysis\n[Autodesk Forma](https://www.autodesk.com/products/forma): quick sun, wind and noise analyses for early designs.\n[Joost de Vree](https://www.joostdevree.nl/index.shtml): building terms explained (in Dutch).\n[Bouwzo](https://bouwzo.nl/search?DocumentType=Referentiedetail): reference construction details.\n\n## Presentation\n[Architextures](https://architextures.org/): textures for facades and floors.\n[Pimp My Drawing](https://pimpmydrawing.com/), [Skalgubbar](https://skalgubbar.se/) and [MrCutout](https://www.mrcutout.com/): people silhouettes.\n[The Noun Project](https://thenounproject.com/): icons and symbols.\n[Coolors](https://coolors.co/): colour palettes.\n[Fontjoy](https://fontjoy.com/): font pairing.\n[remove.bg](https://www.remove.bg/upload): remove the background from a photo.\n[Smallpdf](https://smallpdf.com/): compress and convert PDFs.\n\nPartly taken from the [useful links of Stylos](https://stylos.nl/nl/onderwijs/nuttige-links)."
     },
     {
       "datum": "2026-11-20",
-      "titel": "Kopenhagen in kaart",
-      "titel_en": "Copenhagen on the map",
+      "titel": "Google Maps-lijsten",
+      "titel_en": "Google Maps lists",
       "door": [
         "Thorben",
         "Beau"
       ],
-      "tekst": "Onze Google Maps-lijsten voor Kopenhagen, per onderwerp.\n\n[Must-see voor een weekend Kopenhagen](https://maps.app.goo.gl/9XoznYVcd2LijEwn6)\n[Musea](https://maps.app.goo.gl/cSd7e17mEzu1oWSg7)\n[Bars en cafés](https://maps.app.goo.gl/yJrbFbGSk3Z6ZRzv7)\n[Winkels](https://maps.app.goo.gl/SzUzZkpgbBiDq3qp7)\n[Bakkerijen en koffie](https://maps.app.goo.gl/ZznCzQXPciiaDJRU8)\n[Uitgaan](https://maps.app.goo.gl/k7tEG2AUrA6RQvjA7)\n[Restaurants](https://maps.app.goo.gl/75EdfWCpbrMxDwNt5)",
-      "tekst_en": "Our Google Maps lists for Copenhagen, by topic.\n\n[Must-sees for a weekend in Copenhagen](https://maps.app.goo.gl/9XoznYVcd2LijEwn6)\n[Museums](https://maps.app.goo.gl/cSd7e17mEzu1oWSg7)\n[Bars and cafés](https://maps.app.goo.gl/yJrbFbGSk3Z6ZRzv7)\n[Shops](https://maps.app.goo.gl/SzUzZkpgbBiDq3qp7)\n[Bakeries and coffee](https://maps.app.goo.gl/ZznCzQXPciiaDJRU8)\n[Going out](https://maps.app.goo.gl/k7tEG2AUrA6RQvjA7)\n[Restaurants](https://maps.app.goo.gl/75EdfWCpbrMxDwNt5)",
-      "link": "https://maps.app.goo.gl/9XoznYVcd2LijEwn6"
-    },
-    {
-      "datum": "2026-11-20",
-      "titel": "Berlijn in kaart",
-      "titel_en": "Berlin on the map",
-      "door": [
-        "Beau"
-      ],
-      "tekst": "Beau's Google Maps-lijst voor Berlijn: 41 plekken om te eten, te drinken en te zien.\n\n[Open de lijst in Google Maps](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)",
-      "tekst_en": "Beau's Google Maps list for Berlin: 41 places to eat, drink and see.\n\n[Open the list in Google Maps](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)",
-      "link": "https://maps.app.goo.gl/XXTqDtYyyjNCgukA9"
-    },
-    {
-      "datum": "2026-11-20",
-      "titel": "Brussel in kaart",
-      "titel_en": "Brussels on the map",
-      "door": [
-        "Beau"
-      ],
-      "tekst": "Beau's Google Maps-lijst voor Brussel: 28 plekken om te eten, te drinken en te zien.\n\n[Open de lijst in Google Maps](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)",
-      "tekst_en": "Beau's Google Maps list for Brussels: 28 places to eat, drink and see.\n\n[Open the list in Google Maps](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)",
-      "link": "https://maps.app.goo.gl/K3TcLrRfDK25J9uD6"
-    },
-    {
-      "datum": "2026-11-20",
-      "titel": "Griekenland in kaart",
-      "titel_en": "Greece on the map",
-      "door": [
-        "Beau"
-      ],
-      "tekst": "Beau's Google Maps-lijst voor Griekenland: 14 plekken om te eten, te drinken en te zien.\n\n[Open de lijst in Google Maps](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)",
-      "tekst_en": "Beau's Google Maps list for Greece: 14 places to eat, drink and see.\n\n[Open the list in Google Maps](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)",
-      "link": "https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9"
+      "tekst": "Onze Google Maps-lijsten, per stad.\n\n## Kopenhagen\n[Must-see voor een weekend](https://maps.app.goo.gl/9XoznYVcd2LijEwn6)\n[Musea](https://maps.app.goo.gl/cSd7e17mEzu1oWSg7)\n[Bars en cafés](https://maps.app.goo.gl/yJrbFbGSk3Z6ZRzv7)\n[Winkels](https://maps.app.goo.gl/SzUzZkpgbBiDq3qp7)\n[Bakkerijen en koffie](https://maps.app.goo.gl/ZznCzQXPciiaDJRU8)\n[Uitgaan](https://maps.app.goo.gl/k7tEG2AUrA6RQvjA7)\n[Restaurants](https://maps.app.goo.gl/75EdfWCpbrMxDwNt5)\n\n## Berlijn\n[Berlijn, 41 plekken](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)\n\n## Brussel\n[Brussel, 28 plekken](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)\n\n## Griekenland\n[Griekenland, 14 plekken](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)",
+      "tekst_en": "Our Google Maps lists, by city.\n\n## Copenhagen\n[Must-sees for a weekend](https://maps.app.goo.gl/9XoznYVcd2LijEwn6)\n[Museums](https://maps.app.goo.gl/cSd7e17mEzu1oWSg7)\n[Bars and cafés](https://maps.app.goo.gl/yJrbFbGSk3Z6ZRzv7)\n[Shops](https://maps.app.goo.gl/SzUzZkpgbBiDq3qp7)\n[Bakeries and coffee](https://maps.app.goo.gl/ZznCzQXPciiaDJRU8)\n[Going out](https://maps.app.goo.gl/k7tEG2AUrA6RQvjA7)\n[Restaurants](https://maps.app.goo.gl/75EdfWCpbrMxDwNt5)\n\n## Berlin\n[Berlin, 41 places](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)\n\n## Brussels\n[Brussels, 28 places](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)\n\n## Greece\n[Greece, 14 places](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)"
     },
     {
       "datum": "2026-11-20",

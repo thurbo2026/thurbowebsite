@@ -15,7 +15,8 @@ const abs = u => !u ? "" : /^https?:/.test(u) ? u : BASIS + (u.startsWith("/") ?
 /* tekst met [woord](link) en witregels naar eenvoudige HTML */
 const rijk = s => esc(s || "")
   .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g, '<a href="$2">$1</a>')
-  .split(/\n{2,}/).map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
+  .replace(/^## (.+)$/gm, "\n\n<h3>$1</h3>\n\n")
+  .split(/\n{2,}/).filter(p => p.trim()).map(p => p.startsWith("<h3>") ? p : `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
 
 /* projectnummer op datum: het oudste project is 01, zonder datum achteraan (zelfde regel als in index.html) */
 function datumVan(p) {
