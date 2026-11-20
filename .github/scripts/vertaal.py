@@ -1,4 +1,8 @@
-"""Vult lege Engelse velden (..._en) in content/*.json automatisch met een vertaling via DeepL.
+"""Vult lege Engelse velden (..._en) in content/*.json met een vertaling.
+
+Elke week controleert Claude de site (geplande taak): python3 .github/scripts/vertaal.py --lijst geeft de teksten
+die een vertaling nodig hebben; python3 .github/scripts/vertaal.py --zet vertalingen.json zet ze erin.
+Daarnaast kan het automatisch via DeepL:
 
 - Alleen als de GitHub-secret DEEPL_KEY is ingesteld; anders doet dit niets.
 - Een Engels veld dat jullie zelf hebben ingevuld blijft staan.
@@ -10,7 +14,8 @@ import hashlib, html, json, os, re, sys, urllib.request
 VELDEN = {"titel", "plaats", "locatie", "opgave", "type", "status", "tekst", "bijschrift", "kop"}
 CACHE = ".github/scripts/vertalingen.json"
 KEY = os.environ.get("DEEPL_KEY", "").strip()
-if not KEY:
+HANDMATIG = "--lijst" in sys.argv or "--zet" in sys.argv
+if not KEY and not HANDMATIG:
     print("Geen DEEPL_KEY ingesteld: niets vertaald."); sys.exit(0)
 API = "https://api-free.deepl.com/v2/translate" if KEY.endswith(":fx") else "https://api.deepl.com/v2/translate"
 
@@ -52,6 +57,7 @@ def langs(o, taken):
     if isinstance(o, list):
         for x in o: langs(x, taken)
     elif isinstance(o, dict):
+        if o.get("concept"): return  # concepten pas vertalen als ze online gaan
         for k in list(o):
             v = o[k]
             if k in VELDEN and isinstance(v, str) and v.strip():
@@ -65,7 +71,16 @@ data = {f: json.load(open(os.path.join("content", f))) for f in bestanden}
 taken = []
 for d in data.values(): langs(d, taken)
 nieuw = [o[k] for o, k in taken if h(o[k]) not in cache]
-if nieuw:
+if "--lijst" in sys.argv:
+    # voor de wekelijkse controle door Claude: welke Nederlandse teksten nog een (nieuwe) Engelse vertaling nodig hebben
+    print(json.dumps({h(t): t for t in dict.fromkeys(nieuw)}, ensure_ascii=False, indent=1)); sys.exit(0)
+if "--zet" in sys.argv:
+    # vertalingen inlezen: een JSON-bestand {sleutel uit --lijst: Engelse tekst}
+    cache.update(json.load(open(sys.argv[sys.argv.index("--zet") + 1])))
+    taken = [(o, k) for o, k in taken if h(o[k]) in cache]
+    nieuw = []
+
+if nieuw and KEY:
     uniek = list(dict.fromkeys(nieuw))
     for nl, en in zip(uniek, vertaal(uniek)): cache[h(nl)] = en
 for o, k in taken: o[k + "_en"] = cache[h(o[k])]

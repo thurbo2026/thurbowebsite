@@ -32,7 +32,9 @@ Het logo is THURBO in Helvetica Neue Medium met een streep eronder. Maak de PNG'
 
 ## Vertalen
 
-Laat je een veld met EN leeg, dan vult GitHub het na het opslaan vanzelf met een vertaling via DeepL. Daarvoor moet in GitHub onder Settings → Secrets and variables → Actions een secret `DEEPL_KEY` staan (gratis sleutel via deepl.com/pro-api). Een Engelse tekst die je zelf invult, blijft staan.
+Laat je een veld met EN leeg, dan wordt het vertaald. Elke zondagavond controleert Claude de site (een geplande taak): lege Engelse velden en Engelse teksten waarvan het Nederlands is veranderd, krijgen een nieuwe vertaling. Een Engelse tekst die je zelf invult, blijft staan. Concepten worden pas vertaald als ze online gaan.
+
+Hulpmiddel: `python3 .github/scripts/vertaal.py --lijst` toont wat vertaald moet worden; `--zet bestand.json` zet de vertalingen erin. Optioneel kan het ook direct na opslaan via DeepL (secret `DEEPL_KEY`).
 
 ## Online zetten
 

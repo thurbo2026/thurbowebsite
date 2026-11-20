@@ -367,7 +367,9 @@
           "bijschrift": "Geveldetails",
           "bijschrift_en": "Facade details"
         }
-      ]
+      ],
+      "plaats_en": "Bleiswijk",
+      "locatie_en": "Bleiswijk, NL"
     },
     {
       "nummer": "08",
@@ -432,7 +434,9 @@
           "bijschrift": "Gevelaanzicht gastenhuis 1:150, eigen werk",
           "bijschrift_en": "Elevation guest house 1:150, own work"
         }
-      ]
+      ],
+      "plaats_en": "Lefkada",
+      "locatie_en": "Agios Nikitas, Lefkada, GR"
     },
     {
       "nummer": "03",
@@ -582,7 +586,9 @@
           "bijschrift": "Geveldetail",
           "bijschrift_en": "Facade detail"
         }
-      ]
+      ],
+      "plaats_en": "Eindhoven",
+      "locatie_en": "Strijp-S, Eindhoven, NL"
     },
     {
       "nummer": "01",
@@ -688,7 +694,10 @@
           "bijschrift": "Aanzicht en doorsnede oost",
           "bijschrift_en": "East elevation and section"
         }
-      ]
+      ],
+      "plaats_en": "Sitlisalp",
+      "locatie_en": "Sitlisalp, CH",
+      "opgave_en": "Remoteness and Identity, ETH Zürich"
     },
     {
       "nummer": "10",
@@ -764,7 +773,8 @@
           "bijschrift": "Collage, Mill on a Hill",
           "bijschrift_en": "Collage, Mill on a Hill"
         }
-      ]
+      ],
+      "plaats_en": "Lost City, Mill on a Hill"
     },
     {
       "nummer": "13",
@@ -885,7 +895,8 @@
           "bijschrift": "Maquette, doorkijk",
           "bijschrift_en": "Model, view through"
         }
-      ]
+      ],
+      "opgave_en": "New Generation Research Center"
     }
   ]
 }

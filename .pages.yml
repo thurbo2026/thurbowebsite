@@ -1,6 +1,6 @@
 # Instellingen voor het beheerscherm (Pages CMS, pagescms.org). Snel naar het beheerscherm: thurbo.nl/admin
 # De onderdelen staan in dezelfde volgorde als het menu op de site.
-# Velden met "EN" zijn de Engelse versie. Laat je die leeg, dan vult GitHub ze na het opslaan vanzelf met een vertaling (DeepL).
+# Velden met "EN" zijn de Engelse versie. Laat je die leeg, dan vult Claude ze elke zondagavond met een vertaling.
 # Een Engelse tekst die je zelf invult, blijft staan.
 # Links in teksten: [woord](https://adres). Losse https-adressen en e-mailadressen worden vanzelf klikbaar.
 media:
