@@ -164,6 +164,7 @@
       "fotos": [
         {
           "beeld": "/img/crb-binnentuin.jpg",
+          "bijsnijden": "0 3.8 99.9 100",
           "naast_omschrijving": false,
           "bijschrift": "Sfeerimpressie binnentuin",
           "bijschrift_en": "Atmosphere, inner garden"
