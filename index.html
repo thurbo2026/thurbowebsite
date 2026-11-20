@@ -566,7 +566,7 @@ const catNaam=c=>T[lang].cats[c]||c;
 const L=(o,k)=>(lang==="en"&&o[k+"_en"])?o[k+"_en"]:(o[k]||"");
 
 const DELEN=['projecten','ander-werk','nieuws','studio','voorwaarden','instellingen'];
-Promise.all(DELEN.map(n=>fetch(`/content/${n}.json`,{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({})))).then(ds=>Object.assign({},...ds)).then(d=>{
+Promise.all(DELEN.map(n=>fetch(`/content/${n}.json`,{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({})))).then(ds=>Object.assign({},...ds)).then(d=>{snijAlles(d);
   const projecten=nummer((d.projecten||[]).map(p=>({...p,cat:p.categorie,door:p.ontworpen_door||[],
       fotos:(p.fotos||[]).filter(f=>f.beeld),tekeningen:(p.tekeningen||[]).filter(f=>f.beeld)})));
   SITE={
@@ -604,7 +604,7 @@ const puntjes=()=>""; /* de ronde puntjes zijn op verzoek weggehaald */
 function nummer(P){
   const sleutel=p=>datumVan(p);
   const rang=P.map((p,i)=>({p,i,d:sleutel(p),oud:parseInt(p.nummer,10)||999}))
-    .sort((a,b)=>(!a.d)-(!b.d)||(a.d<b.d?-1:a.d>b.d?1:0)||a.oud-b.oud||a.i-b.i);
+    .sort((a,b)=>(!a.d)-(!b.d)||(a.d<b.d?-1:a.d>b.d?1:0)||a.oud-b.oud||String(a.p.titel).localeCompare(String(b.p.titel),"nl"));
   rang.forEach((x,k)=>x.p.nr=String(k+1).padStart(2,"0"));
   return P;
 }
@@ -648,7 +648,17 @@ const rijk=s=>{
 
 /* ===== adressen: elke pagina heeft een eigen URL (/projecten, /studio, /projecten/04-titel) ===== */
 /* kleine versie van een beeld voor overzichten (img/klein/, wordt automatisch gemaakt); valt terug op het origineel */
-const klein=u=>/^\/img\/[^/]+\.(jpe?g|png|webp)$/i.test(u||"")?u.replace(/^\/img\/([^/]+)\.\w+$/,"/img/klein/$1.jpg"):u;
+const klein=u=>/^\/img\/(bijgesneden\/)?[^/]+\.(jpe?g|png|webp)$/i.test(u||"")?u.replace(/^\/img\/((?:bijgesneden\/)?[^/]+)\.\w+$/,"/img/klein/$1.jpg"):u;
+/* bijsnijden: code 'links boven rechts onder' (procenten) uit thurbo.nl/bijsnijden; GitHub maakt het bestand (zelfde naam als .github/scripts/bijsnijden.py) */
+const snijCode=s=>{const n=String(s||"").match(/-?\d+(?:[.,]\d+)?/g);if(!n||n.length!==4)return null;
+  const v=n.map(x=>Math.min(100,Math.max(0,Math.round(parseFloat(x.replace(",","."))*10)/10)));
+  return v[2]-v[0]<1||v[3]-v[1]<1||v.join()==="0,0,100,100"?null:v};
+const bijgesneden=(u,c)=>{const v=snijCode(c),m=String(u||"").match(/^\/img\/([^/]+)\.(\w+)$/);return v&&m?`/img/bijgesneden/${m[1]}_${v.map(x=>String(x).replace(".","p")).join("-")}.${m[2].toLowerCase()}`:u};
+const TERUG={}; /* bijgesneden bestand nog niet klaar: toon het origineel */
+document.addEventListener('error',e=>{const b=e.target;if(b.tagName!=='IMG')return;const p=new URL(b.src,location.href).pathname,o=TERUG[p];if(o){delete TERUG[p];b.src=o}},true);
+function snijAlles(o){if(Array.isArray(o))o.forEach(snijAlles);else if(o&&typeof o==="object"){
+  if(o.beeld&&o.bijsnijden){const n=bijgesneden(o.beeld,o.bijsnijden);if(n!==o.beeld){TERUG[n]=o.beeld;o.origineel=o.beeld;o.beeld=n}}
+  Object.values(o).forEach(snijAlles)}}
 const kleinImg=(u,alt,extra="")=>`<img src="${esc(klein(u))}" alt="${esc(alt||"")}" loading="lazy" decoding="async"${klein(u)!==u?` onerror="this.onerror=null;this.src='${esc(u)}'"`:""}${extra}>`;
 const VAST=["projecten","studies","studio","contact","nieuws","zoek","ander-werk","voorwaarden"];
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -1106,7 +1116,11 @@ function cel(p,extra){
     <div class="thumb">${p.fotos[0]?`${kleinImg(p.fotos[0].beeld,[L(p,"titel"),L(p.fotos[0],"bijschrift")].filter(Boolean).join(" – "),focusAttr(p.fotos[0]))}`:""}</div>
     <div class="ttl"><strong>${esc(L(p,"titel"))}</strong>${L(p,"plaats")?`<span class="loc">${esc(L(p,"plaats"))}</span>`:""}${extra?`<div class="treffer">${extra}</div>`:""}</div></a>`;
 }
-function feit(k,v,link){return v?`<dt>${k}</dt><dd>${link?ext(link,v):esc(v)}</dd>`:""}
+/* een feit; met [naam](https://...) in de tekst kan elke naam een eigen link krijgen, anders linkt het veld Website het geheel */
+const LINKJE=/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+function feit(k,v,link){if(!v)return "";const s=String(v);
+  const dd=LINKJE.test(s)?s.split(LINKJE).map((x,i)=>i%3===0?esc(x):i%3===1?ext(s.split(LINKJE)[i+1],x):"").join(""):link?ext(link,s):esc(s);LINKJE.lastIndex=0;
+  return `<dt>${k}</dt><dd>${dd}</dd>`}
 function project(nr){
   const p=projVan(nr); if(!p) return niets();
   cur=p;

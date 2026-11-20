@@ -164,10 +164,10 @@
       "fotos": [
         {
           "beeld": "/img/crb-binnentuin.jpg",
-          "uitsnede": "Liggend 4:3",
           "naast_omschrijving": false,
           "bijschrift": "Sfeerimpressie binnentuin",
-          "bijschrift_en": "Atmosphere, inner garden"
+          "bijschrift_en": "Atmosphere, inner garden",
+          "bijsnijden": "0 3.1 100 100"
         },
         {
           "beeld": "/img/crb-ontvangst.jpg",
@@ -562,8 +562,8 @@
       "type_en": "Housing, transformation",
       "status": "Studieproject",
       "status_en": "Study project",
-      "bureau_of_begeleiding": "Nolly Vos (Powerhouse Company) & Martijn van den Ban",
-      "bureau_link": "www.powerhouse-company.com",
+      "bureau_of_begeleiding": "Nolly Vos ([Powerhouse Company](https://www.powerhouse-company.com)) & Martijn van den Ban",
+      "bureau_link": "",
       "ontwerpteam": "Beau Schellevis",
       "categorie": "Studie",
       "lat": "52.0869",

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>THURBO – Bijsnijden</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Bijsnijdtool voor het beheerscherm: kies een beeld, sleep een kader, kopieer de code en plak die in het veld Bijsnijden in Pages CMS. */
+@font-face{font-family:"THURBO Helvetica";font-weight:400;font-display:swap;src:local("Helvetica Neue"),local("HelveticaNeue"),local("Helvetica"),url(/fonts/heros-regular.woff) format("woff")}
+:root{--bg:#fbfbf9;--fg:#242424;--muted:#6d6d68;--hair:#dcdcd5;--sans:"THURBO Helvetica","Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.45 var(--sans)}
+button,select{font:inherit;color:inherit}
+header{display:flex;align-items:baseline;gap:18px;padding:18px 28px;border-bottom:1px solid var(--hair)}
+header a{color:inherit}
+.logo{font-size:24px;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+header .uitleg{color:var(--muted);font-size:13px}
+main{padding:24px 28px 60px}
+h1{font-weight:400;font-size:24px;margin:0 0 6px}
+.stap{color:var(--muted);font-size:13px;margin:0 0 18px}
+select{border:1px solid var(--fg);background:var(--bg);padding:8px 10px;min-width:280px;border-radius:0}
+.raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:22px}
+.raster button{border:1px solid var(--hair);background:none;padding:8px;text-align:left;cursor:pointer}
+.raster button:hover,.raster button:focus-visible{border-color:var(--fg);outline:none}
+.raster img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#efefea}
+.raster span{display:block;font-size:12px;color:var(--muted);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.raster .gezet{color:var(--fg)}
+.werk{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start;margin-top:10px}
+@media (max-width:860px){.werk{grid-template-columns:1fr}}
+.vlak{position:relative;overflow:hidden;user-select:none;touch-action:none;background:#efefea;display:inline-block;max-width:100%}
+.vlak img{display:block;max-width:100%;max-height:72vh;pointer-events:none}
+.kader{position:absolute;outline:1px solid #fff;box-shadow:0 0 0 9999px rgba(36,36,36,.55);cursor:move}
+.kader::before,.kader::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent calc(33.33% - .5px),rgba(255,255,255,.5) calc(33.33% - .5px),rgba(255,255,255,.5) calc(33.33% + .5px),transparent calc(33.33% + .5px),transparent calc(66.66% - .5px),rgba(255,255,255,.5) calc(66.66% - .5px),rgba(255,255,255,.5) calc(66.66% + .5px),transparent calc(66.66% + .5px))}
+.kader::after{background:linear-gradient(180deg,transparent calc(33.33% - .5px),rgba(255,255,255,.5) calc(33.33% - .5px),rgba(255,255,255,.5) calc(33.33% + .5px),transparent calc(33.33% + .5px),transparent calc(66.66% - .5px),rgba(255,255,255,.5) calc(66.66% - .5px),rgba(255,255,255,.5) calc(66.66% + .5px),transparent calc(66.66% + .5px));transform:none}
+.greep{position:absolute;width:16px;height:16px;background:#fff;border:1px solid var(--fg)}
+.greep[data-g="nw"]{left:0;top:0;cursor:nwse-resize}.greep[data-g="ne"]{right:0;top:0;cursor:nesw-resize}
+.greep[data-g="sw"]{left:0;bottom:0;cursor:nesw-resize}.greep[data-g="se"]{right:0;bottom:0;cursor:nwse-resize}
+.greep[data-g="n"]{left:calc(50% - 8px);top:0;cursor:ns-resize}.greep[data-g="s"]{left:calc(50% - 8px);bottom:0;cursor:ns-resize}
+.greep[data-g="w"]{top:calc(50% - 8px);left:0;cursor:ew-resize}.greep[data-g="e"]{top:calc(50% - 8px);right:0;cursor:ew-resize}
+.zij h2{font-weight:400;font-size:17px;margin:0 0 4px}
+.zij .bij{color:var(--muted);font-size:13px;margin:0 0 18px}
+.lbl{font-size:13px;color:var(--muted);margin:16px 0 6px}
+.knoppen{display:flex;flex-wrap:wrap;gap:6px}
+.knoppen button{border:1px solid var(--hair);background:none;padding:5px 9px;cursor:pointer;font-size:13px}
+.knoppen button[aria-pressed="true"]{border-color:var(--fg);background:var(--fg);color:var(--bg)}
+.code{font:400 17px/1.3 ui-monospace,Menlo,Consolas,monospace;border:1px solid var(--fg);padding:10px 12px;margin:6px 0 0;word-break:break-all}
+.groot{display:block;width:100%;margin-top:10px;border:1px solid var(--fg);background:var(--fg);color:var(--bg);padding:11px;cursor:pointer;font-size:15px}
+.klein{border:0;background:none;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:13px;color:var(--muted)}
+.maat{font-size:13px;color:var(--muted);margin-top:8px}
+.hoe{font-size:13px;line-height:1.5;margin-top:22px;padding-top:14px;border-top:1px solid var(--hair)}
+.hoe ol{margin:6px 0 0;padding-left:18px}
+.hoe b{font-weight:400;text-decoration:underline;text-underline-offset:3px}
+.toast{position:fixed;left:50%;bottom:28px;translate:-50% 0;background:var(--fg);color:var(--bg);padding:10px 16px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.aan{opacity:1}
+</style>
+</head>
+<body>
+<header><a class="logo" href="/">THURBO</a><span>Bijsnijden</span><span class="uitleg">hulpmiddel bij het beheerscherm · <a href="/admin">naar het beheerscherm</a></span></header>
+<main id="m"><p class="stap">Laden…</p></main>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $=s=>document.querySelector(s), m=$("#m");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const klein=u=>/^\/img\/[^/]+\.(jpe?g|png|webp)$/i.test(u||"")?u.replace(/^\/img\/([^/]+)\.\w+$/,"/img/klein/$1.jpg"):u;
+const toast=t=>{const e=$("#toast");e.textContent=t;e.classList.add("aan");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("aan"),2200)};
+const snijCode=s=>{const n=String(s||"").match(/-?\d+(?:[.,]\d+)?/g);if(!n||n.length!==4)return null;return n.map(x=>Math.min(100,Math.max(0,parseFloat(x.replace(",",".")))))};
+const r1=x=>Math.round(x*10)/10;
+let BRONNEN=[], keuze=null;
+
+Promise.all(["projecten","ander-werk","nieuws"].map(n=>fetch(`/content/${n}.json`,{cache:"no-cache"}).then(r=>r.ok?r.json():{}).catch(()=>({})))).then(([p,a,n])=>{
+  for(const x of p.projecten||[]) BRONNEN.push({naam:x.titel,pad:["1. Projecten",x.titel],lijsten:[["Foto's",x.fotos||[]],["Tekeningen",x.tekeningen||[]]]});
+  if((a.andere_werken||[]).length) BRONNEN.push({naam:"Ander Werk",pad:["2. Ander Werk"],lijsten:[["Beelden",a.andere_werken]]});
+  for(const [k,l] of [["Eigen artikelen","eigen_artikelen"],["Nieuwsberichten","nieuwsberichten"]]) for(const x of n[l]||[]) if((x.beelden||[]).length) BRONNEN.push({naam:`Nieuws: ${x.titel}`,pad:["3. Nieuws",k,x.titel],lijsten:[["Beelden",x.beelden]]});
+  const q=new URLSearchParams(location.search).get("p");
+  kiesLijst(q&&BRONNEN[+q]?+q:0);
+});
+
+function kiesLijst(i){
+  keuze=null;
+  m.innerHTML=`<h1>Bijsnijden</h1><p class="stap">1. Kies een project &nbsp;·&nbsp; 2. klik op een afbeelding &nbsp;·&nbsp; 3. sleep het kader &nbsp;·&nbsp; 4. kopieer de code en plak hem in het beheerscherm</p>
+    <select id="kies" aria-label="Project">${BRONNEN.map((b,j)=>`<option value="${j}" ${j===i?"selected":""}>${esc(b.naam)}</option>`).join("")}</select>
+    ${BRONNEN[i].lijsten.filter(([,l])=>l.length).map(([kop,l],li)=>`<div class="lbl" style="margin-top:22px">${esc(kop)}</div><div class="raster" style="margin-top:8px">${l.map((f,k)=>f.beeld?`<button data-l="${li}" data-k="${k}"><img src="${esc(klein(f.beeld))}" onerror="this.onerror=null;this.src='${esc(f.beeld)}'" alt="" loading="lazy"><span class="${f.bijsnijden?"gezet":""}">${k+1}. ${esc(f.bijschrift||f.titel||f.beeld.split("/").pop())}${f.bijsnijden?" · bijgesneden":""}</span></button>`:"").join("")}</div>`).join("")}`;
+  $("#kies").onchange=e=>{history.replaceState(null,"","?p="+e.target.value);kiesLijst(+e.target.value)};
+  m.querySelectorAll(".raster button").forEach(b=>b.onclick=()=>open(i,+b.dataset.l,+b.dataset.k));
+}
+
+const RATIO=[["Vrij",0],["Origineel","o"],["1:1",1],["4:3",4/3],["3:2",3/2],["16:9",16/9],["2:1",2],["4:5",4/5],["2:3",2/3]];
+function open(bi,li,k){
+  const B=BRONNEN[bi],[lkop,lijst]=B.lijsten.filter(([,l])=>l.length)[li],f=lijst[k];
+  const c=snijCode(f.bijsnijden)||[0,0,100,100];
+  keuze={x:c[0],y:c[1],w:c[2]-c[0],h:c[3]-c[1],ratio:0};
+  m.innerHTML=`<p class="stap"><button class="klein" id="terug">← terug naar ${esc(B.naam)}</button></p>
+  <div class="werk"><div><div class="vlak" id="vlak"><img id="img" src="${esc(f.beeld)}" alt=""><div class="kader" id="kader">${["nw","n","ne","e","se","s","sw","w"].map(g=>`<span class="greep" data-g="${g}"></span>`).join("")}</div></div></div>
+  <div class="zij"><h2>${esc(f.bijschrift||f.titel||"Afbeelding")}</h2><p class="bij">${esc(B.naam)} · ${esc(lkop)} · nr. ${k+1}</p>
+    <div class="lbl">Verhouding</div><div class="knoppen" id="ratio">${RATIO.map(([n],j)=>`<button data-r="${j}" aria-pressed="${j===0}">${n}</button>`).join("")}</div>
+    <div class="lbl">Code voor het veld Bijsnijden</div><div class="code" id="code"></div><div class="maat" id="maat"></div>
+    <button class="groot" id="kopieer">Kopieer code</button>
+    <p style="margin:10px 0 0;display:flex;gap:16px"><button class="klein" id="heel">Hele beeld (niet bijsnijden)</button><button class="klein" id="wit">Witte randen weg</button></p>
+    <div class="hoe">Zo zet je het online:<ol>
+      <li>Open <a href="/admin" target="_blank">het beheerscherm</a> → <b>${B.pad.map(esc).join("</b> → <b>")}</b></li>
+      <li>Klap bij <b>${esc(lkop)}</b> afbeelding <b>${k+1}</b> open${f.bijschrift?` (“${esc(f.bijschrift)}”)`:""}</li>
+      <li>Plak de code in het veld <b>Bijsnijden</b> en klik op <b>Save</b></li>
+      <li>Na ±5 minuten staat de bijgesneden versie op de site. Het origineel blijft bewaard: maak het veld leeg om terug te gaan.</li></ol></div>
+  </div></div>`;
+  $("#terug").onclick=()=>kiesLijst(bi);
+  const img=$("#img"),kader=$("#kader"),vlak=$("#vlak");
+  const nat=()=>img.naturalWidth/img.naturalHeight;
+  const teken=()=>{const v=keuze;kader.style.left=v.x+"%";kader.style.top=v.y+"%";kader.style.width=v.w+"%";kader.style.height=v.h+"%";
+    const code=[v.x,v.y,v.x+v.w,v.y+v.h].map(r1),heel=code.join()==="0,0,100,100";
+    $("#code").textContent=heel?"(leeg laten)":code.join(" ");
+    $("#maat").textContent=img.naturalWidth?`${Math.round(v.w/100*img.naturalWidth)} × ${Math.round(v.h/100*img.naturalHeight)} pixels`:"";
+    $("#kopieer").textContent=heel?"Niet bijsnijden: maak het veld leeg":"Kopieer code"};
+  img.onload=teken; if(img.complete) teken();
+  /* verhouding vastzetten: grootste kader met die verhouding, gecentreerd op het huidige */
+  const zetRatio=r=>{keuze.ratio=r;if(!r)return teken();const R=r==="o"?nat():r,a=R/nat();/* a = breedte%/hoogte% */
+    let w=keuze.w,h=w/a;if(h>100){h=100;w=h*a}if(w>100){w=100;h=w/a}
+    const cx=keuze.x+keuze.w/2,cy=keuze.y+keuze.h/2;keuze.w=w;keuze.h=h;keuze.x=Math.min(100-w,Math.max(0,cx-w/2));keuze.y=Math.min(100-h,Math.max(0,cy-h/2));teken()};
+  $("#ratio").onclick=e=>{const b=e.target.closest("button");if(!b)return;$("#ratio").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));zetRatio(RATIO[+b.dataset.r][1])};
+  $("#heel").onclick=()=>{Object.assign(keuze,{x:0,y:0,w:100,h:100});$("#ratio").querySelector('[data-r="0"]').click()};
+  $("#wit").onclick=()=>{/* zoek de rand waar het beeld niet meer (bijna) wit is */
+    const cv=document.createElement("canvas"),W=cv.width=Math.min(600,img.naturalWidth),H=cv.height=Math.round(W/nat()),g=cv.getContext("2d");g.drawImage(img,0,0,W,H);
+    const d=g.getImageData(0,0,W,H).data,wit=(x,y)=>{const i=(y*W+x)*4;return d[i]>242&&d[i+1]>242&&d[i+2]>242||d[i+3]<10};
+    const rij=y=>{let n=0;for(let x=0;x<W;x++)n+=wit(x,y);return n/W>.96},kol=x=>{let n=0;for(let y=0;y<H;y++)n+=wit(x,y);return n/H>.96};
+    let t=0,b=H-1,l=0,r=W-1;while(t<b&&rij(t))t++;while(b>t&&rij(b))b--;while(l<r&&kol(l))l++;while(r>l&&kol(r))r--;
+    Object.assign(keuze,{x:l/W*100,y:t/H*100,w:(r+1-l)/W*100,h:(b+1-t)/H*100});$("#ratio").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.r==="0"));keuze.ratio=0;teken();toast("Witte randen weggesneden")};
+  $("#kopieer").onclick=async()=>{const t=$("#code").textContent;if(t.startsWith("("))return toast("Maak het veld Bijsnijden leeg in het beheerscherm");
+    try{await navigator.clipboard.writeText(t);toast("Gekopieerd: "+t)}catch(e){const s=getSelection(),r=document.createRange();r.selectNodeContents($("#code"));s.removeAllRanges();s.addRange(r);toast("Selecteer en kopieer met Cmd/Ctrl+C")}};
+  /* slepen en vergroten */
+  let sl=null;
+  vlak.addEventListener("pointerdown",e=>{const R=vlak.getBoundingClientRect(),g=e.target.dataset.g||(e.target===kader?"m":"nieuw");
+    const px=(e.clientX-R.left)/R.width*100,py=(e.clientY-R.top)/R.height*100;
+    if(g==="nieuw"){Object.assign(keuze,{x:px,y:py,w:0,h:0});sl={g:"se",R,o:{...keuze},px,py}}else sl={g,R,o:{...keuze},px,py};
+    vlak.setPointerCapture(e.pointerId);e.preventDefault()});
+  vlak.addEventListener("pointermove",e=>{if(!sl)return;const {R,o,g}=sl,dx=(e.clientX-R.left)/R.width*100-sl.px,dy=(e.clientY-R.top)/R.height*100-sl.py;
+    let {x,y,w,h}=o;
+    if(g==="m"){x=Math.min(100-w,Math.max(0,x+dx));y=Math.min(100-h,Math.max(0,y+dy))}
+    else{let x2=x+w,y2=y+h;if(g.includes("w"))x=Math.min(x2-1,Math.max(0,x+dx));if(g.includes("e"))x2=Math.max(x+1,Math.min(100,x2+dx));
+      if(g.includes("n"))y=Math.min(y2-1,Math.max(0,y+dy));if(g.includes("s"))y2=Math.max(y+1,Math.min(100,y2+dy));w=x2-x;h=y2-y;
+      if(keuze.ratio){const a=(keuze.ratio==="o"?nat():keuze.ratio)/nat();
+        if(g==="n"||g==="s"){w=h*a;if(x+w>100){w=100-x;h=w/a}}else{h=w/a;if(g.includes("n"))y=y2-h;if(y<0){y=0;h=y2;w=h*a}if(y+h>100){h=100-y;w=h*a}if(g.includes("w"))x=x2-w}}}
+    Object.assign(keuze,{x,y,w,h});teken()});
+  const los=()=>{sl=null;if(keuze.w<1||keuze.h<1)Object.assign(keuze,{x:0,y:0,w:100,h:100});teken()};
+  vlak.addEventListener("pointerup",los);vlak.addEventListener("pointercancel",los);
+}
+</script>
+</body>
+</html>

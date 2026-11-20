@@ -43,7 +43,7 @@ content:
         - Thorben
         - Beau
     - name: datum
-      label: "Datum (jjjj-mm, bijv. 2024-06); bepaalt het projectnummer: het oudste project is 01; zonder datum komt het achteraan"
+      label: "Datum (jjjj-mm, bijv. 2024-06); bepaalt het projectnummer: het oudste project is 01; bij dezelfde maand telt de titel (A–Z); zonder datum komt het achteraan"
       type: string
     - name: fotos
       label: Foto's (de eerste is ook de miniatuur en het beeld in de slideshow)
@@ -56,34 +56,9 @@ content:
       - name: beeld
         label: Foto
         type: image
-      - name: uitsnede
-        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
-        type: select
-        options: &id001
-          values:
-          - Origineel
-          - Vierkant
-          - "Liggend 4:3"
-          - "Liggend 3:2"
-          - "Breed 16:9"
-          - "Panorama 2:1"
-          - "Panorama 3:1"
-          - "Staand 4:5"
-          - "Staand 2:3"
-      - name: focus
-        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
-        type: select
-        options: &id002
-          values:
-          - Midden
-          - Boven
-          - Onder
-          - Links
-          - Rechts
-          - Linksboven
-          - Rechtsboven
-          - Linksonder
-          - Rechtsonder
+      - name: bijsnijden
+        label: "Bijsnijden (plak hier de code uit thurbo.nl/bijsnijden; leeg = hele beeld)"
+        type: string
       - name: naast_omschrijving
         label: "Naast omschrijving (dit beeld komt rechts naast de tekst; kies er één per project, leeg = feiten links en tekst rechts)"
         type: boolean
@@ -104,14 +79,9 @@ content:
       - name: beeld
         label: Tekening
         type: image
-      - name: uitsnede
-        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
-        type: select
-        options: *id001
-      - name: focus
-        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
-        type: select
-        options: *id002
+      - name: bijsnijden
+        label: "Bijsnijden (plak hier de code uit thurbo.nl/bijsnijden; leeg = hele beeld)"
+        type: string
       - name: naast_omschrijving
         label: "Naast omschrijving (dit beeld komt rechts naast de tekst; kies er één per project, leeg = feiten links en tekst rechts)"
         type: boolean
@@ -155,10 +125,10 @@ content:
       label: "Status EN (leeg laten: wordt vanzelf vertaald)"
       type: string
     - name: bureau_of_begeleiding
-      label: Bureau of begeleiding
+      label: "Bureau of begeleiding (eigen link per naam: [Naam](https://...), bijv. [Powerhouse Company](https://www.powerhouse-company.com) en [Nolly Vos](https://...))"
       type: string
     - name: bureau_link
-      label: "Website bureau (https://...)"
+      label: "Website bureau (https://...; linkt het hele veld hierboven, alleen als daar geen [Naam](link) staat)"
       type: string
     - name: ontwerpteam
       label: Ontwerpteam (alle namen)
@@ -196,14 +166,9 @@ content:
       label: Beeld
       type: image
       required: true
-    - name: uitsnede
-      label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
-      type: select
-      options: *id001
-    - name: focus
-      label: Focus (welk deel blijft zichtbaar bij bijsnijden)
-      type: select
-      options: *id002
+    - name: bijsnijden
+      label: "Bijsnijden (plak hier de code uit thurbo.nl/bijsnijden; leeg = hele beeld)"
+      type: string
     - name: titel
       label: Titel
       type: string
@@ -279,14 +244,9 @@ content:
       - name: beeld
         label: Foto
         type: image
-      - name: uitsnede
-        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
-        type: select
-        options: *id001
-      - name: focus
-        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
-        type: select
-        options: *id002
+      - name: bijsnijden
+        label: "Bijsnijden (plak hier de code uit thurbo.nl/bijsnijden; leeg = hele beeld)"
+        type: string
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -345,14 +305,9 @@ content:
       - name: beeld
         label: Foto
         type: image
-      - name: uitsnede
-        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
-        type: select
-        options: *id001
-      - name: focus
-        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
-        type: select
-        options: *id002
+      - name: bijsnijden
+        label: "Bijsnijden (plak hier de code uit thurbo.nl/bijsnijden; leeg = hele beeld)"
+        type: string
       - name: bijschrift
         label: Bijschrift
         type: string
@@ -411,14 +366,9 @@ content:
       - name: beeld
         label: Foto
         type: image
-      - name: uitsnede
-        label: "Uitsnede (bijsnijden op de site; het origineel blijft heel)"
-        type: select
-        options: *id001
-      - name: focus
-        label: Focus (welk deel blijft zichtbaar bij bijsnijden)
-        type: select
-        options: *id002
+      - name: bijsnijden
+        label: "Bijsnijden (plak hier de code uit thurbo.nl/bijsnijden; leeg = hele beeld)"
+        type: string
       - name: bijschrift
         label: Bijschrift
         type: string

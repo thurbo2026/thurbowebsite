@@ -1,8 +1,9 @@
 # Draait vanzelf na elke wijziging (ook vanuit Pages CMS):
 # 0. vult lege Engelse velden met een vertaling (DeepL; alleen als de secret DEEPL_KEY is ingesteld)
-# 1. maakt kleine versies van nieuwe beelden voor de overzichten (img/klein/)
-# 2. zet naam en auteursrecht in de gegevens (EXIF, IPTC, XMP) van elk beeld dat dat nog niet heeft
-# 3. laat Bing en andere zoekmachines (IndexNow) weten dat er iets nieuw is
+# 1. snijdt beelden bij waarbij het veld Bijsnijden is ingevuld (img/bijgesneden/)
+# 2. maakt kleine versies van nieuwe beelden voor de overzichten (img/klein/)
+# 3. zet naam en auteursrecht in de gegevens (EXIF, IPTC, XMP) van elk beeld dat dat nog niet heeft
+# 4. laat Bing en andere zoekmachines (IndexNow) weten dat er iets nieuw is
 name: Na elke wijziging
 on:
   push:
@@ -19,18 +20,22 @@ jobs:
         env:
           DEEPL_KEY: ${{ secrets.DEEPL_KEY }}
         run: python3 .github/scripts/vertaal.py || echo "Vertalen mislukt; de site toont dan het Nederlands"
-      - name: Kleine beelden maken
+      - name: Beelden bijsnijden
         run: |
           pip install --quiet pillow
+          python3 .github/scripts/bijsnijden.py
+      - name: Kleine beelden maken
+        run: |
           python3 - <<'PY'
           from PIL import Image, ImageOps
           import os
-          os.makedirs('img/klein', exist_ok=True)
-          for f in sorted(os.listdir('img')):
-              p = os.path.join('img', f)
+          for bron, doel in (('img', 'img/klein'), ('img/bijgesneden', 'img/klein/bijgesneden')):
+            os.makedirs(doel, exist_ok=True)
+            for f in sorted(os.listdir(bron)):
+              p = os.path.join(bron, f)
               if not os.path.isfile(p) or not f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
                   continue
-              o = os.path.join('img/klein', os.path.splitext(f)[0] + '.jpg')
+              o = os.path.join(doel, os.path.splitext(f)[0] + '.jpg')
               if os.path.exists(o):
                   continue
               im = ImageOps.exif_transpose(Image.open(p))

@@ -26,7 +26,7 @@ function datumVan(p) {
 }
 function nummer(P) {
   P.map((p, i) => ({ p, i, d: datumVan(p), oud: parseInt(p.nummer, 10) || 999 }))
-    .sort((a, b) => (!a.d) - (!b.d) || (a.d < b.d ? -1 : a.d > b.d ? 1 : 0) || a.oud - b.oud || a.i - b.i)
+    .sort((a, b) => (!a.d) - (!b.d) || (a.d < b.d ? -1 : a.d > b.d ? 1 : 0) || a.oud - b.oud || String(a.p.titel).localeCompare(String(b.p.titel), "nl"))
     .forEach((x, k) => { x.p.nr = String(k + 1).padStart(2, "0"); });
   return P;
 }
@@ -127,7 +127,7 @@ function inTaal(S, taal) {
   return E;
 }
 
-const feit = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>` : "";
+const feit = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v).replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>')}</dd>` : "";
 const beeldHTML = (f, titel) => `<figure><img src="${esc(f.beeld)}" alt="${esc([titel, f.bijschrift].filter(Boolean).join(" – "))}" loading="lazy">${f.bijschrift ? `<figcaption>${esc(f.bijschrift)}</figcaption>` : ""}</figure>`;
 const navHTML = taal => { const w = woord(taal), P = p => metTaal(taal, p);
   return `<nav aria-label="${w("Hoofdmenu")}"><a href="${P("/")}">THURBO</a> · ${["/projecten:Projecten", "/studies:Studies", "/ander-werk:Ander Werk", "/nieuws:Nieuws", "/studio:Studio", "/contact:Contact"].map(x => { const [p, n] = x.split(":"); return `<a href="${P(p)}">${w(n)}</a>`; }).join(" · ")} · <a href="${taal === "en" ? "/" : "/en"}" hreflang="${taal === "en" ? "nl" : "en"}">${taal === "en" ? "Nederlands" : "English"}</a></nav>`; };
