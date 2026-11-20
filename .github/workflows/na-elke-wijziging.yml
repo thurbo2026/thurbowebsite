@@ -1,6 +1,7 @@
 # Draait vanzelf na elke wijziging (ook vanuit Pages CMS):
 # 1. maakt kleine versies van nieuwe beelden voor de overzichten (img/klein/)
-# 2. laat Bing en andere zoekmachines (IndexNow) weten dat er iets nieuw is
+# 2. zet naam en auteursrecht in de gegevens (EXIF, IPTC, XMP) van elk beeld dat dat nog niet heeft
+# 3. laat Bing en andere zoekmachines (IndexNow) weten dat er iets nieuw is
 name: Na elke wijziging
 on:
   push:
@@ -32,13 +33,28 @@ jobs:
               im.convert('RGB').save(o, 'JPEG', quality=78, optimize=True, progressive=True)
               print('klein:', o)
           PY
+      - name: Auteursrecht in de beeldgegevens zetten
+        run: |
+          sudo apt-get install -y -qq libimage-exiftool-perl > /dev/null
+          exiftool -q -q -r -overwrite_original -P -charset iptc=UTF8 -codedcharacterset=utf8 \
+            -if 'not $XMP-xmpRights:WebStatement' \
+            -ext jpg -ext jpeg -ext png -ext webp \
+            -Artist="Studio THURBO (Thorben Contant & Beau Schellevis)" \
+            -Copyright="© Studio THURBO. Alle rechten voorbehouden. Geen hergebruik zonder schriftelijke toestemming: info@thurbo.nl" \
+            -XMP-dc:Creator="Studio THURBO (Thorben Contant & Beau Schellevis)" \
+            -XMP-dc:Rights="© Studio THURBO. Alle rechten voorbehouden." \
+            -XMP-xmpRights:Marked=True -XMP-xmpRights:WebStatement="https://thurbo.nl/voorwaarden" \
+            -XMP-photoshop:Credit="Studio THURBO" \
+            -XMP-iptcCore:CreatorWorkEmail="info@thurbo.nl" -XMP-iptcCore:CreatorWorkURL="https://thurbo.nl" \
+            -IPTC:By-line="Studio THURBO" -IPTC:CopyrightNotice="© Studio THURBO. Alle rechten voorbehouden." -IPTC:Credit="Studio THURBO" \
+            img || true
       - name: Opslaan als er iets nieuw is
         run: |
-          git add img/klein
+          git add img
           if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
           git config user.name "THURBO automatisch"
           git config user.email "actions@users.noreply.github.com"
-          git commit -m "Kleine beelden bijgewerkt"
+          git commit -m "Kleine beelden en auteursrecht in beeldgegevens bijgewerkt"
           git push
 
   indexnow:

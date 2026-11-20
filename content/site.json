@@ -1,60 +1,5 @@
 {
   "instagram_feed": "https://feeds.behold.so/UWwJBHTX2LQhmIs6PySe",
-  "slideshow": [
-    {
-      "beeld": "/img/hero.jpg",
-      "bijschrift": "Portfolio, omslagfoto",
-      "bijschrift_en": "Portfolio, cover photo"
-    },
-    {
-      "beeld": "/img/ks-impressie.jpg",
-      "bijschrift": "Keerzijde Strijp-S, Eindhoven",
-      "bijschrift_en": "Keerzijde Strijp-S, Eindhoven",
-      "project": "04"
-    },
-    {
-      "beeld": "/img/mo-gevelmodel.jpg",
-      "bijschrift": "The Monastery, Sitlisalp",
-      "bijschrift_en": "The Monastery, Sitlisalp",
-      "project": "06"
-    },
-    {
-      "beeld": "/img/cr-binnen.jpg",
-      "bijschrift": "Crematorium, Bleiswijk",
-      "bijschrift_en": "Crematorium, Bleiswijk",
-      "project": "05"
-    },
-    {
-      "beeld": "/img/crm-vogelvlucht-1.jpg",
-      "bijschrift": "CRM Milos, Lefkada",
-      "bijschrift_en": "CRM Milos, Lefkada",
-      "project": "08"
-    },
-    {
-      "beeld": "/img/bt-render-1.jpg",
-      "bijschrift": "Beeldentuin, Den Haag",
-      "bijschrift_en": "Sculpture Garden, The Hague",
-      "project": "01"
-    },
-    {
-      "beeld": "/img/collage-mill.jpg",
-      "bijschrift": "Collage, Mill on a Hill",
-      "bijschrift_en": "Collage, Mill on a Hill",
-      "project": "09"
-    },
-    {
-      "beeld": "/img/vm-3.jpg",
-      "bijschrift": "Vormstudie, lichtstudie",
-      "bijschrift_en": "Form study, light study",
-      "project": "10"
-    },
-    {
-      "beeld": "/img/rc-model.jpg",
-      "bijschrift": "Research Center, maquette",
-      "bijschrift_en": "Research Center, model",
-      "project": "07"
-    }
-  ],
   "projecten": [
     {
       "nummer": "12",
@@ -965,116 +910,160 @@
       ]
     }
   ],
-  "studio": [
+  "andere_werken": [
     {
-      "kolom": "Studio",
-      "contact": false,
+      "beeld": "/img/collage-lost-city.jpg",
+      "titel": "Lost City",
+      "titel_en": "Lost City",
+      "bijschrift": "Conceptcollage",
+      "bijschrift_en": "Concept collage",
+      "door": [
+        "Thorben"
+      ],
+      "formaat": "Groot"
+    },
+    {
+      "beeld": "/img/vm-1.jpg",
+      "titel": "Vormstudie",
+      "titel_en": "Form study",
+      "bijschrift": "Maquette",
+      "bijschrift_en": "Model",
+      "door": [
+        "Beau"
+      ],
+      "formaat": "Middel"
+    },
+    {
+      "beeld": "/img/vm-3.jpg",
+      "titel": "Lichtstudie",
+      "titel_en": "Light study",
+      "bijschrift": "Maquette",
+      "bijschrift_en": "Model",
+      "door": [
+        "Beau"
+      ],
+      "formaat": "Klein"
+    },
+    {
+      "beeld": "/img/collage-mill.jpg",
+      "titel": "Mill on a Hill",
+      "titel_en": "Mill on a Hill",
+      "bijschrift": "Conceptcollage",
+      "bijschrift_en": "Concept collage",
+      "door": [
+        "Thorben"
+      ],
+      "formaat": "Middel"
+    },
+    {
+      "beeld": "/img/vm-5.jpg",
+      "titel": "Vormstudie",
+      "titel_en": "Form study",
+      "bijschrift": "Maquette",
+      "bijschrift_en": "Model",
+      "door": [
+        "Beau"
+      ],
+      "formaat": "Klein"
+    }
+  ],
+  "studio": {
+    "thurbo": {
       "kop": "Studio",
       "kop_en": "Studio",
       "tekst": "THURBO is de ontwerpstudio van Thorben Contant & Beau Schellevis.",
-      "tekst_en": "THURBO is the design studio of Thorben Contant & Beau Schellevis."
+      "tekst_en": "THURBO is the design studio of Thorben Contant & Beau Schellevis.",
+      "regels": [],
+      "contact": [
+        {
+          "tekst": "Voor opdrachten, prijsvragen en samenwerkingen: [info@thurbo.nl](mailto:info@thurbo.nl)",
+          "tekst_en": "For commissions, competitions and collaborations: [info@thurbo.nl](mailto:info@thurbo.nl)"
+        },
+        {
+          "kop": "Instagram",
+          "kop_en": "Instagram",
+          "tekst": "@studio.thurbo",
+          "link": "https://www.instagram.com/studio.thurbo/"
+        },
+        {
+          "kop": "Colofon",
+          "kop_en": "Colophon",
+          "tekst": "Ontwerp en beelden: THURBO",
+          "tekst_en": "Design and images: THURBO"
+        }
+      ]
     },
-    {
-      "kolom": "Thorben",
-      "contact": false,
+    "thorben": {
       "kop": "Thorben Contant",
       "kop_en": "Thorben Contant",
       "tekst": "Studeert architectuur aan de TU Delft, waar hij de bachelor Architecture, Urbanism and Building Sciences volgde, samen met het Honours Programme. In 2024–2025 deed hij een uitwisseling aan de ETH Zürich, in de ontwerpstudio van Adam Caruso, met aanvullende vakken in onder meer maquettebouw en wereldwijde woningbouwvraagstukken. In 2025 werkte hij als junior architect bij [LA^ARC](https://www.la-rc.com/) op Lefkada: eerst op locatie in Griekenland, daarna op afstand naast zijn bachelor-eindproject. Hij ontwierp en tekende mee aan CRM Milos en had veel contact met de opdrachtgever.\n\nEerder volgde hij de Art & Design Pre-Academy aan ArtEZ in Arnhem. Bij studievereniging Stylos was hij secretaris van de Business Tour-commissie, en hij was mentor voor eerstejaars bouwkundestudenten. In 2018 hielp hij als vrijwilliger bij de inrichting van het Friendship-ziekenhuis in Shyamnagar, Bangladesh, dat later de RIBA International Prize won.",
-      "tekst_en": "Studies architecture at TU Delft, where he followed the bachelor Architecture, Urbanism and Building Sciences together with the Honours Programme. In 2024–2025 he did an exchange at ETH Zürich, in the design studio of Adam Caruso, with additional courses in model making and global housing issues, among others. In 2025 he worked as a junior architect at [LA^ARC](https://www.la-rc.com/) on Lefkada: first on site in Greece, then remotely alongside his bachelor graduation project. He helped design and draw CRM Milos and was in close contact with the client.\n\nBefore that he followed the Art & Design Pre-Academy at ArtEZ in Arnhem. At the study association Stylos he was secretary of the Business Tour committee, and he mentored first-year architecture students. In 2018 he volunteered on the setup of the Friendship Hospital in Shyamnagar, Bangladesh, which later won the RIBA International Prize."
+      "tekst_en": "Studies architecture at TU Delft, where he followed the bachelor Architecture, Urbanism and Building Sciences together with the Honours Programme. In 2024–2025 he did an exchange at ETH Zürich, in the design studio of Adam Caruso, with additional courses in model making and global housing issues, among others. In 2025 he worked as a junior architect at [LA^ARC](https://www.la-rc.com/) on Lefkada: first on site in Greece, then remotely alongside his bachelor graduation project. He helped design and draw CRM Milos and was in close contact with the client.\n\nBefore that he followed the Art & Design Pre-Academy at ArtEZ in Arnhem. At the study association Stylos he was secretary of the Business Tour committee, and he mentored first-year architecture students. In 2018 he volunteered on the setup of the Friendship Hospital in Shyamnagar, Bangladesh, which later won the RIBA International Prize.",
+      "regels": [
+        {
+          "kop": "Software",
+          "kop_en": "Software",
+          "tekst": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator",
+          "tekst_en": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator"
+        },
+        {
+          "kop": "Talen",
+          "kop_en": "Languages",
+          "tekst": "Nederlands en Duits (moedertaal), Engels",
+          "tekst_en": "Dutch and German (native), English"
+        }
+      ],
+      "contact": [
+        {
+          "kop": "E-mail",
+          "kop_en": "E-mail",
+          "tekst": "thorben@thurbo.nl",
+          "tekst_en": "thorben@thurbo.nl"
+        },
+        {
+          "kop": "LinkedIn",
+          "kop_en": "LinkedIn",
+          "tekst": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
+          "tekst_en": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)"
+        }
+      ]
     },
-    {
-      "kolom": "Thorben",
-      "contact": false,
-      "kop": "Software",
-      "kop_en": "Software",
-      "tekst": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator",
-      "tekst_en": "Rhino, Grasshopper, Twinmotion, Photoshop, InDesign, Illustrator"
-    },
-    {
-      "kolom": "Thorben",
-      "contact": false,
-      "kop": "Talen",
-      "kop_en": "Languages",
-      "tekst": "Nederlands en Duits (moedertaal), Engels",
-      "tekst_en": "Dutch and German (native), English"
-    },
-    {
-      "kolom": "Beau",
-      "contact": false,
+    "beau": {
       "kop": "Beau Schellevis",
       "kop_en": "Beau Schellevis",
       "tekst": "Rondde in februari 2025 de bachelor Bouwkunde aan de TU Delft af, met een minor Urbanism aan de University of Copenhagen in het najaar van 2023. Daarna liep hij vijf maanden stage bij de tenderafdeling van [cepezed](https://www.cepezed.nl/) in Delft, waar hij werkte aan tenders voor onder meer een Europese School, een archiefbewaarplaats en een kantoorgebouw.\n\nNu volgt hij de master Architecture aan de TU Delft en is hij penningmeester van Bestuur 132 van D.B.S.G. Stylos, de studievereniging van Bouwkunde. Eerder was hij voorzitter van de Exchange-commissie en secretaris van de Business Tour-commissie. Naast architectuur gaat zijn interesse uit naar kunst, muziek, fotografie en goed eten.",
-      "tekst_en": "Completed the bachelor Architecture at TU Delft in February 2025, with a minor in Urbanism at the University of Copenhagen in autumn 2023. He then spent five months as an intern in the tender department of [cepezed](https://www.cepezed.nl/) in Delft, working on tenders for a European School, an archive building and an office building, among others.\n\nHe now follows the master Architecture at TU Delft and is treasurer of the 132nd board of D.B.S.G. Stylos, the study association of the Faculty of Architecture. Before that he chaired the Exchange committee and was secretary of the Business Tour committee. Besides architecture he is interested in art, music, photography and good food."
-    },
-    {
-      "kolom": "Beau",
-      "contact": false,
-      "kop": "Software",
-      "kop_en": "Software",
-      "tekst": "Rhino, Grasshopper, ArchiCAD, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator",
-      "tekst_en": "Rhino, Grasshopper, ArchiCAD, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator"
-    },
-    {
-      "kolom": "Beau",
-      "contact": false,
-      "kop": "Talen",
-      "kop_en": "Languages",
-      "tekst": "Nederlands, Engels, Duits",
-      "tekst_en": "Dutch, English, German"
-    },
-    {
-      "kolom": "Studio",
-      "contact": true,
-      "tekst": "Voor opdrachten, prijsvragen en samenwerkingen: [info@thurbo.nl](mailto:info@thurbo.nl)",
-      "tekst_en": "For commissions, competitions and collaborations: [info@thurbo.nl](mailto:info@thurbo.nl)"
-    },
-    {
-      "kolom": "Studio",
-      "contact": true,
-      "kop": "Instagram",
-      "kop_en": "Instagram",
-      "tekst": "@studio.thurbo",
-      "link": "https://www.instagram.com/studio.thurbo/"
-    },
-    {
-      "kolom": "Thorben",
-      "contact": true,
-      "kop": "E-mail",
-      "kop_en": "E-mail",
-      "tekst": "thorben@thurbo.nl",
-      "tekst_en": "thorben@thurbo.nl"
-    },
-    {
-      "kolom": "Thorben",
-      "contact": true,
-      "kop": "LinkedIn",
-      "kop_en": "LinkedIn",
-      "tekst": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)",
-      "tekst_en": "[in/thorbencontant](https://nl.linkedin.com/in/thorbencontant)"
-    },
-    {
-      "kolom": "Beau",
-      "contact": true,
-      "kop": "E-mail",
-      "kop_en": "E-mail",
-      "tekst": "beau@thurbo.nl",
-      "tekst_en": "beau@thurbo.nl"
-    },
-    {
-      "kolom": "Beau",
-      "contact": true,
-      "kop": "LinkedIn",
-      "kop_en": "LinkedIn",
-      "tekst": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
-      "tekst_en": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)"
-    },
-    {
-      "kolom": "Studio",
-      "contact": true,
-      "kop": "Colofon",
-      "kop_en": "Colophon",
-      "tekst": "Ontwerp en beelden: THURBO",
-      "tekst_en": "Design and images: THURBO"
+      "tekst_en": "Completed the bachelor Architecture at TU Delft in February 2025, with a minor in Urbanism at the University of Copenhagen in autumn 2023. He then spent five months as an intern in the tender department of [cepezed](https://www.cepezed.nl/) in Delft, working on tenders for a European School, an archive building and an office building, among others.\n\nHe now follows the master Architecture at TU Delft and is treasurer of the 132nd board of D.B.S.G. Stylos, the study association of the Faculty of Architecture. Before that he chaired the Exchange committee and was secretary of the Business Tour committee. Besides architecture he is interested in art, music, photography and good food.",
+      "regels": [
+        {
+          "kop": "Software",
+          "kop_en": "Software",
+          "tekst": "Rhino, Grasshopper, ArchiCAD, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator",
+          "tekst_en": "Rhino, Grasshopper, ArchiCAD, SketchUp, AutoCAD, Enscape, Photoshop, InDesign, Illustrator"
+        },
+        {
+          "kop": "Talen",
+          "kop_en": "Languages",
+          "tekst": "Nederlands, Engels, Duits",
+          "tekst_en": "Dutch, English, German"
+        }
+      ],
+      "contact": [
+        {
+          "kop": "E-mail",
+          "kop_en": "E-mail",
+          "tekst": "beau@thurbo.nl",
+          "tekst_en": "beau@thurbo.nl"
+        },
+        {
+          "kop": "LinkedIn",
+          "kop_en": "LinkedIn",
+          "tekst": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)",
+          "tekst_en": "[in/beauschellevis](https://nl.linkedin.com/in/beauschellevis)"
+        }
+      ]
     }
-  ]
+  },
+  "voorwaarden": {
+    "tekst": "Alle ontwerpen, tekeningen, foto's, collages, maquettes en teksten op deze website, en het ontwerp van de website zelf, zijn gemaakt door Studio THURBO (Thorben Contant en Beau Schellevis), tenzij anders vermeld. Op dit werk rust auteursrecht. In Nederland ontstaat dat vanzelf zodra een oorspronkelijk werk is gemaakt.\n\nNiets van deze website mag zonder onze voorafgaande schriftelijke toestemming worden overgenomen, verveelvoudigd, openbaar gemaakt, bewerkt of gebruikt. Dat geldt ook voor gebruik in andere portfolio's, publicaties, presentaties en voor het trainen van AI-modellen.\n\nWil je iets van ons werk gebruiken, bijvoorbeeld voor een publicatie of presentatie? Vraag het ons via info@thurbo.nl. Vermeld bij toegestaan gebruik altijd: © Studio THURBO, met het jaartal.\n\nEen link naar deze website of naar een projectpagina delen mag altijd.\n\nBij groeps- en studieprojecten staan de andere teamleden en begeleiders bij het project vermeld. Hun rechten blijven onverminderd van kracht.",
+    "tekst_en": "All designs, drawings, photographs, collages, models and texts on this website, and the design of the website itself, were made by Studio THURBO (Thorben Contant and Beau Schellevis), unless stated otherwise. This work is protected by copyright, which in the Netherlands arises automatically as soon as an original work is created.\n\nNothing on this website may be copied, reproduced, published, adapted or used without our prior written permission. This also applies to use in other portfolios, publications, presentations and to training AI models.\n\nWould you like to use some of our work, for instance in a publication or presentation? Ask us at info@thurbo.nl. When use is permitted, always credit: © Studio THURBO, with the year.\n\nSharing a link to this website or to a project page is always fine.\n\nFor group and study projects, the other team members and tutors are credited with the project. Their rights remain unaffected."
+  }
 }

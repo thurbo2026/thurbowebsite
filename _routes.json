@@ -1,5 +1,20 @@
 {
   "version": 1,
-  "include": ["/", "/projecten", "/projecten/*", "/studies", "/studio", "/contact", "/nieuws", "/nieuws/*", "/zoek", "/sitemap.xml", "/llms.txt", "/api/*"],
+  "include": [
+    "/",
+    "/projecten",
+    "/projecten/*",
+    "/studies",
+    "/studio",
+    "/contact",
+    "/nieuws",
+    "/nieuws/*",
+    "/zoek",
+    "/sitemap.xml",
+    "/llms.txt",
+    "/api/*",
+    "/ander-werk",
+    "/voorwaarden"
+  ],
   "exclude": []
 }

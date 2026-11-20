@@ -13,20 +13,13 @@ content:
     format: json
     fields:
       - { name: instagram_feed, label: "Instagram-feed (Behold JSON-link, https://feeds.behold.so/...)", type: string }
-      - name: slideshow
-        label: Slideshow homepage
-        type: object
-        list: true
-        fields:
-          - { name: beeld, label: Foto, type: image }
-          - { name: bijschrift, label: Bijschrift, type: string }
-          - { name: bijschrift_en, label: Bijschrift EN, type: string }
-          - { name: project, label: "Linkt naar project (nummer, bijv. 04; leeg = overzicht)", type: string }
-
       - name: projecten
-        label: "Projecten (sleep om de volgorde op de site te bepalen)"
+        label: "Projecten (sleep om de volgorde te bepalen; de eerste 10 staan ook in de slideshow op de homepage)"
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titel}"
         fields:
           - { name: nummer, label: Nummer (bijv. 11), type: string, required: true }
           - { name: titel, label: Titel, type: string, required: true }
@@ -62,9 +55,12 @@ content:
           - { name: tekst, label: "Projecttekst (link: [woord](https://adres))", type: text }
           - { name: tekst_en, label: "Projecttekst EN (link: [word](https://address))", type: text }
           - name: fotos
-            label: "Foto's (de eerste is ook de miniatuur)"
+            label: "Foto's (de eerste is ook de miniatuur en het beeld in de slideshow)"
             type: object
-            list: true
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{bijschrift}"
             fields:
               - { name: beeld, label: Foto, type: image }
               - { name: bijschrift, label: Bijschrift, type: string }
@@ -72,25 +68,31 @@ content:
           - name: tekeningen
             label: Tekeningen
             type: object
-            list: true
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{bijschrift}"
             fields:
               - { name: beeld, label: Tekening, type: image }
               - { name: bijschrift, label: Bijschrift, type: string }
               - { name: bijschrift_en, label: Bijschrift EN, type: string }
 
       - name: nieuws
-        label: "Nieuws (kunst, recepten, foto's, Instagram)"
+        label: "Nieuws (drie rijen: eigen artikelen, nieuws en Instagram)"
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titel}"
         fields:
           - { name: datum, label: Datum, type: date }
           - { name: titel, label: Titel, type: string, required: true }
           - { name: titel_en, label: Titel EN, type: string }
           - name: soort
-            label: Soort
+            label: "Soort (bepaalt de rij: Nieuws, Project en Studio staan in de middelste rij, Instagram onderaan, de rest bovenaan bij Eigen artikelen)"
             type: select
             options:
-              values: [Kunst, Recept, Fotografie, Project, Studio, Overig]
+              values: [Recept, Boek, Kaart, Website, Kunst, Fotografie, Overig, Nieuws, Project, Studio, Instagram]
           - name: door
             label: Door
             type: select
@@ -102,7 +104,10 @@ content:
           - name: beelden
             label: "Foto's (de eerste staat op de nieuwspagina)"
             type: object
-            list: true
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{bijschrift}"
             fields:
               - { name: beeld, label: Foto, type: image }
               - { name: bijschrift, label: Bijschrift, type: string }
@@ -113,17 +118,141 @@ content:
       - name: studio
         label: Studio en contact
         type: object
-        list: true
         fields:
-          - name: kolom
-            label: "Kolom (Studio, Thorben of Beau)"
+          - name: thurbo
+            label: "THURBO (linker kolom)"
+            type: object
+            fields:
+              - { name: kop, label: "Kop van de kolom", type: string }
+              - { name: kop_en, label: "Kop van de kolom EN", type: string }
+              - { name: tekst, label: "Hoofdtekst (link: [woord](https://adres))", type: text }
+              - { name: tekst_en, label: "Hoofdtekst EN", type: text }
+              - name: regels
+                label: "Extra regels, bijv. Software en Talen"
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{kop}"
+                fields:
+                  - { name: kop, label: Kop, type: string }
+                  - { name: kop_en, label: Kop EN, type: string }
+                  - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
+                  - { name: tekst_en, label: Tekst EN, type: text }
+                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+              - name: contact
+                label: "Contactgegevens (onder het kopje Contact)"
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{kop} {tekst}"
+                fields:
+                  - { name: kop, label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)", type: string }
+                  - { name: kop_en, label: Kop EN, type: string }
+                  - { name: tekst, label: "Tekst (een los e-mailadres of link wordt een icoon)", type: text }
+                  - { name: tekst_en, label: Tekst EN, type: text }
+                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+          - name: thorben
+            label: "Thorben"
+            type: object
+            fields:
+              - { name: kop, label: "Naam", type: string }
+              - { name: kop_en, label: "Naam EN", type: string }
+              - { name: foto, label: "Portretfoto (mag leeg)", type: image }
+              - { name: tekst, label: "Hoofdtekst (link: [woord](https://adres))", type: text }
+              - { name: tekst_en, label: "Hoofdtekst EN", type: text }
+              - name: regels
+                label: "Extra regels, bijv. Software en Talen"
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{kop}"
+                fields:
+                  - { name: kop, label: Kop, type: string }
+                  - { name: kop_en, label: Kop EN, type: string }
+                  - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
+                  - { name: tekst_en, label: Tekst EN, type: text }
+                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+              - name: contact
+                label: "Contactgegevens (onder het kopje Contact)"
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{kop} {tekst}"
+                fields:
+                  - { name: kop, label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)", type: string }
+                  - { name: kop_en, label: Kop EN, type: string }
+                  - { name: tekst, label: "Tekst (een los e-mailadres of link wordt een icoon)", type: text }
+                  - { name: tekst_en, label: Tekst EN, type: text }
+                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+          - name: beau
+            label: "Beau"
+            type: object
+            fields:
+              - { name: kop, label: "Naam", type: string }
+              - { name: kop_en, label: "Naam EN", type: string }
+              - { name: foto, label: "Portretfoto (mag leeg)", type: image }
+              - { name: tekst, label: "Hoofdtekst (link: [woord](https://adres))", type: text }
+              - { name: tekst_en, label: "Hoofdtekst EN", type: text }
+              - name: regels
+                label: "Extra regels, bijv. Software en Talen"
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{kop}"
+                fields:
+                  - { name: kop, label: Kop, type: string }
+                  - { name: kop_en, label: Kop EN, type: string }
+                  - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
+                  - { name: tekst_en, label: Tekst EN, type: text }
+                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+              - name: contact
+                label: "Contactgegevens (onder het kopje Contact)"
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{kop} {tekst}"
+                fields:
+                  - { name: kop, label: "Kop, bijv. E-mail, Instagram, LinkedIn (mag leeg)", type: string }
+                  - { name: kop_en, label: Kop EN, type: string }
+                  - { name: tekst, label: "Tekst (een los e-mailadres of link wordt een icoon)", type: text }
+                  - { name: tekst_en, label: Tekst EN, type: text }
+                  - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+
+      - name: andere_werken
+        label: "Ander werk (foto's en collages; sleep om de volgorde te bepalen)"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titel}"
+        fields:
+          - { name: beeld, label: Beeld, type: image, required: true }
+          - { name: titel, label: Titel, type: string }
+          - { name: titel_en, label: Titel EN, type: string }
+          - { name: bijschrift, label: "Bijschrift (bijv. collage, foto, maquette)", type: string }
+          - { name: bijschrift_en, label: Bijschrift EN, type: string }
+          - { name: jaar, label: Jaar, type: string }
+          - name: door
+            label: Gemaakt door
             type: select
             options:
-              values: [Studio, Thorben, Beau]
-          - { name: contact, label: "Contactgegeven (komt onder het kopje Contact)", type: boolean }
-          - { name: kop, label: "Kop (mag leeg)", type: string }
-          - { name: foto, label: "Portretfoto (alleen bij de eerste rij met je bio; mag leeg)", type: image }
-          - { name: kop_en, label: Kop EN, type: string }
+              multiple: true
+              values: [Thorben, Beau]
+          - name: formaat
+            label: "Formaat op de pagina"
+            type: select
+            options:
+              values: [Groot, Middel, Klein]
+
+      - name: voorwaarden
+        label: "Gebruiksvoorwaarden (pagina /voorwaarden)"
+        type: object
+        fields:
           - { name: tekst, label: "Tekst (link: [woord](https://adres))", type: text }
-          - { name: tekst_en, label: "Tekst EN (link: [word](https://address))", type: text }
-          - { name: link, label: "Link (https://...), maakt de tekst klikbaar", type: string }
+          - { name: tekst_en, label: Tekst EN, type: text }

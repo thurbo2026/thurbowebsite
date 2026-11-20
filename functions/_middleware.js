@@ -25,7 +25,20 @@ export function data(d) {
   const nieuws = (d.nieuws || []).map((n, i) => ({ ...n, beelden: (n.beelden || []).filter(f => f.beeld),
     id: (n.datum || "") + "-" + slug(n.titel || String(i)) })).map(n => ({ ...n, pad: `/nieuws/${n.id}` }))
     .sort((a, b) => String(b.datum || "").localeCompare(String(a.datum || "")));
-  return { projecten, nieuws, studio: d.studio || [], slides: (d.slideshow || []).filter(s => s.beeld) };
+  /* de slideshow op de homepage: de eerste 10 projecten met een foto, in de volgorde van het beheerscherm */
+  const slides = projecten.filter(p => p.fotos[0]).slice(0, 10).map(p => ({ beeld: p.fotos[0].beeld, bijschrift: [p.titel, p.plaats].filter(Boolean).join(", ") }));
+  const ander = (d.andere_werken || []).filter(x => x.beeld);
+  return { projecten, nieuws, studio: studioRijen(d.studio), slides, ander, voorwaarden: d.voorwaarden || {} };
+}
+
+/* Studio en contact staat in het beheerscherm per kolom (THURBO, Thorben, Beau); hier als losse regels */
+function studioRijen(st) {
+  if (Array.isArray(st)) return st;
+  return [["Studio", "thurbo"], ["Thorben", "thorben"], ["Beau", "beau"]].flatMap(([kolom, k]) => {
+    const o = (st || {})[k]; if (!o) return [];
+    return [{ kolom, contact: false, kop: o.kop || (kolom === "Studio" ? "Studio" : NAMEN[kolom]), kop_en: o.kop_en, foto: o.foto, tekst: o.tekst, tekst_en: o.tekst_en },
+      ...(o.regels || []).map(r => ({ ...r, kolom, contact: false })), ...(o.contact || []).map(r => ({ ...r, kolom, contact: true }))];
+  });
 }
 
 /* contactgegevens en links uit de studio-rijen */
@@ -64,7 +77,8 @@ function organisatie(S) {
 
 const feit = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>` : "";
 const beeldHTML = (f, titel) => `<figure><img src="${esc(f.beeld)}" alt="${esc([titel, f.bijschrift].filter(Boolean).join(" – "))}" loading="lazy">${f.bijschrift ? `<figcaption>${esc(f.bijschrift)}</figcaption>` : ""}</figure>`;
-const navHTML = `<nav aria-label="Hoofdmenu"><a href="/">THURBO</a> · <a href="/projecten">Projecten</a> · <a href="/studies">Studies</a> · <a href="/nieuws">Nieuws</a> · <a href="/studio">Studio</a> · <a href="/contact">Contact</a></nav>`;
+const navHTML = `<nav aria-label="Hoofdmenu"><a href="/">THURBO</a> · <a href="/projecten">Projecten</a> · <a href="/studies">Studies</a> · <a href="/ander-werk">Ander werk</a> · <a href="/nieuws">Nieuws</a> · <a href="/studio">Studio</a> · <a href="/contact">Contact</a></nav>`;
+const voetHTML = `<footer><p>© ${new Date().getFullYear()} Studio THURBO — Thorben Contant &amp; Beau Schellevis. Alle rechten voorbehouden. <a href="/voorwaarden">Gebruiksvoorwaarden</a></p></footer>`;
 
 function projectLijst(lijst) {
   return `<ul>${lijst.map(p => `<li><a href="${p.pad}">${esc(p.nr)} ${esc(p.titel)}</a>${p.plaats ? ` – ${esc(p.plaats)}` : ""}${p.jaar ? `, ${esc(p.jaar)}` : ""}${p.categorie ? ` (${esc(p.categorie)})` : ""}${p.door.length ? `, ontwerp: ${esc(p.door.map(n => NAMEN[n] || n).join(" & "))}` : ""}</li>`).join("")}</ul>`;
@@ -110,6 +124,7 @@ export function pagina(path, S) {
         locationCreated: p.locatie || p.plaats ? { "@type": "Place", name: p.locatie || p.plaats,
           geo: p.lat && p.lng ? { "@type": "GeoCoordinates", latitude: +p.lat, longitude: +p.lng } : undefined } : undefined,
         creator: p.door.map(n => ({ "@id": `${BASIS}/#${n.toLowerCase()}` })), publisher: { "@id": `${BASIS}/#studio` },
+        copyrightHolder: { "@id": `${BASIS}/#studio` }, copyrightYear: (String(p.datum || p.jaar || "").match(/(19|20)\d\d/) || [])[0] ? +(String(p.datum || p.jaar).match(/(19|20)\d\d/)[0]) : undefined,
         image: beelden.map(f => abs(f.beeld)) } };
   }
   if (path === "/studio" || path === "/contact") {
@@ -131,6 +146,15 @@ export function pagina(path, S) {
       extra: { "@context": "https://schema.org", "@type": "BlogPosting", headline: n.titel, datePublished: n.datum || undefined, url: BASIS + n.pad,
         image: n.beelden.map(f => abs(f.beeld)), author: (n.door || []).map(x => ({ "@id": `${BASIS}/#${x.toLowerCase()}` })), publisher: { "@id": `${BASIS}/#studio` } } };
   }
+  if (path === "/ander-werk") return { titel: "THURBO – Ander werk", beeld: S.ander[0]?.beeld || thuis,
+    beschrijving: "Ander werk van THURBO: foto's, collages en maquettes van Thorben Contant en Beau Schellevis.",
+    inhoud: `<h1>Ander werk</h1>${S.ander.map(x => beeldHTML({ beeld: x.beeld, bijschrift: [x.titel, x.bijschrift, x.jaar].filter(Boolean).join(", ") }, x.titel || "Ander werk")).join("")}`,
+    extra: { "@context": "https://schema.org", "@type": "ImageGallery", name: "Ander werk", url: BASIS + path,
+      image: S.ander.map(x => ({ "@type": "ImageObject", contentUrl: abs(x.beeld), name: x.titel || undefined,
+        creditText: "Studio THURBO", copyrightNotice: "© Studio THURBO", creator: { "@id": `${BASIS}/#studio` } })) } };
+  if (path === "/voorwaarden") return { titel: "THURBO – Gebruiksvoorwaarden", beeld: thuis,
+    beschrijving: "Auteursrecht en gebruik van het werk van Studio THURBO. Geen hergebruik zonder schriftelijke toestemming.",
+    inhoud: `<h1>Gebruiksvoorwaarden</h1>${rijk(S.voorwaarden.tekst)}${S.voorwaarden.tekst_en ? `<section lang="en"><h2>Terms of use</h2>${rijk(S.voorwaarden.tekst_en)}</section>` : ""}` };
   if (path === "/zoek") return { titel: "THURBO – Zoeken", beschrijving: "Zoek in de projecten van THURBO.", beeld: thuis, inhoud: `<h1>Zoeken</h1>${projectLijst(S.projecten)}`, noindex: true };
   return null;
 }
@@ -157,14 +181,14 @@ export function vulIn(html, pg, path) {
   return html
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(pg.titel)}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(pg.beschrijving)}">\n${kop}`)
-    .replace('<main id="app"></main>', `<main id="app"><div class="ssr">${navHTML}${pg.inhoud}</div></main>`);
+    .replace('<main id="app"></main>', `<main id="app"><div class="ssr">${navHTML}${pg.inhoud}${voetHTML}</div></main>`);
 }
 
 export function sitemap(S) {
   const vandaag = new Date().toISOString().slice(0, 10);
   const u = (p, d) => `<url><loc>${BASIS}${p}</loc>${d ? `<lastmod>${d}</lastmod>` : ""}</url>`;
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    [u("/", vandaag), u("/projecten", vandaag), u("/studies"), u("/studio"), u("/contact"), u("/nieuws", S.nieuws[0]?.datum),
+    [u("/", vandaag), u("/projecten", vandaag), u("/studies"), u("/ander-werk"), u("/studio"), u("/contact"), u("/nieuws", S.nieuws[0]?.datum), u("/voorwaarden"),
       ...S.projecten.map(p => u(p.pad)), ...S.nieuws.map(n => u(n.pad, n.datum))].join("\n") + "\n</urlset>\n";
 }
 
@@ -177,7 +201,8 @@ export function llms(S) {
   for (const w of ["Thorben", "Beau"]) r.push(`- [${NAMEN[w]}](${BASIS}/${w.toLowerCase()}): ${kort(g.bio(w)?.tekst, 400)}${g.mail(w) ? ` E-mail: ${g.mail(w)}.` : ""}${g.linkedin(w) ? ` LinkedIn: ${g.linkedin(w)}` : ""}`);
   r.push(``, `## Projecten`, ``);
   for (const p of S.projecten) r.push(`- [${p.nr} ${p.titel}](${BASIS}${p.pad}): ${[p.plaats, p.jaar, p.categorie, p.type].filter(Boolean).join(", ")}. Ontwerp: ${p.door.map(n => NAMEN[n]).join(" & ")}.${p.tekst ? " " + kort(p.tekst, 300) : ""}`);
-  r.push(``, `## Pagina's`, ``, `- [Projecten](${BASIS}/projecten)`, `- [Studies](${BASIS}/studies)`, `- [Studio](${BASIS}/studio)`, `- [Contact](${BASIS}/contact)`, `- [Nieuws](${BASIS}/nieuws)`);
+  r.push(``, `## Pagina's`, ``, `- [Projecten](${BASIS}/projecten)`, `- [Studies](${BASIS}/studies)`, `- [Ander werk](${BASIS}/ander-werk)`, `- [Studio](${BASIS}/studio)`, `- [Contact](${BASIS}/contact)`, `- [Nieuws](${BASIS}/nieuws)`, `- [Gebruiksvoorwaarden](${BASIS}/voorwaarden)`);
+  r.push(``, `Alle beelden en teksten: © Studio THURBO. Hergebruik alleen met schriftelijke toestemming (${g.info}).`);
   if (S.nieuws.length) { r.push(``, `## Nieuws`, ``); for (const n of S.nieuws) r.push(`- [${n.titel}](${BASIS}${n.pad})${n.datum ? ` (${n.datum})` : ""}`); }
   r.push(``, `## Optional`, ``, `- [Sitemap](${BASIS}/sitemap.xml)`, `- [Alle inhoud als JSON](${BASIS}/content/site.json)`, ``);
   return r.join("\n");
