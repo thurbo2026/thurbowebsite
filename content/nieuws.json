@@ -25,15 +25,36 @@
     },
     {
       "datum": "2026-11-20",
-      "titel": "Google Maps-lijsten",
-      "titel_en": "Google Maps lists",
+      "titel": "Berlijn in kaart",
+      "titel_en": "Berlin on the map",
       "door": [
-        "Thorben",
         "Beau"
       ],
-      "concept": true,
-      "tekst": "Concept: geef elke lijst hieronder een naam (vervang Lijst 1, 2 en 3) en zet daarna het vinkje Concept uit.\n\n[Lijst 1](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)\n[Lijst 2](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)\n[Lijst 3](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)",
-      "tekst_en": ""
+      "tekst": "Beau's Google Maps-lijst voor Berlijn: 41 plekken om te eten, te drinken en te zien.\n\n[Open de lijst in Google Maps](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)",
+      "tekst_en": "Beau's Google Maps list for Berlin: 41 places to eat, drink and see.\n\n[Open the list in Google Maps](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)",
+      "link": "https://maps.app.goo.gl/XXTqDtYyyjNCgukA9"
+    },
+    {
+      "datum": "2026-11-20",
+      "titel": "Brussel in kaart",
+      "titel_en": "Brussels on the map",
+      "door": [
+        "Beau"
+      ],
+      "tekst": "Beau's Google Maps-lijst voor Brussel: 28 plekken om te eten, te drinken en te zien.\n\n[Open de lijst in Google Maps](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)",
+      "tekst_en": "Beau's Google Maps list for Brussels: 28 places to eat, drink and see.\n\n[Open the list in Google Maps](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)",
+      "link": "https://maps.app.goo.gl/K3TcLrRfDK25J9uD6"
+    },
+    {
+      "datum": "2026-11-20",
+      "titel": "Griekenland in kaart",
+      "titel_en": "Greece on the map",
+      "door": [
+        "Beau"
+      ],
+      "tekst": "Beau's Google Maps-lijst voor Griekenland: 14 plekken om te eten, te drinken en te zien.\n\n[Open de lijst in Google Maps](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)",
+      "tekst_en": "Beau's Google Maps list for Greece: 14 places to eat, drink and see.\n\n[Open the list in Google Maps](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)",
+      "link": "https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9"
     },
     {
       "datum": "2026-11-20",
@@ -81,5 +102,7 @@
     }
   ],
   "instagram_posts": [],
-  "instagram_verbergen": []
+  "instagram_verbergen": [
+    "https://www.instagram.com/p/DfdgLiojPWe/"
+  ]
 }
