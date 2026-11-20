@@ -427,18 +427,6 @@
           "naast_omschrijving": false,
           "bijschrift": "Fragmentmaquette 1:25, zitplaats in het raamkozijn",
           "bijschrift_en": "Fragment model 1:25, seat in the window frame"
-        },
-        {
-          "beeld": "/img/hhh-maquette-stad-1.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Stedenbouwkundige maquette, 1:200",
-          "bijschrift_en": "Urban model, 1:200"
-        },
-        {
-          "beeld": "/img/hhh-maquette-stad-2.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Stedenbouwkundige maquette in de omgevingsmaquette",
-          "bijschrift_en": "Urban model in the context model"
         }
       ],
       "tekeningen": [
