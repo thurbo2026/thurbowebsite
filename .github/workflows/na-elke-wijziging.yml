@@ -63,6 +63,16 @@ jobs:
           git pull --rebase -q || true
           git push
 
+  deepl-verbruik:
+    # faalt (en GitHub mailt) als DeepL deze maand boven 80% zit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: DeepL-verbruik controleren
+        env:
+          DEEPL_KEY: ${{ secrets.DEEPL_KEY }}
+        run: python3 .github/scripts/vertaal.py --gebruik
+
   indexnow:
     runs-on: ubuntu-latest
     steps:

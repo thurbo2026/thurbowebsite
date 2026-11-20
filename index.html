@@ -507,6 +507,14 @@ main.ontvouw{animation:vouw .7s cubic-bezier(.2,.7,.3,1) reverse both;transform-
 /* voorwaarden */
 .vw{max-width:66ch;padding-block:28px 72px;display:grid;gap:1em}
 .vw p{margin:0}
+/* de drie puntjes: rond (Helvetica heeft vierkante punten), als laadicoon en aan het eind van lege plekken */
+.puntjes{display:inline-flex;gap:.17em;align-items:flex-end;height:.72em;margin-left:.05em;vertical-align:baseline}
+.puntjes i{width:.19em;height:.19em;border-radius:50%;background:currentColor;display:block}
+@media (prefers-reduced-motion:no-preference){.puntjes.loop i{animation:puntje 1.4s ease-in-out infinite}.puntjes.loop i:nth-child(2){animation-delay:.18s}.puntjes.loop i:nth-child(3){animation-delay:.36s}}
+@keyframes puntje{0%,70%,100%{opacity:.18}25%{opacity:1}}
+.laden{min-height:calc(100svh - var(--kop,62px));display:grid;place-items:center;font-size:44px;color:var(--fg)}
+.laden .puntjes{margin:0}
+.nbeeld.leeg .puntjes{font-size:34px;margin:0;color:var(--muted)}
 .js .ssr{display:none}
 .ssr{padding:20px;max-width:70ch}
 </style>
@@ -533,11 +541,11 @@ if(lang!=="nl"&&lang!=="en") lang=(navigator.language||"nl").toLowerCase().start
 const T={
   nl:{werk:"Projecten",studies:"Studies",studio:"Studio",contact:"Contact",alle:"Alle",info:"↓ Info",tek:"Tekeningen",beelden:"Beelden",groot:"Vergroot",sluit:"Sluiten",zoom:"Tik om in te zoomen",
       leeg:"Nog geen projecten in deze selectie.",geenfoto:"Dit project heeft nog geen foto's.",
-      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",fotos:"Beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",terugk:"Terug",thema:"Licht of donker",licht:"Licht",donker:"Donker",vorigp:"Vorig project",volgp:"Volgend project",andere:"Andere projecten",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund.",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",ander:"Ander Werk",voorwaarden:"Gebruiksvoorwaarden",rechten:"Alle rechten voorbehouden.",reigen:"Eigen artikelen",rnieuws:"Nieuws",rinsta:"Instagram",rleeg:"Hier komt binnenkort meer.",items:n=>n===1?"1 item":`${n} items`,
+      jaar:"Jaar",locatie:"Locatie",opgave:"Opgave",type:"Type",status:"Status",bureau:"Bureau",begeleiding:"Begeleiding",team:"Ontwerpteam",vorige:"Vorige",volgende:"Volgende",overzicht:"Alle beelden",fotos:"Beelden",zoek:"Zoek",zoekhint:"Zoek in projecten…",wis:"Wis",gevonden:n=>n===1?"1 project gevonden":`${n} projecten gevonden`,probeer:"Probeer:",populair:"Veel gezocht:",sugg:["Wonen","Maquette","Transformatie","Lefkada","Beau","Turbo"],turbo:"Thurbo, niet turbo.",raster:"Raster",nieuws:"Nieuws",alles:"Alles",nleeg:"Hier verschijnt binnenkort nieuws.",terugn:"Terug naar nieuws",terugk:"Terug",thema:"Licht of donker",licht:"Licht",donker:"Donker",vorigp:"Vorig project",volgp:"Volgend project",andere:"Andere projecten",opinsta:"Bekijk op Instagram",filter:"Filter",fcat:"Categorie",fdoor:"Ontwerper",fvolg:"Volgorde",fzoek:"Zoek",iedereen:"Iedereen",zoektitel:"Zoeken",sorteer:"Volgorde",eigen:"Voorgesteld",nieuw:"Nieuwste eerst",oud:"Oudste eerst",az:"A–Z",lijst:"Lijst",kaart:"Kaart",zonder:"Zonder locatie:",contactkop:"Contact",kaartfout:"De kaart kon niet laden. Probeer het later opnieuw.",kaarthint:"Gebruik Ctrl + scrollen om te zoomen",niets:"Hier is (nog) niets vergund",niets2:"Perceel 404. Deze pagina bestaat niet, of is nog in ontwerp.",terug:"Terug naar THURBO",ander:"Ander Werk",voorwaarden:"Gebruiksvoorwaarden",rechten:"Alle rechten voorbehouden.",reigen:"Eigen artikelen",rnieuws:"Nieuws",rinsta:"Instagram",rleeg:"Hier komt binnenkort meer",items:n=>n===1?"1 item":`${n} items`,
       cats:{}},
   en:{werk:"Projects",studies:"Studies",studio:"Studio",contact:"Contact",alle:"All",info:"↓ Info",tek:"Drawings",beelden:"Images",groot:"Enlarge",sluit:"Close",zoom:"Tap to zoom in",
       leeg:"No projects in this selection yet.",geenfoto:"This project has no images yet.",
-      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",fotos:"Images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",terugk:"Back",thema:"Light or dark",licht:"Light",donker:"Dark",vorigp:"Previous project",volgp:"Next project",andere:"Other projects",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet).",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",ander:"Other Works",voorwaarden:"Terms of use",rechten:"All rights reserved.",reigen:"Our articles",rnieuws:"News",rinsta:"Instagram",rleeg:"More coming soon.",items:n=>n===1?"1 item":`${n} items`,
+      jaar:"Year",locatie:"Location",opgave:"Brief",type:"Type",status:"Status",bureau:"Office",begeleiding:"Tutors",team:"Design team",vorige:"Previous",volgende:"Next",overzicht:"All images",fotos:"Images",zoek:"Search",zoekhint:"Search projects…",wis:"Clear",gevonden:n=>n===1?"1 project found":`${n} projects found`,probeer:"Try:",populair:"Often searched:",sugg:["Housing","Model","Transformation","Lefkada","Beau","Turbo"],turbo:"Thurbo, not turbo.",raster:"Grid",nieuws:"News",alles:"All",nleeg:"News will appear here soon.",terugn:"Back to news",terugk:"Back",thema:"Light or dark",licht:"Light",donker:"Dark",vorigp:"Previous project",volgp:"Next project",andere:"Other projects",opinsta:"View on Instagram",filter:"Filter",fcat:"Category",fdoor:"Designer",fvolg:"Order",fzoek:"Search",iedereen:"Everyone",zoektitel:"Search",sorteer:"Order",eigen:"Suggested",nieuw:"Newest first",oud:"Oldest first",az:"A–Z",lijst:"List",kaart:"Map",zonder:"Without location:",contactkop:"Contact",kaartfout:"The map could not load. Please try again later.",kaarthint:"Use Ctrl + scroll to zoom",niets:"Nothing has been permitted here (yet)",niets2:"Plot 404. This page does not exist, or is still being designed.",terug:"Back to THURBO",ander:"Other Works",voorwaarden:"Terms of use",rechten:"All rights reserved.",reigen:"Our articles",rnieuws:"News",rinsta:"Instagram",rleeg:"More coming soon",items:n=>n===1?"1 item":`${n} items`,
       soorten:{"Kunst":"Art","Recept":"Recipe","Boek":"Book","Kaart":"Map","Website":"Website","Fotografie":"Photography","Nieuws":"News","Project":"Project","Studio":"Studio","Instagram":"Instagram","Overig":"Other"},cats:{"Studie":"Study","Praktijk":"Practice","Eigen werk":"Personal work","Prijsvraag":"Competition"}}
 };
 const t=k=>T[lang][k];
@@ -564,6 +572,7 @@ Promise.all(DELEN.map(n=>fetch(`/content/${n}.json`,{cache:'no-cache'}).then(r=>
 });
 
 const NAMEN={Thorben:"Thorben Contant",Beau:"Beau Schellevis"};
+const puntjes=(loop=true)=>`<span class="puntjes${loop?" loop":""}" aria-hidden="true"><i></i><i></i><i></i></span>`;
 /* projectnummer: op datum, het oudste project is 01; zonder datum achteraan. De volgorde op de site blijft die van het beheerscherm. */
 function nummer(P){
   const sleutel=p=>datumVan(p);
@@ -590,6 +599,8 @@ const cred=p=>`© Studio THURBO, ${credJaar(p)}`;
 const initialen=p=>["Thorben","Beau"].filter(n=>p.door.includes(n)).map(n=>n[0].toLowerCase()).join("");
 let CATS=[];
 const app=document.getElementById('app'), burger=document.getElementById('burger');
+/* laadicoon tot de inhoud er is */
+if(!SITE) app.innerHTML=`<div class="laden" role="status" aria-label="Laden">${puntjes()}</div>`;
 let persoon="Alle", filter="Alle", menuOpen=false, beeld=0, tab="fotos", cur=null, slide=0, timer=null, open=null, kaartObj=null;
 let sorteer="eigen", weergave="raster"; try{const w=localStorage.getItem('thurbo-weergave'); if(["raster","lijst","kaart"].includes(w)) weergave=w}catch(e){}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -807,12 +818,12 @@ function nieuws(){
   if(SITE.igfeed&&igPosts===null){haalInsta().then(()=>{if(R()==="nieuws") nieuws()})}
   const alle=alleNieuws();
   const kaart=n=>`<a class="nkaart2" href="/nieuws/${esc(n.id)}" draggable="false">
-      <div class="nbeeld${!n.beelden[0]&&!n.instagram?" leeg":""}">${n.beelden[0]?kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"),' draggable="false"'):n.instagram?insta(n.instagram,true):(n.soort?soortNaam(n.soort):"")}</div>
+      <div class="nbeeld${!n.beelden[0]&&!n.instagram?" leeg":""}">${n.beelden[0]?kleinImg(n.beelden[0].beeld,L(n.beelden[0],"bijschrift")||L(n,"titel"),' draggable="false"'):n.instagram?insta(n.instagram,true):puntjes(false)}</div>
       <p class="nmeta">${ndatum(n.datum)}${n.soort&&n.soort!=="Instagram"?` · ${soortNaam(n.soort)}`:""}<span class="by">${initialen(n)}</span></p>
       <strong>${esc(L(n,"titel"))}</strong></a>`;
   const rij=(k,kop)=>{const l=alle.filter(n=>rijVan(n)===k);
     return `<section class="nrij"><div class="nrijkop pad"><h2>${kop}</h2>${l.length?`<span>${t("items")(l.length)}</span>`:""}</div>
-      ${l.length?`<div class="nstrook">${l.map(kaart).join("")}</div>`:`<p class="nleeg pad">${t("rleeg")}</p>`}</section>`};
+      ${l.length?`<div class="nstrook">${l.map(kaart).join("")}</div>`:k==="insta"&&SITE.igfeed&&igPosts===null?`<p class="nleeg pad">${puntjes()}</p>`:`<p class="nleeg pad">${t("rleeg")}${puntjes()}</p>`}</section>`};
   app.innerHTML=paginakop(t("nieuws"),"","")+`<div class="nrijen">${rij("eigen",t("reigen"))+rij("nieuws",t("rnieuws"))+rij("insta",t("rinsta"))}</div>`;
   meetKop(); app.style.setProperty('--pk',(document.getElementById('pkop')?.offsetHeight||58)+'px'); maatNieuws(); sleepNieuws();
 }
@@ -1172,7 +1183,7 @@ function anderWerk(){
   app.innerHTML=paginakop(t("ander"),"","")+(A.length?`<div class="aws pad">${A.map((x,i)=>{
     const onder=[L(x,"titel")?`<strong>${esc(L(x,"titel"))}</strong>`:"",L(x,"bijschrift")?esc(L(x,"bijschrift")):"",x.jaar?esc(x.jaar):""].filter(Boolean).join(", ");
     return `<figure class="aw"><button data-kies="${i}" aria-label="${esc(L(x,"titel")||t("groot"))}">${kleinImg(x.beeld,[L(x,"titel"),L(x,"bijschrift")].filter(Boolean).join(" – "))}</button>
-      ${onder?`<figcaption>${onder}${x.door.length?`<span class="by">${initialen(x)}</span>`:""}</figcaption>`:""}</figure>`}).join("")}</div>`:`<p class="empty">${t("rleeg")}</p>`);
+      ${onder?`<figcaption>${onder}${x.door.length?`<span class="by">${initialen(x)}</span>`:""}</figcaption>`:""}</figure>`}).join("")}</div>`:`<p class="empty">${t("rleeg")}${puntjes()}</p>`);
   meetKop(); zweef();
 }
 function voorwaarden(){
@@ -1181,7 +1192,7 @@ function voorwaarden(){
   meetKop();
 }
 function niets(){
-  app.innerHTML=`<section class="niets pad fade"><img src="/perceel.svg?v=404" alt="Tekening van een leeg perceel, perceel 404"><h1>${t("niets")}</h1><p>${t("niets2")}</p><a class="ext" href="/" style="font-size:var(--s1)">${t("terug")}</a></section>`;
+  app.innerHTML=`<section class="niets pad fade"><img src="/perceel.svg?v=404" alt="Tekening van een leeg perceel, perceel 404"><h1>${t("niets")}${puntjes()}</h1><p>${t("niets2")}</p><a class="ext" href="/" style="font-size:var(--s1)">${t("terug")}</a></section>`;
 }
 
 /* ===== easter eggs ===== */

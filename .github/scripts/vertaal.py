@@ -14,6 +14,17 @@ if not KEY:
     print("Geen DEEPL_KEY ingesteld: niets vertaald."); sys.exit(0)
 API = "https://api-free.deepl.com/v2/translate" if KEY.endswith(":fx") else "https://api.deepl.com/v2/translate"
 
+if "--gebruik" in sys.argv:
+    # verbruik deze maand; boven 80% faalt deze stap, zodat GitHub jullie een mail stuurt
+    req = urllib.request.Request(API.replace("/translate", "/usage"), headers={"Authorization": f"DeepL-Auth-Key {KEY}"})
+    u = json.load(urllib.request.urlopen(req, timeout=30))
+    n, m = u.get("character_count", 0), u.get("character_limit", 0) or 1
+    print(f"DeepL deze maand: {n:,} van {m:,} tekens ({n / m:.0%}).".replace(",", "."))
+    if n / m >= 0.8:
+        print(f"::error::Let op: DeepL is voor {n / m:.0%} op deze maand. Boven de limiet stopt het vertalen tot volgende maand (er wordt niets betaald).")
+        sys.exit(1)
+    sys.exit(0)
+
 h = lambda s: hashlib.sha1(s.encode()).hexdigest()[:16]
 cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}   # hash van NL -> automatische EN
 auto = set(cache.values())

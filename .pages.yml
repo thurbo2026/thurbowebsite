@@ -184,7 +184,7 @@ content:
   format: json
   fields:
   - name: eigen_artikelen
-    label: "Eigen artikelen (bovenste rij: recepten, boeken, kaarten, websites…)"
+    label: "Eigen artikelen (bovenste rij: recepten, boeken, kaarten, websites)"
     type: object
     list:
       collapsible:
@@ -204,18 +204,6 @@ content:
     - name: titel_en
       label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
       type: string
-    - name: soort
-      label: Soort (staat als label bij het bericht)
-      type: select
-      options:
-        values:
-        - Recept
-        - Boek
-        - Kaart
-        - Website
-        - Kunst
-        - Fotografie
-        - Overig
     - name: door
       label: Door
       type: select
@@ -274,14 +262,6 @@ content:
     - name: titel_en
       label: "Titel EN (leeg laten: wordt vanzelf vertaald)"
       type: string
-    - name: soort
-      label: Soort (staat als label bij het bericht)
-      type: select
-      options:
-        values:
-        - Nieuws
-        - Project
-        - Studio
     - name: door
       label: Door
       type: select
