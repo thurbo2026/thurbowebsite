@@ -707,6 +707,12 @@
           "bijschrift_en": "Masterplan after 70 years, 1:2000"
         },
         {
+          "beeld": "/img/ucph-krakas-impressie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zoom in Krakasplads",
+          "bijschrift_en": "Zoom in Krakasplads"
+        },
+        {
           "beeld": "/img/ucph-krakas-plan.jpg",
           "naast_omschrijving": false,
           "bijschrift": "Plan Krakas Plads",
@@ -719,6 +725,12 @@
           "bijschrift_en": "Sections of Krakas Plads"
         },
         {
+          "beeld": "/img/ucph-haraldspark-impressie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zoom in Haraldspark",
+          "bijschrift_en": "Zoom in Haraldspark"
+        },
+        {
           "beeld": "/img/ucph-haraldspark-plan.jpg",
           "naast_omschrijving": false,
           "bijschrift": "Plan Haraldspark",
@@ -729,18 +741,6 @@
           "naast_omschrijving": false,
           "bijschrift": "Doorsnede Haraldspark",
           "bijschrift_en": "Section of Haraldspark"
-        },
-        {
-          "beeld": "/img/ucph-haraldspark-impressie.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Zoom in Haraldspark",
-          "bijschrift_en": "Zoom in Haraldspark"
-        },
-        {
-          "beeld": "/img/ucph-krakas-impressie.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Zoom in Krakasplads",
-          "bijschrift_en": "Zoom in Krakasplads"
         }
       ],
       "tekst": "Een ontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. \nEen nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. \nDe klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
