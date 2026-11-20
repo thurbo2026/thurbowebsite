@@ -162,9 +162,19 @@
       "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
       "fotos": [
         {
-          "beeld": "/img/ba-modellen.jpg",
-          "bijschrift": "Maquettes woningtypes",
-          "bijschrift_en": "Models of the dwelling types"
+          "beeld": "/img/ba-maquette-1.jpg",
+          "bijschrift": "Maquette, twee woningtypes gestapeld",
+          "bijschrift_en": "Model, two dwelling types stacked"
+        },
+        {
+          "beeld": "/img/ba-maquette-2.jpg",
+          "bijschrift": "Maquette, gevel van gevouwen golfplaat",
+          "bijschrift_en": "Model, facade of folded corrugated sheet"
+        },
+        {
+          "beeld": "/img/ba-maquette-3.jpg",
+          "bijschrift": "Maquette, open onderbouw",
+          "bijschrift_en": "Model, open lower structure"
         }
       ],
       "tekeningen": [

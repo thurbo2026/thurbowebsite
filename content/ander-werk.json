@@ -1,54 +1,63 @@
 {
   "andere_werken": [
     {
-      "beeld": "/img/collage-lost-city.jpg",
-      "titel": "Lost City",
-      "titel_en": "Lost City",
-      "bijschrift": "Conceptcollage",
-      "bijschrift_en": "Concept collage",
-      "door": [
-        "Thorben"
-      ]
+      "beeld": "/img/aw-foto-01.jpg"
     },
     {
-      "beeld": "/img/vm-1.jpg",
-      "titel": "Vormstudie",
-      "titel_en": "Form study",
-      "bijschrift": "Maquette",
-      "bijschrift_en": "Model",
-      "door": [
-        "Beau"
-      ]
+      "beeld": "/img/aw-foto-02.jpg"
     },
     {
-      "beeld": "/img/vm-3.jpg",
-      "titel": "Lichtstudie",
-      "titel_en": "Light study",
-      "bijschrift": "Maquette",
-      "bijschrift_en": "Model",
-      "door": [
-        "Beau"
-      ]
+      "beeld": "/img/aw-foto-03.jpg"
     },
     {
-      "beeld": "/img/collage-mill.jpg",
-      "titel": "Mill on a Hill",
-      "titel_en": "Mill on a Hill",
-      "bijschrift": "Conceptcollage",
-      "bijschrift_en": "Concept collage",
-      "door": [
-        "Thorben"
-      ]
+      "beeld": "/img/aw-foto-04.jpg"
     },
     {
-      "beeld": "/img/vm-5.jpg",
-      "titel": "Vormstudie",
-      "titel_en": "Form study",
-      "bijschrift": "Maquette",
-      "bijschrift_en": "Model",
-      "door": [
-        "Beau"
-      ]
+      "beeld": "/img/aw-foto-05.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-06.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-07.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-08.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-09.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-10.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-11.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-12.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-13.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-14.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-15.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-16.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-17.jpg"
+    },
+    {
+      "beeld": "/img/aw-foto-18.jpg",
+      "jaar": "2019"
+    },
+    {
+      "beeld": "/img/aw-foto-19.jpg",
+      "jaar": "2017"
     }
   ]
 }
