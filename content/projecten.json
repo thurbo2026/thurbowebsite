@@ -135,8 +135,8 @@
     },
     {
       "nummer": "02",
-      "titel": "Stedelijke Aanleunwoningen",
-      "titel_en": "Urban Housing for Elderly ",
+      "titel": "Haags Hussel Hof",
+      "titel_en": "Haags Hussel Hof",
       "plaats": "Den Haag",
       "plaats_en": "The Hague",
       "categorie": "Studie",
@@ -576,8 +576,8 @@
     },
     {
       "nummer": "03",
-      "titel": "Urbanism Studio",
-      "titel_en": "Urbanism Studio",
+      "titel": "Flowing Identity",
+      "titel_en": "Flowing Identity",
       "plaats": "Kopenhagen",
       "plaats_en": "Copenhagen",
       "categorie": "Studie",
@@ -601,38 +601,158 @@
       "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
       "fotos": [
         {
-          "beeld": "/img/us-visie.jpg",
-          "bijschrift": "Visie",
-          "bijschrift_en": "Vision"
+          "beeld": "/img/ucph-fietsstraat.jpg",
+          "bijschrift": "Impressie van de nieuwe fietsstraat",
+          "bijschrift_en": "Impression of the new cycle street"
+        },
+        {
+          "beeld": "/img/ucph-krakas-impressie.jpg",
+          "bijschrift": "Zoom-in Krakas Plads",
+          "bijschrift_en": "Zoom-in Krakas Plads"
+        },
+        {
+          "beeld": "/img/ucph-haraldspark-impressie.jpg",
+          "bijschrift": "Zoom-in Haraldspark",
+          "bijschrift_en": "Zoom-in Haraldspark"
         }
       ],
       "tekeningen": [
         {
-          "beeld": "/img/us-t-krakas-plads.jpg",
-          "bijschrift": "Plattegrond Krakas Plads",
-          "bijschrift_en": "Plan Krakas Plads"
+          "beeld": "/img/ucph-historische-lagen.jpg",
+          "bijschrift": "Historische lagen van de wijk",
+          "bijschrift_en": "Historical layers of the neighbourhood"
         },
         {
-          "beeld": "/img/us-t-haraldspark.jpg",
-          "bijschrift": "Plattegrond Haraldspark",
-          "bijschrift_en": "Plan Haraldspark"
+          "beeld": "/img/ucph-interviews.jpg",
+          "bijschrift": "Identiteit door interviews met bewoners en werkenden",
+          "bijschrift_en": "Identity through interviews with residents and workers"
         },
         {
-          "beeld": "/img/us-t-doorsnede.jpg",
+          "beeld": "/img/ucph-analyse.jpg",
+          "bijschrift": "Analysediagrammen: bestaand en voorstel voor wijken, verbindingen, regenwater en groen",
+          "bijschrift_en": "Analysis diagrams: current situation and proposal for districts, connections, stormwater and green"
+        },
+        {
+          "beeld": "/img/ucph-concept.jpg",
+          "bijschrift": "Concept: connectiviteit, waterbeheer, karakter en samenhang",
+          "bijschrift_en": "Concept: connectivity, water management, character and connectivity"
+        },
+        {
+          "beeld": "/img/ucph-ontwerptools.jpg",
+          "bijschrift": "Synergiestrategie en ontwerptools: verkeers-, straat- en groenblauwe typologieën",
+          "bijschrift_en": "Synergy strategy and design tools: traffic, street and green-blue typologies"
+        },
+        {
+          "beeld": "/img/ucph-straattypes.jpg",
+          "bijschrift": "Straattypes: wolkbreukstraat, vertragingsstraat en groene straat",
+          "bijschrift_en": "Street types: cloudburst street, detention street and green street"
+        },
+        {
+          "beeld": "/img/ucph-masterplan-1.jpg",
+          "bijschrift": "Masterplan na 1 jaar, 1:5000",
+          "bijschrift_en": "Masterplan after 1 year, 1:5000"
+        },
+        {
+          "beeld": "/img/ucph-masterplan-10.jpg",
+          "bijschrift": "Masterplan na 10 jaar, 1:5000",
+          "bijschrift_en": "Masterplan after 10 years, 1:5000"
+        },
+        {
+          "beeld": "/img/ucph-masterplan-70.jpg",
+          "bijschrift": "Masterplan na 70 jaar, 1:2000",
+          "bijschrift_en": "Masterplan after 70 years, 1:2000"
+        },
+        {
+          "beeld": "/img/ucph-krakas-plan.jpg",
+          "bijschrift": "Plan Krakas Plads",
+          "bijschrift_en": "Plan of Krakas Plads"
+        },
+        {
+          "beeld": "/img/ucph-krakas-doorsneden.jpg",
           "bijschrift": "Doorsneden Krakas Plads",
-          "bijschrift_en": "Sections Krakas Plads"
+          "bijschrift_en": "Sections of Krakas Plads"
         },
         {
-          "beeld": "/img/us-t-concept.jpg",
-          "bijschrift": "Concept: connectiviteit, waterbeheer, karakter, identiteit",
-          "bijschrift_en": "Concept: connectivity, water management, character, identity"
+          "beeld": "/img/ucph-haraldspark-plan.jpg",
+          "bijschrift": "Plan Haraldspark",
+          "bijschrift_en": "Plan of Haraldspark"
         },
         {
-          "beeld": "/img/us-t-analyse.jpg",
-          "bijschrift": "Analyse en ontwerptools",
-          "bijschrift_en": "Analysis and design tools"
+          "beeld": "/img/ucph-haraldspark-doorsnede.jpg",
+          "bijschrift": "Doorsnede Haraldspark",
+          "bijschrift_en": "Section of Haraldspark"
         }
       ]
+    },
+    {
+      "titel": "Energielandschap Gouda",
+      "titel_en": "Energy Landscape Gouda",
+      "plaats": "Gouda",
+      "plaats_en": "Gouda",
+      "ontworpen_door": [
+        "Beau"
+      ],
+      "datum": "2024-04",
+      "fotos": [
+        {
+          "beeld": "/img/gouda-impressie.jpg",
+          "bijschrift": "Impressie van het energielandschap: zonnevelden en windturbines op vernatte polder",
+          "bijschrift_en": "Impression of the energy landscape: solar fields and wind turbines on a rewetted polder"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/gouda-uitgangspunten.jpg",
+          "bijschrift": "Eigen uitgangspunten: bodem en water, energie, leefbaarheid en identiteit, verbindingen en maatschappelijke opgaven",
+          "bijschrift_en": "Own starting points: soil and water, energy, liveability and identity, connections and social challenges"
+        },
+        {
+          "beeld": "/img/gouda-visie-regio.jpg",
+          "bijschrift": "Visiekaart energietransitie in de regio",
+          "bijschrift_en": "Vision map of the energy transition in the region"
+        },
+        {
+          "beeld": "/img/gouda-visie-stad.jpg",
+          "bijschrift": "Visiekaart Gouda",
+          "bijschrift_en": "Vision map of Gouda"
+        },
+        {
+          "beeld": "/img/gouda-zon-op-veld.jpg",
+          "bijschrift": "Project zon- en wind-op-land: ruimtelijke inpassing",
+          "bijschrift_en": "Project solar and wind on land: spatial integration"
+        },
+        {
+          "beeld": "/img/gouda-doorsneden-1.jpg",
+          "bijschrift": "Doorsneden: afstand tussen zonnevelden, natuurlijke barrières en nieuwe recreatieve verbindingen",
+          "bijschrift_en": "Sections: spacing between solar fields, natural barriers and new recreational routes"
+        },
+        {
+          "beeld": "/img/gouda-doorsneden-2.jpg",
+          "bijschrift": "Opstellingen van zonnepanelen: hoog, laag, biodiversiteit en rendement",
+          "bijschrift_en": "Solar panel arrangements: high, low, biodiversity and yield"
+        },
+        {
+          "beeld": "/img/gouda-fasering.jpg",
+          "bijschrift": "Fasering en tijdsplanning tot 2056: warmtenet, aquathermie, zon- en wind-op-land en warmterotonde",
+          "bijschrift_en": "Phasing and timeline to 2056: heat network, aquathermal energy, solar and wind on land and heat ring"
+        }
+      ],
+      "tekst": "Een regionale ruimtelijke strategie voor Gouda en de wijk Plaswijck, met een tijdshorizon van vijftig jaar. In een ontwerpteam van negen rollen nam ik de rol van regionaal planner op me, samen met de themagroep Energietransitie. Uit een beleidsanalyse, een analyse van de bestaande structuren en een SWOT-analyse volgden vijf ambities: restwarmte uit de industrie via een warmtenet door Gouda verdelen, de ligging in het (H)OV-netwerk benutten, kansarme landbouwgrond en water inzetten voor duurzame energie, Gouda laten voorgaan in de energietransitie en nieuwe energielandschappen laten bijdragen aan de leefbaarheid en identiteit van het landschap. Die ambities zijn uitgewerkt in visiekaarten voor de regio en de stad, in het project zon- en wind-op-land op vernatte veengrond, in doorsneden van de ruimtelijke inpassing en in een fasering tot 2056.",
+      "jaar": "2024",
+      "locatie": "Plaswijck, Gouda, NL",
+      "locatie_en": "Plaswijck, Gouda, NL",
+      "opgave": "Ontwerpen 5: Gebiedsontwikkeling in het Metropolitane Landschap, rol regionaal planner, TU Delft",
+      "opgave_en": "Design 5: Area development in the metropolitan landscape, role of regional planner, TU Delft",
+      "type": "Regionale planning, energietransitie",
+      "type_en": "Regional planning, energy transition",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "bureau_of_begeleiding": "Anne van den Berg (groepsdocent), Michiel Brouwer en Amber van der Voorn (roldocenten)",
+      "ontwerpteam": "Beau Schellevis (regionaal planner), Gwen Maranus, Yair Roorda, Meike Haan, Hannah Godding, Amber Wassenberg, Louise Wagenaars, Anne Tiemersma, Bence van der Looij",
+      "categorie": "Studie",
+      "lat": "52.0300",
+      "lng": "4.7060",
+      "tekst_en": "A regional spatial strategy for Gouda and the Plaswijck neighbourhood, with a time horizon of fifty years. In a design team of nine roles I took on the role of regional planner, together with the Energy Transition theme group. A policy analysis, an analysis of existing structures and a SWOT analysis led to five ambitions: distributing residual heat from industry through a heat network across Gouda, making use of its position in the (high-quality) public transport network, using marginal farmland and water for sustainable energy, letting Gouda lead the energy transition, and letting new energy landscapes contribute to the liveability and identity of the landscape. These ambitions were worked out in vision maps for the region and the city, in the project solar and wind on land on rewetted peat, in sections of the spatial integration and in a phasing plan up to 2056."
     },
     {
       "nummer": "04",
