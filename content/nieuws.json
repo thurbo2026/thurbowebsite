@@ -14,6 +14,32 @@
     },
     {
       "datum": "2026-11-20",
+      "titel": "Kopenhagen in kaart",
+      "titel_en": "Copenhagen on the map",
+      "soort": "Kaart",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "tekst": "Onze Google Maps-lijsten voor Kopenhagen, per onderwerp.\n\n[Must-see voor een weekend Kopenhagen](https://maps.app.goo.gl/9XoznYVcd2LijEwn6)\n[Musea](https://maps.app.goo.gl/cSd7e17mEzu1oWSg7)\n[Bars en cafés](https://maps.app.goo.gl/yJrbFbGSk3Z6ZRzv7)\n[Winkels](https://maps.app.goo.gl/SzUzZkpgbBiDq3qp7)\n[Bakkerijen en koffie](https://maps.app.goo.gl/ZznCzQXPciiaDJRU8)\n[Uitgaan](https://maps.app.goo.gl/k7tEG2AUrA6RQvjA7)\n[Restaurants](https://maps.app.goo.gl/75EdfWCpbrMxDwNt5)",
+      "tekst_en": "Our Google Maps lists for Copenhagen, by topic.\n\n[Must-sees for a weekend in Copenhagen](https://maps.app.goo.gl/9XoznYVcd2LijEwn6)\n[Museums](https://maps.app.goo.gl/cSd7e17mEzu1oWSg7)\n[Bars and cafés](https://maps.app.goo.gl/yJrbFbGSk3Z6ZRzv7)\n[Shops](https://maps.app.goo.gl/SzUzZkpgbBiDq3qp7)\n[Bakeries and coffee](https://maps.app.goo.gl/ZznCzQXPciiaDJRU8)\n[Going out](https://maps.app.goo.gl/k7tEG2AUrA6RQvjA7)\n[Restaurants](https://maps.app.goo.gl/75EdfWCpbrMxDwNt5)",
+      "link": "https://maps.app.goo.gl/9XoznYVcd2LijEwn6"
+    },
+    {
+      "datum": "2026-11-20",
+      "titel": "Google Maps-lijsten",
+      "titel_en": "Google Maps lists",
+      "soort": "Kaart",
+      "door": [
+        "Thorben",
+        "Beau"
+      ],
+      "concept": true,
+      "tekst": "Concept: geef elke lijst hieronder een naam (vervang Lijst 1, 2 en 3) en zet daarna het vinkje Concept uit.\n\n[Lijst 1](https://maps.app.goo.gl/XXTqDtYyyjNCgukA9)\n[Lijst 2](https://maps.app.goo.gl/Dy1xhf6cLBdYbtAJ9)\n[Lijst 3](https://maps.app.goo.gl/K3TcLrRfDK25J9uD6)",
+      "tekst_en": ""
+    },
+    {
+      "datum": "2026-11-20",
       "titel": "Boekentip",
       "titel_en": "Book tip",
       "soort": "Boek",
@@ -37,20 +63,6 @@
       "concept": true,
       "tekst": "Concept: zet hier de ingrediënten en de bereiding, en voeg een foto toe. Zet daarna het vinkje Concept uit.",
       "tekst_en": ""
-    },
-    {
-      "datum": "2026-11-20",
-      "titel": "Google Maps-lijst",
-      "titel_en": "Google Maps list",
-      "soort": "Kaart",
-      "door": [
-        "Thorben",
-        "Beau"
-      ],
-      "concept": true,
-      "tekst": "Concept: geef de lijst een titel (bijvoorbeeld architectuur in een stad), schrijf er een paar zinnen bij en plak de deellink van de lijst in Google Maps in het veld Extra link. Zet daarna het vinkje Concept uit.",
-      "tekst_en": "",
-      "link": ""
     }
   ],
   "nieuwsberichten": [
