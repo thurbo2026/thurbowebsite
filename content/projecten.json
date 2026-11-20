@@ -149,13 +149,13 @@
       "locatie_en": "The Hague, NL",
       "lat": "52.0869",
       "lng": "4.2963",
-      "opgave": "Transformatie NIBC-kantoor, thema Affordable Luxury",
-      "opgave_en": "Transformation of the NIBC office, theme Affordable Luxury",
+      "opgave": "Ontwerpen 4, studio Affordable Luxury: renovatie NIBC-gebouw, TU Delft",
+      "opgave_en": "Design 4, studio Affordable Luxury: renovation of the NIBC building, TU Delft",
       "type": "Wonen, transformatie",
       "type_en": "Housing, transformation",
       "status": "Studieproject",
       "status_en": "Study project",
-      "bureau_of_begeleiding": "Powerhouse Company",
+      "bureau_of_begeleiding": "Powerhouse Company; begeleiding Nolly Vos en Martijn van den Ban",
       "bureau_link": "www.powerhouse-company.com",
       "ontwerpteam": "Beau Schellevis",
       "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
@@ -163,60 +163,135 @@
       "fotos": [
         {
           "beeld": "/img/ba-maquette-1.jpg",
-          "bijschrift": "Maquette, twee woningtypes gestapeld",
-          "bijschrift_en": "Model, two dwelling types stacked"
+          "bijschrift": "Fragmentmaquette 1:25, twee woningtypes gestapeld",
+          "bijschrift_en": "Fragment model 1:25, two dwelling types stacked"
         },
         {
           "beeld": "/img/ba-maquette-2.jpg",
-          "bijschrift": "Maquette, gevel van gevouwen golfplaat",
-          "bijschrift_en": "Model, facade of folded corrugated sheet"
+          "bijschrift": "Fragmentmaquette 1:25, gevel van gevouwen golfplaat",
+          "bijschrift_en": "Fragment model 1:25, facade of folded corrugated sheet"
         },
         {
           "beeld": "/img/ba-maquette-3.jpg",
-          "bijschrift": "Maquette, open onderbouw",
-          "bijschrift_en": "Model, open lower structure"
+          "bijschrift": "Fragmentmaquette 1:25, open onderbouw",
+          "bijschrift_en": "Fragment model 1:25, open lower structure"
+        },
+        {
+          "beeld": "/img/hhh-maquette-zitplaats.jpg",
+          "bijschrift": "Fragmentmaquette 1:25, zitplaats in het raamkozijn",
+          "bijschrift_en": "Fragment model 1:25, seat in the window frame"
+        },
+        {
+          "beeld": "/img/hhh-maquette-stad-1.jpg",
+          "bijschrift": "Stedenbouwkundige maquette, 1:200",
+          "bijschrift_en": "Urban model, 1:200"
+        },
+        {
+          "beeld": "/img/hhh-maquette-stad-2.jpg",
+          "bijschrift": "Stedenbouwkundige maquette in de omgevingsmaquette",
+          "bijschrift_en": "Urban model in the context model"
         }
       ],
       "tekeningen": [
         {
-          "beeld": "/img/ba-t-doorsnede.jpg",
-          "bijschrift": "Doorsnede basisconfiguratie",
-          "bijschrift_en": "Section of the base configuration"
+          "beeld": "/img/hhh-typologie.jpg",
+          "bijschrift": "Ontstaan van de typologie: van standaard aanleunwoning naar gestapelde basistypes",
+          "bijschrift_en": "Origin of the typology: from standard sheltered housing to stacked basic types"
         },
         {
-          "beeld": "/img/ba-t-plattegronden.jpg",
-          "bijschrift": "Plattegronden, begane grond tot +4",
-          "bijschrift_en": "Floor plans, ground floor to +4"
+          "beeld": "/img/hhh-configuratie.jpg",
+          "bijschrift": "Configuratie woningtypes: type A, type B, basistype, buitenruimte, draagstructuur en basisconfiguratie",
+          "bijschrift_en": "Configuration of dwelling types: type A, type B, basic type, outdoor space, structure and basic configuration"
         },
         {
-          "beeld": "/img/ba-t-typologie.jpg",
-          "bijschrift": "Opbouw van de typologie",
-          "bijschrift_en": "Build-up of the typology"
+          "beeld": "/img/hhh-masterplan.jpg",
+          "bijschrift": "Masterplan met collectieve voorzieningen",
+          "bijschrift_en": "Masterplan with shared facilities"
         },
         {
-          "beeld": "/img/ba-t-woningtypes.jpg",
-          "bijschrift": "Doorsneden type A en type B",
-          "bijschrift_en": "Sections type A and type B"
+          "beeld": "/img/hhh-bg.jpg",
+          "bijschrift": "Gebouwplattegrond begane grond, 1:250",
+          "bijschrift_en": "Building plan, ground floor, 1:250"
         },
         {
-          "beeld": "/img/ba-t-plattegrond-bg.jpg",
-          "bijschrift": "Plattegrond begane grond",
-          "bijschrift_en": "Ground floor plan"
+          "beeld": "/img/hhh-plus1.jpg",
+          "bijschrift": "Gebouwplattegrond eerste verdieping, 1:250",
+          "bijschrift_en": "Building plan, first floor, 1:250"
         },
         {
-          "beeld": "/img/ba-t-gevels.jpg",
-          "bijschrift": "Noord- en zuidgevel",
-          "bijschrift_en": "North and south elevations"
+          "beeld": "/img/hhh-plus4.jpg",
+          "bijschrift": "Gebouwplattegrond vierde verdieping, 1:250",
+          "bijschrift_en": "Building plan, fourth floor, 1:250"
         },
         {
-          "beeld": "/img/ba-t-gevelfragment.jpg",
-          "bijschrift": "Gevelfragment",
-          "bijschrift_en": "Facade fragment"
+          "beeld": "/img/hhh-woning-1.jpg",
+          "bijschrift": "Woningplattegronden gezinnen, begane grond tot +2, 1:100",
+          "bijschrift_en": "Family dwelling plans, ground floor to +2, 1:100"
         },
         {
-          "beeld": "/img/ba-t-ontstaan.jpg",
-          "bijschrift": "Ontstaan van de typologie",
-          "bijschrift_en": "Origin of the typology"
+          "beeld": "/img/hhh-woning-2.jpg",
+          "bijschrift": "Woningplattegronden ouderen, +3 en +4, 1:100",
+          "bijschrift_en": "Plans for elderly dwellings, +3 and +4, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-type-a.jpg",
+          "bijschrift": "Woningtype A, 1:200",
+          "bijschrift_en": "Dwelling type A, 1:200"
+        },
+        {
+          "beeld": "/img/hhh-type-b.jpg",
+          "bijschrift": "Woningtype B, 1:200",
+          "bijschrift_en": "Dwelling type B, 1:200"
+        },
+        {
+          "beeld": "/img/hhh-doorsnede.jpg",
+          "bijschrift": "Doorsnede, 1:100",
+          "bijschrift_en": "Section, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-gevel-noord.jpg",
+          "bijschrift": "Gevelaanzicht voorzijde",
+          "bijschrift_en": "Front elevation"
+        },
+        {
+          "beeld": "/img/hhh-gevel-zuid.jpg",
+          "bijschrift": "Gevelaanzicht achterzijde",
+          "bijschrift_en": "Rear elevation"
+        },
+        {
+          "beeld": "/img/hhh-schets-entree.jpg",
+          "bijschrift": "Schets dubbelhoge entree en overgang naar de tuin van de gezinswoningen",
+          "bijschrift_en": "Sketch, double-height entrance and transition to the garden of the family dwellings"
+        },
+        {
+          "beeld": "/img/hhh-entree.jpg",
+          "bijschrift": "Dubbelhoge entree en overgang naar de tuin",
+          "bijschrift_en": "Double-height entrance and transition to the garden"
+        },
+        {
+          "beeld": "/img/hhh-zitje.jpg",
+          "bijschrift": "Zitplaats gemaakt in een kastmeubel of op de galerij",
+          "bijschrift_en": "Seat built into a cabinet or on the gallery"
+        },
+        {
+          "beeld": "/img/hhh-gevelfragment-50.jpg",
+          "bijschrift": "Gevelfragment zuidgevel en noordgevel, 1:50",
+          "bijschrift_en": "Facade fragment, south and north facade, 1:50"
+        },
+        {
+          "beeld": "/img/hhh-gevelfragment-20.jpg",
+          "bijschrift": "Ingekleurd gevelfragment, 1:20",
+          "bijschrift_en": "Coloured facade fragment, 1:20"
+        },
+        {
+          "beeld": "/img/hhh-poster-1.jpg",
+          "bijschrift": "Eindpresentatie, poster 1",
+          "bijschrift_en": "Final presentation, poster 1"
+        },
+        {
+          "beeld": "/img/hhh-poster-2.jpg",
+          "bijschrift": "Eindpresentatie, poster 2",
+          "bijschrift_en": "Final presentation, poster 2"
         }
       ]
     },
@@ -330,56 +405,107 @@
       "locatie": "Bleiswijk, NL",
       "lat": "52.0115",
       "lng": "4.532",
-      "opgave": "Bachelor eindproject, TU Delft",
-      "opgave_en": "Bachelor graduation project, TU Delft",
+      "opgave": "IOP 2, bachelor eindproject, TU Delft",
+      "opgave_en": "IOP 2, bachelor graduation project, TU Delft",
       "type": "Uitvaart",
       "type_en": "Funerary",
       "status": "Studieproject",
       "status_en": "Study project",
       "ontwerpteam": "Beau Schellevis",
-      "tekst": "Een crematorium in Bleiswijk waarin de beleving van bezoekers en nabestaanden centraal staat, met oog voor een goede landschappelijke en stedenbouwkundige inpassing. Door zorgvuldig licht en uitzicht toe te voegen of weg te laten, en door te variëren in materialen en in de richting van de houten spanten, wordt de bezoeker door het gebouw en het rouwproces geleid. De familie krijgt een eigen, beschermde route; andere bezoekers worden op een natuurlijke manier door het gebouw geleid. De draagconstructie is volledig losmaakbaar en remontabel, net als de binnen- en buitenafwerking.",
-      "tekst_en": "A crematorium in Bleiswijk that puts the experience of visitors and relatives first, with care for how it fits into the landscape and the town. By adding or withholding light and views, and by varying the materials and the direction of the timber frames, visitors are guided through the building and through the process of mourning. The family has its own sheltered route; other visitors are led through the building naturally. The structure is fully demountable and reusable, as are the interior and exterior finishes.",
+      "tekst": "Een crematorium in de Oosthoekeindse Polder in Bleiswijk, waarin de beleving van bezoekers en nabestaanden centraal staat. Brede en smalle houten spanten scheiden ruimtes, geven richting en spelen met zicht: door licht en uitzicht toe te voegen of weg te laten wordt de bezoeker van parkeren, entree en condoleance via de aula en een overgangsruimte naar het café geleid. De familie krijgt een eigen, beschermde route. Het gebouw ligt in een landschapsontwerp met wadi's, zachte oevers en helofytenfilters. De draagconstructie van LVL-houten spanten, kanaalplaatvloeren en HSB-wanden is volledig losmaakbaar en remontabel; restwarmte van de crematieovens wordt opgeslagen en 450 PV-panelen wekken energie op.",
+      "tekst_en": "A crematorium in the Oosthoekeindse Polder in Bleiswijk that puts the experience of visitors and relatives first. Wide and narrow timber frames divide spaces, give direction and play with views: by adding or withholding light and outlook, visitors are guided from parking, entrance and condolence through the auditorium and a transitional space to the café. The family has its own sheltered route. The building sits in a landscape design with wadis, soft banks and reed-bed filters. The structure of LVL timber frames, hollow-core floors and timber-frame walls is fully demountable and reusable; residual heat from the cremation ovens is stored and 450 PV panels generate energy.",
       "fotos": [
         {
-          "beeld": "/img/cr-buiten.jpg",
-          "bijschrift": "Exterieurimpressie binnentuin",
-          "bijschrift_en": "Exterior view, inner garden"
+          "beeld": "/img/crb-binnentuin.jpg",
+          "bijschrift": "Sfeerimpressie binnentuin",
+          "bijschrift_en": "Atmosphere, inner garden"
         },
         {
-          "beeld": "/img/cr-binnen.jpg",
-          "bijschrift": "Interieurimpressie ontvangstruimte",
-          "bijschrift_en": "Interior view, reception hall"
+          "beeld": "/img/crb-ontvangst.jpg",
+          "bijschrift": "Sfeerimpressie ontvangst en condoleance",
+          "bijschrift_en": "Atmosphere, reception and condolence"
         }
       ],
       "tekeningen": [
         {
-          "beeld": "/img/cr-t-plattegrond.jpg",
-          "bijschrift": "Plattegrond",
-          "bijschrift_en": "Floor plan"
+          "beeld": "/img/crb-pitch-analyse.jpg",
+          "bijschrift": "Pitch week 1: analyse van de omgeving",
+          "bijschrift_en": "Pitch week 1: site analysis"
         },
         {
-          "beeld": "/img/cr-t-doorsneden.jpg",
-          "bijschrift": "Doorsneden",
-          "bijschrift_en": "Sections"
+          "beeld": "/img/crb-pitch-route.jpg",
+          "bijschrift": "Pitch week 1: route, lichtspel en verbinding met water en landschap",
+          "bijschrift_en": "Pitch week 1: route, play of light and connection with water and landscape"
         },
         {
-          "beeld": "/img/cr-t-draagconstructie.jpg",
-          "bijschrift": "Losmaakbare draagconstructie",
-          "bijschrift_en": "Demountable structure"
+          "beeld": "/img/crb-concept-schetsen.jpg",
+          "bijschrift": "Eerste conceptdiagrammen",
+          "bijschrift_en": "First concept diagrams"
         },
         {
-          "beeld": "/img/cr-t-gevelfragment.jpg",
-          "bijschrift": "Gevelfragment",
-          "bijschrift_en": "Facade fragment"
+          "beeld": "/img/crb-concept.jpg",
+          "bijschrift": "Concept: spanten, beweging ten opzichte van de spanten en routing van de bezoeker",
+          "bijschrift_en": "Concept: frames, movement relative to the frames and visitor route"
         },
         {
-          "beeld": "/img/cr-t-geveldetails.jpg",
-          "bijschrift": "Geveldetails",
-          "bijschrift_en": "Facade details"
+          "beeld": "/img/crb-situatie.jpg",
+          "bijschrift": "Situatietekening met landschapsontwerp, 1:1000",
+          "bijschrift_en": "Site plan with landscape design, 1:1000"
+        },
+        {
+          "beeld": "/img/crb-landschap.jpg",
+          "bijschrift": "Landschapsdoorsnede AA, 1:500",
+          "bijschrift_en": "Landscape section AA, 1:500"
+        },
+        {
+          "beeld": "/img/crb-plattegrond-bg.jpg",
+          "bijschrift": "Plattegrond begane grond, 1:200",
+          "bijschrift_en": "Ground floor plan, 1:200"
+        },
+        {
+          "beeld": "/img/crb-plattegrond-1.jpg",
+          "bijschrift": "Plattegrond eerste verdieping",
+          "bijschrift_en": "First floor plan"
+        },
+        {
+          "beeld": "/img/crb-doorsneden.jpg",
+          "bijschrift": "Doorsneden en klimaatontwerp, 1:200",
+          "bijschrift_en": "Sections and climate design, 1:200"
+        },
+        {
+          "beeld": "/img/crb-draagconstructie.jpg",
+          "bijschrift": "Draagconstructie: daken, dragende wanden, vloeren en LVL-houten spanten",
+          "bijschrift_en": "Structure: roofs, load-bearing walls, floors and LVL timber frames"
+        },
+        {
+          "beeld": "/img/crb-spant-schets.jpg",
+          "bijschrift": "Schets verbinding spant",
+          "bijschrift_en": "Sketch, frame connection"
+        },
+        {
+          "beeld": "/img/crb-detail-1.jpg",
+          "bijschrift": "Detail 1 dakrand-kozijn, 1:5",
+          "bijschrift_en": "Detail 1 roof edge and window frame, 1:5"
+        },
+        {
+          "beeld": "/img/crb-detail-2.jpg",
+          "bijschrift": "Detail 2 kozijn-wand, 1:5",
+          "bijschrift_en": "Detail 2 window frame and wall, 1:5"
+        },
+        {
+          "beeld": "/img/crb-detail-3.jpg",
+          "bijschrift": "Detail 3 fundering, 1:10",
+          "bijschrift_en": "Detail 3 foundation, 1:10"
+        },
+        {
+          "beeld": "/img/crb-poster.jpg",
+          "bijschrift": "Eindpresentatie, posters",
+          "bijschrift_en": "Final presentation, posters"
         }
       ],
       "plaats_en": "Bleiswijk",
-      "locatie_en": "Bleiswijk, NL"
+      "locatie_en": "Bleiswijk, NL",
+      "bureau_of_begeleiding": "Matthijs van Mulligen"
     },
     {
       "nummer": "08",
