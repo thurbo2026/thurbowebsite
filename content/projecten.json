@@ -1,18 +1,147 @@
 {
   "projecten": [
     {
-      "nummer": "12",
       "titel": "Styx",
       "titel_en": "Styx",
       "plaats": "Crematorium",
       "plaats_en": "Crematorium",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "2026",
       "datum": "2026-01",
-      "locatie": "",
+      "fotos": [
+        {
+          "beeld": "/img/styx-colonnade.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zuilengang, van binnen naar buiten",
+          "bijschrift_en": "Colonnade, from inside to outside"
+        },
+        {
+          "beeld": "/img/styx-uitzicht.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Uitzicht op het landschap",
+          "bijschrift_en": "View over the landscape"
+        },
+        {
+          "beeld": "/img/styx-gevel.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Kleigevel en houten kolommen",
+          "bijschrift_en": "Clay facade and timber columns"
+        },
+        {
+          "beeld": "/img/styx-maquette-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette, houten draagstructuur",
+          "bijschrift_en": "Model, timber structure"
+        },
+        {
+          "beeld": "/img/styx-maquette-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette, vooraanzicht",
+          "bijschrift_en": "Model, front view"
+        },
+        {
+          "beeld": "/img/styx-maquette-3.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette met dak",
+          "bijschrift_en": "Model with roof"
+        },
+        {
+          "beeld": "/img/styx-maquette-4.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette, kleiwand onder het dak",
+          "bijschrift_en": "Model, clay wall under the roof"
+        },
+        {
+          "beeld": "/img/styx-kleine-aula.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Kleine aula, houtskoolschets",
+          "bijschrift_en": "Small auditorium, charcoal sketch"
+        },
+        {
+          "beeld": "/img/styx-schets.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Dak en kleiwand, houtskoolschets",
+          "bijschrift_en": "Roof and clay wall, charcoal sketch"
+        },
+        {
+          "beeld": "/img/styx-concept-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Conceptmaquette",
+          "bijschrift_en": "Concept model"
+        },
+        {
+          "beeld": "/img/styx-concept-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Conceptmaquette",
+          "bijschrift_en": "Concept model"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/styx-t-plattegrond.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Plattegrond 1:200",
+          "bijschrift_en": "Floor plan 1:200"
+        },
+        {
+          "beeld": "/img/styx-t-doorsnede.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorsneden 1:200",
+          "bijschrift_en": "Sections 1:200"
+        },
+        {
+          "beeld": "/img/styx-t-situatie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Situatiedoorsnede",
+          "bijschrift_en": "Site section"
+        },
+        {
+          "beeld": "/img/styx-t-gevelfragment.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelfragment 1:20",
+          "bijschrift_en": "Facade fragment 1:20"
+        },
+        {
+          "beeld": "/img/styx-t-details.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Details",
+          "bijschrift_en": "Details"
+        },
+        {
+          "beeld": "/img/styx-t-axo.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Axonometrie draagstructuur",
+          "bijschrift_en": "Axonometric of the structure"
+        },
+        {
+          "beeld": "/img/styx-t-wand.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Kleiwand als los element",
+          "bijschrift_en": "Clay wall as a separate element"
+        },
+        {
+          "beeld": "/img/styx-t-natuur.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Natuurinclusieve gevel",
+          "bijschrift_en": "Nature-inclusive facade"
+        },
+        {
+          "beeld": "/img/styx-t-orientatie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Oriëntatie en positie",
+          "bijschrift_en": "Orientation and position"
+        },
+        {
+          "beeld": "/img/styx-t-rivier.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Diagram rivier",
+          "bijschrift_en": "River diagram"
+        }
+      ],
+      "tekst": "Een crematorium, genoemd naar Styx, de rivier die in de Griekse mythologie de grens vormt tussen leven en dood. Een lange zuilengang van larikshouten kolommen leidt bezoekers van binnen naar buiten, met zicht op het landschap. Het gebouw is opgevat als infrastructuur: een houten dak en kolommen vormen een vast raster, waarbinnen de dragende gevels van klei als losse elementen staan en later kunnen veranderen of worden aangebouwd. De golvende kleiwanden met kalkhennepisolatie geven stabiliteit en ruimte aan vleermuizen, vogels en insecten. Het programma omvat een grote en een kleine aula, opbaarruimten, condoleanceruimte en columbarium. Onderzocht in maquettes, houtskoolschetsen, renders en details op 1:20.",
+      "tekst_en": "A crematorium named after Styx, the river that in Greek mythology forms the boundary between life and death. A long colonnade of larch columns leads visitors from inside to outside, with views over the landscape. The building is conceived as infrastructure: a timber roof and columns form a fixed grid, within which load-bearing clay facades stand as separate elements that can later change or be extended. The undulating clay walls with lime-hemp insulation provide stability and room for bats, birds and insects. The programme includes a large and a small auditorium, viewing rooms, a condolence room and a columbarium. Explored through models, charcoal sketches, renders and 1:20 details.",
+      "jaar": "2026",
       "opgave": "IOP 2, crematorium, TU Delft",
       "opgave_en": "IOP 2, crematorium, TU Delft",
       "type": "Uitvaart",
@@ -21,134 +150,422 @@
       "status_en": "Study project",
       "bureau_of_begeleiding": "Erika Lopulalan",
       "ontwerpteam": "Thorben Contant",
-      "tekst": "Een crematorium, genoemd naar Styx, de rivier die in de Griekse mythologie de grens vormt tussen leven en dood. Een lange zuilengang van larikshouten kolommen leidt bezoekers van binnen naar buiten, met zicht op het landschap. Het gebouw is opgevat als infrastructuur: een houten dak en kolommen vormen een vast raster, waarbinnen de dragende gevels van klei als losse elementen staan en later kunnen veranderen of worden aangebouwd. De golvende kleiwanden met kalkhennepisolatie geven stabiliteit en ruimte aan vleermuizen, vogels en insecten. Het programma omvat een grote en een kleine aula, opbaarruimten, condoleanceruimte en columbarium. Onderzocht in maquettes, houtskoolschetsen, renders en details op 1:20.",
-      "tekst_en": "A crematorium named after Styx, the river that in Greek mythology forms the boundary between life and death. A long colonnade of larch columns leads visitors from inside to outside, with views over the landscape. The building is conceived as infrastructure: a timber roof and columns form a fixed grid, within which load-bearing clay facades stand as separate elements that can later change or be extended. The undulating clay walls with lime-hemp insulation provide stability and room for bats, birds and insects. The programme includes a large and a small auditorium, viewing rooms, a condolence room and a columbarium. Explored through models, charcoal sketches, renders and 1:20 details.",
+      "categorie": "Studie"
+    },
+    {
+      "titel": "Crematorium",
+      "titel_en": "Crematorium",
+      "plaats": "Bleiswijk",
+      "plaats_en": "Bleiswijk",
+      "ontworpen_door": [
+        "Beau"
+      ],
+      "datum": "2024-06",
       "fotos": [
         {
-          "beeld": "/img/styx-colonnade.jpg",
-          "bijschrift": "Zuilengang, van binnen naar buiten",
-          "bijschrift_en": "Colonnade, from inside to outside"
+          "beeld": "/img/crb-binnentuin.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Sfeerimpressie binnentuin",
+          "bijschrift_en": "Atmosphere, inner garden"
         },
         {
-          "beeld": "/img/styx-uitzicht.jpg",
-          "bijschrift": "Uitzicht op het landschap",
-          "bijschrift_en": "View over the landscape"
-        },
-        {
-          "beeld": "/img/styx-gevel.jpg",
-          "bijschrift": "Kleigevel en houten kolommen",
-          "bijschrift_en": "Clay facade and timber columns"
-        },
-        {
-          "beeld": "/img/styx-maquette-1.jpg",
-          "bijschrift": "Maquette, houten draagstructuur",
-          "bijschrift_en": "Model, timber structure"
-        },
-        {
-          "beeld": "/img/styx-maquette-2.jpg",
-          "bijschrift": "Maquette, vooraanzicht",
-          "bijschrift_en": "Model, front view"
-        },
-        {
-          "beeld": "/img/styx-maquette-3.jpg",
-          "bijschrift": "Maquette met dak",
-          "bijschrift_en": "Model with roof"
-        },
-        {
-          "beeld": "/img/styx-maquette-4.jpg",
-          "bijschrift": "Maquette, kleiwand onder het dak",
-          "bijschrift_en": "Model, clay wall under the roof"
-        },
-        {
-          "beeld": "/img/styx-kleine-aula.jpg",
-          "bijschrift": "Kleine aula, houtskoolschets",
-          "bijschrift_en": "Small auditorium, charcoal sketch"
-        },
-        {
-          "beeld": "/img/styx-schets.jpg",
-          "bijschrift": "Dak en kleiwand, houtskoolschets",
-          "bijschrift_en": "Roof and clay wall, charcoal sketch"
-        },
-        {
-          "beeld": "/img/styx-concept-1.jpg",
-          "bijschrift": "Conceptmaquette",
-          "bijschrift_en": "Concept model"
-        },
-        {
-          "beeld": "/img/styx-concept-2.jpg",
-          "bijschrift": "Conceptmaquette",
-          "bijschrift_en": "Concept model"
+          "beeld": "/img/crb-ontvangst.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Sfeerimpressie ontvangst en condoleance",
+          "bijschrift_en": "Atmosphere, reception and condolence"
         }
       ],
       "tekeningen": [
         {
-          "beeld": "/img/styx-t-plattegrond.jpg",
-          "bijschrift": "Plattegrond 1:200",
-          "bijschrift_en": "Floor plan 1:200"
+          "beeld": "/img/crb-pitch-analyse.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Pitch week 1: analyse van de omgeving",
+          "bijschrift_en": "Pitch week 1: site analysis"
         },
         {
-          "beeld": "/img/styx-t-doorsnede.jpg",
-          "bijschrift": "Doorsneden 1:200",
-          "bijschrift_en": "Sections 1:200"
+          "beeld": "/img/crb-pitch-route.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Pitch week 1: route, lichtspel en verbinding met water en landschap",
+          "bijschrift_en": "Pitch week 1: route, play of light and connection with water and landscape"
         },
         {
-          "beeld": "/img/styx-t-situatie.jpg",
-          "bijschrift": "Situatiedoorsnede",
-          "bijschrift_en": "Site section"
+          "beeld": "/img/crb-concept-schetsen.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Eerste conceptdiagrammen",
+          "bijschrift_en": "First concept diagrams"
         },
         {
-          "beeld": "/img/styx-t-gevelfragment.jpg",
-          "bijschrift": "Gevelfragment 1:20",
-          "bijschrift_en": "Facade fragment 1:20"
+          "beeld": "/img/crb-concept.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Concept: spanten, beweging ten opzichte van de spanten en routing van de bezoeker",
+          "bijschrift_en": "Concept: frames, movement relative to the frames and visitor route"
         },
         {
-          "beeld": "/img/styx-t-details.jpg",
-          "bijschrift": "Details",
-          "bijschrift_en": "Details"
+          "beeld": "/img/crb-situatie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Situatietekening met landschapsontwerp, 1:1000",
+          "bijschrift_en": "Site plan with landscape design, 1:1000"
         },
         {
-          "beeld": "/img/styx-t-axo.jpg",
-          "bijschrift": "Axonometrie draagstructuur",
-          "bijschrift_en": "Axonometric of the structure"
+          "beeld": "/img/crb-landschap.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Landschapsdoorsnede AA, 1:500",
+          "bijschrift_en": "Landscape section AA, 1:500"
         },
         {
-          "beeld": "/img/styx-t-wand.jpg",
-          "bijschrift": "Kleiwand als los element",
-          "bijschrift_en": "Clay wall as a separate element"
+          "beeld": "/img/crb-plattegrond-bg.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Plattegrond begane grond, 1:200",
+          "bijschrift_en": "Ground floor plan, 1:200"
         },
         {
-          "beeld": "/img/styx-t-natuur.jpg",
-          "bijschrift": "Natuurinclusieve gevel",
-          "bijschrift_en": "Nature-inclusive facade"
+          "beeld": "/img/crb-plattegrond-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Plattegrond eerste verdieping",
+          "bijschrift_en": "First floor plan"
         },
         {
-          "beeld": "/img/styx-t-orientatie.jpg",
-          "bijschrift": "Oriëntatie en positie",
-          "bijschrift_en": "Orientation and position"
+          "beeld": "/img/crb-doorsneden.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorsneden en klimaatontwerp, 1:200",
+          "bijschrift_en": "Sections and climate design, 1:200"
         },
         {
-          "beeld": "/img/styx-t-rivier.jpg",
-          "bijschrift": "Diagram rivier",
-          "bijschrift_en": "River diagram"
+          "beeld": "/img/crb-draagconstructie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Draagconstructie: daken, dragende wanden, vloeren en LVL-houten spanten",
+          "bijschrift_en": "Structure: roofs, load-bearing walls, floors and LVL timber frames"
+        },
+        {
+          "beeld": "/img/crb-spant-schets.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Schets verbinding spant",
+          "bijschrift_en": "Sketch, frame connection"
+        },
+        {
+          "beeld": "/img/crb-detail-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Detail 1 dakrand-kozijn, 1:5",
+          "bijschrift_en": "Detail 1 roof edge and window frame, 1:5"
+        },
+        {
+          "beeld": "/img/crb-detail-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Detail 2 kozijn-wand, 1:5",
+          "bijschrift_en": "Detail 2 window frame and wall, 1:5"
+        },
+        {
+          "beeld": "/img/crb-detail-3.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Detail 3 fundering, 1:10",
+          "bijschrift_en": "Detail 3 foundation, 1:10"
+        },
+        {
+          "beeld": "/img/crb-poster.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Eindpresentatie, posters",
+          "bijschrift_en": "Final presentation, posters"
         }
-      ]
+      ],
+      "tekst": "Een crematorium in de Oosthoekeindse Polder in Bleiswijk, waarin de beleving van bezoekers en nabestaanden centraal staat. Brede en smalle houten spanten scheiden ruimtes, geven richting en spelen met zicht: door licht en uitzicht toe te voegen of weg te laten wordt de bezoeker van parkeren, entree en condoleance via de aula en een overgangsruimte naar het café geleid. De familie krijgt een eigen, beschermde route. Het gebouw ligt in een landschapsontwerp met wadi's, zachte oevers en helofytenfilters. De draagconstructie van LVL-houten spanten, kanaalplaatvloeren en HSB-wanden is volledig losmaakbaar en remontabel; restwarmte van de crematieovens wordt opgeslagen en 450 PV-panelen wekken energie op.",
+      "tekst_en": "A crematorium in the Oosthoekeindse Polder in Bleiswijk that puts the experience of visitors and relatives first. Wide and narrow timber frames divide spaces, give direction and play with views: by adding or withholding light and outlook, visitors are guided from parking, entrance and condolence through the auditorium and a transitional space to the café. The family has its own sheltered route. The building sits in a landscape design with wadis, soft banks and reed-bed filters. The structure of LVL timber frames, hollow-core floors and timber-frame walls is fully demountable and reusable; residual heat from the cremation ovens is stored and 450 PV panels generate energy.",
+      "jaar": "2024",
+      "locatie": "Bleiswijk, NL",
+      "locatie_en": "Bleiswijk, NL",
+      "opgave": "IOP 2, bachelor eindproject, TU Delft",
+      "opgave_en": "IOP 2, bachelor graduation project, TU Delft",
+      "type": "Uitvaart",
+      "type_en": "Funerary",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "bureau_of_begeleiding": "Matthijs van Mulligen",
+      "ontwerpteam": "Beau Schellevis",
+      "categorie": "Studie",
+      "lat": "52.0115",
+      "lng": "4.532"
     },
     {
-      "nummer": "02",
+      "titel": "Leven met Water",
+      "titel_en": "Living with Water",
+      "plaats": "Lansingerland",
+      "plaats_en": "Lansingerland",
+      "ontworpen_door": [
+        "Thorben"
+      ],
+      "datum": "2025-10",
+      "fotos": [
+        {
+          "beeld": "/img/iop-collage.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Collage, Berkel aan het water",
+          "bijschrift_en": "Collage, Berkel on the water"
+        },
+        {
+          "beeld": "/img/iop-floating-vogelvlucht.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Floating City, vogelvlucht",
+          "bijschrift_en": "Floating City, bird's-eye view"
+        },
+        {
+          "beeld": "/img/iop-floating-ooghoogte.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Floating City, op ooghoogte",
+          "bijschrift_en": "Floating City, at eye level"
+        },
+        {
+          "beeld": "/img/iop-noordpolder-vogelvlucht.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Noordpolder, van kas tot natuur",
+          "bijschrift_en": "Noordpolder, from greenhouse to nature"
+        },
+        {
+          "beeld": "/img/Woontypologie industrie.png",
+          "naast_omschrijving": false,
+          "bijschrift": "Nieuweland, werken beneden en wonen boven",
+          "bijschrift_en": "Nieuweland, working below and living above"
+        },
+        {
+          "beeld": "/img/iop-collage-centrum.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Collage, centrum Berkel",
+          "bijschrift_en": "Collage, Berkel centre"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/iop-t-masterplan.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Masterplan 1:20.000",
+          "bijschrift_en": "Masterplan 1:20,000"
+        },
+        {
+          "beeld": "/img/iop-t-floating-city.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Floating City 1:4000",
+          "bijschrift_en": "Floating City 1:4000"
+        },
+        {
+          "beeld": "/img/iop-t-floating-doorsnede.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Floating City, doorsnede en bovenaanzicht",
+          "bijschrift_en": "Floating City, section and plan"
+        },
+        {
+          "beeld": "/img/iop-t-floating-doorsnede-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Floating City, doorsnede",
+          "bijschrift_en": "Floating City, section"
+        },
+        {
+          "beeld": "/img/iop-t-centrum.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Centrum Berkel",
+          "bijschrift_en": "Berkel centre"
+        },
+        {
+          "beeld": "/img/iop-t-kassen-noord.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Kassen Noord 1:4000",
+          "bijschrift_en": "Kassen Noord 1:4000"
+        },
+        {
+          "beeld": "/img/iop-t-nieuweland.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Nieuweland en Berkel-Zuid 1:6000",
+          "bijschrift_en": "Nieuweland and Berkel-Zuid 1:6000"
+        }
+      ],
+      "tekst": "Een masterplan voor Berkel en Rodenrijs in Lansingerland, waarin we leren leven met water in plaats van ertegen te vechten. De regio lijkt groen, maar bijna de helft is intensieve landbouwgrond; wateroverlast, bodemdaling en hittestress nemen toe. In het plan wordt water het element dat de ruimte ordent, van noord naar zuid. In de Noordpolder loopt een gradiënt van kassen via woningen naar wetlands. Centraal ligt de Floating City, een compacte drijvende wijk van vier tot zes lagen met zones voor wonen, recreatie en natuur. Het dorpscentrum wordt verdicht door optopping en hergebruik, het HSL-park wordt via ecobruggen een verbindend park, en in het Nieuweland worden bedrijventerreinen woon-werkbuurten langs een brede groene beek. Binnen de groep had ik de rol van stedenbouwkundige; het masterplan tekende ik digitaal, de perspectieven bewust met de hand.",
+      "tekst_en": "A masterplan for Berkel en Rodenrijs in Lansingerland that learns to live with water instead of fighting it. The region looks green, but almost half of it is intensive farmland, and flooding, subsidence and heat stress are increasing. In the plan, water becomes the element that organises the area from north to south. In the Noordpolder a gradient runs from greenhouses through housing to wetlands. At the centre lies the Floating City, a compact floating neighbourhood of four to six storeys with zones for living, recreation and nature. The village centre is densified by adding storeys and reusing buildings, the HSL park becomes a connecting park through eco-bridges, and in Nieuweland business parks become live-work neighbourhoods along a wide green stream. Within the group I took the role of urban designer; I drew the masterplan digitally and the perspectives deliberately by hand.",
+      "jaar": "2025",
+      "locatie": "Berkel en Rodenrijs, Lansingerland, NL",
+      "locatie_en": "Berkel en Rodenrijs, Lansingerland, NL",
+      "opgave": "IOP 1, integraal stedenbouwkundig plan, TU Delft",
+      "opgave_en": "IOP 1, integrated urban plan, TU Delft",
+      "type": "Stedenbouw",
+      "type_en": "Urbanism",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "bureau_of_begeleiding": "Chris Smith",
+      "ontwerpteam": "Thorben Contant (stedenbouw), Jantine Burger, Guus Kuijper, Isabel Gowers, Guillaume Trân, Zinzi van der Maas",
+      "categorie": "Studie",
+      "lat": "52.0035",
+      "lng": "4.4750"
+    },
+    {
       "titel": "Stedelijke Aanleunwoningen",
       "titel_en": "Urban Housing for Elderly",
       "plaats": "Den Haag",
       "plaats_en": "The Hague",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "2023",
       "datum": "2023-06",
+      "fotos": [
+        {
+          "beeld": "/img/ba-maquette-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Fragmentmaquette 1:25, twee woningtypes gestapeld",
+          "bijschrift_en": "Fragment model 1:25, two dwelling types stacked"
+        },
+        {
+          "beeld": "/img/ba-maquette-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Fragmentmaquette 1:25, gevel van gevouwen golfplaat",
+          "bijschrift_en": "Fragment model 1:25, facade of folded corrugated sheet"
+        },
+        {
+          "beeld": "/img/ba-maquette-3.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Fragmentmaquette 1:25, open onderbouw",
+          "bijschrift_en": "Fragment model 1:25, open lower structure"
+        },
+        {
+          "beeld": "/img/hhh-maquette-zitplaats.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Fragmentmaquette 1:25, zitplaats in het raamkozijn",
+          "bijschrift_en": "Fragment model 1:25, seat in the window frame"
+        },
+        {
+          "beeld": "/img/hhh-maquette-stad-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Stedenbouwkundige maquette, 1:200",
+          "bijschrift_en": "Urban model, 1:200"
+        },
+        {
+          "beeld": "/img/hhh-maquette-stad-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Stedenbouwkundige maquette in de omgevingsmaquette",
+          "bijschrift_en": "Urban model in the context model"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/hhh-typologie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Ontstaan van de typologie: van standaard aanleunwoning naar gestapelde basistypes",
+          "bijschrift_en": "Origin of the typology: from standard sheltered housing to stacked basic types"
+        },
+        {
+          "beeld": "/img/hhh-configuratie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Configuratie woningtypes: type A, type B, basistype, buitenruimte, draagstructuur en basisconfiguratie",
+          "bijschrift_en": "Configuration of dwelling types: type A, type B, basic type, outdoor space, structure and basic configuration"
+        },
+        {
+          "beeld": "/img/hhh-masterplan.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Masterplan met collectieve voorzieningen",
+          "bijschrift_en": "Masterplan with shared facilities"
+        },
+        {
+          "beeld": "/img/hhh-bg.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gebouwplattegrond begane grond, 1:250",
+          "bijschrift_en": "Building plan, ground floor, 1:250"
+        },
+        {
+          "beeld": "/img/hhh-plus1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gebouwplattegrond eerste verdieping, 1:250",
+          "bijschrift_en": "Building plan, first floor, 1:250"
+        },
+        {
+          "beeld": "/img/hhh-plus4.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gebouwplattegrond vierde verdieping, 1:250",
+          "bijschrift_en": "Building plan, fourth floor, 1:250"
+        },
+        {
+          "beeld": "/img/hhh-woning-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Woningplattegronden gezinnen, begane grond tot +2, 1:100",
+          "bijschrift_en": "Family dwelling plans, ground floor to +2, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-woning-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Woningplattegronden ouderen, +3 en +4, 1:100",
+          "bijschrift_en": "Plans for elderly dwellings, +3 and +4, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-type-a.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Woningtype A, 1:200",
+          "bijschrift_en": "Dwelling type A, 1:200"
+        },
+        {
+          "beeld": "/img/hhh-type-b.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Woningtype B, 1:200",
+          "bijschrift_en": "Dwelling type B, 1:200"
+        },
+        {
+          "beeld": "/img/hhh-doorsnede.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorsnede, 1:100",
+          "bijschrift_en": "Section, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-gevel-noord.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zuidgevel, 1:100",
+          "bijschrift_en": "South facade, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-gevel-zuid.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Noordgevel, 1:100",
+          "bijschrift_en": "North facade, 1:100"
+        },
+        {
+          "beeld": "/img/hhh-schets-entree.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Schets dubbelhoge entree en overgang naar de tuin van de gezinswoningen",
+          "bijschrift_en": "Sketch, double-height entrance and transition to the garden of the family dwellings"
+        },
+        {
+          "beeld": "/img/hhh-entree.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Dubbelhoge entree en overgang naar de tuin",
+          "bijschrift_en": "Double-height entrance and transition to the garden"
+        },
+        {
+          "beeld": "/img/hhh-zitje.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Zitplaats gemaakt in een kastmeubel of op de galerij",
+          "bijschrift_en": "Seat built into a cabinet or on the gallery"
+        },
+        {
+          "beeld": "/img/hhh-gevelfragment-50.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelfragment zuidgevel en noordgevel, 1:50",
+          "bijschrift_en": "Facade fragment, south and north facade, 1:50"
+        },
+        {
+          "beeld": "/img/hhh-gevelfragment-20.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Ingekleurd gevelfragment, 1:20",
+          "bijschrift_en": "Coloured facade fragment, 1:20"
+        },
+        {
+          "beeld": "/img/hhh-poster-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Eindpresentatie, poster 1",
+          "bijschrift_en": "Final presentation, poster 1"
+        },
+        {
+          "beeld": "/img/hhh-poster-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Eindpresentatie, poster 2",
+          "bijschrift_en": "Final presentation, poster 2"
+        }
+      ],
+      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
+      "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
+      "jaar": "2023",
       "locatie": "Den Haag, NL",
       "locatie_en": "The Hague, NL",
-      "lat": "52.0869",
-      "lng": "4.2963",
       "opgave": "Ontwerpen 4, studio Affordable Luxury: renovatie NIBC-gebouw, TU Delft",
       "opgave_en": "Design 4, studio Affordable Luxury: renovation of the NIBC building, TU Delft",
       "type": "Wonen, transformatie",
@@ -158,369 +575,70 @@
       "bureau_of_begeleiding": "Powerhouse Company; begeleiding Nolly Vos en Martijn van den Ban",
       "bureau_link": "www.powerhouse-company.com",
       "ontwerpteam": "Beau Schellevis",
-      "tekst": "De transformatie van het NIBC-kantoor in Den Haag tot woningen, binnen het studiothema Affordable Luxury. De doelgroep: ouderen die niet meer zelfstandig kunnen wonen, maar wel in de stad willen blijven. Het antwoord is een verticale, stedelijke aanleunwoning. Een gezin woont op de onderste twee of drie verdiepingen, met tuin of balkon; de ouderen wonen erboven, met een eigen ontsluiting en balkon. De twee woningtypes haken in elkaar, wat ruimte bespaart en zorgt voor vides, ontmoetingsplekken en plekken om je terug te trekken. De gevel is van gevouwen golfplaat, sober en herbruikbaar, en laat per woningtype een andere richting zien.",
-      "tekst_en": "The transformation of the NIBC office in The Hague into housing, within the studio theme Affordable Luxury. The target group: elderly people who can no longer live fully independently but want to stay in the city. The answer is a vertical, urban form of sheltered housing. A family lives on the lower two or three floors, with a garden or balcony; the elderly live above, with their own access and balcony. The two dwelling types interlock, which saves space and creates voids, meeting places and places to withdraw. The facade is made of folded corrugated sheet, sober and reusable, and shows a different direction for each dwelling type.",
-      "fotos": [
-        {
-          "beeld": "/img/ba-maquette-1.jpg",
-          "bijschrift": "Fragmentmaquette 1:25, twee woningtypes gestapeld",
-          "bijschrift_en": "Fragment model 1:25, two dwelling types stacked"
-        },
-        {
-          "beeld": "/img/ba-maquette-2.jpg",
-          "bijschrift": "Fragmentmaquette 1:25, gevel van gevouwen golfplaat",
-          "bijschrift_en": "Fragment model 1:25, facade of folded corrugated sheet"
-        },
-        {
-          "beeld": "/img/ba-maquette-3.jpg",
-          "bijschrift": "Fragmentmaquette 1:25, open onderbouw",
-          "bijschrift_en": "Fragment model 1:25, open lower structure"
-        },
-        {
-          "beeld": "/img/hhh-maquette-zitplaats.jpg",
-          "bijschrift": "Fragmentmaquette 1:25, zitplaats in het raamkozijn",
-          "bijschrift_en": "Fragment model 1:25, seat in the window frame"
-        },
-        {
-          "beeld": "/img/hhh-maquette-stad-1.jpg",
-          "bijschrift": "Stedenbouwkundige maquette, 1:200",
-          "bijschrift_en": "Urban model, 1:200"
-        },
-        {
-          "beeld": "/img/hhh-maquette-stad-2.jpg",
-          "bijschrift": "Stedenbouwkundige maquette in de omgevingsmaquette",
-          "bijschrift_en": "Urban model in the context model"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/hhh-typologie.jpg",
-          "bijschrift": "Ontstaan van de typologie: van standaard aanleunwoning naar gestapelde basistypes",
-          "bijschrift_en": "Origin of the typology: from standard sheltered housing to stacked basic types"
-        },
-        {
-          "beeld": "/img/hhh-configuratie.jpg",
-          "bijschrift": "Configuratie woningtypes: type A, type B, basistype, buitenruimte, draagstructuur en basisconfiguratie",
-          "bijschrift_en": "Configuration of dwelling types: type A, type B, basic type, outdoor space, structure and basic configuration"
-        },
-        {
-          "beeld": "/img/hhh-masterplan.jpg",
-          "bijschrift": "Masterplan met collectieve voorzieningen",
-          "bijschrift_en": "Masterplan with shared facilities"
-        },
-        {
-          "beeld": "/img/hhh-bg.jpg",
-          "bijschrift": "Gebouwplattegrond begane grond, 1:250",
-          "bijschrift_en": "Building plan, ground floor, 1:250"
-        },
-        {
-          "beeld": "/img/hhh-plus1.jpg",
-          "bijschrift": "Gebouwplattegrond eerste verdieping, 1:250",
-          "bijschrift_en": "Building plan, first floor, 1:250"
-        },
-        {
-          "beeld": "/img/hhh-plus4.jpg",
-          "bijschrift": "Gebouwplattegrond vierde verdieping, 1:250",
-          "bijschrift_en": "Building plan, fourth floor, 1:250"
-        },
-        {
-          "beeld": "/img/hhh-woning-1.jpg",
-          "bijschrift": "Woningplattegronden gezinnen, begane grond tot +2, 1:100",
-          "bijschrift_en": "Family dwelling plans, ground floor to +2, 1:100"
-        },
-        {
-          "beeld": "/img/hhh-woning-2.jpg",
-          "bijschrift": "Woningplattegronden ouderen, +3 en +4, 1:100",
-          "bijschrift_en": "Plans for elderly dwellings, +3 and +4, 1:100"
-        },
-        {
-          "beeld": "/img/hhh-type-a.jpg",
-          "bijschrift": "Woningtype A, 1:200",
-          "bijschrift_en": "Dwelling type A, 1:200"
-        },
-        {
-          "beeld": "/img/hhh-type-b.jpg",
-          "bijschrift": "Woningtype B, 1:200",
-          "bijschrift_en": "Dwelling type B, 1:200"
-        },
-        {
-          "beeld": "/img/hhh-doorsnede.jpg",
-          "bijschrift": "Doorsnede, 1:100",
-          "bijschrift_en": "Section, 1:100"
-        },
-        {
-          "beeld": "/img/hhh-gevel-noord.jpg",
-          "bijschrift": "Zuidgevel, 1:100",
-          "bijschrift_en": "South facade, 1:100"
-        },
-        {
-          "beeld": "/img/hhh-gevel-zuid.jpg",
-          "bijschrift": "Noordgevel, 1:100",
-          "bijschrift_en": "North facade, 1:100"
-        },
-        {
-          "beeld": "/img/hhh-schets-entree.jpg",
-          "bijschrift": "Schets dubbelhoge entree en overgang naar de tuin van de gezinswoningen",
-          "bijschrift_en": "Sketch, double-height entrance and transition to the garden of the family dwellings"
-        },
-        {
-          "beeld": "/img/hhh-entree.jpg",
-          "bijschrift": "Dubbelhoge entree en overgang naar de tuin",
-          "bijschrift_en": "Double-height entrance and transition to the garden"
-        },
-        {
-          "beeld": "/img/hhh-zitje.jpg",
-          "bijschrift": "Zitplaats gemaakt in een kastmeubel of op de galerij",
-          "bijschrift_en": "Seat built into a cabinet or on the gallery"
-        },
-        {
-          "beeld": "/img/hhh-gevelfragment-50.jpg",
-          "bijschrift": "Gevelfragment zuidgevel en noordgevel, 1:50",
-          "bijschrift_en": "Facade fragment, south and north facade, 1:50"
-        },
-        {
-          "beeld": "/img/hhh-gevelfragment-20.jpg",
-          "bijschrift": "Ingekleurd gevelfragment, 1:20",
-          "bijschrift_en": "Coloured facade fragment, 1:20"
-        },
-        {
-          "beeld": "/img/hhh-poster-1.jpg",
-          "bijschrift": "Eindpresentatie, poster 1",
-          "bijschrift_en": "Final presentation, poster 1"
-        },
-        {
-          "beeld": "/img/hhh-poster-2.jpg",
-          "bijschrift": "Eindpresentatie, poster 2",
-          "bijschrift_en": "Final presentation, poster 2"
-        }
-      ]
-    },
-    {
-      "nummer": "11",
-      "titel": "Leven met Water",
-      "titel_en": "Living with Water",
-      "plaats": "Lansingerland",
-      "plaats_en": "Lansingerland",
       "categorie": "Studie",
-      "ontworpen_door": [
-        "Thorben"
-      ],
-      "jaar": "2025",
-      "datum": "2025-10",
-      "locatie": "Berkel en Rodenrijs, Lansingerland, NL",
-      "locatie_en": "Berkel en Rodenrijs, Lansingerland, NL",
-      "lat": "52.0035",
-      "lng": "4.4750",
-      "opgave": "IOP 1, integraal stedenbouwkundig plan, TU Delft",
-      "opgave_en": "IOP 1, integrated urban plan, TU Delft",
-      "type": "Stedenbouw",
-      "type_en": "Urbanism",
-      "status": "Groepswerk",
-      "status_en": "Group project",
-      "bureau_of_begeleiding": "Chris Smith",
-      "ontwerpteam": "Thorben Contant (stedenbouw), Jantine Burger, Guus Kuijper, Isabel Gowers, Guillaume Trân, Zinzi van der Maas",
-      "tekst": "Een masterplan voor Berkel en Rodenrijs in Lansingerland, waarin we leren leven met water in plaats van ertegen te vechten. De regio lijkt groen, maar bijna de helft is intensieve landbouwgrond; wateroverlast, bodemdaling en hittestress nemen toe. In het plan wordt water het element dat de ruimte ordent, van noord naar zuid. In de Noordpolder loopt een gradiënt van kassen via woningen naar wetlands. Centraal ligt de Floating City, een compacte drijvende wijk van vier tot zes lagen met zones voor wonen, recreatie en natuur. Het dorpscentrum wordt verdicht door optopping en hergebruik, het HSL-park wordt via ecobruggen een verbindend park, en in het Nieuweland worden bedrijventerreinen woon-werkbuurten langs een brede groene beek. Binnen de groep had ik de rol van stedenbouwkundige; het masterplan tekende ik digitaal, de perspectieven bewust met de hand.",
-      "tekst_en": "A masterplan for Berkel en Rodenrijs in Lansingerland that learns to live with water instead of fighting it. The region looks green, but almost half of it is intensive farmland, and flooding, subsidence and heat stress are increasing. In the plan, water becomes the element that organises the area from north to south. In the Noordpolder a gradient runs from greenhouses through housing to wetlands. At the centre lies the Floating City, a compact floating neighbourhood of four to six storeys with zones for living, recreation and nature. The village centre is densified by adding storeys and reusing buildings, the HSL park becomes a connecting park through eco-bridges, and in Nieuweland business parks become live-work neighbourhoods along a wide green stream. Within the group I took the role of urban designer; I drew the masterplan digitally and the perspectives deliberately by hand.",
-      "fotos": [
-        {
-          "beeld": "/img/iop-collage.jpg",
-          "bijschrift": "Collage, Berkel aan het water",
-          "bijschrift_en": "Collage, Berkel on the water"
-        },
-        {
-          "beeld": "/img/iop-floating-vogelvlucht.jpg",
-          "bijschrift": "Floating City, vogelvlucht",
-          "bijschrift_en": "Floating City, bird's-eye view"
-        },
-        {
-          "beeld": "/img/iop-floating-ooghoogte.jpg",
-          "bijschrift": "Floating City, op ooghoogte",
-          "bijschrift_en": "Floating City, at eye level"
-        },
-        {
-          "beeld": "/img/iop-noordpolder-vogelvlucht.jpg",
-          "bijschrift": "Noordpolder, van kas tot natuur",
-          "bijschrift_en": "Noordpolder, from greenhouse to nature"
-        },
-        {
-          "beeld": "/img/Woontypologie industrie.png",
-          "bijschrift": "Nieuweland, werken beneden en wonen boven",
-          "bijschrift_en": "Nieuweland, working below and living above"
-        },
-        {
-          "beeld": "/img/iop-collage-centrum.jpg",
-          "bijschrift": "Collage, centrum Berkel",
-          "bijschrift_en": "Collage, Berkel centre"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/iop-t-masterplan.jpg",
-          "bijschrift": "Masterplan 1:20.000",
-          "bijschrift_en": "Masterplan 1:20,000"
-        },
-        {
-          "beeld": "/img/iop-t-floating-city.jpg",
-          "bijschrift": "Floating City 1:4000",
-          "bijschrift_en": "Floating City 1:4000"
-        },
-        {
-          "beeld": "/img/iop-t-floating-doorsnede.jpg",
-          "bijschrift": "Floating City, doorsnede en bovenaanzicht",
-          "bijschrift_en": "Floating City, section and plan"
-        },
-        {
-          "beeld": "/img/iop-t-floating-doorsnede-2.jpg",
-          "bijschrift": "Floating City, doorsnede",
-          "bijschrift_en": "Floating City, section"
-        },
-        {
-          "beeld": "/img/iop-t-centrum.jpg",
-          "bijschrift": "Centrum Berkel",
-          "bijschrift_en": "Berkel centre"
-        },
-        {
-          "beeld": "/img/iop-t-kassen-noord.jpg",
-          "bijschrift": "Kassen Noord 1:4000",
-          "bijschrift_en": "Kassen Noord 1:4000"
-        },
-        {
-          "beeld": "/img/iop-t-nieuweland.jpg",
-          "bijschrift": "Nieuweland en Berkel-Zuid 1:6000",
-          "bijschrift_en": "Nieuweland and Berkel-Zuid 1:6000"
-        }
-      ]
+      "lat": "52.0869",
+      "lng": "4.2963"
     },
     {
-      "nummer": "05",
-      "titel": "Crematorium",
-      "titel_en": "Crematorium",
-      "plaats": "Bleiswijk",
-      "categorie": "Studie",
-      "ontworpen_door": [
-        "Beau"
-      ],
-      "jaar": "2024",
-      "datum": "2024-06",
-      "locatie": "Bleiswijk, NL",
-      "lat": "52.0115",
-      "lng": "4.532",
-      "opgave": "IOP 2, bachelor eindproject, TU Delft",
-      "opgave_en": "IOP 2, bachelor graduation project, TU Delft",
-      "type": "Uitvaart",
-      "type_en": "Funerary",
-      "status": "Studieproject",
-      "status_en": "Study project",
-      "ontwerpteam": "Beau Schellevis",
-      "tekst": "Een crematorium in de Oosthoekeindse Polder in Bleiswijk, waarin de beleving van bezoekers en nabestaanden centraal staat. Brede en smalle houten spanten scheiden ruimtes, geven richting en spelen met zicht: door licht en uitzicht toe te voegen of weg te laten wordt de bezoeker van parkeren, entree en condoleance via de aula en een overgangsruimte naar het café geleid. De familie krijgt een eigen, beschermde route. Het gebouw ligt in een landschapsontwerp met wadi's, zachte oevers en helofytenfilters. De draagconstructie van LVL-houten spanten, kanaalplaatvloeren en HSB-wanden is volledig losmaakbaar en remontabel; restwarmte van de crematieovens wordt opgeslagen en 450 PV-panelen wekken energie op.",
-      "tekst_en": "A crematorium in the Oosthoekeindse Polder in Bleiswijk that puts the experience of visitors and relatives first. Wide and narrow timber frames divide spaces, give direction and play with views: by adding or withholding light and outlook, visitors are guided from parking, entrance and condolence through the auditorium and a transitional space to the café. The family has its own sheltered route. The building sits in a landscape design with wadis, soft banks and reed-bed filters. The structure of LVL timber frames, hollow-core floors and timber-frame walls is fully demountable and reusable; residual heat from the cremation ovens is stored and 450 PV panels generate energy.",
-      "fotos": [
-        {
-          "beeld": "/img/crb-binnentuin.jpg",
-          "bijschrift": "Sfeerimpressie binnentuin",
-          "bijschrift_en": "Atmosphere, inner garden"
-        },
-        {
-          "beeld": "/img/crb-ontvangst.jpg",
-          "bijschrift": "Sfeerimpressie ontvangst en condoleance",
-          "bijschrift_en": "Atmosphere, reception and condolence"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/crb-pitch-analyse.jpg",
-          "bijschrift": "Pitch week 1: analyse van de omgeving",
-          "bijschrift_en": "Pitch week 1: site analysis"
-        },
-        {
-          "beeld": "/img/crb-pitch-route.jpg",
-          "bijschrift": "Pitch week 1: route, lichtspel en verbinding met water en landschap",
-          "bijschrift_en": "Pitch week 1: route, play of light and connection with water and landscape"
-        },
-        {
-          "beeld": "/img/crb-concept-schetsen.jpg",
-          "bijschrift": "Eerste conceptdiagrammen",
-          "bijschrift_en": "First concept diagrams"
-        },
-        {
-          "beeld": "/img/crb-concept.jpg",
-          "bijschrift": "Concept: spanten, beweging ten opzichte van de spanten en routing van de bezoeker",
-          "bijschrift_en": "Concept: frames, movement relative to the frames and visitor route"
-        },
-        {
-          "beeld": "/img/crb-situatie.jpg",
-          "bijschrift": "Situatietekening met landschapsontwerp, 1:1000",
-          "bijschrift_en": "Site plan with landscape design, 1:1000"
-        },
-        {
-          "beeld": "/img/crb-landschap.jpg",
-          "bijschrift": "Landschapsdoorsnede AA, 1:500",
-          "bijschrift_en": "Landscape section AA, 1:500"
-        },
-        {
-          "beeld": "/img/crb-plattegrond-bg.jpg",
-          "bijschrift": "Plattegrond begane grond, 1:200",
-          "bijschrift_en": "Ground floor plan, 1:200"
-        },
-        {
-          "beeld": "/img/crb-plattegrond-1.jpg",
-          "bijschrift": "Plattegrond eerste verdieping",
-          "bijschrift_en": "First floor plan"
-        },
-        {
-          "beeld": "/img/crb-doorsneden.jpg",
-          "bijschrift": "Doorsneden en klimaatontwerp, 1:200",
-          "bijschrift_en": "Sections and climate design, 1:200"
-        },
-        {
-          "beeld": "/img/crb-draagconstructie.jpg",
-          "bijschrift": "Draagconstructie: daken, dragende wanden, vloeren en LVL-houten spanten",
-          "bijschrift_en": "Structure: roofs, load-bearing walls, floors and LVL timber frames"
-        },
-        {
-          "beeld": "/img/crb-spant-schets.jpg",
-          "bijschrift": "Schets verbinding spant",
-          "bijschrift_en": "Sketch, frame connection"
-        },
-        {
-          "beeld": "/img/crb-detail-1.jpg",
-          "bijschrift": "Detail 1 dakrand-kozijn, 1:5",
-          "bijschrift_en": "Detail 1 roof edge and window frame, 1:5"
-        },
-        {
-          "beeld": "/img/crb-detail-2.jpg",
-          "bijschrift": "Detail 2 kozijn-wand, 1:5",
-          "bijschrift_en": "Detail 2 window frame and wall, 1:5"
-        },
-        {
-          "beeld": "/img/crb-detail-3.jpg",
-          "bijschrift": "Detail 3 fundering, 1:10",
-          "bijschrift_en": "Detail 3 foundation, 1:10"
-        },
-        {
-          "beeld": "/img/crb-poster.jpg",
-          "bijschrift": "Eindpresentatie, posters",
-          "bijschrift_en": "Final presentation, posters"
-        }
-      ],
-      "plaats_en": "Bleiswijk",
-      "locatie_en": "Bleiswijk, NL",
-      "bureau_of_begeleiding": "Matthijs van Mulligen"
-    },
-    {
-      "nummer": "08",
       "titel": "CRM Milos",
       "titel_en": "CRM Milos",
       "plaats": "Lefkada",
-      "categorie": "Praktijk",
+      "plaats_en": "Lefkada",
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "2025",
       "datum": "2025-07",
+      "fotos": [
+        {
+          "beeld": "/img/crm-vogelvlucht-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Vogelvlucht, samenwerking",
+          "bijschrift_en": "Aerial view, collaboration"
+        },
+        {
+          "beeld": "/img/crm-vogelvlucht-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Vogelvlucht, samenwerking",
+          "bijschrift_en": "Aerial view, collaboration"
+        },
+        {
+          "beeld": "/img/crm-keuken.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Keuken, samenwerking",
+          "bijschrift_en": "Kitchen, collaboration"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/crm-t-masterplan.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Masterplan 1:150, eigen werk",
+          "bijschrift_en": "Masterplan 1:150, own work"
+        },
+        {
+          "beeld": "/img/crm-t-doorsnede-molen.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorsnede molen B-B 1:100, eigen werk",
+          "bijschrift_en": "Section mill B-B 1:100, own work"
+        },
+        {
+          "beeld": "/img/crm-t-gevel.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelaanzicht 1:150, eigen werk",
+          "bijschrift_en": "Elevation 1:150, own work"
+        },
+        {
+          "beeld": "/img/crm-t-gastenhuis.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelaanzicht gastenhuis 1:150, eigen werk",
+          "bijschrift_en": "Elevation guest house 1:150, own work"
+        }
+      ],
+      "tekst": "Een mediterrane grotvilla op een extreem steile helling bij Agios Nikitas. Het strand eronder is alleen te voet bereikbaar. Wie vanaf het dorp over de heuvel komt, ziet eerst een traditionele Griekse molen: de naamgever van de plek en het vertrekpunt voor het ontwerp. De villa volgt de terrassen van de helling en verdwijnt grotendeels in de grond. Ontwikkeld als junior ontwerper bij LA^ARC.",
+      "tekst_en": "A Mediterranean cave villa on an extremely steep slope near Agios Nikitas. The beach below can only be reached on foot. Coming over the hill from the village, you first see a traditional Greek mill: the namesake of the place and the starting point for the design. The villa follows the terraces of the slope and largely disappears into the ground. Developed as a junior designer at LA^ARC.",
+      "jaar": "2025",
       "locatie": "Agios Nikitas, Lefkada, GR",
-      "lat": "38.7889",
-      "lng": "20.6137",
+      "locatie_en": "Agios Nikitas, Lefkada, GR",
       "opgave": "Grotvilla die opgaat in het landschap",
       "opgave_en": "Cave villa that merges with the landscape",
       "type": "Wonen",
@@ -530,88 +648,35 @@
       "bureau_of_begeleiding": "LA^ARC, Lefkada",
       "bureau_link": "https://www.la-rc.com/",
       "ontwerpteam": "Thorben Contant, Lila Yiamopoulou, Aimon Litinas",
-      "tekst": "Een mediterrane grotvilla op een extreem steile helling bij Agios Nikitas. Het strand eronder is alleen te voet bereikbaar. Wie vanaf het dorp over de heuvel komt, ziet eerst een traditionele Griekse molen: de naamgever van de plek en het vertrekpunt voor het ontwerp. De villa volgt de terrassen van de helling en verdwijnt grotendeels in de grond. Ontwikkeld als junior ontwerper bij LA^ARC.",
-      "tekst_en": "A Mediterranean cave villa on an extremely steep slope near Agios Nikitas. The beach below can only be reached on foot. Coming over the hill from the village, you first see a traditional Greek mill: the namesake of the place and the starting point for the design. The villa follows the terraces of the slope and largely disappears into the ground. Developed as a junior designer at LA^ARC.",
-      "fotos": [
-        {
-          "beeld": "/img/crm-vogelvlucht-1.jpg",
-          "bijschrift": "Vogelvlucht, samenwerking",
-          "bijschrift_en": "Aerial view, collaboration"
-        },
-        {
-          "beeld": "/img/crm-vogelvlucht-2.jpg",
-          "bijschrift": "Vogelvlucht, samenwerking",
-          "bijschrift_en": "Aerial view, collaboration"
-        },
-        {
-          "beeld": "/img/crm-keuken.jpg",
-          "bijschrift": "Keuken, samenwerking",
-          "bijschrift_en": "Kitchen, collaboration"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/crm-t-masterplan.jpg",
-          "bijschrift": "Masterplan 1:150, eigen werk",
-          "bijschrift_en": "Masterplan 1:150, own work"
-        },
-        {
-          "beeld": "/img/crm-t-doorsnede-molen.jpg",
-          "bijschrift": "Doorsnede molen B-B 1:100, eigen werk",
-          "bijschrift_en": "Section mill B-B 1:100, own work"
-        },
-        {
-          "beeld": "/img/crm-t-gevel.jpg",
-          "bijschrift": "Gevelaanzicht 1:150, eigen werk",
-          "bijschrift_en": "Elevation 1:150, own work"
-        },
-        {
-          "beeld": "/img/crm-t-gastenhuis.jpg",
-          "bijschrift": "Gevelaanzicht gastenhuis 1:150, eigen werk",
-          "bijschrift_en": "Elevation guest house 1:150, own work"
-        }
-      ],
-      "plaats_en": "Lefkada",
-      "locatie_en": "Agios Nikitas, Lefkada, GR"
+      "categorie": "Praktijk",
+      "lat": "38.7889",
+      "lng": "20.6137"
     },
     {
-      "nummer": "03",
       "titel": "Flowing Identity",
       "titel_en": "Flowing Identity",
       "plaats": "Kopenhagen",
       "plaats_en": "Copenhagen",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "2023",
       "datum": "2023-12",
-      "locatie": "Skjolds Plads, Kopenhagen, DK",
-      "locatie_en": "Skjolds Plads, Copenhagen, DK",
-      "lat": "55.7046",
-      "lng": "12.5455",
-      "opgave": "Minor Urbanism, University of Copenhagen",
-      "opgave_en": "Minor Urbanism, University of Copenhagen",
-      "type": "Stedenbouw",
-      "type_en": "Urbanism",
-      "status": "Groepswerk",
-      "status_en": "Group project",
-      "ontwerpteam": "Beau Schellevis, Anna Plechacova, Kit Sandra Christensen, Melissa Munkholm Kristensen, Angeliki Nikoloudaki",
-      "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
-      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
       "fotos": [
         {
           "beeld": "/img/ucph-fietsstraat.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Impressie van de nieuwe fietsstraat",
           "bijschrift_en": "Impression of the new cycle street"
         },
         {
           "beeld": "/img/ucph-krakas-impressie.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Zoom-in Krakas Plads",
           "bijschrift_en": "Zoom-in Krakas Plads"
         },
         {
           "beeld": "/img/ucph-haraldspark-impressie.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Zoom-in Haraldspark",
           "bijschrift_en": "Zoom-in Haraldspark"
         }
@@ -619,70 +684,98 @@
       "tekeningen": [
         {
           "beeld": "/img/ucph-historische-lagen.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Historische lagen van de wijk",
           "bijschrift_en": "Historical layers of the neighbourhood"
         },
         {
           "beeld": "/img/ucph-interviews.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Identiteit door interviews met bewoners en werkenden",
           "bijschrift_en": "Identity through interviews with residents and workers"
         },
         {
           "beeld": "/img/ucph-analyse.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Analysediagrammen: bestaand en voorstel voor wijken, verbindingen, regenwater en groen",
           "bijschrift_en": "Analysis diagrams: current situation and proposal for districts, connections, stormwater and green"
         },
         {
           "beeld": "/img/ucph-concept.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Concept: connectiviteit, waterbeheer, karakter en samenhang",
           "bijschrift_en": "Concept: connectivity, water management, character and connectivity"
         },
         {
           "beeld": "/img/ucph-ontwerptools.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Synergiestrategie en ontwerptools: verkeers-, straat- en groenblauwe typologieën",
           "bijschrift_en": "Synergy strategy and design tools: traffic, street and green-blue typologies"
         },
         {
           "beeld": "/img/ucph-straattypes.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Straattypes: wolkbreukstraat, vertragingsstraat en groene straat",
           "bijschrift_en": "Street types: cloudburst street, detention street and green street"
         },
         {
           "beeld": "/img/ucph-masterplan-1.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Masterplan na 1 jaar, 1:5000",
           "bijschrift_en": "Masterplan after 1 year, 1:5000"
         },
         {
           "beeld": "/img/ucph-masterplan-10.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Masterplan na 10 jaar, 1:5000",
           "bijschrift_en": "Masterplan after 10 years, 1:5000"
         },
         {
           "beeld": "/img/ucph-masterplan-70.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Masterplan na 70 jaar, 1:2000",
           "bijschrift_en": "Masterplan after 70 years, 1:2000"
         },
         {
           "beeld": "/img/ucph-krakas-plan.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Plan Krakas Plads",
           "bijschrift_en": "Plan of Krakas Plads"
         },
         {
           "beeld": "/img/ucph-krakas-doorsneden.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Doorsneden Krakas Plads",
           "bijschrift_en": "Sections of Krakas Plads"
         },
         {
           "beeld": "/img/ucph-haraldspark-plan.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Plan Haraldspark",
           "bijschrift_en": "Plan of Haraldspark"
         },
         {
           "beeld": "/img/ucph-haraldspark-doorsnede.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Doorsnede Haraldspark",
           "bijschrift_en": "Section of Haraldspark"
         }
-      ]
+      ],
+      "tekst": "Een groepsontwerp voor de Skjolds Plads-buurt in Kopenhagen, gemaakt tijdens de minor aan de University of Copenhagen. Een nieuwe fietsstraat verbindt de buurt met de omliggende groenstructuur, vermindert het autoverkeer en geeft fietsers en voetgangers voorrang. De klimaatstrategie draait om preventie, reductie en controle: water wordt lokaal benut in groene straten en bij hevige regen afgevoerd via stormvloedstraten. Krakas Plads wordt een nieuw knooppunt aan Den Grønne Sti, en in het Haraldspark vangen drie waterbassins op verschillende niveaus het regenwater op.",
+      "tekst_en": "A group design for the Skjolds Plads neighbourhood in Copenhagen, made during the minor at the University of Copenhagen. A new cycle street connects the area to the surrounding green structure, reduces car traffic and gives priority to cyclists and pedestrians. The climate strategy is built on prevention, reduction and control: water is used locally in green streets and drained through storm-water streets during heavy rain. Krakas Plads becomes a new hub on Den Grønne Sti, and in Haraldspark three basins at different levels collect the rainwater.",
+      "jaar": "2023",
+      "locatie": "Skjolds Plads, Kopenhagen, DK",
+      "locatie_en": "Skjolds Plads, Copenhagen, DK",
+      "opgave": "Minor Urbanism, University of Copenhagen",
+      "opgave_en": "Minor Urbanism, University of Copenhagen",
+      "type": "Stedenbouw",
+      "type_en": "Urbanism",
+      "status": "Groepswerk",
+      "status_en": "Group project",
+      "ontwerpteam": "Beau Schellevis, Anna Plechacova, Kit Sandra Christensen, Melissa Munkholm Kristensen, Angeliki Nikoloudaki",
+      "categorie": "Studie",
+      "lat": "55.7046",
+      "lng": "12.5455"
     },
     {
       "titel": "Energielandschap Gouda",
@@ -696,6 +789,7 @@
       "fotos": [
         {
           "beeld": "/img/gouda-impressie.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Impressie van het energielandschap: zonnevelden en windturbines op vernatte polder",
           "bijschrift_en": "Impression of the energy landscape: solar fields and wind turbines on a rewetted polder"
         }
@@ -703,41 +797,49 @@
       "tekeningen": [
         {
           "beeld": "/img/gouda-uitgangspunten.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Eigen uitgangspunten: bodem en water, energie, leefbaarheid en identiteit, verbindingen en maatschappelijke opgaven",
           "bijschrift_en": "Own starting points: soil and water, energy, liveability and identity, connections and social challenges"
         },
         {
           "beeld": "/img/gouda-visie-regio.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Visiekaart energietransitie in de regio",
           "bijschrift_en": "Vision map of the energy transition in the region"
         },
         {
           "beeld": "/img/gouda-visie-stad.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Visiekaart Gouda",
           "bijschrift_en": "Vision map of Gouda"
         },
         {
           "beeld": "/img/gouda-zon-op-veld.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Project zon- en wind-op-land: ruimtelijke inpassing",
           "bijschrift_en": "Project solar and wind on land: spatial integration"
         },
         {
           "beeld": "/img/gouda-doorsneden-1.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Doorsneden: afstand tussen zonnevelden, natuurlijke barrières en nieuwe recreatieve verbindingen",
           "bijschrift_en": "Sections: spacing between solar fields, natural barriers and new recreational routes"
         },
         {
           "beeld": "/img/gouda-doorsneden-2.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Opstellingen van zonnepanelen: hoog, laag, biodiversiteit en rendement",
           "bijschrift_en": "Solar panel arrangements: high, low, biodiversity and yield"
         },
         {
           "beeld": "/img/gouda-fasering.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Fasering en tijdsplanning tot 2056: warmtenet, aquathermie, zon- en wind-op-land en warmterotonde",
           "bijschrift_en": "Phasing and timeline to 2056: heat network, aquathermal energy, solar and wind on land and heat ring"
         }
       ],
       "tekst": "Een regionale ruimtelijke strategie voor Gouda en de wijk Plaswijck, met een tijdshorizon van vijftig jaar. In een ontwerpteam van negen rollen nam ik de rol van regionaal planner op me, samen met de themagroep Energietransitie. Uit een beleidsanalyse, een analyse van de bestaande structuren en een SWOT-analyse volgden vijf ambities: restwarmte uit de industrie via een warmtenet door Gouda verdelen, de ligging in het (H)OV-netwerk benutten, kansarme landbouwgrond en water inzetten voor duurzame energie, Gouda laten voorgaan in de energietransitie en nieuwe energielandschappen laten bijdragen aan de leefbaarheid en identiteit van het landschap. Die ambities zijn uitgewerkt in visiekaarten voor de regio en de stad, in het project zon- en wind-op-land op vernatte veengrond, in doorsneden van de ruimtelijke inpassing en in een fasering tot 2056.",
+      "tekst_en": "A regional spatial strategy for Gouda and the Plaswijck neighbourhood, with a time horizon of fifty years. In a design team of nine roles I took on the role of regional planner, together with the Energy Transition theme group. A policy analysis, an analysis of existing structures and a SWOT analysis led to five ambitions: distributing residual heat from industry through a heat network across Gouda, making use of its position in the (high-quality) public transport network, using marginal farmland and water for sustainable energy, letting Gouda lead the energy transition, and letting new energy landscapes contribute to the liveability and identity of the landscape. These ambitions were worked out in vision maps for the region and the city, in the project solar and wind on land on rewetted peat, in sections of the spatial integration and in a phasing plan up to 2056.",
       "jaar": "2024",
       "locatie": "Plaswijck, Gouda, NL",
       "locatie_en": "Plaswijck, Gouda, NL",
@@ -751,23 +853,98 @@
       "ontwerpteam": "Beau Schellevis (regionaal planner), Gwen Maranus, Yair Roorda, Meike Haan, Hannah Godding, Amber Wassenberg, Louise Wagenaars, Anne Tiemersma, Bence van der Looij",
       "categorie": "Studie",
       "lat": "52.0300",
-      "lng": "4.7060",
-      "tekst_en": "A regional spatial strategy for Gouda and the Plaswijck neighbourhood, with a time horizon of fifty years. In a design team of nine roles I took on the role of regional planner, together with the Energy Transition theme group. A policy analysis, an analysis of existing structures and a SWOT analysis led to five ambitions: distributing residual heat from industry through a heat network across Gouda, making use of its position in the (high-quality) public transport network, using marginal farmland and water for sustainable energy, letting Gouda lead the energy transition, and letting new energy landscapes contribute to the liveability and identity of the landscape. These ambitions were worked out in vision maps for the region and the city, in the project solar and wind on land on rewetted peat, in sections of the spatial integration and in a phasing plan up to 2056."
+      "lng": "4.7060"
     },
     {
-      "nummer": "04",
       "titel": "Keerzijde Strijp-S",
       "titel_en": "Keerzijde Strijp-S",
       "plaats": "Eindhoven",
-      "categorie": "Studie",
+      "plaats_en": "Eindhoven",
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "06.2024",
       "datum": "2024-06",
+      "fotos": [
+        {
+          "beeld": "/img/ks-impressie.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Impressie",
+          "bijschrift_en": "Impression"
+        },
+        {
+          "beeld": "/img/ks-model-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "De gevel erop zetten",
+          "bijschrift_en": "Placing the facade"
+        },
+        {
+          "beeld": "/img/ks-model-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelaanzicht maquette",
+          "bijschrift_en": "Model, facade view"
+        },
+        {
+          "beeld": "/img/ks-model-3.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Drie gevellagen",
+          "bijschrift_en": "Three facade layers"
+        },
+        {
+          "beeld": "/img/ks-gevelcollage.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelcollage",
+          "bijschrift_en": "Facade collage"
+        },
+        {
+          "beeld": "/img/ks-materiaal.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Materiaalcollage: industrie en licht",
+          "bijschrift_en": "Material collage: industry and light"
+        }
+      ],
+      "tekeningen": [
+        {
+          "beeld": "/img/ks-t-plattegrond-bg.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Plattegrond begane grond",
+          "bijschrift_en": "Ground floor plan"
+        },
+        {
+          "beeld": "/img/ks-t-plattegrond-6-8.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Vriendenwoningen, verdieping 6 tot 8",
+          "bijschrift_en": "Friends apartments, floors 6 to 8"
+        },
+        {
+          "beeld": "/img/ks-t-doorsnede-noord.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorsnede noord",
+          "bijschrift_en": "North section"
+        },
+        {
+          "beeld": "/img/ks-t-doorsnede-west.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorsnede west",
+          "bijschrift_en": "West section"
+        },
+        {
+          "beeld": "/img/ks-t-gevel-noord.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevelaanzicht noord",
+          "bijschrift_en": "North elevation"
+        },
+        {
+          "beeld": "/img/ks-t-geveldetail.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Geveldetail",
+          "bijschrift_en": "Facade detail"
+        }
+      ],
+      "tekst": "Een gestapeld woongebouw op Strijp-S, het voormalige Philipsterrein dat volop verandert. Op de begane grond wonen studenten, op de verdiepingen daarboven starters in vriendenwoningen: appartementen met gelijkwaardige kamers, zodat bewoners hun woonruimte met vrienden kunnen delen. Het gebouw staat in een raster dat is afgeleid van de bestaande leidingenstructuur op het terrein. Op de hoek breekt het raster open, zodat bij de kruising een open, uitnodigende plek ontstaat die de hoek van de straat volgt.",
+      "tekst_en": "A stacked housing block on Strijp-S, the former Philips site that is changing rapidly. Students live on the ground floor; on the floors above, starters live in friends apartments: dwellings with equal rooms, so residents can share their home with friends. The building sits on a grid derived from the existing pipe structure on the site. At the corner the grid opens up, creating an open, inviting place at the crossing that follows the corner of the street.",
+      "jaar": "06.2024",
       "locatie": "Strijp-S, Eindhoven, NL",
-      "lat": "51.4486",
-      "lng": "5.4565",
+      "locatie_en": "Strijp-S, Eindhoven, NL",
       "opgave": "Ontwerpstudio 4, gestapeld woongebouw, TU Delft",
       "opgave_en": "Design studio 4, stacked housing, TU Delft",
       "type": "Wonen",
@@ -777,91 +954,44 @@
       "bureau_of_begeleiding": "KAAN Architecten",
       "bureau_link": "https://kaanarchitecten.com/",
       "ontwerpteam": "Anna Avermaete, Thorben Contant",
-      "tekst": "Een gestapeld woongebouw op Strijp-S, het voormalige Philipsterrein dat volop verandert. Op de begane grond wonen studenten, op de verdiepingen daarboven starters in vriendenwoningen: appartementen met gelijkwaardige kamers, zodat bewoners hun woonruimte met vrienden kunnen delen. Het gebouw staat in een raster dat is afgeleid van de bestaande leidingenstructuur op het terrein. Op de hoek breekt het raster open, zodat bij de kruising een open, uitnodigende plek ontstaat die de hoek van de straat volgt.",
-      "tekst_en": "A stacked housing block on Strijp-S, the former Philips site that is changing rapidly. Students live on the ground floor; on the floors above, starters live in friends apartments: dwellings with equal rooms, so residents can share their home with friends. The building sits on a grid derived from the existing pipe structure on the site. At the corner the grid opens up, creating an open, inviting place at the crossing that follows the corner of the street.",
-      "fotos": [
-        {
-          "beeld": "/img/ks-impressie.jpg",
-          "bijschrift": "Impressie",
-          "bijschrift_en": "Impression"
-        },
-        {
-          "beeld": "/img/ks-model-1.jpg",
-          "bijschrift": "De gevel erop zetten",
-          "bijschrift_en": "Placing the facade"
-        },
-        {
-          "beeld": "/img/ks-model-2.jpg",
-          "bijschrift": "Gevelaanzicht maquette",
-          "bijschrift_en": "Model, facade view"
-        },
-        {
-          "beeld": "/img/ks-model-3.jpg",
-          "bijschrift": "Drie gevellagen",
-          "bijschrift_en": "Three facade layers"
-        },
-        {
-          "beeld": "/img/ks-gevelcollage.jpg",
-          "bijschrift": "Gevelcollage",
-          "bijschrift_en": "Facade collage"
-        },
-        {
-          "beeld": "/img/ks-materiaal.jpg",
-          "bijschrift": "Materiaalcollage: industrie en licht",
-          "bijschrift_en": "Material collage: industry and light"
-        }
-      ],
-      "tekeningen": [
-        {
-          "beeld": "/img/ks-t-plattegrond-bg.jpg",
-          "bijschrift": "Plattegrond begane grond",
-          "bijschrift_en": "Ground floor plan"
-        },
-        {
-          "beeld": "/img/ks-t-plattegrond-6-8.jpg",
-          "bijschrift": "Vriendenwoningen, verdieping 6 tot 8",
-          "bijschrift_en": "Friends apartments, floors 6 to 8"
-        },
-        {
-          "beeld": "/img/ks-t-doorsnede-noord.jpg",
-          "bijschrift": "Doorsnede noord",
-          "bijschrift_en": "North section"
-        },
-        {
-          "beeld": "/img/ks-t-doorsnede-west.jpg",
-          "bijschrift": "Doorsnede west",
-          "bijschrift_en": "West section"
-        },
-        {
-          "beeld": "/img/ks-t-gevel-noord.jpg",
-          "bijschrift": "Gevelaanzicht noord",
-          "bijschrift_en": "North elevation"
-        },
-        {
-          "beeld": "/img/ks-t-geveldetail.jpg",
-          "bijschrift": "Geveldetail",
-          "bijschrift_en": "Facade detail"
-        }
-      ],
-      "plaats_en": "Eindhoven",
-      "locatie_en": "Strijp-S, Eindhoven, NL"
+      "categorie": "Studie",
+      "lat": "51.4486",
+      "lng": "5.4565"
     },
     {
-      "nummer": "01",
       "titel": "Beeldentuin",
       "titel_en": "Sculpture Garden",
       "plaats": "Den Haag",
       "plaats_en": "The Hague",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
-      "jaar": "2022",
       "datum": "2022-12",
+      "fotos": [
+        {
+          "beeld": "/img/bt-render-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Impressie beeldentuin",
+          "bijschrift_en": "Impression of the sculpture garden"
+        },
+        {
+          "beeld": "/img/bt-render-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Impressie wanden en openingen",
+          "bijschrift_en": "Impression of walls and openings"
+        },
+        {
+          "beeld": "/img/bt-renders.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Impressies",
+          "bijschrift_en": "Impressions"
+        }
+      ],
+      "tekst": "Een verdiepte beeldentuin in Den Haag, ontworpen met het parametrische programma Grasshopper. De tuin brengt de bezoeker van straatniveau naar de entree op niveau -1. Bewust geplaatste wanden, smalle of juist grote openingen, trappen en plateaus vormen een reeks ruimtes die elk een eigen sfeer hebben en de bezoeker uitnodigen verder te gaan. Twee complementaire kleuren geven samenhang en laten de schaduwen goed tot hun recht komen.",
+      "tekst_en": "A sunken sculpture garden in The Hague, designed with the parametric software Grasshopper. The garden leads visitors from street level to the entrance on level -1. Carefully placed walls, narrow or wide openings, stairs and platforms form a sequence of spaces, each with its own atmosphere, inviting visitors to go further. Two complementary colours give coherence and bring out the shadows.",
+      "jaar": "2022",
       "locatie": "Den Haag, NL",
       "locatie_en": "The Hague, NL",
-      "lat": "52.0833169",
-      "lng": "4.3139305",
       "opgave": "Parametrisch ontworpen Verdiepte beeldentuin, in Grasshopper",
       "opgave_en": "Parametric designed sunken sculpture garden, in Grasshopper",
       "type": "Publiek",
@@ -869,67 +999,41 @@
       "status": "Studieproject",
       "status_en": "Study project",
       "ontwerpteam": "Beau Schellevis",
-      "tekst": "Een verdiepte beeldentuin in Den Haag, ontworpen met het parametrische programma Grasshopper. De tuin brengt de bezoeker van straatniveau naar de entree op niveau -1. Bewust geplaatste wanden, smalle of juist grote openingen, trappen en plateaus vormen een reeks ruimtes die elk een eigen sfeer hebben en de bezoeker uitnodigen verder te gaan. Twee complementaire kleuren geven samenhang en laten de schaduwen goed tot hun recht komen.",
-      "tekst_en": "A sunken sculpture garden in The Hague, designed with the parametric software Grasshopper. The garden leads visitors from street level to the entrance on level -1. Carefully placed walls, narrow or wide openings, stairs and platforms form a sequence of spaces, each with its own atmosphere, inviting visitors to go further. Two complementary colours give coherence and bring out the shadows.",
-      "fotos": [
-        {
-          "beeld": "/img/bt-render-1.jpg",
-          "bijschrift": "Impressie beeldentuin",
-          "bijschrift_en": "Impression of the sculpture garden"
-        },
-        {
-          "beeld": "/img/bt-render-2.jpg",
-          "bijschrift": "Impressie wanden en openingen",
-          "bijschrift_en": "Impression of walls and openings"
-        },
-        {
-          "beeld": "/img/bt-renders.jpg",
-          "bijschrift": "Impressies",
-          "bijschrift_en": "Impressions"
-        }
-      ]
+      "categorie": "Studie",
+      "lat": "52.0833169",
+      "lng": "4.3139305"
     },
     {
-      "nummer": "06",
       "titel": "The Monastery",
       "titel_en": "The Monastery",
       "plaats": "Sitlisalp",
-      "categorie": "Studie",
+      "plaats_en": "Sitlisalp",
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "12.2024",
       "datum": "2024-12",
-      "locatie": "Sitlisalp, CH",
-      "lat": "46.855",
-      "lng": "8.79",
-      "opgave": "Remoteness and Identity, ETH Zürich",
-      "type": "Wonen, landbouw",
-      "type_en": "Housing, agriculture",
-      "status": "Studieproject",
-      "status_en": "Study project",
-      "bureau_of_begeleiding": "Adam Caruso",
-      "ontwerpteam": "Loris Angst, Thorben Contant, Lazar Riva",
-      "tekst": "Een toevluchtsoord voor mensen en planten op de Sitlisalp. We noemen het een klooster, maar het heeft niets met religie te maken: het is volledig gewijd aan planten. We kozen twaalf bedreigde plantensoorten die op grote hoogte groeien en elk een nut hebben. Van de gele gentiaan wordt de wortel likeur, de stengel poetsmiddel en het blad salade. Rond deze planten ontwierpen we een dagritme, en dat ritme bepaalt de architectuur van het huis. Gepresenteerd met twee grote maquettes en een reeks tekeningen.",
-      "tekst_en": "A refuge for people and plants on the Sitlisalp. We call it a monastery, but it has nothing to do with religion: it is entirely devoted to plants. We chose twelve endangered plant species that grow at high altitude and each have a use. The root of the yellow gentian becomes liqueur, the stem a cleaning agent and the leaf a salad. Around these plants we designed a daily rhythm, and that rhythm shapes the architecture of the house. Presented with two large models and a series of drawings.",
       "fotos": [
         {
           "beeld": "/img/mo-gevelmodel.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Gevelmaquette",
           "bijschrift_en": "Facade model"
         },
         {
           "beeld": "/img/mo-interieurmodel.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Interieurmaquette, gemeenschappelijke hal",
           "bijschrift_en": "Interior model, communal hall"
         },
         {
           "beeld": "/img/mo-impressie-1.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Impressietekening",
           "bijschrift_en": "Impression drawing"
         },
         {
           "beeld": "/img/mo-impressie-2.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Impressietekening",
           "bijschrift_en": "Impression drawing"
         }
@@ -937,34 +1041,82 @@
       "tekeningen": [
         {
           "beeld": "/img/mo-t-plattegrond.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Plattegrond 1827 m boven zeeniveau",
           "bijschrift_en": "Floor plan, 1827 m above sea level"
         },
         {
           "beeld": "/img/mo-t-gevel-zuid.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Aanzicht en doorsnede zuid",
           "bijschrift_en": "South elevation and section"
         },
         {
           "beeld": "/img/mo-t-gevel-oost.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Aanzicht en doorsnede oost",
           "bijschrift_en": "East elevation and section"
         }
       ],
-      "plaats_en": "Sitlisalp",
+      "tekst": "Een toevluchtsoord voor mensen en planten op de Sitlisalp. We noemen het een klooster, maar het heeft niets met religie te maken: het is volledig gewijd aan planten. We kozen twaalf bedreigde plantensoorten die op grote hoogte groeien en elk een nut hebben. Van de gele gentiaan wordt de wortel likeur, de stengel poetsmiddel en het blad salade. Rond deze planten ontwierpen we een dagritme, en dat ritme bepaalt de architectuur van het huis. Gepresenteerd met twee grote maquettes en een reeks tekeningen.",
+      "tekst_en": "A refuge for people and plants on the Sitlisalp. We call it a monastery, but it has nothing to do with religion: it is entirely devoted to plants. We chose twelve endangered plant species that grow at high altitude and each have a use. The root of the yellow gentian becomes liqueur, the stem a cleaning agent and the leaf a salad. Around these plants we designed a daily rhythm, and that rhythm shapes the architecture of the house. Presented with two large models and a series of drawings.",
+      "jaar": "12.2024",
+      "locatie": "Sitlisalp, CH",
       "locatie_en": "Sitlisalp, CH",
-      "opgave_en": "Remoteness and Identity, ETH Zürich"
+      "opgave": "Remoteness and Identity, ETH Zürich",
+      "opgave_en": "Remoteness and Identity, ETH Zürich",
+      "type": "Wonen, landbouw",
+      "type_en": "Housing, agriculture",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "bureau_of_begeleiding": "Adam Caruso",
+      "ontwerpteam": "Loris Angst, Thorben Contant, Lazar Riva",
+      "categorie": "Studie",
+      "lat": "46.855",
+      "lng": "8.79"
     },
     {
-      "nummer": "10",
       "titel": "Vormstudies",
       "titel_en": "Form Studies",
       "plaats": "Fysieke modellen",
       "plaats_en": "Physical models",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Beau"
       ],
+      "fotos": [
+        {
+          "beeld": "/img/vm-2.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Vormstudie",
+          "bijschrift_en": "Form study"
+        },
+        {
+          "beeld": "/img/vm-1.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette in tentoonstellingsruimte",
+          "bijschrift_en": "Model in exhibition space"
+        },
+        {
+          "beeld": "/img/vm-3.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Lichtstudie crematorium",
+          "bijschrift_en": "Light study crematorium"
+        },
+        {
+          "beeld": "/img/vm-4.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Vormstudie",
+          "bijschrift_en": "Form study"
+        },
+        {
+          "beeld": "/img/vm-5.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Massamodel Europese School bij cepezed",
+          "bijschrift_en": "Massing model European School by cepezed"
+        }
+      ],
+      "tekst": "Een reeks vormstudies in fysieke modellen: ruimte, licht en massa onderzocht met karton, hout en gips.",
+      "tekst_en": "A series of form studies in physical models: space, light and mass explored in cardboard, wood and plaster.",
       "opgave": "Fysieke modellen",
       "opgave_en": "Physical models",
       "type": "Maquettes",
@@ -972,82 +1124,121 @@
       "status": "Studie",
       "status_en": "Study",
       "ontwerpteam": "Beau Schellevis",
-      "tekst": "Een reeks vormstudies in fysieke modellen: ruimte, licht en massa onderzocht met karton, hout en gips.",
-      "tekst_en": "A series of form studies in physical models: space, light and mass explored in cardboard, wood and plaster.",
-      "fotos": [
-        {
-          "beeld": "/img/vm-2.jpg",
-          "bijschrift": "Vormstudie",
-          "bijschrift_en": "Form study"
-        },
-        {
-          "beeld": "/img/vm-1.jpg",
-          "bijschrift": "Maquette in tentoonstellingsruimte",
-          "bijschrift_en": "Model in exhibition space"
-        },
-        {
-          "beeld": "/img/vm-3.jpg",
-          "bijschrift": "Lichtstudie crematorium",
-          "bijschrift_en": "Light study crematorium"
-        },
-        {
-          "beeld": "/img/vm-4.jpg",
-          "bijschrift": "Vormstudie",
-          "bijschrift_en": "Form study"
-        },
-        {
-          "beeld": "/img/vm-5.jpg",
-          "bijschrift": "Massamodel Europese School bij cepezed",
-          "bijschrift_en": "Massing model European School by cepezed"
-        }
-      ]
+      "categorie": "Studie"
     },
     {
-      "nummer": "09",
       "titel": "Collages",
       "titel_en": "Collages",
       "plaats": "Lost City, Mill on a Hill",
-      "categorie": "Eigen werk",
+      "plaats_en": "Lost City, Mill on a Hill",
       "ontworpen_door": [
         "Thorben"
       ],
-      "type": "Collage",
-      "type_en": "Collage",
-      "status": "Eigen werk",
-      "status_en": "Personal work",
-      "ontwerpteam": "Thorben Contant",
-      "tekst": "Twee conceptcollages: een verloren stad die door de natuur wordt teruggenomen, en een molen op een heuvel boven zee.",
-      "tekst_en": "Two concept collages: a lost city being reclaimed by nature, and a mill on a hill above the sea.",
       "fotos": [
         {
           "beeld": "/img/collage-lost-city.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Collage, Lost City",
           "bijschrift_en": "Collage, Lost City"
         },
         {
           "beeld": "/img/collage-mill.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Collage, Mill on a Hill",
           "bijschrift_en": "Collage, Mill on a Hill"
         }
       ],
-      "plaats_en": "Lost City, Mill on a Hill"
+      "tekst": "Twee conceptcollages: een verloren stad die door de natuur wordt teruggenomen, en een molen op een heuvel boven zee.",
+      "tekst_en": "Two concept collages: a lost city being reclaimed by nature, and a mill on a hill above the sea.",
+      "type": "Collage",
+      "type_en": "Collage",
+      "status": "Eigen werk",
+      "status_en": "Personal work",
+      "ontwerpteam": "Thorben Contant",
+      "categorie": "Eigen werk"
     },
     {
-      "nummer": "13",
       "titel": "Barbican Centre",
       "titel_en": "Barbican Centre",
       "plaats": "Londen",
       "plaats_en": "London",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
       ],
-      "jaar": "2024",
       "datum": "2024-11",
+      "fotos": [
+        {
+          "beeld": "/img/gr3-07.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Interieur, cassetteplafond met daglicht",
+          "bijschrift_en": "Interior, coffered ceiling with daylight"
+        },
+        {
+          "beeld": "/img/gr3-02.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette met situatie",
+          "bijschrift_en": "Model with site"
+        },
+        {
+          "beeld": "/img/gr3-05.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Gevel met bogen",
+          "bijschrift_en": "Facade with arches"
+        },
+        {
+          "beeld": "/img/gr3-06.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Interieur",
+          "bijschrift_en": "Interior"
+        },
+        {
+          "beeld": "/img/gr3-08.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Kolommen",
+          "bijschrift_en": "Columns"
+        },
+        {
+          "beeld": "/img/gr3-11.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Doorkijk",
+          "bijschrift_en": "View through"
+        },
+        {
+          "beeld": "/img/gr3-09.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Trap",
+          "bijschrift_en": "Stair"
+        },
+        {
+          "beeld": "/img/gr3-10.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Onder de verdieping",
+          "bijschrift_en": "Beneath the upper floor"
+        },
+        {
+          "beeld": "/img/gr3-03.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Maquette, opengeklapt",
+          "bijschrift_en": "Model, opened up"
+        },
+        {
+          "beeld": "/img/gr3-04.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Bovenaanzicht dak",
+          "bijschrift_en": "Roof seen from above"
+        },
+        {
+          "beeld": "/img/gr3-12.jpg",
+          "naast_omschrijving": false,
+          "bijschrift": "Bovenaanzicht interieur",
+          "bijschrift_en": "Interior seen from above"
+        }
+      ],
+      "tekst": "Een maquette-onderzoek naar de ruimtelijke taal van het Barbican Centre in Londen. Kenmerkende elementen van het complex, zoals de bogen, het cassetteplafond met daglichtopeningen, de zware kolommen en de oranje accenten van het interieur, zijn vertaald naar een eigen interieur op schaal. Van buiten is het een witte doos met boogvormige openingen; van binnen opent zich een reeks ruimtes met lichtinval van boven, trappen en verdiepte plekken.",
+      "tekst_en": "A model study of the spatial language of the Barbican Centre in London. Characteristic elements of the complex, such as the arches, the coffered ceiling with rooflights, the heavy columns and the orange accents of the interior, are translated into an interior of our own at scale. From outside it is a white box with arched openings; inside, a sequence of spaces opens up, with light from above, stairs and sunken places.",
+      "jaar": "2024",
       "locatie": "Barbican Centre, Londen, UK",
       "locatie_en": "Barbican Centre, London, UK",
-      "lat": "51.5202",
-      "lng": "-0.0938",
       "opgave": "Grondslagen 3, TU Delft",
       "opgave_en": "Grondslagen 3, TU Delft",
       "type": "Maquette",
@@ -1056,103 +1247,48 @@
       "status_en": "Group project",
       "bureau_of_begeleiding": "Paul Kuitenbrouwer",
       "ontwerpteam": "Emma Berghuis Cases, Luke Brennan, Thorben Contant, Rosa Demmers",
-      "tekst": "Een maquette-onderzoek naar de ruimtelijke taal van het Barbican Centre in Londen. Kenmerkende elementen van het complex, zoals de bogen, het cassetteplafond met daglichtopeningen, de zware kolommen en de oranje accenten van het interieur, zijn vertaald naar een eigen interieur op schaal. Van buiten is het een witte doos met boogvormige openingen; van binnen opent zich een reeks ruimtes met lichtinval van boven, trappen en verdiepte plekken.",
-      "tekst_en": "A model study of the spatial language of the Barbican Centre in London. Characteristic elements of the complex, such as the arches, the coffered ceiling with rooflights, the heavy columns and the orange accents of the interior, are translated into an interior of our own at scale. From outside it is a white box with arched openings; inside, a sequence of spaces opens up, with light from above, stairs and sunken places.",
-      "fotos": [
-        {
-          "beeld": "/img/gr3-07.jpg",
-          "bijschrift": "Interieur, cassetteplafond met daglicht",
-          "bijschrift_en": "Interior, coffered ceiling with daylight"
-        },
-        {
-          "beeld": "/img/gr3-02.jpg",
-          "bijschrift": "Maquette met situatie",
-          "bijschrift_en": "Model with site"
-        },
-        {
-          "beeld": "/img/gr3-05.jpg",
-          "bijschrift": "Gevel met bogen",
-          "bijschrift_en": "Facade with arches"
-        },
-        {
-          "beeld": "/img/gr3-06.jpg",
-          "bijschrift": "Interieur",
-          "bijschrift_en": "Interior"
-        },
-        {
-          "beeld": "/img/gr3-08.jpg",
-          "bijschrift": "Kolommen",
-          "bijschrift_en": "Columns"
-        },
-        {
-          "beeld": "/img/gr3-11.jpg",
-          "bijschrift": "Doorkijk",
-          "bijschrift_en": "View through"
-        },
-        {
-          "beeld": "/img/gr3-09.jpg",
-          "bijschrift": "Trap",
-          "bijschrift_en": "Stair"
-        },
-        {
-          "beeld": "/img/gr3-10.jpg",
-          "bijschrift": "Onder de verdieping",
-          "bijschrift_en": "Beneath the upper floor"
-        },
-        {
-          "beeld": "/img/gr3-03.jpg",
-          "bijschrift": "Maquette, opengeklapt",
-          "bijschrift_en": "Model, opened up"
-        },
-        {
-          "beeld": "/img/gr3-04.jpg",
-          "bijschrift": "Bovenaanzicht dak",
-          "bijschrift_en": "Roof seen from above"
-        },
-        {
-          "beeld": "/img/gr3-12.jpg",
-          "bijschrift": "Bovenaanzicht interieur",
-          "bijschrift_en": "Interior seen from above"
-        }
-      ],
-      "tekeningen": []
+      "categorie": "Studie",
+      "lat": "51.5202",
+      "lng": "-0.0938"
     },
     {
-      "nummer": "07",
       "titel": "Research Center",
       "titel_en": "Research Center",
       "plaats": "Maquette",
       "plaats_en": "Model",
-      "categorie": "Studie",
       "ontworpen_door": [
         "Thorben"
       ],
-      "opgave": "New Generation Research Center",
-      "type": "Onderzoek",
-      "type_en": "Research",
-      "status": "Studieproject",
-      "status_en": "Study project",
-      "ontwerpteam": "Thorben Contant",
-      "tekst": "Maquette van het New Generation Research Center. Projecttekst volgt.",
-      "tekst_en": "Model of the New Generation Research Center. Project text to follow.",
       "fotos": [
         {
           "beeld": "/img/rc-model.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Maquette, eigen werk",
           "bijschrift_en": "Model, own work"
         },
         {
           "beeld": "/img/rc-model-2.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Maquette, trappen achter de gevel",
           "bijschrift_en": "Model, stairs behind the facade"
         },
         {
           "beeld": "/img/rc-model-3.jpg",
+          "naast_omschrijving": false,
           "bijschrift": "Maquette, doorkijk",
           "bijschrift_en": "Model, view through"
         }
       ],
-      "opgave_en": "New Generation Research Center"
+      "tekst": "Maquette van het New Generation Research Center. Projecttekst volgt.",
+      "tekst_en": "Model of the New Generation Research Center. Project text to follow.",
+      "opgave": "New Generation Research Center",
+      "opgave_en": "New Generation Research Center",
+      "type": "Onderzoek",
+      "type_en": "Research",
+      "status": "Studieproject",
+      "status_en": "Study project",
+      "ontwerpteam": "Thorben Contant",
+      "categorie": "Studie"
     }
   ]
 }
