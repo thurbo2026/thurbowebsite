@@ -184,18 +184,6 @@
           "bijschrift_en": "Pitch week 1: site analysis"
         },
         {
-          "beeld": "/img/crb-pitch-route.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Pitch week 1: route, lichtspel en verbinding met water en landschap",
-          "bijschrift_en": "Pitch week 1: route, play of light and connection with water and landscape"
-        },
-        {
-          "beeld": "/img/crb-concept-schetsen.jpg",
-          "naast_omschrijving": false,
-          "bijschrift": "Eerste conceptdiagrammen",
-          "bijschrift_en": "First concept diagrams"
-        },
-        {
           "beeld": "/img/crb-concept.jpg",
           "naast_omschrijving": false,
           "bijschrift": "Concept: spanten, beweging ten opzichte van de spanten en routing van de bezoeker",
@@ -239,6 +227,7 @@
         },
         {
           "beeld": "/img/crb-spant-schets.jpg",
+          "bijsnijden": "9.3 6.4 88.8 59.9",
           "naast_omschrijving": false,
           "bijschrift": "Schets verbinding spant",
           "bijschrift_en": "Sketch, frame connection"
